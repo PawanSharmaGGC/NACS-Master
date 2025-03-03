@@ -1,0 +1,77 @@
+﻿@model Convenience.org.Components.Widgets.NACSDailyUnsubscribe.NACSDailyUnsubscribeViewModel
+
+@if (Model != null)
+{
+    <div id="contentPrimary">
+        <style type="text/css">
+            .errorBox {
+                color: red;
+            }
+        </style>
+        @if (Model.ShowErrorPanel)
+        {
+            <div id="_pnlError" style="width:100%;">
+                <h4>Oops! Not enough information has been provided to unsubscribe.</h4>
+                <p>Please provide an e-mail address to unsubscribe:</p>
+                <br />
+                <label id="_lblError" style="display:none;"></label>
+                <input type="text" id="_txtEmail" />
+                <div class="twoButWell">
+                    <span class="butMaker" id="left">
+                        <input type="button" id="_btnSubmit" value="Unsubscribe" class="butMakerSubmit button" />
+                        <span class="butMakerEnd">&nbsp;</span>
+                    </span>
+                </div>
+            </div>
+        }
+        @if (Model.ShowUnsubscribedPanel)
+        {
+            <div id="_pnlUnsubscribed" style="width:100%">
+                <h4>
+                    You have been removed from the NACS Daily list.
+                </h4>
+                <p>
+                    Sorry you have decided to unsubscribe. Remember that you may also view most of the
+                    content from NACS Daily on this Website in the News section and elsewhere.
+                </p>
+            </div>
+        }
+        @if (Model.ShowUnsubscribedViaEmailPanel)
+        {
+            <div id="_pnlUnsubscribedViaEmail" style="width:100%;">
+                <h4>
+                    Your request has been sent.
+                </h4>
+                <p>You can expect to be removed from the NACS Daily list within the next 3 business days.</p>
+                <p>
+                    Sorry you have decided to unsubscribe. Remember that you may also view most of the
+                    content from NACS Daily on this Website in the News section and elsewhere.
+                </p>
+            </div>
+        }
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $('#_btnSubmit').on('click', function () {
+                var txtEmail = $('#_txtEmail').val();
+                $.ajax({
+                    url: '/NACSDailyUnsubscribe/Update',
+                    type: 'Get',
+                    data: {
+                        email: txtEmail
+                    },
+                    success: function (response) {
+                        if (response) {
+                            $('#contentPrimary').parent().html(response);
+                        }
+                        else {
+                            $('#contentPrimary').html('<span class="text-danger">Something went wrong! Please try again.</span>');
+                        }
+                    },
+                    error: function (response) {
+                        $('#contentPrimary').parent().html(response);
+                    }
+                });
+            });
+        </script>
+    </div>
+}

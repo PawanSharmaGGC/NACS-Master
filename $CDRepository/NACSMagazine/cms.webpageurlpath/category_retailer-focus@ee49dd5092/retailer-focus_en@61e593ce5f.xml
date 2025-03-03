@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageurlpath>
+  <WebPageUrlPath>Retailer-Focus</WebPageUrlPath>
+  <WebPageUrlPathContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>2cce1e88-3d98-4dd9-8c2d-4dd1c46a81bf</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </WebPageUrlPathContentLanguageID>
+  <WebPageUrlPathGUID>3f70e4bf-1ed9-4cc8-b761-5cb1361adb5d</WebPageUrlPathGUID>
+  <WebPageUrlPathHash>
+    <![CDATA[67A447974524C4C18F951668DA737C8E615DAD0DF81C378D314C06C33F1D5A2F]]>
+  </WebPageUrlPathHash>
+  <WebPageUrlPathIsCanonical>True</WebPageUrlPathIsCanonical>
+  <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
+  <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
+  <WebPageUrlPathType>0</WebPageUrlPathType>
+  <WebPageUrlPathWebPageItemID>
+    <CodeName>RetailerFocus-b08bxe2w</CodeName>
+    <GUID>c8bf4a2c-e3be-478c-bb67-132ac7e0ab0f</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageUrlPathWebPageItemID>
+  <WebPageUrlPathWebsiteChannelID>
+    <GUID>3257d9cb-79a6-4552-998d-e1f8e1a3cb3e</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSMagazine</CodeName>
+      <GUID>eecfdedc-a92f-48b7-9daa-eab81c106019</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageUrlPathWebsiteChannelID>
+</cms.webpageurlpath>

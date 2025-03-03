@@ -1,0 +1,21 @@
+.section_card {
+    border-radius: 18px !important;
+    overflow: hidden;
+}
+
+.section_body_card {
+    background-image: linear-gradient(to bottom right, #09266E, #0372a1);
+
+}
+
+
+@media only screen and (max-width: 480px) {
+    .section_card {
+        flex-direction: column-reverse !important;
+    }
+
+    .halftone_img {
+        top: 40% !important;
+        left: -50% !important;
+    }
+}

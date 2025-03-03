@@ -1,0 +1,29 @@
+﻿@using Convenience.org.Components.Widgets.Subscribe
+@model SubscribeViewModel
+<div class="flex-card border border-0 mb-3 card">
+	<div class="p-0 SubscribeComponentStyle-module__main_card_body card-body">
+		<div class="text-start p-4">
+			<div class="mb-4 fs-4 color-002569">Subscribe to NACS Daily</div>
+			<div class="fs-5 mb-2">
+				<div class="mb-3 SubscribeComponentStyle-module__subscribe_input_grp input-group">
+					<input placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2" class="border border-0 SubscribeComponentStyle-module__input_elem form-control">
+					<span class="border border-0 ps-5 pe-5 bg-0053A5 color-FFFFFF pointer SubscribeComponentStyle-module__subscribe_input_txt input-group-text" id="basic-addon2">Sign Up</span>
+				</div>
+			</div>
+			<form class="subscribe-form" asp-action="Subscribe" asp-controller="SubscribeWidget" asp-antiforgery="true" onsubmit="replaceForm(event)">
+
+				<div class="form-group">
+					<div class="form-group-label">
+						<label asp-for="Email"></label>
+					</div>
+					<div class="form-group-input">
+						<input asp-for="Email" />
+					</div>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Subscribe</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

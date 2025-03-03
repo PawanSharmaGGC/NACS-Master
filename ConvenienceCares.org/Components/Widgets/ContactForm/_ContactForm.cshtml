@@ -1,0 +1,85 @@
+﻿@using NACS.Portal.Core.Models
+﻿@using ConvenienceCares.Models
+
+@model FormWidgetViewModel
+
+<div id="form_Panel" style="position:relative">
+    <div id="form-section">
+        <span style="display:none;" class="ErrorLabel" id="error-message"></span>
+        <div class="FormPanel" id="FormPanel">
+           
+                <div id="sign-up-container">
+                <img src="~/_content/conveniencecares.org/img/embellishment-white-3.png">
+
+                    <img src="~/App_Themes/ConvenienceCares.org/img/embellishment-white-3.png">
+                    <div id="sign-up-content">
+                        <form id="contact-form" method="post">
+                            <div id="sign-up-form">
+                                @Html.Raw(Model?.Heading)
+                                <p>@Html.Raw(Model?.Description)</p>
+
+                                <fieldset id="form-name-info">
+                                    <span>
+                                        <label for="fname">First Name</label><br>
+                                        <div id="firstname" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                            <input name="FirstName" type="text" maxlength="200" id="txtfirstname" class="form-control">
+                                        </div>
+                                    </span>
+                                    <span>
+                                        <label for="lname">Last Name</label><br>
+                                        <div id="lastname" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                            <input name="LastName" type="text" maxlength="200" id="txtlastname" class="form-control">
+                                        </div>
+                                    </span>
+                                </fieldset>
+                                <fieldset id="form-contact-info">
+                                    <span>
+                                        <label for="email">Email Address</label><br>
+                                        <div id="email" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                            <input name="Email" type="text" maxlength="200" id="txtemail" class="form-control">
+                                        </div>
+                                    </span>
+                                    <span>
+                                        <label for="phone">Phone Number</label><br>
+                                        <div id="phone" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                            <input name="Phone" type="text" maxlength="200" id="txtphone" class="form-control">
+                                        </div>
+                                    </span>
+                                </fieldset>
+                                <fieldset id="form-how">
+                                    <span>
+                                        <label for="how">How did you learn about us?</label><br>
+                                        <div id="channel" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                            <input name="Channel" type="text" maxlength="200" id="txtchannel" class="form-control">
+                                        </div>
+                                    </span>
+                                </fieldset>
+                                <fieldset id="comments-block">
+                                    <label for="comments">Additional Notes or Comments</label>
+                                    <div id="comments" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                        <textarea name="Comments" rows="2" cols="20" id="txtcomments" class="form-control"></textarea>
+                                    </div>
+                                </fieldset>
+                                <fieldset id="security">
+                                    <div class="g-recaptcha" data-sitekey="@Model?.captchaSiteKey"></div>
+                                </fieldset>
+
+                                <input type="submit" name="btnOK" value="Submit" id="btnOK" class="FormButton btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                <img src="~/_content/conveniencecares.org/img/embellishment-white-4.png">
+                    <img src="~/App_Themes/ConvenienceCares.org/img/embellishment-white-4.png">
+                </div>
+           
+        </div>
+        <span style="display:none;" id="thank-you-message" class="InfoLabel">
+            
+                @Html.Raw(Model?.SubmitMessage)
+            
+        </span>
+    </div>
+</div>
+
+<p><br /></p>
+<p><br /></p>

@@ -1,0 +1,71 @@
+﻿@using Kentico.Content.Web.Mvc.PageBuilder
+@using Convenience.org
+@{
+	Layout = "~/Features/Shared/Convenience/_Layout.cshtml";
+}
+
+@model TemplateViewModel
+
+@{
+	var isPreviewModel = Context.Kentico().PageBuilder().EditMode;
+}
+
+<div class="row">
+	@await Html.Kentico().EditableAreaAsync("HeroWidgetArea")
+</div>
+
+<div class="row">
+	@await Html.Kentico().EditableAreaAsync("FirstWidgetArea")
+</div>
+
+<div class="card-body">
+	<div class="row">
+		<div class="col-4">
+			@await Html.Kentico().EditableAreaAsync("ArticleLeftWidgetArea")
+		</div>
+		<div class="col-8">
+			<div class="row">
+				@await Html.Kentico().EditableAreaAsync("ArticleRightTopWidgetArea")
+			</div>
+			<div class="row">
+				<div class="col-6">
+					@await Html.Kentico().EditableAreaAsync("ArticleRightDownLeftWidgetArea")
+				</div>
+				<div class="col-6">
+					@await Html.Kentico().EditableAreaAsync("ArticleRightDownRightWidgetArea")
+				</div>
+			</div>
+		</div> 
+	</div>
+</div>
+
+
+<div class="card-body mt-1">
+	<div class="row">
+		<div class="col-4">
+			@await Html.Kentico().EditableAreaAsync("UELeftWidgetArea")
+		</div>
+		<div class="col-8">
+			<div class="row">
+				<div class="col-6">
+					@await Html.Kentico().EditableAreaAsync("UERightTopLeftWidgetArea")
+				</div>
+				<div class="col-6">
+					@await Html.Kentico().EditableAreaAsync("UERightTopRightWidgetArea")
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					@await Html.Kentico().EditableAreaAsync("UERightDownLeftWidgetArea")
+				</div>
+				<div class="col-6">
+					@await Html.Kentico().EditableAreaAsync("UERightDownRightWidgetArea")
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	@await Html.Kentico().EditableAreaAsync("EndWidgetArea")
+</div>

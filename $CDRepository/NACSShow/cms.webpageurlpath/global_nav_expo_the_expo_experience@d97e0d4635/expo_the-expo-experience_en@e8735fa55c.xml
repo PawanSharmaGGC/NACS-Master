@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageurlpath>
+  <WebPageUrlPath>Expo/The-Expo-Experience</WebPageUrlPath>
+  <WebPageUrlPathContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>2cce1e88-3d98-4dd9-8c2d-4dd1c46a81bf</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </WebPageUrlPathContentLanguageID>
+  <WebPageUrlPathGUID>e2d87e0b-1464-41a2-a592-b7cb31a9e50d</WebPageUrlPathGUID>
+  <WebPageUrlPathHash>
+    <![CDATA[CC2E75005E701FFEB45F90B8377BBDB6ED54925F6B4649C9048E0C4D9BB21964]]>
+  </WebPageUrlPathHash>
+  <WebPageUrlPathIsCanonical>True</WebPageUrlPathIsCanonical>
+  <WebPageUrlPathIsDraft>False</WebPageUrlPathIsDraft>
+  <WebPageUrlPathIsLatest>True</WebPageUrlPathIsLatest>
+  <WebPageUrlPathType>0</WebPageUrlPathType>
+  <WebPageUrlPathWebPageItemID>
+    <CodeName>TheExpoExperience-nbpjqo5r</CodeName>
+    <GUID>1648eccf-0b1b-4316-be72-98d71cff7c7c</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageUrlPathWebPageItemID>
+  <WebPageUrlPathWebsiteChannelID>
+    <GUID>0ba89fef-3be8-4973-83d2-c5cbbcb227cf</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSShow</CodeName>
+      <GUID>2083f08a-0932-4059-8087-f0556c420aa4</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageUrlPathWebsiteChannelID>
+</cms.webpageurlpath>

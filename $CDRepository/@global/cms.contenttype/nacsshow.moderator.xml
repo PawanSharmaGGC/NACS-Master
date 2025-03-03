@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Reusable</ClassContentTypeType>
+  <ClassDisplayName>NACS Show Moderator</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="a8602f4f-124b-4d77-8cf0-f9aa315c1e6f" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="15ece31e-18df-4c23-95c0-f796ca23a042" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="2949d63a-a816-4720-8859-dd8cd70dd6b6" isunique="true" system="true" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>9643597c-d7db-4a20-9e60-a357c5222581</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-engage-users</ClassIconClass>
+  <ClassName>NACSShow.Moderator</ClassName>
+  <ClassShortName>NACSShowModerator</ClassShortName>
+  <ClassTableName>NACSShow_Moderator</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

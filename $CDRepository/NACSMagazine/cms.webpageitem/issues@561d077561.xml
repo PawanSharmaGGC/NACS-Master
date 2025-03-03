@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>Issues-4oyit0bg</CodeName>
+    <GUID>31d5ab8c-da48-4f28-ab77-9bc4f36639de</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>ca1914c4-4cef-47a8-a6d1-10987157c406</WebPageItemGUID>
+  <WebPageItemName>Issues-4oyit0bg</WebPageItemName>
+  <WebPageItemOrder>4</WebPageItemOrder>
+  <WebPageItemTreePath>/Issues</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>3257d9cb-79a6-4552-998d-e1f8e1a3cb3e</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSMagazine</CodeName>
+      <GUID>eecfdedc-a92f-48b7-9daa-eab81c106019</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

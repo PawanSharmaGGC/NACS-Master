@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>ExhibitorResourceCenter-s45jxasu</CodeName>
+    <GUID>2efa225d-9107-49b1-b41d-b625aa0dff46</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>98ce7f42-c4a1-47be-8a26-9f8f26005255</WebPageItemGUID>
+  <WebPageItemName>ExhibitorResourceCenter-s45jxasu</WebPageItemName>
+  <WebPageItemOrder>3</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>ForExhibitors-o568uk16</CodeName>
+    <GUID>6b91a0da-92ea-4da6-a19f-9e4c1a37e55e</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>
+    <![CDATA[/Global_Nav/For_Exhibitors/Exhibitor_Resource_Center]]>
+  </WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>0ba89fef-3be8-4973-83d2-c5cbbcb227cf</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSShow</CodeName>
+      <GUID>2083f08a-0932-4059-8087-f0556c420aa4</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

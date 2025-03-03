@@ -1,0 +1,29 @@
+.product_current_image img {
+    width: 37vw !important;
+    height: 70vh !important;
+}
+
+.product_current_image {
+    width: 46vw !important;
+}
+
+.product_image, .product_image img {
+    width: 10vw !important;
+    height: 20vh !important;
+}
+
+.section_card_body {
+    width: 482px;
+    height: 100em;
+}
+
+@media only screen and (max-width: 480px) {
+    .product_current_image img {
+        width: 93vw !important;
+        height: 50vh !important;
+    }
+    .product_image, .product_image img {
+        width: 15vw !important;
+        height: 9vh !important;
+    }
+}

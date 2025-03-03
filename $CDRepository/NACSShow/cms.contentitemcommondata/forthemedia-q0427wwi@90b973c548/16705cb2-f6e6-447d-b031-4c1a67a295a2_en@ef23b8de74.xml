@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>ForTheMedia-q0427wwi</CodeName>
+    <GUID>2a8dba71-87ff-482d-a8a4-60ecddc4e6d7</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>2cce1e88-3d98-4dd9-8c2d-4dd1c46a81bf</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-10-28 23:10:35Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>16705cb2-f6e6-447d-b031-4c1a67a295a2</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-10-28 23:14:29Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataPageTemplateConfiguration>
+    <![CDATA[{"identifier":"NACSShow.GenericContent","properties":null,"fieldIdentifiers":null}]]>
+  </ContentItemCommonDataPageTemplateConfiguration>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+</cms.contentitemcommondata>

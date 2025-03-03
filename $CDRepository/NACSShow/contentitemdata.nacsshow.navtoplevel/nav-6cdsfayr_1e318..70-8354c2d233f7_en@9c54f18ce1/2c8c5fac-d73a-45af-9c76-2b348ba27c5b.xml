@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.navtoplevel>
+  <ContentItemDataCommonDataID>
+    <GUID>1e3185f5-06f1-45e1-8170-8354c2d233f7</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Nav-6cdsfayr</CodeName>
+      <GUID>980b0c61-8da6-4e0e-a6ed-ee4ee4127cb9</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>2c8c5fac-d73a-45af-9c76-2b348ba27c5b</ContentItemDataGUID>
+  <Feature />
+  <ShowOnlySecondLevel>False</ShowOnlySecondLevel>
+  <Title>Show Info</Title>
+  <Url>/About</Url>
+</contentitemdata.nacsshow.navtoplevel>

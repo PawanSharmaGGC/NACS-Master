@@ -1,0 +1,28 @@
+﻿@using Convenience
+﻿@using ConvenienceCares.Models
+@using System
+@using CMS.Helpers
+
+@model ConveniencePageViewModel
+
+
+@section styles {
+    <style>
+        .foundation-title .button {
+            background-color: #fff;
+            color: #62BB46;
+            border-radius: 40px;
+            border: none;
+        }
+    </style>
+}
+
+
+<div align="right" class="foundation-title">
+    @if (!string.IsNullOrEmpty(Model.Description))
+    {
+        <p class="page-description">@Html.Raw(Model.Description)</p>
+    }
+    <p style="float:right"><a class="button" href="/amplify">Join Us</a></p>
+</div>
+

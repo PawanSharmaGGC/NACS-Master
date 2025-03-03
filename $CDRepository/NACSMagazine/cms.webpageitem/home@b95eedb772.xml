@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>Home-rdji94rp</CodeName>
+    <GUID>aaba15ac-86bc-44b7-82b3-902bd49b04d7</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>1d6152bd-5573-4de4-8d05-3f89eec831aa</WebPageItemGUID>
+  <WebPageItemName>Home-rdji94rp</WebPageItemName>
+  <WebPageItemOrder>2</WebPageItemOrder>
+  <WebPageItemTreePath>/Home</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>3257d9cb-79a6-4552-998d-e1f8e1a3cb3e</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSMagazine</CodeName>
+      <GUID>eecfdedc-a92f-48b7-9daa-eab81c106019</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

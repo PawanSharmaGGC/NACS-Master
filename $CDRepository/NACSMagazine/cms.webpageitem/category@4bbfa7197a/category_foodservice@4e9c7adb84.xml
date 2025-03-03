@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>Foodservice-znle3n8f</CodeName>
+    <GUID>c788fca8-e02a-4b6e-b33b-03fccf6c04c2</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>71e2d9ef-09a1-48ca-8fd7-dff83ca194a5</WebPageItemGUID>
+  <WebPageItemName>Foodservice-znle3n8f</WebPageItemName>
+  <WebPageItemOrder>5</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>Category-iooqnwpz</CodeName>
+    <GUID>d7b6ddbf-59b7-492a-aa64-c51811e733f7</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>/Category/Foodservice</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>3257d9cb-79a6-4552-998d-e1f8e1a3cb3e</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSMagazine</CodeName>
+      <GUID>eecfdedc-a92f-48b7-9daa-eab81c106019</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

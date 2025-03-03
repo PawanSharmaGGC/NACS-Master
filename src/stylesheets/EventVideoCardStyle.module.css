@@ -1,0 +1,44 @@
+.main_card {
+    width: 27vw;
+    /* height: 58vh !important; */
+}
+
+.section_card {
+    border-radius: 18px !important;
+    width: 26vw;
+    /* height: 54vh !important; */
+}
+
+.top_overlay_text{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+} 
+
+.bottom_overlay_text{
+    position: absolute;
+    top: 60%;
+    text-align: start;
+}
+
+.slider_card_badge {
+    background-color: #DBEAB9;
+    padding: 3px 15px 3px 15px;
+    border-radius: 18px;
+    height: fit-content;
+}
+
+@media only screen and (max-width: 480px) {
+    .main_card {
+        width: 100vw;
+    }
+    .section_card {
+        width: 96vw !important;
+        /* height: 45vh !important; */
+        border-radius: 18px !important;
+    }
+    .bottom_overlay_text{
+        top: 60%;
+    }
+}

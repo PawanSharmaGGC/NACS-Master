@@ -1,0 +1,235 @@
+﻿@using Kentico.Content.Web.Mvc.PageBuilder
+@using CMS.ContentEngine
+@using Kentico.Content.Web.Mvc
+@using Microsoft.AspNetCore.Mvc.Localization
+@using NACSShow.PageTemplates.SearchPage
+@using NACSShow.Resources
+@using CMS.Helpers
+@using Kentico.Web.Mvc
+@using Kentico.PageBuilder.Web.Mvc
+@using Microsoft.AspNetCore.Html
+
+
+@* @inject IHtmlLocalizer<SharedResources> HtmlLocalizer; *@
+
+@model NACSShow.Features.SearchPage.SearchViewModel
+
+@{
+    Layout = "/Features/Shared/NACSShow/_Layout.cshtml";
+}
+
+
+
+<style>
+    input, textarea {
+        width: auto;
+        padding-right: 2rem;
+    }
+
+    .form-control {
+        width: auto;
+    }
+
+    [type="checkbox"], [type="radio"] {
+        margin-right: 1rem;
+    }
+
+    .results {
+        padding-bottom: 35px;
+    }
+
+    .icon {
+        /*margin-left:-20px;*/
+    }
+
+    span.segment-tag {
+        font-weight: bold;
+        display: inline-block;
+        color: #fff;
+        font-size: 16px;
+        padding: 2px 7px;
+        margin: 5px;
+        cursor: pointer;
+    }
+
+        span.segment-tag.Launchers /* case-sensitive - leave upper */ {
+            background-color: #f9c606;
+        }
+
+        span.segment-tag.Experimenters /* case-sensitive - leave upper */ {
+            background-color: #80c939;
+        }
+
+        span.segment-tag.Transformers /* case-sensitive - leave upper */ {
+            background-color: #00aeef;
+        }
+
+        span.segment-tag.Influencers /* case-sensitive - leave upper */ {
+            background-color: #9b1d8f;
+        }
+
+    .photo {
+        width: 100px;
+        border-radius: 50%;
+        margin: -30px 10px 10px 10px;
+    }
+    .searchResults {
+        padding-top: 20px;
+    }
+</style>
+<form method="get" id="sessionSearchForm">
+    <section class="section--margins section--margins-x-xl">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-3 col-lg-3 left-rail">
+                    @*<h3>Refine by</h3>
+                    <div class="inner">
+                        <a class="clear-filters" href="#" onclick="javascript:window.location.href = window.location.href;">Clear Filters</a>
+                        <style type="text/css">
+                            table, th, td {
+                                border: none;
+                                text-align: left
+                            }
+                        </style>
+                    </div>
+                        @*<h3>Date</h3>
+                        <div class="inner">
+                            TODO: Date Filter goes here
+                            Options: this week, this month, last 6 months, this year, last 2 years
+                        </div>*
+                        <h3>Type of Content</h3>  
+                        <div class="inner"> 
+                              @foreach (var type in Model.Types)
+                              {
+                                    var selected = type.IsSelected ? "checked" : "";    
+                                    <label><input type="checkbox" name="types" value="@type.Value" id="Type-@type.Value" @selected> @type.Value</label><br> 
+                                      @* <input class="form-check-input" type="checkbox" name="types" value="@type.Value" id="Type-@type.Value"
+                                          facet-field @(type.IsSelected ? "checked" : "")> *
+
+                              }
+                            @* <label><input type="checkbox" name="Type" value="Education Sessions"> Education Sessions</label><br>  
+                            <label><input type="checkbox" name="Type" value="Speakers"> Speakers</label><br>  
+                            <label><input type="checkbox" name="Type" value="Documents"> Documents</label>* 
+                        </div> *@
+                </div>
+                <div class="col-12 col-sm-9 col-lg-9 main-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="search">
+                                <div class="searchBox">
+                                    <input asp-for="@Model.Query" name="query" type="text" class="form-control form-control-sm mr-sm-2 ml-3"
+                                            aria-label="Search" aria-describedby="submitSearch" value="@Model.Query">
+                                    <input class="btn btn-success btn-sm my-2 my-sm-0 btn-default" type="submit" id="submitSearch" value="Search">
+                                </div>
+                            </div>
+                    
+                            @* TODO: Search results go here *@
+                            @{     
+                                //   public string GetParentNodeUrlPath(string url, string parentid)
+                                //   {
+                                //     string nodeid = "";
+                                //     string returnUrl = "";
+      
+                                //     if (url != "" && url != "/" && parentid != "") 
+                                //     {        
+                                //         nodeid = parentid; 
+                                //         //returnUrl = GetDocumentUrlById(nodeid);
+                                //     }
+                                //     else
+                                //     {
+                                //       returnUrl = string.Empty;
+                                //     }           
+                                //     return returnUrl;
+                                //   }   
+  
+                                // public string GetBCIcon(string parentpath)
+                                //   {
+                                //     if (parentpath != "" && parentpath != "/") {
+                                //       return "<i class='fa fa-bookmark fa' style='color:#ccc'></i>&nbsp;";
+                                //     }
+                                //     else {
+                                //       return string.Empty;
+                                //     }
+
+                                //   }
+  
+                                // public string GetPageType(string pagetype)
+                                //   {
+                                //     if (pagetype=="NACSShow.Workshop")
+                                //       return "<span class='icon'><i class='fa fa-presentation fa-1x'></i></span>";
+                                //     else if (pagetype == "NACSShow.Speaker")
+                                //       return "<span class='icon'><i class='far fa-user fa-1x'></i></span>";
+                                //     else
+                                //       return string.Empty;
+                                //   }
+                            }
+                        
+                            <div class="searchResults container">
+                                <div class="row">
+                                    @if(Model.SearchResults.Count() < 1)
+                                    {
+                                        <span>No results found.</span>
+                                    }
+                        
+                                    @foreach(var result in Model.SearchResults)
+                                    {
+                                        <div class="results">
+                                            <h5 style="margin-bottom:1rem">
+                                            @* @(result.SystemFields.ContentTypeName == "NACSShow.Speaker" ? "<span class='icon'><i class='far fa-user fa-1x'></i></span>" : "")
+                                            @(result.SystemFields.ContentTypeName == "NACSShow.Workshop" ? "<span class='icon'><i class='fa fa-presentation fa-1x'></i></span>" : "") *@
+                                            <a href=''>
+                                                @result.Title
+                                            </a>
+                                            @* <span class="segment-tag <%# IfEmpty(GetSearchValue("Segment"), "", GetSearchValue("Segment"))%>">
+                                                <%# IfEmpty(GetSearchValue("Segment"), "", GetSearchValue("Segment")) %>
+                                            </span> *@
+                                            </h5>
+                                            <div class="desc" style="padding-bottom:15px">
+                                            @if (result.Types.ToLower().Equals("nacsshow.speaker"))
+                                            {
+                                                if (!string.IsNullOrEmpty(result.Image))
+                                                {
+                                                    <img align='right' class='photo' alt='@result.Title' src='@result.Image' />
+                                                }
+                                            }
+                                            @* @Html.Raw(result.Content) *@
+                                            </div>
+ 
+                                            @* <div style="font-size:14px;color:#999">
+                                            <%# GetBCIcon(GetParentNodeUrlPath(SearchResultUrl().ToString(),GetSearchValue("NodeParentID").ToString())) %>
+                                            <cms:CMSBreadCrumbs runat="server" ID="resultBreadcrumb" BreadcrumbSeparator="/" ShowCurrentItem="true" EncodeName="true" StopProcessing="true" Path='<%# GetParentNodeUrlPath(SearchResultUrl().ToString(),GetSearchValue("NodeParentID").ToString()) %>' />
+                                            </div> *@
+
+                                            <span style="font-size:14px;color:#999">
+                                                @{
+                                                    var documentModifiedWhen = @result.Date;
+                                                    if (!string.IsNullOrEmpty(documentModifiedWhen.ToString()))
+                                                    {
+                                                        var formattedDate = documentModifiedWhen.ToString("MMM d, yyyy");
+                                                        @:Updated on @formattedDate
+                                                    }
+                                                }
+                                            </span>
+                                        </div>
+                              
+
+                                        @* <script runat="server">
+                                        protected void Page_PreRender(object sender, EventArgs e)
+                                        {
+                                        if (resultBreadcrumb != null)
+                                        {
+                                            resultBreadcrumb.StopProcessing = false;
+                                            resultBreadcrumb.ReloadData(true);
+                                        }
+                                        }
+                                        </script> *@
+                                    }
+                                </div>
+                            </div>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>

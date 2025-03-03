@@ -1,0 +1,52 @@
+﻿@using Convenience.org.Models
+
+
+<style>
+        .space {
+            padding-left: 25px;
+        }
+
+        .sign {
+            position: absolute;
+            margin-left: 0px;
+            margin-top: 10px;
+            font-size: 20px;
+            color: #727f8a !important;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .inputresult {
+            width: 140px;
+            pointer-events: none;
+        }
+    </style>
+
+<div id="RetailMembershipDuesCalculator__updPanel" style="width: 100%; margin: auto;">
+    <div style="text-align: -webkit-center;">
+        <div id="retailMembershipDuesCalculator" class="validate-inputs">
+            <label for="customerNumber">Your Total Annual Sales</label>
+            <div class="clear"></div>
+            <span class="sign">&nbsp;$</span>
+            <input name="customerNumber" type="text" id="customerNumber" class="_txtNumber space" required />
+            <div class="clear"></div>
+            <div style="padding-left: 15px">
+                <span id="ReqcustomerNumber" style="color: red; font-size: small; display: none;">Please fill out this field.</span>
+            </div>
+        </div>
+        <br>
+        <input type="submit" name="calculateButton" value="Calculate My Dues" id="calculateButton" class="button">
+        <br>
+        <br>
+        <div id="divresult" display="none">
+            <span style="font-weight: bold; font-size: 1.5em;">
+                <span id="resultDisplay"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/static/js/retailmembershipcalculator.js"></script>

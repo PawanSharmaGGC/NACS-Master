@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagGUID>44dcddf0-4235-4e2c-80a3-b56ade5cdd01</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{}}]]>
+  </TagMetadata>
+  <TagName>CategoryManagement</TagName>
+  <TagOrder>2</TagOrder>
+  <TagTaxonomyID>
+    <CodeName>Categories</CodeName>
+    <GUID>bafcd699-6640-40b9-9082-ae3839c7c547</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>Category Management</TagTitle>
+</cms.tag>

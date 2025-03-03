@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.issue>
+  <ContentItemDataCommonDataID>
+    <GUID>b8243231-2c14-48dc-8d66-b62e14bab490</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>October2023-n5zhnrdy</CodeName>
+      <GUID>244110ba-44c0-4bed-baee-6bc59021d022</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>040a6fb4-8976-4dc4-a886-d55ba06f0228</ContentItemDataGUID>
+  <IssueDate>2023-10-01 04:00:00Z</IssueDate>
+  <MagazineCover>
+    <![CDATA[{"Identifier":"7f5bdc81-f462-4cba-af86-6a0a670619f2","Name":"JUL24_Cover.png","Extension":".png","Size":2150350,"LastModified":"2024-07-09T20:17:20.5712958Z"}]]>
+  </MagazineCover>
+  <Title>October 2023</Title>
+</contentitemdata.nacsmagazine.issue>

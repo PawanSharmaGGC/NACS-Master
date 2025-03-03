@@ -1,0 +1,34 @@
+﻿@using Kentico.Content.Web.Mvc.PageBuilder
+@using Convenience.org
+@{
+	Layout = "~/Features/Shared/Convenience/_Layout.cshtml";
+}
+
+@model TemplateViewModel
+
+@{
+	var isPreviewModel = Context.Kentico().PageBuilder().EditMode;
+}
+
+
+@section GoogleAdsBeforeHeader {
+	<div>
+		@await Html.Kentico().EditableAreaAsync("WidgetAreaBeforeHeader")
+	</div>
+}
+
+<div class="row">
+	@await Component.InvokeAsync("Breadcrumb")
+</div>
+
+<div class="row">
+	@await Html.Kentico().EditableAreaAsync("HeroWidgetArea")
+</div>
+
+<div class="row">
+	@await Html.Kentico().EditableAreaAsync("MiddleWidgetArea")
+</div>
+
+<div class="row">
+	@await Html.Kentico().EditableAreaAsync("EndWidgetArea")
+</div>

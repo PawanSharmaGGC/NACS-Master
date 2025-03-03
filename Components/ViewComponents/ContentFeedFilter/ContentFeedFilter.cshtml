@@ -1,0 +1,47 @@
+﻿@using Newtonsoft.Json
+@model Convenience.org.Models.ContentFeedFilterViewModel
+
+@if (Model != null)
+{
+    <div>
+        <div class="d-flex m-2 justify-content-between ContentFeedFilter-module__main_div">
+            <div class="fs-4 color-0053A5">FROM THIS SERIES</div>
+            <div class="w-25">
+                <select class="form-select ContentFeedFilter-module__content_select_box" aria-label="Default select example" onchange="filterVideos(this.value)">
+                    <option value="">Type</option>
+                    @foreach (var tag in Model.WebinarType)
+                    {
+                        <option value="@tag.Identifier">@tag.Title</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div id="videoContainer">
+        @foreach (var video in Model.Videos)
+        {
+            <div class="video-card" data-webinartype="@string.Join(",", video.WebinarType.Select(t => t.Identifier))">
+                <h3>@video.Title</h3>
+                <p>@Html.Raw(@video.Description)</p>
+            </div>
+        }
+    </div>
+
+    <script>
+        let allVideos = @Html.Raw(JsonConvert.SerializeObject(Model.Videos));
+
+        function filterVideos(selectedValue) {
+            let videoCards = document.querySelectorAll("#videoContainer .video-card");
+
+            videoCards.forEach(card => {
+                let webinarTypes = card.dataset.webinartype.split(",");
+                if (!selectedValue || webinarTypes.includes(selectedValue)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
+}

@@ -1,0 +1,58 @@
+﻿@using Convenience.org.Models
+
+@model TestimonialViewModel
+
+@{
+    var random = new Random();
+    var uniqueId = random.Next(1000, 9999).ToString();
+}
+
+@if (Model != null && Model.TestimonialItems != null && Model.TestimonialItems.Any())
+{
+    <input type="hidden" value="@Model.TestimonialItems.Count" id="hfTotalSlides-@uniqueId" />
+    <div class="p-2 main_card">
+        <span class="fs-4 mt-2 mb-4 ps-5 text-start color-0053A5">@Model.Heading</span>
+        <div class="slider-container">
+            <div class="slick-slider slick-carousel" id="testimonial-slider-@uniqueId" data-carousel-id="@uniqueId">
+                @foreach (var item in Model.TestimonialItems)
+                {
+                    <div class="card flex_card TestimonialCarouselStyle-module__flex_card TestimonialCarouselStyle-module__slider_card">
+                        <div class="card-body m-3 p-0 TestimonialCarouselStyle-module__slider_card">
+                            <div class="m-0 text-start p-4">
+                                <p class="m-0 p-0 mb-2">
+                                    <i class="fa-solid fa-quote-left"></i>
+                                </p>
+                                <div class="mb-2 t-text">@Html.Raw(item.Text)</div>
+                                <p class="m-0 p-0 t-author">@item.Author</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="text-center mt-4">
+                <img src="~/static/media/left-arrow.png" alt="Previous" class="pointer prev-btn" data-carousel-id="@uniqueId" />
+                <span class="pe-5"></span>
+                <img src="~/static/media/right-arrow.png" alt="Next" class="pointer next-btn" data-carousel-id="@uniqueId" />
+            </div>
+        </div>
+        <div class="mt-5">
+            @{
+                var buttonModel = new Convenience.org.Models.ButtonsViewModel
+                {
+                    ButtonText = Model.CTAText,
+                    ButtonURL = Model.CTAUrl,
+                    ButtonType = Convenience.org.Models.ButtonTypeEnum.BackToLog,
+                    RightIconColor = "color-DC241F",
+                    RightIconName = "fa-arrow-right",
+                    RightIconType = "fa-regular",
+                    ButtonBGColor = "color-DC241F"
+                };
+            }
+            @await Component.InvokeAsync("Buttons", new { model = buttonModel })
+        </div>
+    </div>
+
+}
+
+
+<script src="~/static/js/testimonialcarousel.js"></script>

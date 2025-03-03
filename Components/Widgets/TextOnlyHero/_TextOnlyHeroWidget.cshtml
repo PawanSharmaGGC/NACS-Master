@@ -1,0 +1,61 @@
+﻿@model Convenience.org.Components.Widgets.TextOnlyHero.TextOnlyHeroWidgetViewModel
+
+@if (Model != null)
+{
+		<div>
+			<div class="p-lg-0 p-md-0 p-3 TextOnlyHeroStyle-module__main_card card">
+				<img class="TextOnlyHeroStyle-module__clip_image" src="/static/media/Clip path group.0252d1b32f2be88e2063.png" alt="">
+				<div class="border-0 TextOnlyHeroStyle-module__section_card card">
+					<div class="p-lg-5 p-md-5 p-0 card-body">
+						<div class="TextOnlyHeroStyle-module__breadcrumb">
+							@await Component.InvokeAsync("Breadcrumb")
+						</div> 
+						<div>
+							<div class="text-start mb-4 border_left_green EyebrowTitleStyle-module__eyebrow">
+								<span class="ps-4 text-uppercase font-monospace text-primary">
+								@Model.EyebrowTitle
+								</span>
+							</div>
+						</div>
+						<div class=" text-start mb-3 mt-lg-5">
+							<span class="color-002569 fw-semibold fs-3">@Model.Title</span>
+							<p class="mt-3 fs-6 TextOnlyHeroStyle-module__text_details">
+								@Html.Raw(Model.Description)
+							</p>
+						</div>
+					<div>
+						@if (!string.IsNullOrEmpty(Model.Date))
+							{	
+								<div class="text-start color-262d61">
+									<p class="m-0 fs-5">
+									<span>@Model.Date</span>
+									@if (!string.IsNullOrEmpty(Model.LocationOrReadTime))
+									{	
+										<span class="color-868F98 ps-3 pe-3 fs-3">|</span>
+										<span class="text-body-tertiary">@Model.LocationOrReadTime</span>
+									}
+									else
+									{
+										<span class="color-868F98 ps-3 pe-3 fs-3">|</span>
+										<span class="text-body-tertiary">@Model.TimeWithZone</span>
+									}
+								</p>
+								</div>
+							}
+						</div>
+					</div>
+				</div>
+				@if(!string.IsNullOrEmpty(Model.CTAText) && !string.IsNullOrEmpty(Model.CTALink) )
+				{
+					<div class="mt-5">
+						<a href="@Model.CTALink" class="fs-5 color-DC241F text-decoration-none">
+							<span class="d-inline-block pe-1">@Model.CTAText</span> 
+							<span class="align-middle">
+								<i class="fa-regular fa-arrow-right color-DC241F" aria-hidden="true"></i>
+							</span>
+						</a>
+					</div>
+				}
+		</div>
+	</div>
+}

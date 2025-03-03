@@ -1,0 +1,895 @@
+﻿@using NACSShow.Components.Widgets.ExhibitorPortal
+@model ExhibitorPortalViewModel
+
+<style type="text/css">
+    #downloads td, #downloads th {
+        font-size: 1.2em;
+    }
+
+    div.name {
+        width: 50%;
+        float: left;
+        padding: 5px;
+        height: 32px;
+        font-size: 1.2em;
+    }
+
+    div.status {
+        float: left;
+        height: 32px;
+        text-align: right;
+    }
+
+    div.update_link {
+        width: 20%;
+        float: left;
+        padding: 5px;
+        height: 32px;
+        font-size: 1.2em;
+    }
+
+    div.preview_link {
+        width: 15%;
+        float: left;
+        padding: 5px;
+        height: 32px;
+        font-size: 1.2em;
+    }
+
+    div.clear {
+        clear: both;
+    }
+
+    div.column {
+        margin-bottom: 3%;
+    }
+
+    .errormsg {
+        color: #FF0000;
+        font-size: 1.2em;
+        margin-left: 50px;
+    }
+
+    .error-msg {
+        color: #d40f7d;
+        font-size: 0.8em;
+    }
+
+    .successmsg {
+        color: #1b59a6;
+        font-size: 1.2em;
+        margin-left: 50px;
+    }
+
+    .portalheader {
+        font-weight: bold;
+        display: inline-block;
+        margin: 5px 0px 5px 0px;
+        padding: 5px 0px 5px 0px;
+        color: var(--color-medium-blue);
+        font-size: 2.5rem;
+    }
+
+    .portalheader-in-table {
+        font-size: 1.66em;
+        text-transform: uppercase;
+        line-height: 1.1em;
+        margin: 5px 0px 5px 0px;
+        padding: 5px 0px 5px 0px;
+        border-bottom: 1px solid #dae6ec;
+    }
+
+    .portaldescriptor {
+        color: #777777;
+        font-size: 1.1em;
+    }
+
+    .status {
+        display: inline-block;
+        margin: 20px;
+        color: #d40f7d;
+    }
+
+    .scale {
+        width: 90%;
+        background-color: #EDEDED;
+        height: 20px;
+        text-align: left;
+        color: #83bb52;
+        font-size: 1em;
+        padding: 3px;
+        margin-left: 55px;
+    }
+
+    .scale_value {
+        background-color: #83bb52;
+        height: 20px;
+        color: #ffffff;
+        float: left;
+        font-size: 1em;
+    }
+
+    .dir-segment {
+        font-size: 1em;
+    }
+
+    .dir-segments {
+        width: 40%;
+        text-align: left;
+        padding: 3px;
+        margin-left: 55px;
+        float: left;
+        display: inline-block;
+    }
+
+    .ddlLarge {
+        color: var(--color-dark-pastel-green);
+        font-size: 3.75rem;
+        text-align: center;
+        margin: 1rem;
+        font-family: 'MainsailScript';
+        line-height: 1.4em;
+        margin: 0.25em 0 0.25em 0;
+        width: 100%;
+    }
+
+        .ddlLarge span {
+            color: var(--color-bondi-blue);
+            font-size: 3rem;
+            font-family: Gotham,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,'Helvetica Neue',sans-serif;
+        }
+
+        .ddlLarge select {
+            color: var(--color-bondi-blue);
+            font-size: 2rem;
+            font-family: Gotham,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,'Helvetica Neue',sans-serif;
+            line-height: 1em;
+            width: 100%;
+        }
+
+    .download {
+        color: #fff !important;
+        border-color: #ccc !important;
+        background-color: #419fd7 !important;
+        line-height: 1.2em !important;
+        font-size: 0.8em;
+        margin: 3px;
+    }
+
+        .download:hover {
+            background-color: #ec008c !important;
+        }
+
+    .tooltipcontainer {
+        position: relative;
+    }
+
+    .tooltip {
+        display: none;
+        position: absolute;
+        right: -200px;
+        width: 180px;
+        top: -20px;
+        padding: 15px;
+        background-color: #f7f7f7;
+        border: 1px solid #f0f0f0;
+        line-height: 20px;
+        opacity: 100;
+    }
+
+    a:hover .tooltip {
+        display: block;
+        text-decoration: none;
+    }
+
+    .disabled {
+        border: 1px solid #666666 !important;
+        background-color: #999999 !important;
+    }
+
+        .disabled:hover {
+            border: 1px solid #666666 !important;
+            background-color: #999999 !important;
+        }
+
+    .ms-dlgContent {
+        position: fixed;
+    }
+
+    #downloads label {
+        font-size: 0.8em;
+        display: inline;
+    }
+
+    .num {
+        display: inline-flex;
+        padding: 10px;
+        border: 2px solid var(--color-dark-pastel-green);
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        font-size: 1.4em;
+    }
+
+    .button {
+        border: 2px solid #00aecc;
+    }
+
+        .button:hover {
+            background-color: #00aecc;
+        }
+
+    /*2021 styles added*/
+    .link.link--pill {
+        margin: 1rem;
+    }
+
+        .link.link--pill:hover /*2021 button class*/ {
+            background: var(--color-light-grey);
+            text-decoration: none;
+            color: var(--color-bondi-blue);
+            border: 0px;
+        }
+
+    img {
+        width: auto;
+    }
+
+    .section--margins-x {
+        text-align: left;
+    }
+
+    .section--margins {
+        margin: 0px;
+    }
+
+    .exhibitor-name, .exhibitor-selection {
+        text-align: center;
+    }
+
+    .text-pink {
+        color: #d40f7d;
+    }
+
+    .text-grey {
+        color: #444;
+    }
+
+    .ex-table td {
+        border: 0px;
+        text-align: left;
+    }
+
+    input[type="radio"], input[type="checkbox"], input[type="button"] {
+        width: auto;
+        margin-right: 5px;
+    }
+
+    fieldset {
+        border: none;
+        border-width: 0px;
+    }
+
+    table, th, td {
+    }
+
+    table, th, td, .radio-list-table, .radio-list-table td {
+        border: none;
+        border-width: 0px;
+        text-align: left;
+    }
+
+    .search-results-overlay {
+        position: absolute;
+        background-color: rgba(255,255,255,0.7);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: var(--color-pacific-blue);
+        text-align: center;
+        z-index: 100;
+    }
+
+    .search-results-overlay-spinner {
+        margin-top: 25%;
+        color: var(--color-pacific-blue);
+        text-align: center;
+    }
+
+    .search-results {
+        position: relative;
+    }
+
+    .text--white {
+        color: #fff !important;
+    }
+
+    table.products-table, #downloads {
+        max-width: 1000px;
+        width: 100%;
+    }
+
+        table.products-table th {
+            font-weight: 700;
+            border: 0px;
+            color: #fff;
+            background: var(--linear-gradient-pacific-blue-to-bondi-blue)
+        }
+
+        table.products-table th, table.products-table td {
+            font-size: 0.9em;
+        }
+
+        table.products-table td {
+            border: 2px solid #fff;
+        }
+
+    .agree-margin {
+        margin: 20px 0px 10px 40px;
+        display: inline-block;
+    }
+
+    .w-100 {
+        width: 100%;
+    }
+
+    .pricing--card--dates {
+        height: 80px;
+    }
+</style>
+
+<script language="javascript">
+    jQuery(document).ready(function ($) {
+        if ($('#btn-register-now-topnav')) {
+            $('#btn-register-now-topnav').hide();
+        }
+        if ($('#btn-schedule-topnav')) {
+            $('#btn-schedule-topnav').hide();
+        }
+    });
+</script>
+
+<section class="row center-xs">
+    <div class="section--margins-x" style="width:100rem">
+        <div id="_updPanelPortal">
+            <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+            <link href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css" rel="stylesheet">
+            <script>
+                function openDialog(id) {
+                    $("#" + id).dialog({
+                        resizable: false,
+                        height: 300,
+                        width: 400,
+                        modal: true,
+                        title: "More Info on Attendee Lists"
+                    });
+                }
+            </script>
+            <br />
+            @* <input type="text" id="_lblDebug" class="errormsg" />
+            <input type="text" id="_lblError" class="errormsg" />
+            <input type="text" id="_lblPersonalMsg" /> <br /> *@
+            <div class="exhibitor-name">
+                <label id="_lblExhibitorName" class="ddlLarge"></label>
+            </div>
+            <br />
+            <div style="text-align:center;">
+                <label id="_lblAdmin"><i>Showing all exhibitors for admin users:</i></label>
+            </div>
+            <div id="_pnlExhibitorSelection" class="exhibitor-selection">
+                <span class="ddlLarge">
+                    Portal for:
+                    <asp:DropDownList ID="_ddlSelectExhibitor" runat="server" AutoPostBack="true" onselectedindexchanged="_ddlSelectExhibitor_SelectedIndexChanged"></asp:DropDownList>
+                </span>
+                <br />
+            </div>
+            @* <div class="search-results-overlay d-none">
+                <div class="search-results-overlay-spinner">
+                    <i class="far fa-circle-notch fa-5x fa-spin"></i>
+                </div>
+            </div> *@
+            <br />
+            <br />
+            <div id="ExhibitorPortalContainer">
+                <div class="row">
+                    <!-- MYS Dashboard -->
+                    @if (Model.PNLMYSDashboardVisible)
+                    {
+                        <div id="_pnlMYSDashboard" class="col-12 col-sm-4">
+                            <div class="row middle-xs center-xs pricing--card fill--gradient-pink rounded-top">
+                                <span class="col-xs-12 pricing--card--title">
+                                    <span class="fa fa-th fa-lg"></span>&nbsp;Exhibitor Dashboard
+                                </span>
+                                @if (!string.IsNullOrEmpty(Model.LBLDescription_MYSDashboard))
+                                {
+                                    <span class="col-xs-12 pricing--card--dates">
+                                        <label id="_lblDescription_MYSDashboard">@Model.LBLDescription_MYSDashboard</label>
+                                    </span>
+                                }
+                            </div>
+                            <div class="row middle-xs center-xs pricing--card fill--solid-very-light-grey rounded-bottom" style="padding-bottom:2rem;">
+                                @if (Model.PNLMYSDashboardHolderVisible)
+                                {
+                                    <div id="_pnlMYSDashboardHolder" class="col-xs-12 pricing--card--title">
+                                        <div>
+                                            <a href="@Model.MapYourShowDashboardURL" target="_blank" class="link link--pill text--white fill--gradient-pacific-blue-to-bondi-blue">
+                                                Launch Dashboard&nbsp;
+                                                <i class='fas fa-external-link-alt'></i>
+                                            </a>
+                                            <br>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                }
+                                <span class="col-xs-12 pricing--card--subtitle pricing--card-inactive-text"><img src="/NACSShow/media/Images/logo-poweredByMYS.png" align="absmiddle" border="0" style="width:100px" /></span>
+                            </div>
+                        </div>
+                    }
+                    <!-- Experient Registration -->
+                    @if (Model.PNLRegistrationVisible)
+                    {
+                        <div id="_pnlRegistration" class="col-12 col-sm-4">
+                            <div class="row middle-xs center-xs pricing--card fill--gradient-pink rounded-top">
+                                <span class="col-xs-12 pricing--card--title">
+                                    <span class="fa fa-id-card-alt fa-lg"></span>&nbsp;Badge Registration
+                                </span>
+                                @if (!string.IsNullOrEmpty(Model.LBLDescription_Registration))
+                                {
+                                    <span class="col-xs-12 pricing--card--dates">
+                                        <label id="_lblDescription_Registration">@Model.LBLDescription_Registration</label>
+                                    </span>
+                                }
+                            </div>
+                            <div class="row middle-xs center-xs pricing--card fill--solid-very-light-grey rounded-bottom" style="padding-bottom:2rem;">
+                                @if (!string.IsNullOrEmpty(Model.LBLStatusMsg_Registration))
+                                {
+                                    <label id="_lblStatusMsg_Registration" class="col-xs-12 pricing--card--subtitle status">
+                                        @Model.LBLStatusMsg_Registration
+                                    </label>
+                                }
+                                @if (Model.PNLRegistrationHolderVisible)
+                                {
+                                    <div id="_pnlRegistrationHolder" class="col-xs-12 pricing--card--title">
+                                        <div>
+                                            <a href="@Model.NACSShowRegURL" target="_blank" class="link link--pill text--white fill--gradient-pacific-blue-to-bondi-blue">
+                                                Launch Registration&nbsp;<i class='fas fa-external-link-alt'></i>
+                                            </a>
+                                            <br>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                    <!-- Experient Lead Retrieval/Post-SHow -->
+                    @if (Model.PNLLeadRetrievalVisible)
+                    {
+                        <div id="_pnlLeadRetrieval" class="col-12 col-sm-4">
+                            <div class="row middle-xs center-xs pricing--card fill--gradient-pink rounded-top">
+                                <span class="col-xs-12 pricing--card--title">
+                                    <span class="fa fa-id-card-alt fa-lg"></span>&nbsp;Badge Scanner/Lead Retrieval
+                                </span>
+                                @if (!string.IsNullOrEmpty(Model.LBLDescription_LeadRetrieval))
+                                {
+                                    <span class="col-xs-12 pricing--card--dates">
+                                        <label id="_lblDescription_LeadRetrieval">@Model.LBLDescription_LeadRetrieval</label>
+                                    </span>
+                                }
+                            </div>
+                            <div class="row middle-xs center-xs pricing--card fill--solid-very-light-grey rounded-bottom" style="padding-bottom:2rem;">
+                                @if (Model.PNLLeadRetrievalHolderVisible)
+                                {
+                                    <div id="_pnlLeadRetrievalHolder" class="col-xs-12 pricing--card--title">
+                                        <div>
+                                            <a href="@Model.NACSShowLeadRetrievalURL" target="_blank" class="link link--pill text--white fill--gradient-pacific-blue-to-bondi-blue">
+                                                Launch Lead Services (Maritz)&nbsp;<i class='fas fa-external-link-alt'></i>
+                                            </a>
+                                            <br>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
+                <div class="row">
+                    <!-- Exhibitor Service Kit -->
+                    @if (Model.PNLServiceKitVisible)
+                    {
+                        <div id="_pnlServiceKit" class="col-12 col-sm-4">
+                            <div class="row middle-xs center-xs pricing--card fill--gradient-pink rounded-top">
+                                <span class="col-xs-12 pricing--card--title">
+                                    <span class="fa fa-briefcase fa-lg"></span>&nbsp;Exhibitor Service Kit
+                                </span>
+                                @if (!string.IsNullOrEmpty(Model.LBLDescription_ServiceKit))
+                                {
+                                    <span class="col-xs-12 pricing--card--dates">
+                                        <label id="_lblDescription_ServiceKit">@Model.LBLDescription_ServiceKit</label>
+                                    </span>
+                                }
+                            </div>
+                            <div class="row middle-xs center-xs pricing--card fill--solid-very-light-grey rounded-bottom" style="padding-bottom:2rem;">
+                                @if (!string.IsNullOrEmpty(Model.LBLStatusMsg_ServiceKit))
+                                {
+                                    <label id="_lblStatusMsg_ServiceKit" class="col-xs-12 pricing--card--subtitle status"> @Model.LBLStatusMsg_ServiceKit</label>
+                                }
+                                @if (Model.PNLServiceKitHolderVisible)
+                                {
+                                    <div id="_pnlServiceKitHolder" class="col-xs-12 pricing--card--title">
+                                        <a class="link link--pill text--white fill--gradient-pacific-blue-to-bondi-blue" href="/Exhibit/Exhibit-Preparation-and-Booth-Setup/ExhibitorServiceKit" target="_blank">Open Service Kit&nbsp;<i class="fa fa-external-link-alt"></i></a>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                    <!-- Housing -->
+                    @if (Model.PNLHousingVisible)
+                    {
+                        <div id="_pnlHousing" class="col-12 col-sm-4">
+                            <div class="row middle-xs center-xs pricing--card fill--gradient-pink rounded-top">
+                                <span class="col-xs-12 pricing--card--title"><span class="fa fa-bed fa-lg"></span>&nbsp;Hotels</span>
+                                <span class="col-xs-12 pricing--card--dates">
+                                    @if (!string.IsNullOrEmpty(Model.LBLDescription_Housing))
+                                    {
+                                        <label id="_lblDescription_Housing">@Model.LBLDescription_Housing</label>
+                                    }
+                                </span>
+                            </div>
+                            <div class="row middle-xs center-xs pricing--card fill--solid-very-light-grey rounded-bottom" style="padding-bottom:2rem;">
+                                @if (!string.IsNullOrEmpty(Model.LBLStatusMsg_Housing))
+                                {
+                                    <label id="_lblStatusMsg_Housing" class="col-xs-12 pricing--card--subtitle status">@Model.LBLStatusMsg_Housing</label>
+                                }
+                                @if (Model.PNLHousingHolderVisible)
+                                {
+                                    <div id="_pnlHousingHolder" class="col-xs-12 pricing--card--title">
+                                        <div>
+                                            <a href="@Model.NACSHousingURL" target="_blank" class="link link--pill text--white fill--gradient-pacific-blue-to-bondi-blue">
+                                                Launch Housing&nbsp;<i class='fas fa-external-link-alt'></i>
+                                            </a>
+                                            <br>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                }
+                                <span class="col-xs-12 pricing--card--subtitle pricing--card-inactive-text"><img src="/NACSShow/media/Images/CHfullLogo.png" align="absmiddle" border="0" style="width:200px" /></span>
+                            </div>
+                        </div>
+                    }
+                    <!-- Marketing Orders -->
+                    @if (Model.PNLMarketingVisible)
+                    {
+                        <div id="_pnlMarketing" class="col-12 col-sm-4">
+                            <span class="portalheader">
+                                <span class="fa fa-bullhorn fa-lg"></span>&nbsp;Marketing Orders<span class="deadline">
+                                    @if (!string.IsNullOrEmpty(Model.LBLStatusMsg_Marketing))
+                                    {
+                                        <label id="_lblStatusMsg_Marketing">@Html.Raw(Model.LBLStatusMsg_Marketing)</label>
+                                    }
+                                </span>
+                            </span>
+                            @if (!string.IsNullOrEmpty(Model.LBLDescription_Marketing))
+                            {
+                                <p class="portaldescriptor">
+                                    <label id="_lblDescription_Marketing">@Html.Raw(Model.LBLDescription_Marketing)</label>
+                                </p>
+                            }
+                            @if (Model.PNLMarketingHolderVisible)
+                            {
+                                <div id="_pnlMarketingHolder">
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
+                <div class="row">
+                    <!-- Ambassadors -->
+                    @if (Model.PNLAmbassadorsVisible)
+                    {
+                        <div id="_pnlAmbassadors" class="col-12 col-sm-4">
+                            <div class="row middle-xs center-xs pricing--card fill--gradient-pink rounded-top">
+                                <span class="col-xs-12 pricing--card--title"><span class="fa fa-person-sign fa-lg"></span>&nbsp;Ambassadors</span>
+                                <span class="col-xs-12 pricing--card--dates">
+                                    @if (!string.IsNullOrEmpty(Model.LBLDescription_Ambassadors))
+                                    {
+                                        <label id="_lblDescription_Ambassadors">
+                                            @Html.Raw(Model.LBLDescription_Ambassadors)
+                                        </label>
+                                    }
+                                </span>
+                            </div>
+                            <div class="row middle-xs center-xs pricing--card fill--solid-very-light-grey rounded-bottom" style="padding-bottom:2rem;">
+                                @if (!string.IsNullOrEmpty(Model.LBLStatusMsg_Ambassadors))
+                                {
+                                    <label id="_lblStatusMsg_Ambassadors" class="col-xs-12 pricing--card--subtitle status">@Html.Raw(Model.LBLStatusMsg_Ambassadors)</label>
+                                }
+                                @if (Model.PNLAmbassadorHolderVisible)
+                                {
+                                    <div id="_pnlAmbassadorHolder">
+                                        <span id="_spAmbassadorLinks">
+                                            <br />
+                                            <label id="_lblAmbassadorsLink">
+                                                <a href="@Model.AmbassadorsLink" class='link link--pill text--white fill--gradient-pacific-blue-to-bondi-blue'><i class='fas fa-plus'></i>&nbsp;Add/Edit Ambassadors</a>
+                                            </label>
+                                            <br />
+                                            <div class="clear"></div>
+                                            <br />
+                                            <label ID="_lblSelfRegEmail">@Html.Raw(Model.AmbassadorsSelfEmailLink)</label>
+                                        </span>
+                                        <br />
+                                        <div id="_pnlAmbassadorReservations"></div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+
+                    <!-- Contractors -->
+                    @if (Model.PNLContractorsVisible)
+                    {
+                        <div id="_pnlContractors" class="col-12 col-sm-4">
+                            <div class="row middle-xs center-xs pricing--card fill--gradient-pink rounded-top">
+                                <span class="col-xs-12 pricing--card--title"><span class="fa fa-wrench fa-lg"></span>&nbsp;Contractors</span>
+                                <span class="col-xs-12 pricing--card--dates">
+                                    @if (!string.IsNullOrEmpty(Model.LBLDescription_Contractors))
+                                    {
+                                        <label id="_lblDescription_Contractors">
+                                            @Model.LBLDescription_Contractors
+                                        </label>
+                                    }
+                                </span>
+                            </div>
+                            <div class="row middle-xs center-xs pricing--card fill--solid-very-light-grey rounded-bottom" style="padding-bottom:2rem;">
+                                @if (!string.IsNullOrEmpty(Model.LBLStatusMsg_Contractors))
+                                {
+                                    <label id="_lblStatusMsg_Contractors" class="col-xs-12 pricing--card--subtitle status">@Model.LBLStatusMsg_Contractors</label>
+                                }
+                                @if (Model.PNLContractorHolderVisible)
+                                {
+                                    <div id="_pnlContractorHolder" class="text-pink">
+                                        <label id="_lblContractorsLink">
+                                            <a href="@Model.ContractorsLink" class='link link--pill text--white fill--gradient-pacific-blue-to-bondi-blue'><i class='fas fa-plus'></i>&nbsp;Add a Contractor</a>
+                                        </label>
+                                        <div id="_pnlContractorsSubmitted">
+                                            <h4>Current Contractors:</h4>
+                                            <div id="_pnlCurrentContractors">
+                                            </div>
+                                        </div>
+                                        <br />
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
+                <div class="row">
+                    <!-- Attendee Lists Purchasing and Downloads -->
+                    @if (Model.PNLAttendeeListsVisible)
+                    {
+                        <div id="_pnlAttendeeLists" class="col-12 w-100">
+                            <div class="row middle-xs center-xs pricing--card fill--gradient-pink rounded-top">
+                                <span class="col-xs-12 pricing--card--title"><span class="fa fa-list fa-lg"></span>&nbsp;Attendee Lists</span>
+                                <span class="col-xs-12 pricing--card--dates">
+                                    <asp:Label ID="_lblDescription_AttendeeLists" runat="server"></asp:Label>
+                                    &nbsp;&nbsp;
+                                    <a href="javascript:openDialog('_div_moreinfo_attendeelists')" style="font-weight:bold;"><i class="fas fa-info-circle" style="margin-right:5px;"></i>What data is included?</a>
+                                    <div id="_div_moreinfo_attendeelists_outside" style="display:none;">
+                                        <div id="_div_moreinfo_attendeelists" style='padding:10px;'>
+                                            Lists include name, title, company, address, phone, fax, registration type (i.e. Retailer, Convenience Distributor, Non-Exhibiting Supplier, etc.) and store class (range of number of stores operated). It DOES NOT include email addresses. Attendees who have opted out of receiving mailings from exhibitors will not be included in the list.
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="row middle-xs center-xs pricing--card fill--solid-very-light-grey rounded-bottom">
+                                @if (!string.IsNullOrEmpty(Model.LBLStatusMsg_AttendeeLists))
+                                {
+                                    <label ID="_lblStatusMsg_AttendeeLists" class="col-xs-12 pricing--card--subtitle status">@Model.LBLStatusMsg_AttendeeLists</label>
+                                }
+                                <div ID="_pnlHCFreeLists">
+                                    <script language="javascript">
+                                        function ValidateAgreementHC(oSrc, args) {
+                                            args.IsValid = false;
+                                            var chk = document.getElementById(oSrc.id.replace("_val", "_cb"));
+                                            var chkn = 0;
+
+                                            if (chk.checked == true) {
+                                                chk.style.outline = '';
+                                                chkn++;
+                                            }
+                                            else {
+                                                chk.style.outline = '2px solid #ec008c';
+                                            }
+
+                                            if (chkn > 0) {
+                                                args.IsValid = true;
+                                            }
+
+                                        }
+
+                                        function ValidateFormHC(group) {
+
+                                            return Page_ClientValidate(group);
+
+                                        }
+                                    </script>
+                                    <div class="text-grey" style="margin-left:20px;position:relative;text-align:left;">
+                                        <asp:UpdateProgress AssociatedUpdatePanelID="_pnlHCFreeLists" ID="_uppHCFreeLists" runat="server">
+                                            <ProgressTemplate>
+                                                <div class="search-results-overlay">
+                                                    <div class="search-results-overlay-spinner">
+                                                        <i class="far fa-circle-notch fa-5x fa-spin"></i>
+                                                    </div>
+                                                </div>
+                                            </ProgressTemplate>
+                                        </asp:UpdateProgress>
+
+                                        <asp:Label ID="_lblMsgHC" runat="server"></asp:Label>
+
+                                        <asp:Panel ID="_pnlAttendeeLists_Free" runat="server" class="column" style="width:100%"></asp:Panel>
+
+                                    </div>
+                                </div>
+                                <div id="_pnlAttendeeLists_Form">
+                                    <script language="javascript">
+                                        function ToggleButtonDisable(oSrc) {
+                                            var button = document.getElementById(oSrc.id);
+                                            var form = document.getElementById("aspnetForm");
+
+                                            if (Page_ClientValidate() == false) {
+                                                button.disabled = false;
+                                                button.value = "Purchase";
+                                                button.className = "link link--pill text--white fill--gradient-pacific-blue-to-bondi-blue";
+                                            }
+                                            else {
+                                                button.value = "Placing order...";
+                                                button.className = "link link--pill text--white fill--gradient-pacific-blue-to-bondi-blue disabled";
+                                                button.disabled = true;
+
+                                                WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(oSrc.name, "", true, "", "", false, true))
+                                            }
+
+                                        }
+                                        function ValidateCard(oSrc, args) {
+                                            args.IsValid = false;
+                                            var ControlID = oSrc.id.replace("Val", "_txt");
+                                            var length = document.getElementById(ControlID).value.length;
+
+                                            var controlID2 = ControlID.split("_txt");
+                                            var controlPrefix = controlID2[0];
+
+                                            var ccField = document.getElementById(controlPrefix + "_cboCreditCardType")
+
+                                            if (ccField.options[ccField.selectedIndex].value == "Visa") {
+                                                if (length == 16) {
+                                                    args.IsValid = true;
+                                                }
+                                            }
+                                            else if (ccField.options[ccField.selectedIndex].value == "MasterCard") {
+                                                if (length == 16) {
+                                                    args.IsValid = true;
+                                                }
+                                            }
+                                            else if (ccField.options[ccField.selectedIndex].value == "Amex") {
+                                                if (length == 15) {
+                                                    args.IsValid = true;
+                                                }
+                                            }
+                                        }
+
+                                        function ValidateProductSelection(oSrc, args) {
+                                            args.IsValid = false;
+
+                                            var ControlID = oSrc.id.replace("_val", "_txt");
+                                            var length = document.getElementById(ControlID).value.length;
+
+                                            var controlID2 = ControlID.split("_txt");
+                                            var controlPrefix = controlID2[0];
+
+                                            var ccField = document.getElementById(controlPrefix + "_cboCreditCardType")
+
+                                            if (ccField.options[ccField.selectedIndex].value == "Visa") {
+                                                if (length == 16) {
+                                                    args.IsValid = true;
+                                                }
+                                            }
+                                            else if (ccField.options[ccField.selectedIndex].value == "MasterCard") {
+                                                if (length == 16) {
+                                                    args.IsValid = true;
+                                                }
+                                            }
+                                            else if (ccField.options[ccField.selectedIndex].value == "Amex") {
+                                                if (length == 15) {
+                                                    args.IsValid = true;
+                                                }
+                                            }
+                                        }
+
+                                        function ValidateAgreement(oSrc, args) {
+
+                                            args.IsValid = false;
+
+                                            var chk = document.getElementById(oSrc.id.replace("_val", "_cb"));
+                                            var chkn = 0;
+
+                                            if (chk.checked == true) {
+                                                chk.style.outline = '';
+                                                chkn++;
+                                            }
+                                            else {
+                                                chk.style.outline = '1px solid red';
+                                            }
+
+                                            if (chkn > 0) {
+                                                args.IsValid = true;
+                                            }
+                                        }
+
+                                        function ValidateForm(group) {
+
+                                            return Page_ClientValidate(group);
+
+                                        }
+                                    </script>
+                                    <br />
+                                    <div class="text-grey" style="margin-left:20px;position:relative;text-align:left;">
+                                        <!--TBD:Spinner-->
+                                        @* <div class="search-results-overlay">
+                                    <div class="search-results-overlay-spinner">
+                                    <i class="far fa-circle-notch fa-5x fa-spin"></i>
+                                    </div>
+                                    </div> *@
+                                        <label ID="_lblMsg"> </label>
+                                        <div class="portalheader" style="font-size:1.4em;border:0px;color:#1b59a6">Your Purchased Lists</div>
+                                        <div class="clear"></div>
+                                        <div id="_pnlAttendeeLists_Purchased" class="column"></div>
+                                        <div class="clear"></div>
+                                        <br />
+                                        <div class="portalheader" style="font-size:1.4em;border-bottom:0px;margin-top:10px;width:90%;color:#1b59a6">Purchase A List</div>
+                                        <div class="clear"></div>
+                                        <div id="_pnlPurchaseListInStore" class="col-xs-12">
+                                        </div>
+
+                                        <div id="_pnlPurchaseForm">
+                                            <div class="portalheader" style="font-size:1.4em;border-bottom:0px;border-top:1px solid #ccc; margin-top:10px;width:90%;color:#1b59a6">Purchase <asp:Label ID="_lblPurchaseTitle" runat="server">A</asp:Label> List</div>
+                                            <div class="clear"></div>
+                                            <div id="_pnlPurchaseMade">
+                                                <div style="font-size:1.4em;color:var(--color-dark-pastel-green);text-indent:-30px;padding-left:30px;">
+                                                    <span><i class='far fa-check' style='margin-right:5px;'></i></span>Your order has been placed.<br /><br />
+                                                    <label ID="_lblPurchaseMade"></label>
+                                                </div>
+                                            </div>
+                                            <div id="_pnlPurchaseError">
+                                                <div><img src="/NACSShow/media/Images/icon_info_yellow.png" align="absmiddle" style="margin-right:10px;width:40px;" /><span style="font-size:1.4em;color:red">Error</span>:<asp:Label ID="_lblPurchaseError" runat="server" class="errormsg"></asp:Label></div>
+                                                <div style="display:none;">
+                                                    <label ID="litError2"></label>/>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <asp:RadioButtonList ID="_radProducts" runat="server" class="radio-list-table"></asp:RadioButtonList>
+
+                                            <input type="hidden" id="_hdnPersonID" />
+                                            <input type="hidden" id="_hdnMYSID" />
+                                            <input type="button" id="_btnPurchaseList" value="Purchase" class="link link--pill text--white fill--gradient-pacific-blue-to-bondi-blue" onclick="ToggleButtonDisable(this)" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

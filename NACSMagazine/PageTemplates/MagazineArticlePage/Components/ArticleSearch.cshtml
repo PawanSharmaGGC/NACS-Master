@@ -1,0 +1,66 @@
+﻿@using CMS.ContentEngine
+@using Kentico.Content.Web.Mvc
+@using Microsoft.AspNetCore.Mvc.Localization
+@using NACSMagazine.PageTemplates.MagazineArticlePage;
+@using NACSMagazine.Rendering
+@using NACSMagazine.Resources
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@inject IHtmlLocalizer<SharedResources> HtmlLocalizer;
+@inject NACSMagazine.Rendering.ViewService View
+
+@model ArticleListWidgetViewModel
+
+<style>
+    .predictiveSearchResults {
+        position: absolute;
+        z-index: 999999;
+        background-color: hsl(0, 100%, 100%);
+        width: 100%;
+        border: 1px solid hsl(0, 1%, 60%);
+    }
+
+    .predictiveSearchHolder {
+        position: relative;
+    }
+
+    .predictiveSearchCategory {
+        background: hsl(47, 100%, 89%);
+    }
+
+    .predictiveSearchResults .selectedResult {
+        text-decoration: underline;
+    }
+
+    .predictiveSearchResults a {
+        text-decoration: none;
+    }
+
+    .predictiveSearchResults > * {
+        color: black;
+        padding: 3px 4px;
+    }
+
+    .form-control {
+        background-color: #f4f4f4;
+        display:unset !important;
+        width:unset !important;
+    }
+
+    .btn.my-2.my-sm-0.btn-default {
+        background: url(~/_content/NACSMagazine/img/icon/icon-search.png) no-repeat;
+        text-indent: -9999px;
+        overflow: hidden;
+        position: relative;
+        height: 20px;
+        margin: 10px;
+    }
+</style>
+    <form method="get" id="articleSearchForm" action="/Search-Results">
+        <input asp-for="@Model.Query" type="text" class="form-control font-g-14-book"
+                placeholder="Search the Magazine" aria-label="Search"
+                aria-describedby="submitSearch">
+        <button class="btn my-2 my-sm-0 btn-default" type="submit" id="submitSearch" />
+    </form>
+
+    

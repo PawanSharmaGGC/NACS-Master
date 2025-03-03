@@ -1,0 +1,23 @@
+.main_card_body{
+    background-color: #DBEAB9;
+    border-radius: 18px
+}
+
+.subscribe_input_grp{
+    border: 2px #0053A5 solid;
+    border-radius: 7px
+}
+
+.subscribe_input_txt{
+    background-color: #0053A5;
+    color: white 
+}
+
+.input_elem::placeholder{
+    color: black !important;
+    font-weight: 400 !important;
+}
+
+.input_elem:focus {
+    box-shadow: none !important;
+}

@@ -1,0 +1,26 @@
+.section_card {
+    border: none !important;
+    overflow: hidden;
+}
+
+.section_body_card{
+    flex-direction: row;
+}
+
+.section_body_card_brdr{
+    border-right: 1px solid lightgray;
+}
+
+@media only screen and (max-width: 480px) {
+    .section_card {
+        width: 93vw;
+    }
+    .section_body_card{
+        flex-direction: column;
+    }
+
+    .section_body_card_brdr{
+        border-bottom: 1px solid lightgray;
+        border-right: none;
+    }
+}

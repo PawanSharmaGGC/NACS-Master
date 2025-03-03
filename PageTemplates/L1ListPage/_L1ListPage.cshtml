@@ -1,0 +1,55 @@
+﻿@using Kentico.Content.Web.Mvc.PageBuilder
+@using Convenience.org
+@{
+	Layout = "~/Features/Shared/Convenience/_Layout.cshtml";
+}
+
+@model TemplateViewModel
+
+@{
+	var isPreviewModel = Context.Kentico().PageBuilder().EditMode;
+	var sectionRestriction = new EditableAreaOptions
+			{
+				AllowedWidgets = AllowedComponents.ALL,
+				DefaultSectionIdentifier = "Convenience.Section.TwoColumnSection",
+			};
+}
+
+@section GoogleAdsBeforeHeader {
+	<div>
+		@await Html.Kentico().EditableAreaAsync("WidgetAreaBeforeHeader")
+	</div>
+}
+
+
+<div class="row">
+	@await Component.InvokeAsync("Breadcrumb")
+</div>
+
+<div class="row">
+	@await Html.Kentico().EditableAreaAsync("HeroWidgetArea")
+</div>
+
+<div class="row">
+	@await Html.Kentico().EditableAreaAsync("WidgetArea1")
+</div>
+
+<div class="row">
+	@await Html.Kentico().EditableAreaAsync("WidgetArea2")
+</div>
+
+<div class="row">
+	@await Html.Kentico().EditableAreaAsync("WidgetArea3")
+</div>
+
+<div class="row">
+	@await Html.Kentico().EditableAreaAsync("WidgetArea4")
+</div>
+
+<div class="row">
+	@await Html.Kentico().EditableAreaAsync("WidgetArea5")
+</div>
+
+<div class="row">
+	@await Html.Kentico().EditableAreaAsync("LastWidgetArea")
+</div>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.issue>
+  <ContentItemDataCommonDataID>
+    <GUID>58322dcf-c5bd-4a8c-86d4-9ee178701eb0</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>May2023-04g080ot</CodeName>
+      <GUID>626a8b1a-469b-4893-b144-bf1d73d10785</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>ce1cb217-2e6c-4a76-aeb3-7504b2d0df67</ContentItemDataGUID>
+  <IssueDate>2023-05-01 04:00:00Z</IssueDate>
+  <MagazineCover>
+    <![CDATA[{"Identifier":"0525c41f-d582-4bf4-a066-29143534c57b","Name":"JUL24_Cover.png","Extension":".png","Size":2150350,"LastModified":"2024-07-09T20:14:53.8129474Z"}]]>
+  </MagazineCover>
+  <Title>May 2023</Title>
+</contentitemdata.nacsmagazine.issue>

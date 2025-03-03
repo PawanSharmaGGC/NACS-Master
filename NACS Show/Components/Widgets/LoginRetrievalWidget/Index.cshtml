@@ -1,0 +1,123 @@
+﻿    <!--Javascript fix for AJAX in SharePoint-->
+<!--<script type="text/javascript">
+    _spOriginalFormAction = document.forms[0].action;
+    _spSuppressFormOnSubmitWrapper = true;
+</script>-->
+<!--/Javascript fix for AJAX in SharePoint-->
+@using Kentico.Web.Mvc
+@using Kentico.PageBuilder.Web.Mvc
+@using NACSShow.Components.Widgets.LoginRetrievalWidget
+
+@model LoginRetrievalWidgetViewModel
+
+
+<div class="row left">
+
+    <!--<asp:Panel ID="_pnlRetrieveLoginForm" runat="server" DefaultButton="_btnSubmit" CssClass="col-xs col-md-6 left">-->
+    @if(!Model.IsPostback)
+    {
+        <p class="section--subtitle-text bold left">Find Yourself</p>
+
+            <form id="loginRetrievalForm" action="/LoginRetrievalFormPost/Index" method="post" id="_frmRetrieveLogin" class="col-xs col-md-6 left">
+                <label ID="errorMessage" class="error-msg">@Html.Raw(Model.ErrorMsg)</label>
+
+                <label for="confirmationNumber">Confirmation&nbsp;ID&nbsp;#: (found on your confirmation or badge)</label>
+                <br />
+                <input type="text" name="ConfirmationNumber" asp-for="ConfirmationNumber" id="confirmationNumber" class="textInput" />
+                <span id="confirmationNumberError" class="error-msg"></span>
+
+                <label for="lastName">Last Name:</label>
+                <br />
+                <input type="text" name="LastName" asp-for="LastName" id="lastName" class="textInput" />
+                <span id="lastNameError" class="error-msg"></span>
+
+                <button id="btnSubmit" name="btnSubmit" class="link link--pill text--white fill--gradient-pacific-blue-to-bondi-blue">Find Your Login</button>
+                @Html.Kentico().PageData()
+            </form>
+        
+    }
+    <!--<div id="_divStatus" runat="server"></div>-->
+    <!--<fieldset ID="_pnlLogin" runat="server">
+    </fieldset>-->
+    <!--</asp:Panel>-->
+    @* @if(Model.IsPostback)
+    {
+        <div id="result"></div>
+        <asp:Panel id="_pnlLoginFound" runat="server" CssClass="col-xs col-md-6 left" Visible="false">
+            <p class="section--subtitle-text bold left" style="color:var(--color-dark-pastel-green)"><i class="fa fa-check-circle fa-pull-left"></i>Login Found!</p>
+            <p>Username: <label id="username"></label></p>
+            <p>Password: <em style="color: transparent;text-shadow: 0 0 5px rgba(0,0,0,0.5);">hidden</em> (<a href="@Model.PasswordResetUrl" id="passwordReset">Reset now</a>)</p>
+            <em>Clicking 'Reset Now' will send an e-mail verification to the address we have on file for you. Please check your email account for an email from webmaster@convenience.org to continue.</em>
+        </asp:Panel>
+    
+        <asp:UpdateProgress AssociatedUpdatePanelID="_updPanelMain" ID="_updProgressMain" runat="server">
+            <div class="progress-overlay">
+                <div class="progress-overlay-spinner">
+                    <i class="fa fa-circle-notch fa-5x fa-spin"></i>
+                </div>
+            </div>
+        </asp:UpdateProgress>
+    } *@
+</div>
+@* <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> *@
+<script>
+    // Function to validate the form on button click
+    function validateForm() {
+        var confirmationNumber = document.getElementById("confirmationNumber").value;
+        var lastName = document.getElementById("lastName").value;
+        var confirmationNumberError = document.getElementById("confirmationNumberError");
+        var lastNameError = document.getElementById("lastNameError");
+        var isValid = true;
+
+        // Validate Confirmation Number
+        if (confirmationNumber.trim() === "") {
+            confirmationNumberError.innerHTML = "<i class='fa fa-info-circle'></i>&nbsp;Please enter a valid Account ID.";
+            isValid = false;
+        } else if (!/^\d+$/.test(confirmationNumber)) {
+            confirmationNumberError.innerHTML = "<i class='fa fa-info-circle'></i>&nbsp;Please enter a number only. If you are Booth Personnel (helping in an exhibitor booth at the Show), a login has not been created for you.<br /><a href='http://www.convenience.org/Create-Login'>Create Login Here</a>";
+            isValid = false;
+        }
+        else {
+            confirmationNumberError.innerHTML = "";
+        }
+
+        // Validate Last Name
+        if (lastName.trim() === "") {
+            lastNameError.innerHTML = "Please enter your Last Name.";
+            isValid = false;
+        } else {
+            lastNameError.innerHTML = "";
+        }
+
+        return isValid;
+    }
+
+    // Attach event listener to the button click event
+    document.getElementById("btnSubmit").addEventListener("click", function (event) {
+        if (!validateForm()) {
+            event.preventDefault(); // Prevent form submission if validation fails
+        }
+    });
+</script>
+
+   <script>
+       $(document).ready(function () {
+           $('#loginRetrievalForm').submit(function (event) {
+               event.preventDefault(); // Prevent the default form submission
+
+               $.ajax({
+                   type: 'POST',
+                   url: $(this).attr('action'),
+                   data: $(this).serialize(),
+                   success: function (response) {
+                       // Handle the response here
+                       $('#result').html(response);
+                   },
+                   error: function (error) {
+                       // Handle errors here
+                       //console.error('Error:', error);
+                   }
+               });
+           });
+       });
+   </script>

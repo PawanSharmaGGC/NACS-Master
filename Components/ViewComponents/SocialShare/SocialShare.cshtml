@@ -1,0 +1,25 @@
+﻿@using Convenience.org.Models
+@model Convenience.org.Models.SocialShareViewModel
+
+@if (Model != null)
+{
+    <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="mt-5">
+            <div>
+                <p class="color-0053A5 text-start text-uppercase">Share</p>
+                
+                <div class="d-flex justify-content-between ShareIconStyle-module__icon_list">
+                        <i class="fa-brands fa-linkedin-in cursor-pointer" onclick="window.open('@Model.LinkedinUrl', '_blank')"></i>
+                        <i class="fa-brands fa-x-twitter cursor-pointer" onclick="window.open('@Model.TwitterUrl', '_blank')"></i>
+                        <i class="fa-brands fa-facebook-f cursor-pointer" onclick="window.open('@Model.FacebookUrl', '_blank')"></i>
+                        <i class="fa-brands fa-instagram cursor-pointer" onclick="window.open('@Model.InstagramUrl', '_blank')"></i>
+                        <i class="fa-solid fa-envelope cursor-pointer" onclick="window.open('@Model.MailUrl', '_blank')"></i>
+                        <i class="fa-solid fa-link-simple cursor-pointer" onclick="window.open('@Model.LinkUrl', '_blank')"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+}
+

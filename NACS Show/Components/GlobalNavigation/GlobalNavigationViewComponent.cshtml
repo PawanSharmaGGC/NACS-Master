@@ -1,0 +1,103 @@
+﻿<p>Global Nav:</p>
+
+<asp:Repeater runat="server" ID="rptNavigation" OnItemDataBound="rptNavigation_ItemDataBound">
+    <HeaderTemplate><ul class="root static global desktopNav"></HeaderTemplate>
+    <ItemTemplate>
+        <li class="static top-level<%# Eval(" Class") %>
+            ">
+            <asp:HyperLink runat="server" ID="hypNavItem" Text='<%# Eval("Title") %>' NavigateUrl='<%# Eval("URL") %>' CssClass='static menu-item' />
+
+            <div class="row inner-contents container">
+                <ul class="col-12 col-sm-4 static sub" runat="server" id="ulSecondLevel">
+                    <asp:Repeater runat="server" ID="rptSubNavigation">
+                        <ItemTemplate>
+                            <li class="static<%# Eval(" Class") %>
+                                ">
+                                <asp:HyperLink runat="server" ID="hypNavItem" Text='<%# Eval("Title") %>' NavigateUrl='<%# Eval("URL") %>' CssClass='static menu-item' />
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </ul>
+                <asp:Repeater runat="server" ID="rptSubNavigationThird" OnItemDataBound="rptSubNavigationThird_ItemDataBound">
+                    <ItemTemplate>
+                        <ul class="col-12 col-sm-4 static third-level<%# Eval(" Class") %>
+                            ">
+                            <asp:Repeater runat="server" ID="rptThirdLevelNavigation">
+                                <ItemTemplate>
+                                    <li class="static<%# Eval(" Class") %>
+                                        ">
+                                        <asp:HyperLink runat="server" ID="hypNavItem" Text='<%# Eval("Title") %>' NavigateUrl='<%# Eval("URL") %>' CssClass='static menu-item' />
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <asp:Repeater runat="server" ID="rptFeaturedThirdLevelNavigation">
+                                <ItemTemplate>
+                                    <li class="static<%# Eval(" Class") %>
+                                        feature">
+                                        <div class="desc"><%# Eval("Description") %></div>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ul>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <asp:Repeater runat="server" ID="rptFeaturedNavigation">
+                    <HeaderTemplate><ul class="col-12 col-sm-4 static featured"></HeaderTemplate>
+                    <ItemTemplate>
+                        <li class="static<%# Eval(" Class") %>
+                            feature">
+                            <div class="desc"><%# Eval("Description") %></div>
+                        </li>
+                    </ItemTemplate>
+                    <FooterTemplate></ul></FooterTemplate>
+                </asp:Repeater>
+            </div>
+        </li>
+    </ItemTemplate>
+    <FooterTemplate></ul></FooterTemplate>
+</asp:Repeater>
+
+<asp:Repeater runat="server" ID="rptNavigationMobile" OnItemDataBound="rptNavigationMobile_ItemDataBound">
+    <HeaderTemplate><ul class="root static global mobileNav"></HeaderTemplate>
+    <ItemTemplate>
+        <li class="static top-level<%# Eval(" Class") %>
+            ">
+            <asp:HyperLink runat="server" ID="hypNavItem" Text='<%# Eval("Title") %>' NavigateUrl='<%# Eval("URL") %>' CssClass='static menu-item' />
+
+            <div class="row inner-contents container">
+                <asp:Repeater runat="server" ID="rptSubNavigation" OnItemDataBound="rptSubNavigationMobile_ItemDataBound">
+                    <HeaderTemplate><ul class="col-12 col-sm-6 static sub"></HeaderTemplate>
+                    <ItemTemplate>
+                        <li class="static<%# Eval(" Class") %>
+                            ">
+                            <asp:HyperLink runat="server" ID="hypNavItem" Text='<%# Eval("Title") %>' NavigateUrl='<%# Eval("URL") %>' CssClass='static menu-item' />
+                            <ul class="col-12 static third-level<%# Eval(" Class") %>
+                                ">
+                                <asp:Repeater runat="server" ID="rptThirdLevelNavigation">
+                                    <ItemTemplate>
+                                        <li class="static<%# Eval(" Class") %>
+                                            ">
+                                            <asp:HyperLink runat="server" ID="hypNavItem" Text='<%# Eval("Title") %>' NavigateUrl='<%# Eval("URL") %>' CssClass='static menu-item' />
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </ul>
+                        </li>
+                    </ItemTemplate>
+                    <FooterTemplate></ul></FooterTemplate>
+                </asp:Repeater>
+                <asp:Repeater runat="server" ID="rptFeaturedNavigation">
+                    <HeaderTemplate><ul class="col-12 col-sm-6 static featured"></HeaderTemplate>
+                    <ItemTemplate>
+                        <li class="static<%# Eval(" Class") %>
+                            feature">
+                            <div class="desc"><%# Eval("Description") %></div>
+                        </li>
+                    </ItemTemplate>
+                    <FooterTemplate></ul></FooterTemplate>
+                </asp:Repeater>
+            </div>
+        </li>
+    </ItemTemplate>
+    <FooterTemplate></ul></FooterTemplate>
+</asp:Repeater>

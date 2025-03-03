@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<media.file>
+  <FileCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </FileCreatedByUserID>
+  <FileCreatedWhen>2024-08-05 20:15:12Z</FileCreatedWhen>
+  <FileDescription />
+  <FileExtension>.png</FileExtension>
+  <FileGUID>48e0ffd2-945d-4043-9587-49a2e5f2120f</FileGUID>
+  <FileImageHeight>330</FileImageHeight>
+  <FileImageWidth>750</FileImageWidth>
+  <FileLibraryID>
+    <CodeName>NACSMagazine</CodeName>
+    <GUID>0f56ef68-0033-461f-9096-5f90c3a29b74</GUID>
+    <ObjectType>media.library</ObjectType>
+  </FileLibraryID>
+  <FileMimeType>image/png</FileMimeType>
+  <FileModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </FileModifiedByUserID>
+  <FileName>JUN24_CC_Rollup</FileName>
+  <FilePath>JUN24_CC_Rollup.png</FilePath>
+  <FileSize>414495</FileSize>
+  <FileTitle />
+</media.file>

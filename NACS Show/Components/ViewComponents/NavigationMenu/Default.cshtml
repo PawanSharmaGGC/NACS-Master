@@ -1,0 +1,51 @@
+﻿@using NACSShow.Models
+
+@model IEnumerable<NavigationMenu>
+
+<ul class="menu">
+    @foreach (var menuItem in Model)
+    {
+        var caretColor = string.Empty;
+        switch (menuItem?.Menu?.MenuName?.ToLower().Trim())
+        {
+            case "show info":
+                caretColor = "text--pacific-blue";
+                break;
+            case "for exhibitors":
+                caretColor = "text--dark-pastel-green";
+                break;
+            default:
+                break;
+        }
+            
+        <li class="menu__item menu--@menuItem?.Menu?.MenuName" tabindex="0">
+            <span class="menu__heading">
+                <a href="@menuItem?.Menu.MenuURL" title="@menuItem?.Menu.MenuName">@menuItem?.Menu.MenuName</a>
+                @if (menuItem?.SubMenu.Count() > 0)
+                {
+                    <span class="icon icon--svg @(caretColor)">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                         width="12.649"
+                         height="7.811"
+                         viewBox="0 0 12.649 7.811">
+                        <path id="arrow"
+                              d="M12.324,8,6,14.324l1.486,1.486,4.838-4.828,4.838,4.828,1.486-1.486Z"
+                              transform="translate(18.649 15.811) rotate(180)" />
+                        </svg>
+                    </span>
+                }
+            </span>
+            @if (menuItem?.SubMenu.Count() > 0)
+            {
+                <ul class="menu menu--sub">
+                    @foreach (var submenuItem in menuItem.SubMenu)
+                    {
+                        <li class="menu__item">
+                            <a class="link" href="@submenuItem.MenuURL" title="@submenuItem.MenuName">@submenuItem.MenuName</a>
+                        </li>
+                    }
+                </ul>
+            }
+        </li>
+    }
+</ul>

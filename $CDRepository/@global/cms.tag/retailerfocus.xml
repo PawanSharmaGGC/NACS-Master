@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagGUID>c0c98e19-0c1f-400f-af78-717c79aa9a6f</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{}}]]>
+  </TagMetadata>
+  <TagName>RetailerFocus</TagName>
+  <TagOrder>1</TagOrder>
+  <TagTaxonomyID>
+    <CodeName>Categories</CodeName>
+    <GUID>bafcd699-6640-40b9-9082-ae3839c7c547</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>Retailer Focus</TagTitle>
+</cms.tag>

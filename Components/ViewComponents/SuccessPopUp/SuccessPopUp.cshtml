@@ -1,0 +1,41 @@
+﻿@using Convenience.org.Models
+@model Convenience.org.Models.SuccessPopUpViewModel
+
+@if (Model != null)
+{
+<div class="container mt-5">
+    <form id="form">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="position-fixed top-0 end-0 p-3 z-1" id="toastContainer">
+      <div class="toast bg-DBEAB9 text-light" id="successToast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body p-3">
+          <p class="color-0053A5 fs-5 text-start m-0 mb-2">@Model.Title</p>
+          <p class="color-000000 text-start m-0">
+            @Model.Description
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const form = document.getElementById("form");
+          const toastContainer = document.getElementById("toastContainer");
+          const successToast = new bootstrap.Toast(document.getElementById("successToast"));
+
+          form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            // Show the toast
+            successToast.show();
+
+            // Hide the toast after 5 seconds
+            setTimeout(() => {
+              successToast.hide();
+            }, 5000);
+          });
+        });
+    </script>
+}

@@ -1,0 +1,55 @@
+﻿@model Convenience.org.Components.Widgets.Tier3Hero.Tier3HeroWidgetViewModel
+
+@if (Model != null)
+{
+	<div>
+		<div class="p-3 Tier3HeroStyle-module__main_card card">
+			<div>
+				<div>
+					<div class="text-start mb-4 border_left_green EyebrowTitleStyle-module__eyebrow">
+						<span class="ps-4 text-uppercase font-monospace text-primary">
+							@Model.EyebrowTitle
+						</span>
+					</div>
+				</div>
+				<div class="">
+					<div class="position-relative">
+						<img src="@Model.ImageUrl" alt="@Model.ImageAltText" class="img-fluid Tier3HeroStyle-module__img_highway_interchange">
+						<div class="text-start position-absolute fw-bolder Tier3HeroStyle-module__overlay_txt_img_pos">
+							<span class="Tier3HeroStyle-module__overlay_txt_img">
+								@Model.Title
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="pt-5">
+					<div>
+						<div class="text-start color-262d61">
+							<p class="m-0 fs-5">
+								<span>
+									@Model.Date
+								</span>
+								@if (!string.IsNullOrEmpty(Model.LocationOrWatchTime))
+								{
+									<span class="color-62BD19 ps-3 pe-3 fs-3">|</span>
+									<span class="text-body-tertiary"> @Model.LocationOrWatchTime</span>
+								}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			@if (!string.IsNullOrEmpty(Model.CTAText) && !string.IsNullOrEmpty(Model.CTALink))
+			{
+				<div class="mt-5">
+					<a href="@Model.CTALink" class="fs-5 color-DC241F text-decoration-none">
+						<span class="d-inline-block pe-1">@Model.CTAText</span>
+						<span class="align-middle">
+							<i class="fa-regular fa-arrow-right color-DC241F" aria-hidden="true"></i>
+						</span>
+					</a>
+				</div>
+			}
+		</div>
+	</div>
+}

@@ -1,0 +1,322 @@
+﻿@* @model IEnumerable<Convenience.org.Components.Widgets.AlumniDirectory.AlumniMember>
+
+<style>
+    .alumni-header {
+        text-align: center;
+        margin: 20px 0;
+        font-size: 18px;
+        font-weight: bold;
+        color: #343a40;
+    }
+
+    .alumni-cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 20px;
+        background-color: #f8f9fa;
+    }
+
+    .alumni-card {
+        width: 250px;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .alumni-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+    .card-image img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .placeholder-image {
+        width: 100%;
+        height: 150px;
+        background-color: #e9ecef;
+        color: #6c757d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #343a40;
+        margin-bottom: 8px;
+    }
+
+    .card-location {
+        font-size: 14px;
+        color: #6c757d;
+    }
+</style>
+
+<div class="alumni-header">
+    @if (!Model.Any())
+    {
+        <p>No alumni members found.</p>
+    }
+    else
+    {
+        <p>Showing @Model.Count() alumni</p>
+    }
+</div>
+
+<div class="alumni-cards-container">
+    @if (Model.Any())
+    {
+        @foreach (var member in Model)
+        {
+            <div class="alumni-card">
+                <div class="card-image">
+                    @if (!string.IsNullOrEmpty(member.ProfileImage))
+                    {
+                        <img src="https://nacsstagednn1.pcbscloud.com/Portals/0/assets/images/contact/@member.ProfileImage" alt="Profile Picture" />
+                    }
+                    else
+                    {
+                        <div class="placeholder-image">No Image</div>
+                    }
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">@member.LastName, @member.FirstName</h3>
+                    <i class="card-location">@member.Title</i>
+                    <p>@member.Company</p>
+                    <p class="card-location">
+                        @(
+                            string.Join(", ",
+                            new[] { @member.City, @member.StateOrProvince, @member.Location }
+                            .Where(part => !string.IsNullOrWhiteSpace(part))
+                            )
+                            )
+                    </p>
+                    @if (!string.IsNullOrEmpty(member.Email))
+                    {
+                        <p>@member.Email</p>
+                    }
+                    <p class="card-location">@member.LinkedInURL</p>
+                </div>
+            </div>
+        }
+    }
+</div>
+ *@
+
+ @model IEnumerable<Convenience.org.Components.Widgets.AlumniDirectory.AlumniMember>
+
+<style>
+    .alumni-header {
+        text-align: center;
+        margin: 20px 0;
+        font-size: 18px;
+        font-weight: bold;
+        color: #343a40;
+    }
+
+    .alumni-cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 20px;
+        background-color: #f8f9fa;
+    }
+
+    .alumni-card {
+        width: 250px;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .alumni-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+    .card-image img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .placeholder-image {
+        width: 100%;
+        height: 150px;
+        background-color: #e9ecef;
+        color: #6c757d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #343a40;
+        margin-bottom: 8px;
+    }
+
+    .card-location {
+        font-size: 14px;
+        color: #6c757d;
+    }
+
+</style>
+
+<div class="alumni-header">
+    @if (!Model.Any())
+    {
+        <p>No alumni members found.</p>
+    }
+    else
+    {
+        <p>Showing @Model.Count() alumni</p>
+    }
+</div>
+<div style="text-align: center; margin: 20px;">
+    <input type="text"
+           id="searchBox"
+           placeholder="Search members by name..."
+           style="width: 300px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" />
+</div>
+<div id="membersContainer" class="alumni-cards-container"></div>
+<div id="loadingSpinner" style="display: none; text-align: center; margin: 20px;">
+    <p>Loading...</p>
+</div>
+
+<button id="backToTop" style="display:none;position:fixed;bottom:20px;right:20px;padding:10px 15px;">Back to Top</button>
+
+
+<script>
+    const searchBox = document.getElementById('searchBox');
+    const membersContainer = document.getElementById('membersContainer');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const backToTopButton = document.getElementById('backToTop');
+
+    let isLoading = false;
+    let currentPage = 1;
+    let searchQuery = "";
+
+    async function loadMembers(reset = false) {
+        if (isLoading) return; 
+
+        isLoading = true;
+        loadingSpinner.style.display = 'block';
+
+        try {
+            if (reset) {
+                membersContainer.innerHTML = ""; 
+                currentPage = 1; 
+            }
+
+            const response = await fetch(`/AlumniDirectory/GetMembers?page=${currentPage}&pageSize=50&searchTerm=${encodeURIComponent(searchQuery)}`);
+            const data = await response.json();
+
+            if (data.members && Array.isArray(data.members) && data.members.length > 0) {
+                data.members.forEach(member => {
+                    const memberCard = createMemberCard(member);
+                    membersContainer.insertAdjacentHTML('beforeend', memberCard);
+                });
+                currentPage++; 
+            } else if (reset) {
+                membersContainer.innerHTML = "<p style='text-align:center;'>No members found.</p>";
+            } else {
+                window.removeEventListener('scroll', handleScroll);
+            }
+        } catch (error) {
+            console.error('Error loading members:', error);
+        } finally {
+            isLoading = false;
+            loadingSpinner.style.display = 'none';
+        }
+    }
+
+    function handleScroll() {
+        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+        if (!isLoading && scrollHeight - scrollTop - clientHeight < 300) {
+            loadMembers(); 
+        }
+    }
+
+    let debounceTimer;
+    searchBox.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+            searchQuery = searchBox.value.trim(); 
+            loadMembers(true); 
+        }, 300); 
+    });
+
+    function createMemberCard(member) {
+        const profileImage = member.profileImage
+            ? `<img src="https://nacsstagednn1.pcbscloud.com/Portals/0/assets/images/contact/${member.profileImage}" alt="Profile Picture" />`
+            : `<div class="placeholder-image">No Image</div>`;
+
+        const location = [member.city, member.stateOrProvince, member.location]
+            .filter(part => part) 
+            .join(", "); 
+
+        return `
+            <div class="alumni-card">
+                <div class="card-image">${profileImage}</div>
+                <div class="card-content">
+                    <h3 class="card-title">${member.lastName}, ${member.firstName}</h3>
+                    <i class="card-location">${member.title || ""}</i>
+                    <p>${member.company || ""}</p>
+                    <p class="card-location">${location}</p>
+                    ${member.email ? `<p>${member.email}</p>` : ""}
+                    ${member.linkedInURL ? `<p class="card-location">${member.linkedInURL}</p>` : ""}
+                </div>
+            </div>
+        `;
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    loadMembers();
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.style.display = 'block';
+        } else {
+            backToTopButton.style.display = 'none';
+        }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+</script>

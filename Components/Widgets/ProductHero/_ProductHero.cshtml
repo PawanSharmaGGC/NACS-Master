@@ -1,0 +1,175 @@
+﻿@model Convenience.org.Components.Widgets.ProductHero.ProductHeroWidgetViewModel 
+
+@if (Model.ProductDetail != null) 
+{
+     var item = Model.ProductDetail;
+
+    <link href="~/css/custom-slick-carousel.css" rel="stylesheet" /> 
+
+    <div>
+        <div class="position-relative card">
+            <img src="/static/media/Clip path group.0252d1b32f2be88e2063.png" width="500" alt="Clip Image" class="z-1 position-absolute top-0 end-0 d-none d-lg-block">
+            <div class="border-0 p-3 card">
+                <div class="p-0 pe-3 border-0 card-body">
+                    @* @Component.InvokeAsync("Breadcrumb") *@
+                    <div>
+                        <div class="text-start mb-4 border_left_green EyebrowTitleStyle-module__eyebrow">
+                            <span class="ps-4 text-uppercase font-monospace text-primary">
+						        @item.PublicStatus
+						    </span>
+                        </div>
+                    </div>
+                    <div class="d-flex mt-5 mb-4">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAoCAYAAAB5ADPdAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANSSURBVHgBzVhdUhpBEO5uKWKqUql9SiAv4QaYG0DUVOUpeAJWLwCcQDiB+G7JmgvoWypFLOAE4gmCD0beQqpSGlMynZ7hJ0gWmAVc81UBy27v7Lc9M939NcKccD/FEhDBDCEnGXANkB0ETAyuM3BLvlpydM4Km9CFuve+3bIZGyEA3GPHgeerOWRIIWIKAoKZ66zgyHvX9mBRUkMyQHkEdmBBMECLu1yaRG4mKbcaSyFhRQwTsGQYcr85PT6tNO0m9zS2S4S1hyCkocelKH51qy/zY+cnEYrvCeM8hAQFXPTW2yV9vAL/ASEN2bmpZPYZND/+bOC/hGTKAIvwSFBKFe6tKffzi8xjEtIgWnGGntLBEKMLLeoL+bSG/xCTEpjswwdiBxgLh+uXXmR4Moq5wIRQSDAeKboue+lOZ/yyW5MXVSt5RPVB9n9iykgNhcr13vZCg/GU9pLemhCMUWkSGV9yXUMu53NZvHNVHj1hPCWEcmDNBTvUVVsHm1d121u8tPFAfuc0rn/3euNASyFteenL5ri9WegSWTNgCVR32web7TrMgb5HCvK8fYU3b/wImWfoNKKjttWoMmWH69+K8MCIkC47bGDcfV2GEECMkLKyZKzbLOplQNYUvrYyVOoIQgIh2sWmeRf3PBBPWUXdUKZtALK0C5sU2jww4dachctgW5AkzR9WlnerdqFjCSCJrk0rQ7AMHUuAyDaoW1rmwppCktrYylMCh9STXQgBpnTZOX313TI0SLkqkmiBmNUrt9lRdFualCGo/6R9sIQk72OdxGEOuNV4vldui6hVT8+M9J9ESkVWy5ahQcPRVYV+Y0t7o7CNQqJ+LQUjms9nnGGNvlONFWUxB1ozA/k9qXlhPBGF7Cy5L0VBk295azDGX+FQSzjEt2czaumpBCXmtYYnkNaC9B1G+wv3dF+wgu+hwN693NfbVViCRwWe+/YStr/EPSlpshA6euW2b5VQ2bhymck6TCyTkD6aWLpUNi7zoUwlmlBUGBUkVk0zWsHKvLtyBhqK2O3rQrAmNYCkoqI0W7NLIWf6BlwaV8aBSWlo+S0ZPKXThGzdJARHQz4nim68acooECk/gsiUYWlX+3RZLnTqQuamXK8r+nViK9H+AK5DYXSgkEZQAAAAAElFTkSuQmCC"
+                        alt="" height="40">
+                        <div>
+                            <p class="fs-3 fw-semibold ps-3 pe-3 text-start color-002569">
+                                @item.ProductName
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            @if (item != null && item.Images !=null && item.Images.Count()>0 ) 
+                            {
+                                var itemCnt = 0; 
+                                
+                                <div class="ProductHeroStyle-module__product_current_image">
+                                    <img src="@item.Images.FirstOrDefault().ImageUrl" alt="@item.Images.FirstOrDefault().ImageAltText">
+                                </div>
+                                <div class="pe-3 mt-4 row">
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+                                        <i class="fa-regular fa-angle-left fa-xl mt-5 pointer color-868F98 prevBtn" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-10 col-10">
+                                        <div class="slick-carousel">
+                                            @foreach (var image in item.Images) 
+                                            {
+                                                <div class="">
+                                                    <div class="ProductHeroStyle-module__product_image">
+                                                        <img src="@image.ImageUrl" alt="@image.ImageAltText">
+                                                    </div>
+                                                </div>
+                                                itemCnt++; 
+                                            } 
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+                                        <i class="fa-regular fa-angle-right fa-xl mt-5 pointer color-868F98 nextBtn" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div>
+                                <p class="text-start fs-5">
+                                    @item.ShortDescription
+                                </p>
+                            </div>
+                            <div>
+                                <select aria-label="Default select example" class="border_blue color-0053A5 fw-semibold form-select">
+                                    <option>Open this select menu</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="text-start mt-4 fs-5">
+                                <p class="p-0">
+                                    <span class="text-secondary pe-1">List Price:</span>
+                                    <span class="color-002569">@item.ListPrice</span>
+                                </p>
+                                <p class="p-0">
+                                    <span class="text-secondary pe-1">Member Price:</span>
+                                    <span class="color-002569">@item.Price</span>
+                                </p>
+                                <p class="p-0">
+                                    <span class="text-secondary pe-1">Additional Licenses-</span>
+                                    <span class="text-secondary">@Model.AdditionalLicenses</span>
+                                </p>
+                            </div>
+                            <div class="d-flex flex-column flex-lg-row mt-4">
+                                @if (!string.IsNullOrEmpty(Model.CTA1Text) && !string.IsNullOrEmpty(Model.CTA1Link))
+                                {
+                                    <div class="float-lg-start me-3">
+                                        <a href="@Model.CTA1Link" class="bg-0053A5 p-3 border border-0 brdr-rad-30 text-decoration-none w-100 d-inline-block">
+                                            <span>
+                                                <i class="align-middle color-FFFFFF undefined undefined "></i>
+                                            </span>
+                                            <span class="color-FFFFFF pe-2 ps-2 fw-medium undefined">
+                                                @Model.CTA1Text
+                                            </span>
+                                            <span>
+											    <i class="align-middle color-FFFFFF fa-regular fa-arrow-right-long " aria-hidden="true"></i>
+										    </span>
+                                        </a>
+                                    </div>
+                                }
+                                @if (!string.IsNullOrEmpty(Model.CTA2Text) && !string.IsNullOrEmpty(Model.CTA2Link))
+                                {
+                                    <div class="float-lg-start">
+                                        <a href="@Model.CTA2Link" class="bg-F5F5F5 p-3 border border-0 brdr-rad-30 text-decoration-none w-100 mt-lg-0 mt-22 d-inline-block">
+                                            <span>
+											    <i class="align-middle color-0053A5 undefined undefined "></i>
+										    </span>
+                                            <span class="color-0053A5 pe-2 ps-2 fw-medium undefined">
+                                                @Model.CTA2Text
+                                            </span>
+                                            <span>
+											    <i class="align-middle color-0053A5 fa-regular fa-arrow-right-long " aria-hidden="true"></i>
+										    </span>
+                                        </a>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- jQuery and Slick Slider JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="/js/custom-slick-carousel.js"></script>
+    <script>
+        InitializeSlidercarousel('.slick-carousel',true);
+
+        
+        $(".prevBtn").click(function (e) {
+            var currentItem = $(e.target.parentNode.parentNode).find(".slick-current")[0];
+            var prevItem = $(currentItem).prev();
+            var prevImg = $(prevItem).find("img")[0];
+            var prevImgSrc = $(prevImg).attr("src")
+            var prevImgAltText = $(prevImg).attr("alt")
+
+            $(".ProductHeroStyle-module__product_current_image img").attr("src", prevImgSrc);
+            $(".ProductHeroStyle-module__product_current_image img").attr("alt", prevImgAltText);
+            
+            if(currentItem){
+                $(currentItem).removeClass("slick-current");
+                $(prevItem).addClass("slick-current");
+            }
+        });
+        $(".nextBtn").click(function (e) {
+            var currentItem = $(e.target.parentNode.parentNode).find(".slick-current")[0];
+            var nextItem = $(currentItem).next();
+            var nextImg = $(nextItem).find("img")[0]
+            var nextImgSrc = $(nextImg).attr("src")
+            var nextImgAltText = $(nextImg).attr("alt")
+
+            $(".ProductHeroStyle-module__product_current_image img").attr("src", nextImgSrc);
+            $(".ProductHeroStyle-module__product_current_image img").attr("alt", nextImgAltText);
+            
+            if(currentItem){
+                $(currentItem).removeClass("slick-current");
+                $(nextItem).addClass("slick-current");
+            }
+        });
+
+    </script>
+
+
+}

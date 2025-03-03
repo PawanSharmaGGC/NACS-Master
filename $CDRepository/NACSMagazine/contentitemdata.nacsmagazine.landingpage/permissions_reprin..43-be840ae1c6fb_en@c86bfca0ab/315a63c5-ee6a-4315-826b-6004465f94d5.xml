@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.landingpage>
+  <ContentItemDataCommonDataID>
+    <GUID>333b9c9b-f467-4df5-be43-be840ae1c6fb</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Permissions_Reprints-m26u9gzl</CodeName>
+      <GUID>f3ecc875-f787-43f8-af26-794b7f75c16f</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>315a63c5-ee6a-4315-826b-6004465f94d5</ContentItemDataGUID>
+  <PageContent>
+    <![CDATA[<p>For reprint requests for magazines, newspapers, books, websites or other inquiries, please contact us at <a href="mailto:nacsmagazine@convenience.org">nacsmagazine@convenience.org</a>.</p>]]>
+  </PageContent>
+  <Title>
+    <![CDATA[Permissions & Reprints]]>
+  </Title>
+</contentitemdata.nacsmagazine.landingpage>

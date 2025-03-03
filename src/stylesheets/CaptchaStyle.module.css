@@ -1,0 +1,31 @@
+.captcha_img{
+    mix-blend-mode: darken;
+    width: 4vw;
+}
+
+.checkbox {
+    width: 32px !important;
+    height: 32px !important;
+    border: lightgray solid 2px !important;
+}
+
+.checkbox .form-check-label{
+    padding: 8px;
+}
+
+.main_div{
+    width: 25vw;
+}
+
+.form_check{
+    transform: translate(5%,5%);
+}
+
+@media only screen and (max-width: 480px) {
+    .main_div{
+        width: 100vw;
+    }
+    .captcha_img{
+        width: 11vw;
+    }
+}

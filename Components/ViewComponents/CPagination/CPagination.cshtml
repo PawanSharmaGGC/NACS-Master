@@ -1,0 +1,108 @@
+﻿@using Convenience.org.Models
+
+@model PaginationViewModel
+
+@{
+    var currentPage = Model.CurrentPage;
+    var previousPage = currentPage - 1;
+    var nextPage = currentPage + 1;
+    var totalPages = Model.TotalPages;
+    var paginationType = Model.PaginationType;
+}
+
+<div class="pagination-container">
+    @if (paginationType == PaginationTypeEnum.Dot)
+    {
+        <!-- Pagination with Dots -->
+        <div class="d-flex @Model.Position justify-content-evenly mt-4 ps-lg-3">
+            <p class="pe-5 pointer @(currentPage == 0 ? "color-868F98" : "color-0053A5")"
+            @(currentPage == 1 ? "" : "onclick=\"changePage(" + (currentPage - 1) + ")\"") >
+                <i class="fa-regular fa-angle-left fa-xl"></i>
+                <span class="ps-1">Prev</span>
+            </p>
+
+            <p class="pe-5">
+                <div class="carousel_dots">
+                    @for (int i = 1; i <= totalPages; i++)
+                    {
+                        <span class="dot @(currentPage == i ? "active_dot" : "")"
+                        @(currentPage == i ? "" : "onclick=\"changePage(" + (i) + ")\"")></span>
+                    }
+                </div>
+            </p>
+            <p class="pointer @(currentPage == totalPages - 1 ? "color-868F98" : "color-0053A5")"
+            @(currentPage == totalPages ? "" : "onclick=\"changePage(" + (currentPage + 1) + ")\"") >
+                <span class="pe-1">Next</span>
+                <i class="fa-regular fa-angle-right fa-xl"></i>
+            </p>
+        </div>
+    }
+    else if (paginationType == PaginationTypeEnum.Number)
+    {
+        <!-- Pagination with Numbers -->
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link page_link_button @((currentPage == 1) ? "disableItem" : "")"
+                       href="javascript:void(0);"
+                    @(currentPage == 1 ? "" : "onclick=\"changePage(" + (currentPage - 1) + ")\"")>
+                        <i class="fa-regular fa-angle-left fa-xl"></i>
+                        <span class="ps-2">Prev</span>
+                    </a>
+                </li>
+
+
+                @{
+                    var ellipsisPageNumber = 1;
+                }
+                @foreach (var pageNumber in Model.PageNumbers.Select((value, index) => (new { value, index })))
+                {
+                    if (pageNumber.index == 0 && pageNumber.value == "...")
+                    {
+                        ellipsisPageNumber = Convert.ToInt32(Model.PageNumbers[pageNumber.index + 1]) - 1;
+                    }
+                    <li class="page-item">
+                        @if (pageNumber.value == "...")  @* This is the ellipsis *@
+                        {
+                            <a class="page-link page_link_button ellipsis @(pageNumber.value == Convert.ToString(currentPage) ? "active_page" : "")"
+                               href="javascript:void(0);" onclick="changePage(@ellipsisPageNumber)">
+                                @pageNumber.value
+                            </a>
+                        }
+                        else
+                        {
+                            <a class="page-link page_link_button @((pageNumber.value == Convert.ToString(currentPage)) ? "active_page" : "") "
+                               href="javascript:void(0);"
+                            @(pageNumber.value == Convert.ToString(currentPage) ? "" : "onclick=\"changePage(" + @pageNumber.value + ")\"")>
+                                @pageNumber.value
+                            </a>
+                            ellipsisPageNumber = Convert.ToInt32(pageNumber.value) + 1;
+                        }
+                    </li>
+                }
+                <li class="page-item">
+                    <a class="page-link page_link_button @((currentPage == totalPages) ? "disableItem" : "")"
+                       href="javascript:void(0);"
+                    @(currentPage == totalPages ? "" : "onclick=\"changePage(" + (currentPage + 1) + ")\"")>
+                        <span class="pe-2">Next</span>
+                        <i class="fa-regular fa-angle-right fa-xl"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+    }
+
+</div>
+
+<script>
+    function changePage(page) {
+        debugger;
+        if (page < 1 || page > @totalPages) return; // Prevent going out of bounds
+
+        var pageUrl = '@Model.RequestPath' + '?page=' + page;
+        window.location.href = pageUrl;
+    }
+</script>

@@ -1,0 +1,33 @@
+.section_card {
+    display: flex !important;
+    flex-direction: row !important;
+    border-radius: 18px !important;
+    overflow: hidden;
+}
+
+.section_body_card {
+    background-image: linear-gradient(to bottom right, #09266E, #00A4EC);
+    
+}
+
+.section_body_img {
+    height: 450px;
+    float: left;
+}
+
+.slider_card_badge {
+    background-color: #FFFFFF;
+    padding: 3px 10px 3px 10px;
+    border-radius: 18px;
+    height: fit-content;
+}
+
+@media only screen and (max-width: 480px) {
+    .section_card {
+        flex-direction: column-reverse !important;
+    }
+
+    .section_body_img {
+        height: 22vh;
+    }
+}

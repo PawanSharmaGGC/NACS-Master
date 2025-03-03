@@ -1,0 +1,38 @@
+﻿@using Convenience.org.Models
+
+@model EventDetailViewModel
+
+@if (Model != null)
+{
+
+    <div class="border-0 p-3 card">
+        <div class="p-0 EventDetailsStyle-module__section_card card">
+            <div class="p-0 card-body">
+                @await Component.InvokeAsync("EyebrowTitle", new { model = Model.Eyebrow })
+
+                @if (!string.IsNullOrEmpty(Model.EventDate))
+                {
+                    <div class="d-flex EventDetailsStyle-module__section_body_card">
+                        <div class="flex-fill pe-lg-4 pb-lg-0 pb-4 text-start mt-3 mt-lg-5 EventDetailsStyle-module__section_body_card_brdr">
+                            <p class="fs-4 color-3C5567 mb-3">Time &amp; Date:</p>
+                            <div class="d-flex flex-column mb-4 fs-5">
+                                <div><i class="fa-solid fa-clock color-62BD19 pe-3" aria-hidden="true"></i><span class="pe-3 fw-lighter color-3C5567">@Model.EventTiming</span></div>
+                                <div><i class="fa-solid fa-calendar color-62BD19 pe-3" aria-hidden="true"></i><span class="pe-3 fw-lighter color-3C5567">@Model.EventDate</span></div>
+                            </div>
+                        </div>
+                        <div class="flex-fill ps-lg-5 pe-lg-4 pt-lg-0 pt-1 pb-lg-0 pb-4 text-start mt-5 EventDetailsStyle-module__section_body_card_brdr">
+                            <p class="fs-4 color-3C5567 mb-4 ">Location:</p>
+                            <div class="d-flex flex-column mb-4 fs-5">
+                                <div><i class="fa-solid fa-right-left-large color-62BD19 pe-3" aria-hidden="true"></i><span class="pe-3 fw-lighter color-3C5567">@Model.EventAddress</span></div>
+                                <div><i class="fa-solid fa-location-dot color-62BD19 pe-3" aria-hidden="true"></i><span class="pe-3 fw-lighter color-3C5567">@Model.EventLocation</span></div>
+                            </div>
+                        </div>
+                        @await Component.InvokeAsync("CountdownTimer", new { eventDateTime = Model.EventStartTime.ToString() })
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+}

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.archivepage>
+  <ContentItemDataCommonDataID>
+    <GUID>31c4bf8d-04d9-498d-a5b5-41eaa24dc477</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Issues-4oyit0bg</CodeName>
+      <GUID>31d5ab8c-da48-4f28-ab77-9bc4f36639de</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>9836587b-cd59-44cb-a943-6bbce71cae10</ContentItemDataGUID>
+  <IssuesList>
+    <![CDATA[[{"Identifier":"2146b3be-f3c1-4f5c-acab-9b646c7f847e"},{"Identifier":"c7372837-b5f6-412c-8442-489513330f7b"}]]]>
+  </IssuesList>
+  <Months />
+  <PageContent>
+    <![CDATA[<div class="justify-content-center section-title"><hr><p class="d-flex justify-content-center">The Archive</p></div>]]>
+  </PageContent>
+  <PageNumber>0</PageNumber>
+  <PageSize>0</PageSize>
+  <SelectedMonth />
+  <SelectedYear />
+  <Title>Issues</Title>
+  <TotalPages>0</TotalPages>
+  <Years />
+</contentitemdata.nacsmagazine.archivepage>

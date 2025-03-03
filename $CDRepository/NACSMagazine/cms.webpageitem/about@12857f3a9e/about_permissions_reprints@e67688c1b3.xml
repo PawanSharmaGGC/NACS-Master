@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>Permissions_Reprints-m26u9gzl</CodeName>
+    <GUID>f3ecc875-f787-43f8-af26-794b7f75c16f</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>40f7cb66-c8f5-4840-aa81-8e2f0d057c10</WebPageItemGUID>
+  <WebPageItemName>Permissions_Reprints-m26u9gzl</WebPageItemName>
+  <WebPageItemOrder>3</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>About-00vjpls9</CodeName>
+    <GUID>34a4133b-bb5a-4447-a751-94e4bbc3cf0f</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>/About/Permissions_Reprints</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>3257d9cb-79a6-4552-998d-e1f8e1a3cb3e</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSMagazine</CodeName>
+      <GUID>eecfdedc-a92f-48b7-9daa-eab81c106019</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

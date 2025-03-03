@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageformerurlpath>
+  <WebPageFormerUrlPath>Nav/About-the-Show</WebPageFormerUrlPath>
+  <WebPageFormerUrlPathContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>2cce1e88-3d98-4dd9-8c2d-4dd1c46a81bf</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </WebPageFormerUrlPathContentLanguageID>
+  <WebPageFormerUrlPathHash>
+    <![CDATA[A3404F43A46EE009163DEB5ADC50683B60A6D5CFBA81E74E9E4911080C627688]]>
+  </WebPageFormerUrlPathHash>
+  <WebPageFormerUrlPathWebPageItemID>
+    <CodeName>AboutTheShow-vzjupgh2</CodeName>
+    <GUID>1743c775-7afe-43dd-a370-e650bd409804</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageFormerUrlPathWebPageItemID>
+  <WebPageFormerUrlPathWebsiteChannelID>
+    <GUID>0ba89fef-3be8-4973-83d2-c5cbbcb227cf</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSShow</CodeName>
+      <GUID>2083f08a-0932-4059-8087-f0556c420aa4</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageFormerUrlPathWebsiteChannelID>
+</cms.webpageformerurlpath>

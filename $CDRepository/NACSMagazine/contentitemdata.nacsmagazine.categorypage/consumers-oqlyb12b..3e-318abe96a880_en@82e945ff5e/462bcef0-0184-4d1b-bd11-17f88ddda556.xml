@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.categorypage>
+  <ArticleList />
+  <ContentItemDataCommonDataID>
+    <GUID>ec298666-56c1-47cf-b73e-318abe96a880</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Consumers-oqlyb12b</CodeName>
+      <GUID>defc1601-41c0-4016-b806-1a05df49f596</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>462bcef0-0184-4d1b-bd11-17f88ddda556</ContentItemDataGUID>
+  <PageNumber>0</PageNumber>
+  <PageSize>0</PageSize>
+  <SelectedYear />
+  <Title>Consumers</Title>
+  <TotalPages>0</TotalPages>
+  <Years />
+</contentitemdata.nacsmagazine.categorypage>

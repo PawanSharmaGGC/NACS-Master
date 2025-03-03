@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>EducationSessions-808m7csz</CodeName>
+    <GUID>f540249b-858a-479c-a8df-7155979819fe</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>2cce1e88-3d98-4dd9-8c2d-4dd1c46a81bf</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-10-18 21:13:53Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>9ecfd600-ed68-4438-a7d6-2b730b3e8745</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-11-18 23:31:27Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataPageBuilderWidgets>
+    <![CDATA[{"editableAreas":[{"identifier":"ContentWidgetZone1","sections":[{"identifier":"414faf77-033a-450f-842c-43e7b3102aba","type":"Kentico.DefaultSection","properties":null,"zones":[{"identifier":"ccfe645f-515c-46ce-a640-e2ffbe56fa5a","widgets":[]}],"fieldIdentifiers":{}}]}]}]]>
+  </ContentItemCommonDataPageBuilderWidgets>
+  <ContentItemCommonDataPageTemplateConfiguration>
+    <![CDATA[{"identifier":"NACSShow.2021EducationSessionsLanding","properties":null,"fieldIdentifiers":{}}]]>
+  </ContentItemCommonDataPageTemplateConfiguration>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+</cms.contentitemcommondata>

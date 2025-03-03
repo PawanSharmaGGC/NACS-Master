@@ -1,0 +1,38 @@
+.main_card {
+    background-color: #FFFFFF
+}
+
+.section_card {
+    width: 75%;
+    position: absolute !important;
+}
+
+.clip_image {
+    width: 500px;
+    margin-left: 62%;
+}
+
+@media only screen and (max-width: 480px) {
+    .main_card {
+        width: 100vw;
+        height: 24vh !important;
+    }
+
+    .breadcrumb {
+        display: none;
+    }
+
+    .clip_image {
+        display: none;
+    }
+
+    .section_card {
+        width: fit-content;
+        position: relative;
+    }
+
+    .text_details{
+        display: none;
+    }
+
+}

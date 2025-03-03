@@ -1,0 +1,39 @@
+﻿@using Convenience.org.Models
+@model List<InlineRelatedPostViewModel>
+
+@if (Model != null && Model.Any())
+{
+    <div class="p-3 border border-0 InlineRelatedPostStyle-module__main_card card">
+        <div class="mt-4 InlineRelatedPostStyle-module__section_card card">
+            <div class="p-5 pe-0 ps-0 card-body">
+                <div class="row">
+                    
+                    @foreach (var item in Model)
+                    {
+                        <div class="mb-2 col-lg-4 col-sm-12">
+                            <div class="d-flex">
+                                <div class="pt-1 pt-lg-0">
+                                    <img class="rounded" src="@item.Image" alt="" width="120"></div>
+                                <div class="w-100 align-middle text-start ps-4 fs-6">
+                                    <p class="mb-0 mb-lg-2  text-body-tertiary">@item.PostCaption</p>
+                                    <p class=" fs-5 mb-0 mb-lg-2  color-0053A5">
+                                        <a href="@item.Url" class="color-0053A5 pointer text-decoration-none">@item.Title</a>
+                                    </p>
+                                    <div>
+                                        <div class="text-start color-262d61">
+                                            <p class="m-0 fs-6">
+                                                <span>@item.Date</span>
+                                                <span class=" pe-1 ps-1"></span>
+                                                <span class="text-body-tertiary">@item.ListenTime</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

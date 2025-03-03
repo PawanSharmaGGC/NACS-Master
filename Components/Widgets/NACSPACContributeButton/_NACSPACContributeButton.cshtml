@@ -1,0 +1,37 @@
+﻿@model Convenience.org.Components.Widgets.NACSPACContributeButton.NACSPACContributeButtonViewModel
+
+@if (Model != null)
+{
+    <style type="text/css">
+        .style1 {
+            text-decoration: underline;
+            color: red;
+        }
+    </style>
+
+    @if (Model.ShowNotAuthorizedPanel)
+    {
+        <div id="_pnlNotAuthorized" class="ms-WPBody ms-wpContentDivSpace">
+            <p>
+                <strong><a href="/Advocacy/Get-Involved/Friends-Of-NACS">Friends of NACS Authorization</a></strong><br />
+                Become more engaged in NACS activities by becoming a Friend of NACS!<br /><a href="/Advocacy/Get-Involved/Friends-Of-NACS">Learn more</a>
+            </p>
+            <p>
+                <a href="/getmedia/74d18ede-c712-4697-aedb-e8e3de3b08b9/FONForm"><strong>Become a Friend of NACS (PDF)</strong></a><br />
+                Download our PDF and email to <a href="mailto:kbohny@convenience.org">kbohny@convenience.org</a> or fax back to NACS at (703) 836-4564. Contact
+                <a href="mailto:kbohny@convenience.org">Katie Bohny</a> at (703) 518-4260 for more information.
+            </p>
+        </div>
+    }
+    @if (Model.ShowAuthorizedPanel)
+    {
+        <div id="_pnlAuthorized" class="ms-WPBody ms-wpContentDivSpace">
+            <p class="ms-rteFontSize-3" style="text-align: center">
+                <a id="_hypButton" class="button" href="@Model.NavigateUrl">?Contribute</a><br />
+                <span>Support Your Business Today!</span>
+            </p>
+            <p><a href="https://issuu.com/nacsmagazine/docs/nacs_annual_report_digital_final?fr=sY2ZlMjM2MjQwMjg" target="_blank">2020 NACSPAC Annual Report</a></p>
+            <p><a href="https://www.yumpu.com/en/document/read/63481855/nacspac-2019-annual-report" target="_blank">2019 NACSPAC Annual Report</a></p>
+        </div>
+    }
+}

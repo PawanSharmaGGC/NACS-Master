@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>NACSMagazine</CodeName>
+    <GUID>eecfdedc-a92f-48b7-9daa-eab81c106019</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemContentTypeID>
+    <CodeName>NACSMagazine.ArticlePage</CodeName>
+    <GUID>3d1ca966-73b3-4339-97b7-1aa84de9c073</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>7e21e2da-204a-490a-9b30-20cad73fec98</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>Test-8vc7gqsa</ContentItemName>
+</cms.contentitem>

@@ -1,0 +1,29 @@
+﻿@{
+    var eventDate = Model;
+
+}
+
+<input type="hidden" value="@eventDate" id="hfEventDate" />
+<div class="ps-lg-5 pt-lg-0 pt-1 text-start mt-5">
+    <p class="fs-4 color-3C5567 mb-4">Countdown:</p>
+    <div class="d-flex mb-4 fs-5">
+        <div id="days" class="me-4 me-lg-5 fw-bold CountdownTimerStyle-module__countdown_brdr">
+            <span class="color-002569 fs-3">00</span>
+            <span class="color-B9D300 fs-3">d</span>
+        </div>
+        <div id="hours" class="me-4 me-lg-5 fw-bold CountdownTimerStyle-module__countdown_brdr">
+            <span class="color-002569 fs-3">00</span>
+            <span class="color-B9D300 fs-3">h</span>
+        </div>
+        <div id="minutes" class="me-4 me-lg-5 fw-bold CountdownTimerStyle-module__countdown_brdr">
+            <span class="color-002569 fs-3">00</span>
+            <span class="color-B9D300 fs-3">m</span>
+        </div>
+        <div id="seconds" class="me-4 me-lg-5 fw-bold CountdownTimerStyle-module__countdown_brdr">
+            <span class="color-002569 fs-3">00</span>
+            <span class="color-B9D300 fs-3">s</span>
+        </div>
+    </div>
+</div>
+
+<script src="~/static/js/countdowntimer.js"></script>

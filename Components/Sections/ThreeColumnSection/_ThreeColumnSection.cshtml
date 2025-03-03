@@ -1,0 +1,52 @@
+﻿@using Convenience.org.Components.Sections.ThreeColumnSection
+@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+
+@model ComponentViewModel<ThreeColumnSectionProperties>
+
+@{
+	string leftSize = "4", middleSize = "4", rightSize = "4";
+	string leftCol = "col", midCol = "col", rightCol = "col";
+
+	var width = Model.Properties?.SectionColumnWidth?.Split('-');
+	if (width != null && width.Length > 0)
+	{
+		leftSize = width[0];
+		if (!string.IsNullOrEmpty( width[0])){
+			leftCol = "col-"+@leftSize;
+		}
+		if (width.Length > 1)
+		{
+			middleSize = width[1];
+			if (!string.IsNullOrEmpty(width[1]))
+			{
+				midCol = "col-" + @middleSize;
+			}
+		}
+		if (width.Length > 2)
+		{
+			rightSize = width[2];
+			if (!string.IsNullOrEmpty(width[2]))
+			{
+				rightCol = "col-" + @rightSize;
+			}
+		}
+	}
+}
+
+
+<div>
+	<div class="border border-0 card">
+		<div class="row">
+			<div class="col-lg-@leftSize @leftCol">
+				<widget-zone itemid="LeftWidgetArea" />
+			</div>
+			<div class="col-lg-@middleSize @midCol">
+				<widget-zone itemid="MidWidgetArea" />
+			</div>
+			<div class="col-lg-@rightSize @rightCol">
+				<widget-zone itemid="RightWidgetArea" />
+			</div>
+		</div>
+	</div>
+</div>

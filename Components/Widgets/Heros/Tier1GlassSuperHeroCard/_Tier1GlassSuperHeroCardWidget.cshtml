@@ -1,0 +1,69 @@
+﻿@model Convenience.org.Components.Widgets.Heros.Tier1GlassSuperHeroCard.Tier1GlassSuperHeroCardWidgetViewModel
+
+@if (Model != null)
+{
+	<div class="border-0 Tier1GlasStyle-module__main_card card">
+		<div class="border-0 p-0 bg-trans Tier1GlasStyle-module__section_card card">
+			<div class="p-4 flex-fill Tier1GlasStyle-module__section_body_card card-body">
+				<div class="position-relative float-lg-start">
+					<div class=" Tier1GlasStyle-module__image_container">
+						<div class=" Tier1GlasStyle-module__blur_overlay"></div>
+						<img class=" Tier1GlasStyle-module__hero_card" src="@Model.ImageUrl" width="341" alt="">
+					</div>
+					<div class="position-absolute text-light Tier1GlasStyle-module__txt_over_img">
+						<div>
+							<div class="text-start mb-4 border_left_white EyebrowTitleStyle-module__eyebrow">
+								<span class="ps-4 text-uppercase font-monospace color-FFFFFF">
+									@Model.EyebrowTitle
+								</span>
+							</div>
+						</div>
+						<div class=" text-start fw-semibold fs-4 mb-3">
+							<span>
+								@Model.Title
+							</span>
+						</div>
+						<div class="mb-1">
+							<div>
+								<div class="text-start color-FFFFFF">
+									<p class="m-0 fs-5">
+										<span>
+											@Model.DateTime
+										</span>
+										@if (!string.IsNullOrEmpty(Model.ReadTimeOrLocation))
+										{
+											<span class="color-62BD19 ps-3 pe-3 fs-3">
+												|
+											</span>
+											<span class="text-body-tertiary">
+												@Model.ReadTimeOrLocation
+											</span>
+										}
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="float-start mt-3">
+							<div class="">
+								@if (!string.IsNullOrEmpty(Model.CTALink) && !string.IsNullOrEmpty(Model.CTAText))
+								{
+									<a href="@Model.CTALink" class="bg-0053A5 p-3 border border-0 brdr-rad-30 text-decoration-none ">
+										<span>
+											<i class="align-middle color-FFFFFF undefined undefined "></i>
+										</span>
+										<span class="color-FFFFFF pe-2 ps-2 fw-medium undefined">
+											@Model.CTAText
+										</span>
+										<span>
+											<i class="align-middle color-FFFFFF fa-regular fa-arrow-right-long " aria-hidden="true"></i>
+										</span>
+									</a>
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+}

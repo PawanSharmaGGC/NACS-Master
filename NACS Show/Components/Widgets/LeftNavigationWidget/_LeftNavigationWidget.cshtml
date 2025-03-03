@@ -1,0 +1,44 @@
+﻿@using NACSShow.Models
+
+@model LeftNavItems
+
+@if (Model != null)
+{
+    int itemCount = 1;
+    int subItemCount = 1;
+
+    <div class="left-nav-header" runat="server" id="divHeader">
+        <h3 id="nacs-leftnav-header"><asp:Literal runat="server" ID="litHeader" />@Model.LeftNavTitle</h3>
+    </div>
+    if (Model.NavItems.Any())
+    {
+        <ul class="root static left-nav">
+
+            @foreach (var item in Model.NavItems)
+            {
+                <li class="static">
+                    <a id="navItem_@itemCount" class="static menu-item @item.CssClass"
+                       href="@item.URL" target="@item.Target">@item.Title</a>
+
+                    @if (item.ChildItems.Any())
+                    {
+                        <div class="expand-collapse" runat="server" id="divExpandCollapse_@subItemCount">&nbsp;</div>
+                        <ul class="static sub">
+                            @foreach (var subItem in item.ChildItems)
+                            {
+                                <li class="static">
+                                    <a id="subNavItem_@subItemCount" class="static menu-item @subItem.CssClass"
+                                       href="@subItem.URL" target="@subItem.Target">@subItem.Title</a>
+                                </li>
+                            }
+                        </ul>
+
+                        subItemCount++;
+                    }
+                </li>
+
+                itemCount++;
+            }
+        </ul>
+    }
+}

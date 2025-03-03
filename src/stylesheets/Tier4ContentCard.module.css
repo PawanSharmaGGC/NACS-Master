@@ -1,0 +1,14 @@
+.main_card{
+    width: 30vw; 
+}
+
+.section_card{
+    width: fit-content;
+}
+
+@media only screen and (max-width: 480px) {
+    .main_card {
+        width: 100vw;
+    }
+
+}

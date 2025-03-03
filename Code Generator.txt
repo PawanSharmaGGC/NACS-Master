@@ -1,0 +1,1 @@
+dotnet run --no-build -- --kxp-codegen --type "Classes" --namespace "{dataClassNamespace}" --location "./{type}/{dataClassNamespace}/{name}/"

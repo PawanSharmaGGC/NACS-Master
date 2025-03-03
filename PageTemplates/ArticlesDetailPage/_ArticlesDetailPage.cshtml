@@ -1,0 +1,50 @@
+﻿@using Kentico.Content.Web.Mvc.PageBuilder
+@using Convenience.org
+@{
+	Layout = "~/Features/Shared/Convenience/_Layout.cshtml";
+}
+
+@model TemplateViewModel
+
+@{
+	var templateModel = Model.GetTemplateModel<Convenience.Article>();
+
+	var isPreviewModel = Context.Kentico().PageBuilder().EditMode;
+
+	string pageContent = templateModel?.PageContent;
+
+	var widgetRestriction = new EditableAreaOptions
+					{
+						AllowedWidgets = WidgetAreaIdentifier.Hero_Widgets,
+						AllowedSections = AllowedComponents.ALL
+					};
+}
+
+@section GoogleAdsBeforeHeader{
+	<div>
+		@await Html.Kentico().EditableAreaAsync("WidgetAreaBeforeHeader")
+	</div>
+}
+
+	<div>
+		<div class="card p-3 main_card">
+	<div class="row">
+		@await Html.Kentico().EditableAreaAsync("HeroWidgetArea", widgetRestriction)
+	</div>
+	<div class="row card-body">
+		<div class="@(isPreviewModel?"col-8":"col-lg-8 col-sm-12")">
+			@await Html.Kentico().EditableAreaAsync("WidgetAreaBeforeContent")
+			@Html.Raw(pageContent)
+			@await Html.Kentico().EditableAreaAsync("WidgetAreaAfterContent")
+		</div>
+		<div class="@(isPreviewModel?"col-4":"col-lg-4 col-sm-12")">
+			@await Html.Kentico().EditableAreaAsync("WidgetArea")
+		</div>
+	</div>
+	</div>
+
+	<div class="row">
+		@await Html.Kentico().EditableAreaAsync("WidgetAreaEnd")
+	</div>
+
+</div>

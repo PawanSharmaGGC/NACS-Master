@@ -1,0 +1,163 @@
+﻿@using Convenience.org.Components.Widgets.FormDownloadReport
+@model FormDownloadReportViewModel
+
+
+
+<div class="bg-DBEAB9 m-lg-2 brdr-rad-18 card">
+	<div class="card-body">
+		<p class="text-start pt-3 card-text">
+			<h6 class="color-0053A5 fw-normal fs-4">Download Report</h6>
+		<p class="fw-light">Please fill out the form below to access the report.</p>
+		</p>
+
+		<p class="card-text">
+			<form id="downloadReportForm" class="text-start" asp-action="FormDownloadReport" asp-controller="FormDownloadReportWidget" method="post" enctype="multipart/form-data">
+
+				<!-- First Row: First Name and Last Name -->
+				<div class="mb-3 row">
+					<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+						<div class="mb-3">
+							<label class="form-label" asp-for="FirstName">First Name</label>
+							<input asp-for="FirstName" required class="form-control" />
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+						<div>
+							<label class="form-label" asp-for="LastName">Last Name</label>
+							<input asp-for="LastName" class="form-control" />
+						</div>
+					</div>
+				</div>
+
+				<!-- Second Row: Email and Company Name -->
+				<div class="mb-3 row">
+					<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+						<div class="mb-3">
+							<label class="form-label" asp-for="Email"></label>
+							<input asp-for="Email" type="email" required class="form-control" />
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+						<div>
+							<label class="form-label" asp-for="CompanyName">Company Name</label>
+							<input asp-for="CompanyName" class="form-control" />
+						</div>
+					</div>
+				</div>
+
+				<!-- File Upload -->
+				<div class="mb-3 row">
+					<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+						<div class="mb-3">
+							<label class="form-label" asp-for="UploadFile">Upload File</label>
+							<input type="file" asp-for="UploadFile" class="form-control" />
+						</div>
+					</div>
+				</div>
+
+				@* //CheckBox *@
+				<div class="mb-3">
+					<label class="form-check-label mb-2" for="placeholderCheckbox">Checkbox</label>
+				<div class="bg-white  w-100 p-2 rounded-2">
+					<div class="form-check">
+						<input type="checkbox" asp-for="Placeholder"  class="form-check-input" id="placeholderCheckbox" />
+						<label class="form-check-label" for="placeholderCheckbox">Placeholder</label>
+					</div>
+					</div>
+				</div>
+
+
+				<!-- Message Field -->
+				<div class="mb-3">
+					<label class="form-label" asp-for="Message"></label>
+					<textarea asp-for="Message" placeholder="Placeholder" maxlength="100" class="form-control"></textarea>
+				</div>
+
+				@* Dropdown *@
+				<div class="mb-3 w-50">
+					<label class="form-label" asp-for="DropDown"></label>
+					<select asp-for="DropDown" class="form-control" id="formGridDropdown">
+						<option selected="selected">option1</option>
+						<option>option2</option>
+						<option>option3</option>
+						<option>option4</option>
+						<option>option5</option>
+						<option>option6</option>
+					</select>
+				</div>
+
+				
+
+				<!-- reCAPTCHA Widget -->
+				<div class="mb-3">
+					<div class="g-recaptcha" data-sitekey="6LeE6MgqAAAAAGR4Q-LQCz-9-zQOxDqJ9woU14wd"></div>
+				</div>
+
+				<!-- Submit Button -->
+				<div class="mt-lg-4">
+					<button type="submit" class="color-FFFFFF bg-0053A5 btn fw-medium d-flex align-items-center p-3 border-0 rounded-pill w-auto">
+						<span class="color-FFFFFF pe-2 ps-2 fw-medium">Submit Form</span>
+						<i class="align-middle color-FFFFFF fa-regular fa-arrow-right-long" aria-hidden="true"></i>
+					</button>
+				</div>
+
+			</form>
+		</p>
+	</div>
+</div>
+
+
+
+<!-- Toast Notification for Success Message -->
+<div class="position-fixed top-0 end-0 p-3 z-1" id="toastContainer">
+	<div class="toast bg-DBEAB9 text-light" id="successToast" role="alert" aria-live="assertive" aria-atomic="true">
+		<div class="toast-body p-3">
+			<p class="color-0053A5 fs-5 text-start m-0 mb-2">Form submitted!</p>
+			<p id="toastMessage" class="color-000000 text-start m-0">You have submitted the Download Report form. See you there!</p>
+		</div>
+	</div>
+</div>
+
+<!-- reCAPTCHA Script -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const form = document.getElementById("downloadReportForm");
+		const successToast = new bootstrap.Toast(document.getElementById("successToast"));
+		const toastMessage = document.getElementById("toastMessage");
+
+		if (!form) {
+			console.error("Form element not found!");
+			return;
+		}
+
+		form.addEventListener("submit", async (e) => {
+			e.preventDefault();
+			const formData = new FormData(form);
+
+			try {
+				const response = await fetch(form.action, {
+					method: "POST",
+					body: formData,
+					headers: {
+						"X-Requested-With": "XMLHttpRequest"
+					}
+				});
+
+				const result = await response.json();
+
+				if (result.success) {
+					toastMessage.textContent = result.message || "Form submitted successfully!";
+					successToast.show();
+					form.reset();
+					setTimeout(() => successToast.hide(), 3000);
+				} else {
+					alert(result.message || "An error occurred.");
+				}
+			} catch (error) {
+				console.error("Fetch error:", error);
+				alert("An unexpected error occurred.");
+			}
+		});
+	});
+</script>

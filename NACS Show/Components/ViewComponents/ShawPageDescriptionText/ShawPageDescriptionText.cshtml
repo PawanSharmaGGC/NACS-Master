@@ -1,0 +1,22 @@
+﻿@using CMS.Helpers
+@using NACSShow
+
+@model string
+
+@section styles{
+<style>
+        .page-description {
+            font-family: MainsailScript;
+            font-weight: 500;
+            font-size: 2.5rem;
+            margin: auto;
+        }
+</style>
+}
+
+@if (!string.IsNullOrEmpty(Model))
+{
+    <div class="section--centered-text bold">
+        @Html.Raw(Model)
+    </div>
+}

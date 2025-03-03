@@ -1,0 +1,43 @@
+.main_card {
+    width: 34vw;
+}
+
+.section_card {
+    width: 30vw;
+}
+
+.slider_card_badge {
+    background-color: #DBEAB9;
+    opacity: 0.6;
+    padding: 3px;
+    border-radius: 18px;
+    width: 63px;
+}
+
+.section_card_div {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+@media only screen and (max-width: 480px) {
+    .main_card {
+        width: 100vw;
+    }
+
+    .section_card {
+        width: auto;
+    }
+
+    .section_card_div {
+        flex-direction: row;
+        justify-content: start;
+    }
+
+    .section_card_img{
+        width: 200px;
+        height: 200px;
+        padding-right: 20px;
+    }
+}

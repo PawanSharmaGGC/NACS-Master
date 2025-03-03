@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>NACSMagazine</CodeName>
+    <GUID>eecfdedc-a92f-48b7-9daa-eab81c106019</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemContentTypeID>
+    <CodeName>NACSMagazine.CategoryPage</CodeName>
+    <GUID>e9043fcf-e0e0-487b-8165-c47dae349194</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>c788fca8-e02a-4b6e-b33b-03fccf6c04c2</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>Foodservice-znle3n8f</ContentItemName>
+</cms.contentitem>

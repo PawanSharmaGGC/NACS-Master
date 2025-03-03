@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNetCore.Mvc.Routing
+
+@inject IUrlHelperFactory UrlHelperFactory
+@{
+    var urlHelper = UrlHelperFactory.GetUrlHelper(ViewContext);
+    var currentPath = ViewContext.HttpContext.Request.Path;
+    var currentPage = (currentPath == "/" || currentPath=="/home") ? "Home" : System.IO.Path.GetFileNameWithoutExtension(currentPath);
+
+    if (currentPage.Contains("Kentico.pagebuilder"))
+    {
+        currentPage = string.Empty;
+    }
+}
+
+@if (currentPage != "Home" && !string.IsNullOrEmpty(currentPage))
+{
+    <div class="breadcrumb-container">
+        <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='10'%3E%3Cpath d='M1.45508 8.96004L4.71508 5.70004C5.10008 5.31504 5.10008 4.68504 4.71508 4.30004L1.45508 1.04004' stroke='lightgrey' fill='none'/%3E%3C/svg%3E&quot;);">
+            <ol class="breadcrumb BreadcrumbsStyle-module__breadcrumb_list mb-0">
+                <li class="breadcrumb-item ">
+                    <a class="CMSBreadCrumbsLink" href="/">Home</a>
+                </li>
+                @{
+                    var pathList = currentPath.ToString().Replace('-', ' ').Split('/').ToList();
+
+                    foreach (var path in pathList)
+                    {
+                        if (path != "")
+                        {
+                            if (path.Replace(' ', '-') != currentPage)
+                            {
+                                var prevPath = "~/";
+
+                                var pli = pathList.IndexOf(path);
+                                for (int i = 1; i <= pli; i++)
+                                {
+                                    prevPath += pathList[i] + '/';
+                                }
+                                @Html.Raw("<li class='breadcrumb-item'><a class='CMSBreadCrumbsLink' href='" + prevPath.Replace(' ', '-') + "'>" + path.Substring(0, 1).ToUpper() + path.Substring(1) + "</a>&nbsp;&nbsp;</li>")
+                            }
+                            else
+                            {
+                                @Html.Raw("<li class='breadcrumb-item'><span class='CMSBreadCrumbsLink'>" + path.Substring(0, 1).ToUpper() + path.Substring(1)+"</span></li>")
+                                // + "</span>&nbsp;&nbsp;<i class='fa fa-chevron-right'></i>&nbsp;&nbsp;")
+                            }
+                        }
+                    }
+
+                }
+            </ol>
+        </nav>
+    </div>
+}

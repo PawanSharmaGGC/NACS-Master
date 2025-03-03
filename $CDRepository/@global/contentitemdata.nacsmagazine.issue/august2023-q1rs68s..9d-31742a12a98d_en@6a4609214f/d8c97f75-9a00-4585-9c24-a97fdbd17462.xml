@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.issue>
+  <ContentItemDataCommonDataID>
+    <GUID>4185225c-77cc-4e04-b79d-31742a12a98d</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>August2023-q1rs68sw</CodeName>
+      <GUID>94398a67-0a79-4c4f-abea-62403c0a9b83</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>d8c97f75-9a00-4585-9c24-a97fdbd17462</ContentItemDataGUID>
+  <IssueDate>2023-08-01 04:00:00Z</IssueDate>
+  <MagazineCover>
+    <![CDATA[{"Identifier":"d1052a4e-dcc2-41ff-9579-b9f521fd8154","Name":"NACS_June2024_HiRes_Singles-1.jpg","Extension":".jpg","Size":1042320,"LastModified":"2024-07-09T20:16:28.7463487Z"}]]>
+  </MagazineCover>
+  <Title>August 2023</Title>
+</contentitemdata.nacsmagazine.issue>

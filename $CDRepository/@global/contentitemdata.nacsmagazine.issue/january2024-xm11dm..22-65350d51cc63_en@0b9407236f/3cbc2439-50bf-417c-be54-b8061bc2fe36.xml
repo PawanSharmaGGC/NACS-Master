@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.issue>
+  <ContentItemDataCommonDataID>
+    <GUID>83dc99da-91ac-408b-a522-65350d51cc63</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>January2024-xm11dmfj</CodeName>
+      <GUID>1d13148f-b0af-4e0f-81e3-38ee004f11ce</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>3cbc2439-50bf-417c-be54-b8061bc2fe36</ContentItemDataGUID>
+  <IssueDate>2024-01-01 05:00:00Z</IssueDate>
+  <MagazineCover>
+    <![CDATA[{"Identifier":"46177ea2-5c1b-4a36-b8fa-f071321db04b","Name":"NACS_June2024_HiRes_Singles-1.jpg","Extension":".jpg","Size":1042320,"LastModified":"2024-07-09T20:18:10.0607139Z"}]]>
+  </MagazineCover>
+  <Title>January 2024</Title>
+</contentitemdata.nacsmagazine.issue>

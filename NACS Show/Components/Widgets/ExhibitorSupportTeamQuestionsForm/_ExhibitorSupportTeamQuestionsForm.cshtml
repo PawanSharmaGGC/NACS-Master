@@ -1,0 +1,88 @@
+﻿@using NACS.Portal.Core.Models
+
+@model FormWidgetViewModel
+
+<div id="form_Panel" style="position:relative">
+    <div id="form-section">
+        <span style="display:none;" class="ErrorLabel" id="error-message"></span>
+        <div class="FormPanel" id="FormPanel">
+
+            @Html.Raw(Model?.Heading)
+            <p>@Html.Raw(Model?.Description)</p>
+
+            <form id="exhibitor-support-team-questions-form" method="post">
+
+                <table class="EditingFormTable">
+                    <tbody>
+                        <tr>
+                            <td class="FieldLabel"><label id="lblFirstName" class="EditingFormLabel" for="txtFirstName">First Name:</label></td>
+                            <td class="EditingFormValueCell">
+                                <div id="ncpfirstname" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                    <input name="FirstName" type="text" maxlength="200" id="txtFirstName" class="form-control" required>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="FieldLabel"><label id="lblLastName" class="EditingFormLabel" for="txtLastName">Last Name:</label></td>
+                            <td class="EditingFormValueCell">
+                                <div id="ncplastname" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                    <input name="LastName" type="text" maxlength="200" id="txtLastName" class="form-control" required>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td class="FieldLabel"><label id="lblJobTitle" class="EditingFormLabel" for="txtJobTitle">Job Title:</label></td>
+                            <td class="EditingFormValueCell">
+                                <div id="ncpjobtitle" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                    <input name="JobTitle" type="text" maxlength="200" id="txtJobTitle" class="form-control">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="FieldLabel"><label id="lblCompany" class="EditingFormLabel" for="txtCompany">Company Name:</label></td>
+                            <td class="EditingFormValueCell">
+                                <div id="ncpcompany" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                    <input name="Company" type="text" maxlength="200" id="txtCompany" class="form-control">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="FieldLabel"><label id="lblEmail" class="EditingFormLabel" for="txtEmail">Email:</label></td>
+                            <td class="EditingFormValueCell">
+                                <div id="ncpemail" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                    <input name="Email" type="text" maxlength="200" id="txtEmail" class="form-control" required>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="FieldLabel"><label id="lblQuestion" class="EditingFormLabel" for="txtQuestion">Question:</label></td>
+                            <td class="EditingFormValueCell">
+                                <div id="ncpquestion" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                    <textarea name="Question" rows="10" cols="20" id="txtQuestion" class="form-control" required></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="FieldLabel"></td>
+                            <td class="EditingFormValueCell">
+                                <div class="g-recaptcha" data-sitekey="@Model?.captchaSiteKey"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="EditingFormButtonLeftCell"></td>
+                            <td class="EditingFormButtonCell">
+                                <input type="submit" name="btnOK" value="Submit" id="btnOK" class="FormButton btn btn-primary">
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+        <span style="display:none;" id="thank-you-message" class="InfoLabel">
+            @Html.Raw(Model?.SubmitMessage)
+        </span>
+    </div>
+</div>

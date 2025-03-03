@@ -1,0 +1,36 @@
+﻿@using Convenience.org.Models
+
+@model FAQViewModel
+
+@if (Model != null)
+{
+
+    <div class="border border-0 card">
+        <p class="text-start color-0053A5 card-text">@Model.Heading</p>
+        <div class="card-body">
+            <div id="faq-container" class="faq-container">
+                @foreach (var item in Model.FAQItems.Select((value, i) => new { value, i }))
+                {
+                    <div class="faq-item" data-id="@item.i">
+                        <div id="first_collapse_@item.i" class="text-light text-center align-middle fs-5 bg-F5F5F5 brdr-rad-18 p-3 ps-4 mb-4 faq-title">
+                            <div class="d-flex justify-content-between">
+                                <span class="d-inline-block color-0053A5 text-start pt-1">
+                                    @Html.Raw(item.value.Question)
+                                </span>
+                                <span class="bg-0053A5 w-10 brdr-rad-18 pb-1 fs-4 pointer FAQCardStyle-module__faq_btn faq-btn">+</span>
+                            </div>
+                        </div>
+                        <div class="collapse faq-desc mb-2" id="collapseExample-@item.i">
+                            <div class="card card-body brdr-rad-18 border border-0 bg-secondary-subtle text-start p-3 fs-5">
+                                <div>@Html.Raw(item.value.Answer)</div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+}
+
+<script src="~/static/js/accordion.js"></script>

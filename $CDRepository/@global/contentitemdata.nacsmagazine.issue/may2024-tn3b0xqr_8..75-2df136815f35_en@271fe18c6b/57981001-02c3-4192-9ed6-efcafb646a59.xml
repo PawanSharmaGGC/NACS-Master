@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.issue>
+  <ContentItemDataCommonDataID>
+    <GUID>84aaba7e-e031-4f9b-b875-2df136815f35</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>May2024-tn3b0xqr</CodeName>
+      <GUID>2146b3be-f3c1-4f5c-acab-9b646c7f847e</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>57981001-02c3-4192-9ed6-efcafb646a59</ContentItemDataGUID>
+  <IssueDate>2024-05-01 04:00:00Z</IssueDate>
+  <MagazineCover>
+    <![CDATA[{"Identifier":"d4f8cd28-b678-40ec-83d2-52a70616ac2c","Name":"NACS_June2024_HiRes_Singles-1.jpg","Extension":".jpg","Size":1042320,"LastModified":"2024-07-09T20:19:02.2108524Z"}]]>
+  </MagazineCover>
+  <ParentPageUrl />
+  <Title>May 2024</Title>
+</contentitemdata.nacsmagazine.issue>

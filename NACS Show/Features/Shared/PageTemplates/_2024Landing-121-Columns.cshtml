@@ -1,0 +1,70 @@
+﻿@using CMS.ContentEngine
+@using Kentico.Content.Web.Mvc.PageBuilder
+@using NACSShow
+
+<vc:current-page-data />
+@{
+    Layout = "~/Features/Shared/NACSShow/_Layout.cshtml";
+
+    var currentPageData = TempData["CurrentPageData"] as Page ?? new Page();
+}
+
+<!-- BANNER -->
+<section class="row center-xs margins-none">
+    <div class="col-xs-12">
+        <editable-area area-identifier="TitleZone"></editable-area>
+        <vc:full-width-page-title section-header="@currentPageData.SectionHeader" title="@currentPageData.Title"></vc:full-width-page-title>
+        <editable-area area-identifier="TitleZone1"></editable-area>
+        <div class="section--centered-text bold">
+            <editable-area area-identifier="SubheadSection"></editable-area>
+            @Html.Raw(currentPageData.SubHead)
+            <editable-area area-identifier="SubheadSection1"></editable-area>
+        </div>
+    </div>
+</section>
+
+<!-- Callout with Button -->
+<section class="center-xs">
+    <editable-area area-identifier="ContentWidgetZone1"></editable-area>
+</section>
+
+<section class="main-content">
+    <editable-area area-identifier="ContentZone"></editable-area>
+    @Html.Raw(currentPageData.PageContent)
+    <editable-area area-identifier="ContentWidgetZone2"></editable-area>
+    <!-- 2 columns with ad -->
+    <div class="row section--margins  container" style="margin:auto">
+        <div class="col-xs col-md-8">
+            <editable-area area-identifier="HalfZone3"></editable-area>
+        </div>
+        <div class="col-xs col-md-4 ad" style="display:flex">
+            <div class="ad__wrapper">
+                <editable-area area-identifier="AdZone"></editable-area>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="main-content">
+    <editable-area area-identifier="ContentWidgetZone3"></editable-area>
+</section>
+
+<section>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="wrapper container">
+                <div class="block--sponsorship">
+                    <div class="ad">
+                        <div class="ad__wrapper">
+                            <div class="multi-ad-container">
+                                <editable-area area-identifier="AdZone1"></editable-area>
+                                <editable-area area-identifier="AdZone2"></editable-area>
+                                <editable-area area-identifier="AdZone3"></editable-area>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

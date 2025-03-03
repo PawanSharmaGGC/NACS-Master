@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>NACSShow</CodeName>
+    <GUID>2083f08a-0932-4059-8087-f0556c420aa4</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemContentTypeID>
+    <CodeName>NACSShow.Workshop</CodeName>
+    <GUID>209d2131-b096-4211-a560-02a8a13816bf</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>e5937278-cc33-467a-b5d5-ed633f99643e</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>Test3-7qldunh3</ContentItemName>
+</cms.contentitem>

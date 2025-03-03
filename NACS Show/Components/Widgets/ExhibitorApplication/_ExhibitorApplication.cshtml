@@ -1,0 +1,177 @@
+﻿<style type="text/css">
+    .test-panel {
+        margin: 10px 0px;
+    }
+
+    .mys-textbox {
+        padding: 5px;
+        width: 150px;
+        border-radius: 0px;
+    }
+
+    .button {
+        margin-top: 15px;
+        text-transform: initial;
+        border: 0px;
+        background-color: #00aecc;
+        color: #fff !important;
+        padding: 15px;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: bold;
+    }
+
+    .button.disabled {
+        background-color: #ddd;
+        cursor: default;
+    }
+
+    .num {
+        display: inline-flex;
+        padding: 10px;
+        border: 5px solid #00aecc;
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        font-size: 1.4em;
+        font-weight: bold;
+        margin: 10px;
+    }
+
+    table, th, td {
+        border: 0px;
+        text-align: left;
+    }
+
+    input[type="radio"] {
+        width: auto;
+        margin: 5px;
+    }
+
+    p {
+        line-height: 1.5em;
+    }
+</style>
+
+<script type="text/javascript">
+    function enableMoveNext(button, buttonname, radios) {
+        var radio = document.getElementsByName(radios);
+        var button1 = document.getElementById(button);
+        var i = 0;
+
+        for (var j = 0; j < radio.length; j++) {
+            if (radio[j].checked)
+                i++;
+        }
+
+        if (i > 0) {
+            button1.className = "button";
+        }
+        else {
+            button1.href = "javascript:void(0)";
+            button1.className = "button disabled";
+        }
+    }
+</script>
+
+<div style="margin:auto;max-width:1000px;width:100%">
+    <div id="_pnlTestOverrides"  class="test-panel">
+        <div class="row" style="background-color:#00aecc;color:#fff;padding:10px;">
+            Overrides (NACS Staff Only)
+        </div>
+        <div class="row" style="background-color:#eee;padding:10px;">
+            <div class="col-12 col-sm-3" style="padding:10px;">
+                Contact ID:<br />
+                <input type="text" id="_txtNACSID" class="mys-textbox"/><br />
+                <span style="font-size:0.8em">(ex: C-00012345)</span>
+            </div>
+            <div class="col-12 col-sm-4" style="padding:10px;">
+                Pretend Date/Time:<br />
+                <input type="text" id="_txtTestDate" , name="_txtTestDate" class="mys-textbox" />
+                <select name="_ddlTestTime" id="_ddlTestTime" class="mys-textbox">
+                   <option value="8:00 AM">7:00 AM</option>
+                   <option value="8:22 AM">7:22 AM</option>
+                   <option value="9:00 AM">8:00 AM</option>
+                   <option value="9:30 AM">8:30 AM</option>
+                   <option value="9:45 AM" selected="selected">8:45 AM</option>
+                    <option value="10:00 AM">9:00 AM</option>
+                    <option value="11:00 AM">10:00 AM</option>
+                    <option value="12:00 PM">11:00 PM</option>
+                </select>
+               <br />
+                <span style="font-size:0.8em">(ex: 7/10/2022)</span>
+            </div>
+            <div class="col-12 col-sm-3" style="padding:10px;">
+                Member Exp Date:<br />
+                <input type="text" id="_txtExpDate" class="mys-textbox"/><br />
+                <span style="font-size:0.8em">(ex: 12/31/2023)</span>
+            </div>
+            <div class="col-12 col-sm-2" style="padding:10px;text-align:center">
+                <input type="button" id="_btnSubmit"  class="button" value="Set" OnClick="_btnSubmit_Click"/> <br />
+                <input type="button" id="_btnSubmitClear" value="Clear" OnClick="_btnSubmitClear_Click"/>
+            </div>
+        </div>
+        <div class="row" style="background-color:#eee;padding:10px;">
+            <input type="checkbox" id="_chkShowLoginData" value="Stop and show login data only" />
+        </div>
+    </div>
+    <br />
+    <label id="_lblStatus"  Visible="true"></label>
+    <br />
+    <div id="_pnlShowSelectExhibitor">
+        <script type="text/javascript">
+            function openMYSLink() {
+                var list = document.getElementById('_rblCompanies');
+                var inputs = list.getElementsByTagName("input");
+                var selected;
+
+                for (var i = 0; i < inputs.length; i++) {
+                    if (inputs[i].checked) {
+                        selected = inputs[i];
+                        break;
+                    }
+                }
+
+                if (selected) {
+                    window.open(selected.value, "_blank");
+                }
+                else {
+                    alert('Please select a company');
+                }
+            }
+        </script>
+        <div class="select-exhibitor">
+            <h1>Select Company</h1>
+            Select the company for which you would like to apply for booth space.<br /><br />
+            <div style="margin-left:50px;">
+                <input type="radio" id="_rblCompanies"/>
+                <br /><br />
+                <input type="button" id="_btnFinish" class="button" onclick="openMYSLink()"><span class='fa fa-external-link-square'/>Launch Application</input>
+            </div>
+        </div>
+        <script type="text/javascript">
+            enableMoveNext('_btnFinish', 'btnFinish', '_rblCompanies');
+        </script>
+    </div>
+
+    <div id="_pnlEligibilityMessage">
+        <div class="eligibility-msg">
+            <p><label id="_lblMsg"></label></p>
+        </div>
+    </div>
+
+    <div id="_pnlClosedMessage">
+        <div class="eligibility-msg">
+            <p>Thank you for your interest in the NACS Show! We are not yet accepting applications for the 2023 NACS Show .</p>
+            <p>NACS and PEI members will select booth space based on priority point schedule (<a href="http://www.nacsshow.com/prioritypoints">nacsshow.com/prioritypoints</a>).</p>
+            <p>Join the mailing list at <a href="http://www.nacsshow.com/expoinfo">nacsshow.com/expoinfo</a>.</p>
+        </div>
+    </div>
+
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

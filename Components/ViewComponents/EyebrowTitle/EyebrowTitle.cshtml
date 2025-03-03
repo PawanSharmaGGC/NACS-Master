@@ -1,0 +1,10 @@
+﻿@using Convenience.org.Models
+@model Convenience.org.Models.EyebrowTitleViewModel
+@if (Model != null)
+{
+	<div>
+		<div class="text-start mb-4 @Model.LeftBorderColor">
+				<span class="ps-4 @Model.TitleCase font-monospace @Model.TitleColor">@Model.Title</span>
+		</div>
+	</div>
+}

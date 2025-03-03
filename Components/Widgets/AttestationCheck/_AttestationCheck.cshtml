@@ -1,0 +1,389 @@
+﻿@model Convenience.org.Components.Widgets.AttestationCheck.AttestationCheckViewModel
+
+@if (Model != null)
+{
+    <style type="text/css">
+        .ms-dlgFrameContainer {
+            overflow: auto;
+        }
+
+        .style1 {
+            COLOR: #003366;
+            FONT-SIZE: medium
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    @section Script {
+    <script language="javascript" type="text/javascript">
+        var redirectURL = window.location.href.replace("&attestation=true", "").replace("&attestation=false", "");
+        if (redirectURL.indexOf("?") > -1) {
+            redirectURL = redirectURL + "&attestation=";
+        }
+        else {
+            redirectURL = redirectURL + "?attestation=";
+        }
+        function acceptTerms() {
+            $.modal.close();
+            $('#AttestationDiv').hide();
+            window.location = redirectURL + "true";
+        }
+
+        function rejectTerms() {
+            $.modal.close();
+            $('#attestationDiv').hide();
+            window.location = redirectURL + "false";
+        }
+
+        function callThisFnOnLoad() {
+            $('#AttestationDiv').show();
+            $("#AttestationDiv").modal({
+                escapeClose: false,
+                clickClose: false,
+                showClose: false,
+                focus: false
+            });
+            //$('.attestationDiv').modal();
+            //$('.attestationDiv').parent().css('overflow', 'auto');
+            //$('.simplemodal-wrap').scrollTop(0);
+
+            $("#AttestationDiv").closest('#simplemodal-container').find('a.modalCloseImg').hide();
+        }
+    </script>
+    }
+    <div id="AttestationDiv" class="modal" style="display:none">
+        <div class="modal-title">Attestation</div>
+        <div style="padding: 10px">
+            <p align="left">
+                <span class="style1">Antitrust Statement and Summary</span><strong>
+                    <br>
+                </strong><em>
+                    This text was prepared by R. Timothy Columbus, Esquire, with Collier Shannon Scott, PLLC, legal counsel to the National Association of Convenience Stores.
+                </em>
+                <br>
+                <br>
+                <strong>Introduction</strong>
+                <br>
+                The purpose of this
+                document is to assist the staff and Board of Directors of the National
+                Association of Convenience Stores in understanding how the federal antitrust and
+                trade regulation laws apply to NACS. It is the policy of NACS to comply fully
+                with the antitrust laws. This document has been prepared to remind NACS staff,
+                Board members, and any other individuals who have occasion to conduct programs
+                sponsored by NACS of the Association’s commitment to antitrust compliance and to
+                provide general guidelines for conducting NACS meetings in a manner that
+                minimizes antitrust risks. This is not intended to make you an antitrust law
+                expert, but to point out the danger areas of antitrust as well as situations
+                that may require you to seek advice from NACS legal counsel.<br>
+                <br>
+                The
+                antitrust laws seek to preserve a free competitive economy in the United States
+                and in commerce with foreign nations. The penalties for violating the antitrust
+                laws are severe; engaging in anticompetitive activities exposes NACS members,
+                their companies, and employees to criminal prosecution, as well as government
+                and private civil suits for treble damages.<br>
+                <br>
+                Trade associations must be
+                particularly concerned with the antitrust laws because a trade association
+                inevitably brings competitors together for meetings and other activities.
+                <br>
+                <br>
+                When competitors meet or work together through a trade association,
+                there may be opportunities to reach unlawful agreements. It would be wrong,
+                however, to conclude that all trade association activities carry antitrust
+                risks. To the contrary, when properly conducted, trade association activities
+                play a valuable role in promoting free and open competition within industries
+                and present very few antitrust problems. It is not possible to provide a
+                complete list of antitrust rules that would cover every situation that you, as a
+                NACS member or employee, might encounter. You should bear in mind, however, that
+                the antitrust laws are concerned not with preventing discussions and meetings
+                among competitors, but with <strong>agreements</strong> that unreasonably
+                restrict competition among competitors. Thus, while there are no “bad” words,
+                the mere mention of which violates the antitrust laws, there are topics and
+                situations that potentially may lead to illegal agreements or may appear to do
+                so.<br>
+                <br>
+                <strong>Responsibility for Antitrust Compliance</strong>
+                <br>
+                Although
+                NACS carefully designs and reviews its programs to ensure their conformity with
+                antitrust standards, each NACS member is individually responsible for complying
+                with both the letter and spirit of the antitrust laws. NACS staff is expected to
+                intervene in situations where it may be necessary to remind members to use their
+                good judgment to avoid discussions or activities that give even the appearance
+                of involving impermissible subjects or improper procedures. Since
+                anticompetitive agreements may be inferred from circumstantial evidence, NACS
+                staff must see to it that discussions at NACS meetings and functions do not
+                stray into subjects that may have troublesome implications.<br>
+                <br>
+                <strong>
+                    Basic
+                    Antitrust Principles
+                </strong>
+                <br>
+                One of the most important antitrust laws
+                relating to NACS activities is Section 1 of the Sherman Antitrust Act, which
+                prohibits “contracts, combinations, or conspiracies... in restraint of trade.”
+                Section 2 of the Act prohibits monopolization, attempts to monopolize, and
+                conspiracies to monopolize and is, therefore, less relevant to trade association
+                activities.<br>
+                <br>
+                Section 1 of the Sherman Act prohibits competitors from
+                restraining competition among themselves by agreeing to take common action
+                regarding, for example, the price, production, or distribution of their
+                products. Price-fixing agreements are always illegal. <strong>
+                    Any agreement
+                    among competitors to raise, lower, or stabilize prices is unlawful even if the
+                    price agreed upon is reasonable or beneficial to consumers and even if the
+                    agreement is never put into effect.
+                </strong>
+                <br>
+                <br>
+                Unlawful pricing agreements
+                may be inferred from circumstantial evidence, such as an exchange of price lists
+                between competitors. This does not mean, however, that the word “price” may
+                never be spoken at NACS meetings. For example, a presentation by an outside
+                speaker on how economic trends might affect members’ prices would not in itself
+                raise any antitrust risk. It would not, of course, be appropriate for the
+                members to discuss a joint price-related response to what may be perceived as a
+                common problem. Because many price-related topics can be of value to NACS, and
+                present no antitrust risks if presented properly, NACS legal counsel should be
+                consulted whenever the members are interested in discussing such topics so that
+                proper limits for the presentation may be established in advance. It is only the
+                express or implied <strong>agreement</strong> among competitors restricting
+                their freedom to establish prices that is prohibited.<br>
+                <br>
+                The Sherman Act
+                also prohibits agreements among competitors to harm, through trade boycotts or
+                similar means, the competitive capabilities of their suppliers, customers, or
+                other competitors.<br>
+                <br>
+                Trade associations are also subject to Section 5 of
+                the Federal Trade Commission Act. Under Section 5, the Federal Trade Commission
+                (FTC) may challenge actions or commercial practices that, although perhaps not
+                rising to the level of an antitrust violation, are deemed “unfair methods of
+                competition” or “deceptive acts or practices.” Thus, FTC may challenge not only
+                agreements that restrain competition, but also such practices as false
+                advertising.<br>
+                <br>
+                <strong>NACS Meeting Guidelines</strong>
+                <br>
+                Because the
+                existence of unlawful agreements may be inferred from circumstantial evidence,
+                the following topics carry antitrust risks and must be avoided at NACS meetings,
+                seminars, and other functions:
+            </p>
+            <ul>
+                <li style="font: 11px arial, helvetica, sans-serif">
+                    Members’ current or future
+                    prices or components thereof, including discounts, rebates, and credit
+                    terms;<br>
+                </li>
+                <li style="font: 11px arial, helvetica, sans-serif">
+                    The possibility or
+                    desirability of members’ limiting their sales of any product in any geographic
+                    area;<br>
+                </li>
+                <li style="font: 11px arial, helvetica, sans-serif">
+                    Allocation or division of
+                    customers or territories among competing retailers;<br>
+                </li>
+                <li style="font: 11px arial, helvetica, sans-serif">
+                    Reasons why NACS members
+                    should refuse to deal with a particular supplier or customer;<br>
+                </li>
+                <li style="font: 11px arial, helvetica, sans-serif">
+                    Whether the pricing or
+                    distribution practices of a competitor are “unethical” or constitute an unfair
+                    trade practice;<br>
+                </li>
+                <li style="font: 11px arial, helvetica, sans-serif">
+                    Efforts to influence
+                    suppliers’ prices;<br>
+                </li>
+                <li style="font: 11px arial, helvetica, sans-serif">
+                    What constitutes a “fair”
+                    profit margin;<br>
+                </li>
+                <li style="font: 11px arial, helvetica, sans-serif">
+                    Price lists or procedures
+                    for coordinating price changes.
+                </li>
+            </ul>
+            <p style="font: 11px arial, helvetica, sans-serif" align="left">
+                <span class="style1">Conflicts of Interest Statement</span>
+                <br>
+                <em>
+                    A statement of policy
+                    regarding conflicts of interest with respect to members of the Board of
+                    Directors and committees, staff, counsel, and other
+                    providers.
+                </em>
+                <br>
+                <br>
+                <strong>Background</strong>
+                <br>
+                NACS’ mission is to
+                represent the industry and to assist retail members in increasing their current
+                and future effectiveness and profitability. Thus, the central interest upon
+                which NACS’ efforts are focused is that of retail convenience store operators as
+                a class. Promoting this interest is the means by which the channel of
+                distribution is most likely to be benefited.<br>
+                <br>
+                NACS has sought, and
+                obtained, the participation of many entities that are active at multiple levels
+                of distribution within the channel of trade that comprises the industry.
+                Moreover, NACS seeks the services of vendors and professionals whose clientele
+                may include more than just retail convenience store operators.<br>
+                <br>
+                The
+                availability of input from diverse points of view is of enormous value to NACS.
+                However, on occasion, an individual’s obligation to advance interests not in
+                concert with the interests of retail convenience store operators as a class, or
+                NACS, may arise. The policy delineated below sets forth NACS’ expectations of
+                members of the Board of Directors, NACS’ committees and task forces, the
+                Supplier Board and its committees, staff, counsel, and all other providers of
+                services to NACS. By accepting the opportunity for service in any of these
+                capacities, an individual agrees to fulfill NACS’ expectations and behave in a
+                manner that comports with this policy.<br>
+                <br>
+                <strong>Policy</strong>
+                <br>
+                By
+                accepting the opportunity to serve NACS as a member of its Board of Directors or
+                Supplier Board, a NACS committee or task force, staff, counsel or other provider
+                of services, an individual acknowledges that the central interest upon which
+                NACS’ efforts are focused is that of retail convenience store operators as a
+                class. Under any circumstances in which an individual, serving in the previously
+                described capacities is:
+            </p>
+            <ol>
+                <li style="font: 11px arial, helvetica, sans-serif">
+                    Obliged, by employment,
+                    investment, or other duty, to protect or promote an interest other than the
+                    interests of retail convenience store operators, as a class or NACS, and
+                </li>
+                <li style="font: 11px arial, helvetica, sans-serif">
+                    Involved in the
+                    development of a position or policy to be advocated by NACS, then, that
+                    individual shall:<br>
+                    a. Promptly disclose his or her actual or potential
+                    conflict of interest, and<br>
+                    b. Recuse himself or herself from voting or other
+                    action which can result in the formulation of that policy or position.
+                </li>
+            </ol>
+            <p style="font: 11px arial, helvetica, sans-serif" align="left">
+                Upon the
+                disclosure of an actual or potential conflict, the other members of the Board,
+                committee or task force shall determine whether that individual may participate
+                in any relevant exchange of views relating to the issue that gives rise to that
+                conflict.
+            </p>
+            <p style="font: 11px arial, helvetica, sans-serif" align="left">
+                <span class="style1">Principles of Engagement</span>
+                <br>
+                <br>
+                The lessons learned from
+                debate several years ago led NACS to institutionalize policies to determine how
+                NACS addresses contentious issues.<br>
+                <br>
+                Since the Association represents the
+                convenience and petroleum retailing industry and not any sub-set of the
+                industry, the Board agreed that NACS’ decisions will continue to be driven by
+                the input from all members, and that it is also important to have principles in
+                place to guide decisions. The “Principles of Engagement” on divisive or
+                contentious issues like “below cost” are:<br>
+                <br>
+                NACS will abstain from taking a
+                position on an issue where its members are on both sides of the issue and one
+                that would “rip the association apart,”
+                <br>
+                <br>
+                For state-specific issues in
+                general, NACS:
+            </p>
+            <ul>
+                <li style="font: 11px arial, helvetica, sans-serif">
+                    Will not provide funding
+                    for any state issues<br>
+                </li>
+                <li style="font: 11px arial, helvetica, sans-serif">
+                    Will take no position on
+                    any state issue where members are significantly divided<br>
+                </li>
+                <li style="font: 11px arial, helvetica, sans-serif">
+                    Will be a neutral
+                    resource<br>
+                </li>
+                <li style="font: 11px arial, helvetica, sans-serif">
+                    Will work with state
+                    associations on mutual business opportunities
+                </li>
+            </ul>
+            <p style="font: 11px arial, helvetica, sans-serif" align="left">
+                <span class="style1">Travel Expenses</span>
+                <br>
+                <br>
+                The Board of Directors meets during
+                the Congress of Committees, SOI Summit and the NACS Show. NACS’ policy does not
+                reimburse travel expenses for the latter two meetings, as it is assumed that
+                Board members would travel to these programs in their normal course of business.
+                All other committee travel, including Board orientations and the Congress of
+                Committees, are reimbursed by NACS at coach class fares.
+                <br>
+                <br>
+                <span class="style1">Financial Strategy</span>
+                <br>
+                <br>
+                One of the strategic objectives of
+                NACS is to maintain “financial independence,” defined in three ways:
+            </p>
+            <ol>
+                <li style="font: 11px arial, helvetica, sans-serif">
+                    The Association can
+                    withstand a significant financial setback or disaster that befalls the
+                    industry for sufficient time to regroup.<br>
+                </li>
+                <li style="font: 11px arial, helvetica, sans-serif">
+                    There is no single
+                    organization that provides so much funding that NACS cannot afford to lose
+                    that customer.<br>
+                </li>
+                <li style="font: 11px arial, helvetica, sans-serif">
+                    The Association will
+                    maintain net current assets plus fifty percent of the debt-free value of the
+                    building at a level equal to one year’s operating expenses.
+                </li>
+            </ol>
+            <p style="font: 11px arial, helvetica, sans-serif" align="left">
+                <span class="style1">Acceptance</span>
+                <br>
+                <br>
+                By accepting below, you are, without
+                limitation or qualification, attesting to your current and ongoing compliance
+                with the above policies of NACS.
+                <br>
+            </p>
+        </div>
+        <br />
+        <div style="width: 100%;text-align: center;margin-bottom: 20px">
+            <button onclick="acceptTerms()">Accept Terms</button>&nbsp;&nbsp;
+            <button onclick="rejectTerms()">Reject Terms</button>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.AttestationText))
+    {
+        <div>
+            <span> @Model.AttestationText </span>
+        </div>
+    }
+    @if (!string.IsNullOrEmpty(Model.ErrorText))
+    {
+        <div>
+            <span id="litError"> @Model.ErrorText </span>
+        </div>
+    }
+}

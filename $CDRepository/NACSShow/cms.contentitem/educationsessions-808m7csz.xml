@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>NACSShow</CodeName>
+    <GUID>2083f08a-0932-4059-8087-f0556c420aa4</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemContentTypeID>
+    <CodeName>NACSShow.Page</CodeName>
+    <GUID>3430b91e-2a07-4492-8b2d-b13f556b861a</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>f540249b-858a-479c-a8df-7155979819fe</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>EducationSessions-808m7csz</ContentItemName>
+</cms.contentitem>

@@ -1,0 +1,14 @@
+﻿@model Convenience.org.Components.Widgets.RolesRefreshViewModel
+
+@if (!string.IsNullOrEmpty(Model.Role))
+{
+    if (!string.IsNullOrEmpty(Model.RedirectUrl))
+    {
+        <script type="text/javascript">
+            $(document).ready(function () {
+                window.location.href = '@Model.RedirectUrl';
+            });
+        </script>
+    }
+    <span>@Model.Role</span>
+}

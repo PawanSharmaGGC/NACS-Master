@@ -1,0 +1,37 @@
+﻿@model List<Convenience.org.Components.Widgets.MemberSearchCompanyPeople.MemberSearchCompanyPeopleViewModel>
+
+<div class="contact-details">
+    <h2>Contact Details</h2>
+    @if (Model != null && Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Job Title</th>
+                    <th>City</th>
+                    <th>State/Province</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var contact in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href="@Url.Action("GetPersonDetails", "MemberSearchPersonDetails", new { contactid = contact.ContactId })" target="_blank">
+                                @contact.FullName
+                            </a>
+                        </td>
+                        <td>@contact.JobTitle</td>
+                        <td>@contact.City</td>
+                        <td>@contact.StateOrProvince</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No contacts found for this account.</p>
+    }
+</div>

@@ -1,0 +1,223 @@
+﻿<!doctype html>
+
+<html lang="en">
+<head>
+    <title>| NACS Show</title>
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="keywords" content="trade show" />
+    <link href="/assets/css/NACSShowTemp.css" type="text/css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/assets/css/2021normalize.css" type="text/css" rel="stylesheet" />
+    <link href="/assets/css/NACSShow2021Flexbox.css" type="text/css" rel="stylesheet" />
+    <link href="/assets/css/Flexboxgrid.min.css" type="text/css" rel="stylesheet" />
+    <link href="/assets/css/NACSShow2021Slick.css" type="text/css" rel="stylesheet" />
+    <link href="/assets/css/NACSShow2021Core.css" type="text/css" rel="stylesheet" />
+    <link href="/assets/css/NACSShow2021Navigation.css" type="text/css" rel="stylesheet" />
+    <link href="/assets/css/NACSShow2021Header.css" type="text/css" rel="stylesheet" />
+    <link href="/assets/css/NACSShow2021Footer.css" type="text/css" rel="stylesheet" />
+    <link href="/assets/css/NACSShow2021Overrides.css" type="text/css" rel="stylesheet" />
+    <link href="/assets/css/NACSShow2022.css" type="text/css" rel="stylesheet" />
+    @if(Context.Kentico().PageBuilder().EditMode)
+    {
+        @Html.Kentico().PageBuilderStyles()
+    }
+
+    <!-- javascript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/fontawesome-all.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/core.js"></script>
+    <script type="text/javascript" src="~/assets/js/slick.js"></script>
+    <script src="~/assets/js/toggle-menu.js"></script>
+    <script src="~/assets/js/accordion.js"></script>
+    <script src="~/assets/js/workshop.js"></script>
+</head>
+<body class="">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-FVTW9XJ"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    @* <cms:CMSWebPartZone ZoneID="AlertZone" runat="server" /> *@
+    <!-- Outer Header -->
+    <header class="header--site">
+        <!-- Sponsorship Row -->
+        <div class="wrapper">
+            <div class="container" id="sponsorship">
+                <div class="block--sponsorship">
+                    <div class="banner-ad-space">
+                        <div class="fpo-ad fpo-ad--mobile">
+                           @*  <cms:CMSWebPartZone ZoneID="AdZone" runat="server" /> *@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header Mobile Login & Search -->
+        <div class="wrapper wrapper--header-mobile-login-search">
+            <div class="container">
+                <div class="header-mobile-login-search">
+                    <!-- Search Block -->
+                    <div class="block--header-mobile-search">
+                        <div id="header-search-mobile" class="form-control">
+                            <label for="header-mobile-search-input" class="sr-text">
+                                Search
+                            </label>
+                            <!--<form action='#'>-->
+                            <cms:CMSWebPartZone ZoneID="SearchZone" runat="server" />
+                            <!--</form>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="text-align:right" id="welcome">
+            <div style="padding-bottom: 8px">
+                <cms:CMSWebPartZone ZoneID="SignInZone" runat="server" />
+                &nbsp;|&nbsp;<a id="nacs-help" href="/Help"><i class="fal fa-question" style="margin-right:4px;"></i>Help</a>
+            </div>
+        </div>
+
+        <!-- Header Mobile Navigation -->
+        <div class="wrapper wrapper--header-navigation-mobile">
+            <div class="container container--no-padding">
+                <!-- Menu Toggle Button -->
+                <div class="block--toggle-button">
+                    <!--<button class="button--toggle-mobile-menu">-->
+                    <a class="button--toggle-mobile-menu">
+                        <svg id="menu-24px" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path id="Path_1" data-name="Path 1" d="M0,0H24V24H0Z" fill="none" />
+                            <path id="Path_2" data-name="Path 2" d="M4,18H20a1,1,0,0,0,0-2H4a1,1,0,0,0,0,2Zm0-5H20a1,1,0,0,0,0-2H4a1,1,0,0,0,0,2ZM3,7A1,1,0,0,0,4,8H20a1,1,0,0,0,0-2H4A1,1,0,0,0,3,7Z" />
+                        </svg>
+                    </a>
+                    <!--</button>-->
+                </div>
+
+                <!-- Navigation Menu -->
+                <div>
+                    <nav class="navigation-mobile header-navigation-mobile">
+                        <cms:CMSWebPartZone ZoneID="zoneNavigation" runat="server" />
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="stickyheader">
+            <!-- Header Masthead -->
+            <div class="wrapper wrapper--header-masthead" id="masthead">
+                <div class="container">
+                    <div class="header-masthead">
+                        <div class="block--logomark-schedule">
+                            <!-- NACS Show Logomark -->
+                            <div class="block--nacs-logomark">
+                                <a href="/"><img src="/assets/images/2024-logo.png" alt="NACS Show 2024" /></a>
+                            </div>
+                            <!-- NACS Show Schedule -->
+                            <div class="block--header-show-schedule" id="schedule">
+                                <ul>
+                                    <li><strong><span style="color:#d40f7c">Las Vegas</span> | Las Vegas Convention Center</strong></li>
+                                    <li><strong>Conference:</strong> <span style="font-weight:400">October 7-10, 2024</span></li>
+                                    <li><strong>Expo:</strong> <span style="font-weight:400">October 8-10, 2024</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Header Desktop Registration & Login
+                        <div class="block--registration-login">
+                          <div class="block--header-registration">
+                           <div>
+                              <a class="link link--pill text--white fill--gradient-pacific-blue-to-bondi-blue" href="/Register/start" id="btn-register-now-topnav">Register</a>
+                            </div>
+                            <div>
+                              <a class="link link--pill border--sapphire" href="/Schedule-of-Events" id="btn-schedule-topnav">Schedule</a>
+                            </div>
+
+                          </div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+            <!--Tagline-->
+            <div id="tagline" align="center" style="text-align: center; color: white; font-size: 1.2rem; font-weight: 500; margin: auto; padding-top: 2rem; padding-bottom: 2rem; align-items: center;
+    background: var(--linear-gradient-multicolor);">
+                THE ONLY GLOBAL EVENT FOR ALL THINGS CONVENIENCE
+            </div>
+            <!-- END Tagline -->
+            <!-- Header Desktop Navigation -->
+            <div class="wrapper wrapper--header-navigation-desktop" id="navbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <!-- Navigation Menu -->
+                            <nav class="header-navigation-desktop">
+                                <vc:navigation-menu />
+                            </nav>
+                        </div>
+                        <div class="col-xs-2">
+                            <!-- Search Block -->
+                            <div class="block--header-desktop-search">
+                                <div id="header-search-desktop" class="form-control">
+                                    <cms:CMSWebPartZone ZoneID="SearchZone" runat="server" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id='page'>
+        @RenderBody()
+    </div>
+
+    <!-- Outer Footer -->
+    <footer class="footer--site">
+        <!-- Sharing Row -->
+        <div class="wrapper wrapper--footer-socmed-sharing">
+            <div class="container">
+                <div class="socmed-sharing">
+                    <!-- HashTag -->
+                    <div class="block--hashtag">
+                        <a href="#" target="_blank" rel="noreferrer noopener">
+                            #NACSShow
+                        </a>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="block--socmed-links">
+                        <vc:social-menu />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Colophon Row -->
+        <div class="wrapper">
+            <div class="container">
+                <div class="colophon">
+                    <!-- NACS Logomark -->
+                    <div class="block--colophon-logomark">
+                        <span class="nacs-logo">NACS</span>
+                        <span>Advancing Convenience &amp; Fuel Retailing</span>
+                    </div>
+                    <!-- Address Block -->
+                    <div class="block--colophon-address">
+                        <address>1600 Duke Street, Alexandria VA 22314</address>
+                        <a href="https://convenience.org">Convenience.org</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+@*     <cms:CMSWebPartZone ZoneID="ConsentZone" runat="server" /> *@
+
+    <!--MD Tracking Pixel-->
+    <div id="diMr--SheM2nAsCOuT7qQtuTT7487iw0ClSquTa4K_ck"></div>
+    <div class="d365-mkt-config" style="display:none" data-website-id="iMr--SheM2nAsCOuT7qQtuTT7487iw0ClSquTa4K_ck" data-hostname="f35904c9247e47c59af9c8d734612d0e.svc.dynamics.com"></div>
+    <!--END MD Tracking Pixel-->
+    @Html.Kentico().PageBuilderScripts()
+    @RenderSection("scripts", required:false)
+</body>
+</html>

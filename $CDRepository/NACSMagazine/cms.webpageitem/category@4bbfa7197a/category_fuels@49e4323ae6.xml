@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>Fuels-dv0e1fmy</CodeName>
+    <GUID>5a88d7dc-2e38-454d-b932-310c225e5606</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>cc210eb4-d614-46ce-89cb-4f590d0c1171</WebPageItemGUID>
+  <WebPageItemName>Fuels-dv0e1fmy</WebPageItemName>
+  <WebPageItemOrder>10</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>Category-iooqnwpz</CodeName>
+    <GUID>d7b6ddbf-59b7-492a-aa64-c51811e733f7</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>/Category/Fuels</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>3257d9cb-79a6-4552-998d-e1f8e1a3cb3e</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSMagazine</CodeName>
+      <GUID>eecfdedc-a92f-48b7-9daa-eab81c106019</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

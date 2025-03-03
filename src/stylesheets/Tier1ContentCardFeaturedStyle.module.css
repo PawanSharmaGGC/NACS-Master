@@ -1,0 +1,9 @@
+.section_card{
+    background-color: #DBEAB9 !important;
+    border-radius: 18px;
+}
+
+.tier_1_img{
+    width: -webkit-fill-available;
+    margin: 2rem;
+}

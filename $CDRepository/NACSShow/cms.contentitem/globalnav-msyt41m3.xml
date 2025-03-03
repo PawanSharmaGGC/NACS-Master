@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>NACSShow</CodeName>
+    <GUID>2083f08a-0932-4059-8087-f0556c420aa4</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemGUID>3b9bd54b-caff-4db6-8c24-cc9d576066ce</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>GlobalNav-msyt41m3</ContentItemName>
+</cms.contentitem>

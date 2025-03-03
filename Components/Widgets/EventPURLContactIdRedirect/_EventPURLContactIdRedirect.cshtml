@@ -1,0 +1,30 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+
+@model Convenience.org.Components.Widgets.EventPURLContactIdRedirect.EventPURLContactIdRedirectViewModel
+
+@if (Model != null)
+{
+    <div id="placeHolder">
+        <div class="form-group">
+            <label id="lblCode" style="font-weight:700">Enter Code: </label>
+            <input type="text" id="txtCode" maxlength="10" class="form-control" style="width:300px;display:inline-block;margin:10px;" placeholder="C-XXXXXXXX" />
+            <span style="font-size:0.7em;"> Format: C-XXXXXXXX</span>
+            <br />
+            <input type="button" id="btnSubmit" class="btn btn-primary mx-start-button" style="min-width: 302px;" value="Go To Registration Form"
+                        onclick="validateForm();"/>
+        </div>
+
+        <script type="text/javascript">
+            function validateForm() {
+                var code = document.getElementById('txtCode').value;
+                var codeRegex = /^C-.{8}$/;
+                if (!codeRegex.test(code)) {
+                    alert('Please provide a valid code in the format \'C-XXXXXXXX\' where XXXXXXXX is an 8-digit number.');
+                    return false;
+                }
+                window.location.replace("https://convenience.org/Events/MX-Events-Redirect?mid=@Model.EventID&pnum={code}");
+            }
+        </script>
+    </div>
+}

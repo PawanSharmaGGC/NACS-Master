@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.home>
+  <ContentItemDataCommonDataID>
+    <GUID>9e60a8eb-6823-472c-8893-888f614c90fe</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Home-wlo44q6w</CodeName>
+      <GUID>13f58258-7dbc-47d3-b3e0-97c2d46c8ef3</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>e91fb38b-c256-4396-98a6-620bdd5ccc09</ContentItemDataGUID>
+  <Title>Home</Title>
+</contentitemdata.nacsshow.home>

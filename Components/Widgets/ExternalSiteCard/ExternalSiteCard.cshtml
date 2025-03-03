@@ -1,0 +1,37 @@
+﻿@using Convenience.org.Components.Widgets
+@model ExternalSiteCardViewModel
+
+@if (Model != null)
+{
+	var cssClassTagShowHide = (Model.IsTagVisible && Model.TagName != "") ? "d-block" : "d-none";
+	<div>
+		<div class="border-0 p-3 card">
+			<div class="border-0 p-0 bg-trans ExternalSiteCardStyle-module__section_card card">
+				<div class="p-4 ExternalSiteCardStyle-module__section_body_card card-body flexWidth">
+					<div class="text-start d-flex justify-content-between align-items-baseline">
+						<div>
+							<div class="text-start mb-4 border_left_green EyebrowTitleStyle-module__eyebrow">
+								<span class="ps-4 text-uppercase font-monospace color-FFFFFF">@Model.EyebrowTitle</span>
+							</div>
+						</div>
+						<span class="text-center mt-2 color-0053A5 bg-FFFFFF TagsStyle-module__card_badge @cssClassTagShowHide">@Model.TagName</span>
+					</div>
+					<div class=" pt-3 fs-3 color-FFFFFF text-start">@Model.Title</div>
+					<div class="float-start pt-5">
+						<div class="">
+							<a href="@Model.CTALink" class="bg-FFFFFF p-3 border border-0 brdr-rad-30 text-decoration-none ">
+								<span><i class="align-middle color-0053A5"></i></span>
+								<span class="color-0053A5 text-start pe-lg-2 ps-lg-2 fw-medium">@Model.CTAText</span>
+								<span><i class="align-middle color-0053A5 fa-regular fa-arrow-up-right-from-square " aria-hidden="true"></i></span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="p-0  card-body logo-container">
+					<img src="@Model.Image" class="ExternalSiteCardStyle-module__section_body_img logo" alt="@Model.CTALink">
+				</div>
+			</div>
+		
+	</div>
+</div>
+}

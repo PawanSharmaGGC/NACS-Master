@@ -1,0 +1,681 @@
+﻿@using Convenience.org.Models
+
+@model GoodJobCalculatorViewModel
+
+<link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'
+        media="screen" />
+<link rel="stylesheet" href='https://ka-p.fontawesome.com/releases/v6.7.2/css/pro.min.css?token=097aa4c14b'
+        media="screen" />
+
+@Html.Partial("~/Components/Widgets/GoodJobCalculator/_GoodJobCalculatorStepsHeading.cshtml", Model)
+
+<div class="row">
+    <div class="col">
+
+
+        <div class="clear"></div>
+        <br />
+
+        <div style="float: right; margin-right: 40px;">
+            <div style="float: left">
+                <strong style="color: #036!important;"><i class="fal fa-info-circle fa-2x"></i>&nbsp;</strong><strong style="font-size: 20px;">Need Help? &nbsp;</strong>
+            </div>
+            <div style="float: right">
+                <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
+                    Contact Us!
+                </button>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+        <br />
+
+        <div class="tab">
+            <div style="width: 70%; float: left; min-width: 350px; padding-left: 10px">
+                <div class="rTable">
+                    <!-- Data Transfer Invisible -->
+                    <div>
+                        <input id="Text0" name="Text0"  value="@Model.Text0" type="hidden" />
+                        <input id="Text1" name="Text1"  value="@Model.Text1" type="hidden" />
+                        <input id="Text2" name="Text2"  value="@Model.Text2" type="hidden" />
+                        <input id="Text3" name="Text3"  value="@Model.Text3" type="hidden" />
+                        <input id="Text4" name="Text4"  value="@Model.Text4" type="hidden" />
+                        <input id="Text5" name="Text5"  value="@Model.Text5" type="hidden" />
+                        <input id="Text6" name="Text6"  value="@Model.Text6" type="hidden" />
+                        <input id="Text7" name="Text7"  value="@Model.Text7" type="hidden" />
+                        <input id="Text8" name="Text8"  value="@Model.Text8" type="hidden" />
+                        <input id="Text9" name="Text9"  value="@Model.Text9" type="hidden" />
+                        <input id="Text10" name="Text10"  value="@Model.Text10" type="hidden" />
+                        <input id="Text11" name="Text11"  value="@Model.Text11" type="hidden" />
+                        <input id="Text12" name="Text12"  value="@Model.Text12" type="hidden" />
+                        <input id="Text13" name="Text13"  value="@Model.Text13" type="hidden" />
+                        <input id="Text14" name="Text14"  value="@Model.Text14" type="hidden" />
+                        <input id="Text15" name="Text15"  value="@Model.Text15" type="hidden" />
+                        <input id="Text16" name="Text16"  value="@Model.Text16" type="hidden" />
+                        <input id="Text17" name="Text17"  value="@Model.Text17" type="hidden" />
+                        <input id="Text18" name="Text18"  value="@Model.Text18" type="hidden" />
+                    </div>
+
+                    <div class="rTableRow" style="background-color: #0d2c6c; color: white; text-align: center; border-style: solid; border-color: white;">
+                        <div class="rTableHead1" style="padding: 10px; border-color: white; border: 2px solid #ffffff; border-right: none; vertical-align: middle">
+                            <strong>Area of Focus</strong>
+                        </div>
+                        <div class="rTableHead2" style="padding: 10px; border-color: white; border: 2px solid #ffffff; border-right: none">
+                            <strong>Current Performance</strong>
+                        </div>
+                        <div class="rTableHead3" style="padding: 10px; border-color: white; border: 2px solid #ffffff; border-right: none">
+                            <strong>Industry Benchmark</strong>
+                        </div>
+                        <div class="rTableHead4" style="padding: 10px; border-color: white; border: 2px solid #ffffff; border-top: none;">
+                            <strong>Projected Performance</strong>
+                        </div>
+                    </div>
+
+                    <div class="rTableRow">
+                        <div class="rTableCell1" style="border: none;">
+                            <span>&nbsp;</span>
+                        </div>
+
+                        <div class="rTableCell2" style="border: none;">
+                            <span style="font-style: italic; font-size: 10px">(Calculated based on data submitted in step 1&2)</span>
+                        </div>
+
+                        <div class="rTableCell3" style="border: none;">
+                            <span style="font-style: italic; font-size: 10px">(Calculated based on companies in the top quartile as defined by average turnover rate)</span>
+                        </div>
+
+                        <div class="rTableCell4" style="background-color: #e4e4e4; border-color: white; border: 0px solid #ffffff; vertical-align: middle">
+                            <strong>Adjust to your goal</strong>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                    <br />
+
+                    <div class="ctrl-header">REVENUE UPLIFT</div>
+                    <div class="clear"></div>
+                    <br />
+                    <b>Inside sales lift</b>
+                    <hr style="margin: 0px!important; width: 90%" />
+
+                    <div class="rTableRow">
+                        <div class="rTableCell1" style="padding-right: 10px">
+                            <span>Ticket size (inside sales / inside transactions)</span>
+                        </div>
+
+                        <div class="rTableCell2" style="text-align: center; color: #152b69; font-size: 16px!important; font-weight: 700;">
+                            $<label type="text" class="calc-number" name="CaField1" id="CaField1"
+                                    style="padding: 5px 3px; width: 137px; border: none">@Model.CaField1</label>
+                            <input type="hidden" name="CaField111" id="CaField111" value="@Model.CaField111" 
+                                   style="padding: 5px 3px; width: 137px; border: none;" />
+                        </div>
+
+                        <div class="rTableCell3">
+                            <label>$ 7.52</label>
+                        </div>
+
+                        <div class="rTableCell4">
+                            <span>
+                                <input type="number" name="CaField2" id="CaField2" value="@Model.CaField2" style="padding: 5px 3px; width: 137px;"
+                                       onkeyup="SliderPosition1(); CalculateTotalEstimate(); TotalPLImpact(); WageImpact();"
+                                       onchange="SliderPosition1(); CalculateTotalEstimate(); TotalPLImpact(); WageImpact();"
+                                        />
+                            </span>
+
+                            <div class="clear"></div>
+
+                            <div class="tooltip slidercontainer">
+                                <span class="tooltiptext">- % performance + </span>
+                                <div style="width: max-content; text-align: center">
+                                    <span>0%</span>
+                                    <span>
+                                        <input type="range" id="Slider1" value="@Model.Slider1" step="0.1" name="Slider1" class="slider"
+                                               style="width: 70px; padding: 0"
+                                               onchange="CalculateTotalEstimate(); CalculateFuture1(); TotalPLImpact(); WageImpact();"
+                                               onkeyup="CalculateTotalEstimate(); CalculateFuture1(); TotalPLImpact(); WageImpact();" />
+                                    </span>
+                                    <span>100%</span>
+                                    <div class="clear"></div>
+                                    <output name="value1" id="value1"  class="thumb"></output>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rTableRow">
+                        <div class="rTableCell1">
+                            <span>Total number of inside transactions per store per day</span>
+                        </div>
+
+                        <div class="rTableCell2" style="text-align: center; color: #152b69; font-size: 16px!important; font-weight: 700;">
+                            <label type="text" class="calc-number" name="CaField3" id="CaField3"
+                                   style="padding: 5px 3px; width: 137px; border: none;">@Model.CaField3</label>
+                            <input type="hidden" name="CaField33" id="CaField33" value="@Model.CaField33" 
+                                   style="padding: 5px 3px; width: 137px; border: none;" />
+                        </div>
+
+                        <div class="rTableCell3">
+                            <span>
+                                <label>1,589</label>
+                            </span>
+                        </div>
+
+                        <div class="rTableCell4">
+                            <span>
+                                <input type="number" name="CaField4" id="CaField4" value="@Model.CaField4"  
+                                       style="padding: 5px 3px; width: 137px;"
+                                       onkeyup="SliderPosition2(); CalculateTotalEstimate(); CalculateFuelProfitability(); TotalPLImpact(); WageImpact();"
+                                       onchange="SliderPosition2(); CalculateTotalEstimate(); CalculateFuelProfitability(); TotalPLImpact(); WageImpact();" />
+                            </span>
+
+                            <div class="clear"></div>
+
+                            <div class="tooltip slidercontainer">
+                                <span class="tooltiptext">- % performance + </span>
+                                <div style="width: max-content; text-align: center">
+                                    <span>0%</span>
+                                    <span>
+                                        <input type="range" id="Slider2" value="@Model.Slider2" step=".1" name="Slider2" class="slider"
+                                               style="width: 70px; padding: 0"
+                                               onchange="CalculateTotalEstimate(); CalculateFuture2(); CalculateFuelProfitability(); TotalPLImpact(); WageImpact();"
+                                               onkeyup="CalculateTotalEstimate(); CalculateFuture2(); CalculateFuelProfitability(); TotalPLImpact(); WageImpact();" />
+                                    </span>
+                                    <span>100%</span>
+                                    <div class="clear"></div>
+                                    <output name="value2" id="value2"  class="thumb"></output>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <b>Fuel sales lift</b>
+                    <hr style="margin: 0px!important; width: 90%" />
+
+                    <div class="rTableRow">
+                        <div class="rTableCell1">
+                            <span>
+                                What percent of increased inside transactions would lead to increased fuel volume per store per day?
+                            </span>
+                        </div>
+
+                        <div class="rTableCell2">
+                            <span>
+                                <label>&nbsp;&nbsp; </label>
+                            </span>
+                        </div>
+
+                        <div class="rTableCell3">
+                            <span>
+                                <label>&nbsp;&nbsp; </label>
+                            </span>
+                        </div>
+
+                        <div class="rTableCell4">
+                            <span>
+                                <input type="number" name="CaField6" id="CaField6" step="1" value="@Model.CaField6"  
+                                       placeholder="%" style="padding: 5px 3px; width: 137px;"
+                                       onkeyup="CalculateFuelProfitability(); TotalPLImpact(); WageImpact();"
+                                       onchange="CalculateFuelProfitability(); TotalPLImpact(); WageImpact();" />&nbsp;%
+                            </span>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                    <br />
+
+                    <div class="ctrl-header">COST MITIGATION</div>
+                    <div class="clear"></div>
+                    <br />
+                    <b>Turnover Rate</b>
+                    <hr style="margin: 0px!important; width: 90%" />
+
+                    <div class="rTableRow">
+                        <div class="rTableCell1">
+                            <span>Annual employee turnover rate</span>
+                        </div>
+
+                        <div class="rTableCell2" style="text-align: center; color: #152b69; font-size: 16px!important; font-weight: 700;">
+                            <label type="text" class="calc-number" name="CaField7" id="CaField7"
+                                   style="padding: 5px 3px; width: 137px; border: none">@Model.CaField7</label>
+                            %
+                        </div>
+
+                        <div class="rTableCell3">
+                            <span>
+                                <label>63%</label>
+                            </span>
+                        </div>
+
+                        <div class="rTableCell4">
+                            <span>
+                                <input type="number" name="CaField8" id="CaField8" value="@Model.CaField8" style="padding: 5px 3px; width: 137px;"
+                                       onkeyup="SliderPosition4(); CostMitigation(); TotalPLImpact(); WageImpact();"
+                                       onchange="SliderPosition4(); CostMitigation(); TotalPLImpact(); WageImpact();" />
+                                %
+                            </span>
+
+                            <div class="clear"></div>
+
+                            <div class="tooltip slidercontainer">
+                                <span class="tooltiptext">- % performance + </span>
+                                <div style="width: max-content; text-align: center">
+                                    <span>0 %</span>
+                                    <span>
+                                        <input type="range" id="Slider4" value="@Model.Slider4" step=".1" min="-100" max="100" class="slider"
+                                               style="width: 70px; padding: 0"
+                                               onchange="Calculate4(); CostMitigation(); TotalPLImpact(); WageImpact();"
+                                               onkeyup="Calculate4(); CostMitigation(); TotalPLImpact(); WageImpact();" />
+                                    </span>
+                                    <span>100%</span>
+                                    <div class="clear"></div>
+                                    <output name="value4" id="value4"  class="thumb"></output>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <b>Shrink</b>
+                    <hr style="margin: 0px!important; width: 90%" />
+
+                    <div class="rTableRow">
+                        <div class="rTableCell1" style="padding-right: 10px">
+                            <span>
+                                Annual merchandise shrink, as % of sales, per store (excludes foodservice)
+                            </span>
+                        </div>
+
+                        <div class="rTableCell2" style="text-align: center; color: #152b69; font-size: 16px!important; font-weight: 700;">
+                            $<label type="text" class="calc-number" name="CaField9" id="CaField9" 
+                                    style="padding: 5px 3px; width: 137px; border: none">@Model.CaField9</label>
+                            <input type="hidden" name="CaField999" id="CaField999" value="@Model.CaField999"
+                                   style="padding: 5px 3px; width: 137px; border: none" />
+                        </div>
+
+                        <div class="rTableCell3">
+                            <span>
+                                <label>$ 4,414,988</label>
+                            </span>
+                        </div>
+
+                        <div class="rTableCell4">
+                            <span>
+                                $
+                                <input type="number" name="CaField10" id="CaField10" value="@Model.CaField10" style="padding: 5px 3px; width: 137px;" placeholder=""
+                                       onkeyup="SliderPosition5(); CostMitigation(); TotalPLImpact(); WageImpact();"
+                                       onchange="SliderPosition5(); CostMitigation(); TotalPLImpact(); WageImpact();" />
+                            </span>
+
+                            <div class="clear"></div>
+
+                            <div class="tooltip slidercontainer">
+                                <span class="tooltiptext">- % performance + </span>
+                                <div style="width: max-content; text-align: center">
+                                    <span>0%</span>
+                                    <span>
+                                        <input type="range" id="Slider5" value="@Model.Slider5" step=".1" min="-100" max="100" 
+                                               class="slider" style="width: 70px; padding: 0"
+                                               onchange="Calculate5(); CostMitigation(); TotalPLImpact(); WageImpact();"
+                                               onkeyup="Calculate5(); CostMitigation(); TotalPLImpact(); WageImpact();" />
+                                    </span>
+                                    <span>100%</span>
+                                    <div class="clear"></div>
+                                    <output name="value5" id="value5"  class="thumb"></output>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                    <br />
+
+                    <b>Overtime</b>
+                    <hr style="margin: 0px!important; width: 90%" />
+
+                    <div class="rTableRow">
+                        <div class="rTableCell1">
+                            <span>
+                                Average number of unplanned overtime hours per year for frontline
+                                in-store Full-time and Part-time employees across all stores
+                            </span>
+                        </div>
+
+                        <div class="rTableCell2" style="text-align: center; color: #152b69; font-size: 16px!important; font-weight: 700;">
+                            <label type="text" class="calc-number" name="CaField11" id="CaField11" 
+                                   style="padding: 5px 3px; width: 137px; border: none">@Model.CaField11</label>
+                            <input type="hidden" name="CaField1111" id="CaField1111" value="@Model.CaField1111"
+                                   style="padding: 5px 3px; width: 137px; border: none" />
+                        </div>
+
+                        <div class="rTableCell3">
+                            <span>
+                                <label>37,482</label>
+                            </span>
+                        </div>
+
+                        <div class="rTableCell4">
+                            <span>
+                                <input type="number" name="CaField12" id="CaField12" value="@Model.CaField12" style="padding: 5px 3px; width: 137px;"
+                                       onkeyup="SliderPosition6(); CostMitigation(); TotalPLImpact(); WageImpact();"
+                                       onchange="SliderPosition6(); CostMitigation(); TotalPLImpact(); WageImpact();" />
+                            </span>
+
+                            <div class="clear"></div>
+
+                            <div class="tooltip slidercontainer">
+                                <span class="tooltiptext">- % performance + </span>
+                                <div style="width: max-content; text-align: center">
+                                    <span>0%</span>
+                                    <span>
+                                        <input type="range" id="Slider6" value="@Model.Slider6" step=".1" min="-100" max="100" class="slider"
+                                               style="width: 70px; padding: 0"
+                                               onchange="Calculate6(); CostMitigation(); TotalPLImpact(); WageImpact();"
+                                               onkeyup="Calculate6(); CostMitigation(); TotalPLImpact(); WageImpact();" />
+                                    </span>
+                                    <span>100%</span>
+                                    <div class="clear"></div>
+                                    <output name="value6" id="value6"  class="thumb"></output>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                    <br />
+
+                    <div class="ctrl-header">CREATING GOOD JOBS</div>
+                    <div class="clear"></div>
+                    <br />
+                    @* <%-- <hr style="margin: 0px!important; width: 90%" />--%> *@
+
+                    <div class="rTableRow">
+                        <div class="rTableCell1">
+                            <span>
+                                How much of the gross profit uplift would you like to put toward wages?
+                            </span>
+                        </div>
+
+                        <div class="rTableCell2" style="border-right: none;">
+                            <span>
+                                &nbsp;
+                            </span>
+                        </div>
+
+                        <div class="rTableCell3" style="border-left: none; border-right: none;">
+                            <span>
+                                &nbsp;
+                            </span>
+                        </div>
+
+                        <div class="rTableCell4" style="border-left: none;">
+                            <span>
+                                <input type="number" name="CaField14" id="CaField14" step="1" value="@Model.CaField14" 
+                                       style="padding: 5px 3px; width: 137px;"
+                                       onkeyup="CostMitigation(); TotalPLImpact(); WageImpact();"
+                                       onchange="CostMitigation(); TotalPLImpact(); WageImpact();" />
+                            </span>%
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                    <br />
+
+                    <div class="rTableRow">
+                        <div class="rTableCell1">
+                            <span>
+                                Are there any additional employees (e.g., non-salary employees outside of your core business)
+                                that you want to include in wage increases?
+                            </span>
+                        </div>
+
+                        <div class="rTableCell2" style="border-right: none;">
+                            <span>&nbsp;</span>
+                        </div>
+
+                        <div class="rTableCell3" style="border-left: none; border-right: none;">
+                            <span>&nbsp;</span>
+                        </div>
+
+                        <div class="rTableCell4" style="border-left: none;">
+                            <span>
+                                <input type="number" name="CaField15" id="CaField15" value="@Model.CaField15" style="padding: 5px 3px; width: 137px;"
+                                       min="0" 
+                                       onkeyup="SumEmployee(); CostMitigation(); TotalPLImpact(); WageImpact(); CalculateTotalEstimate();"
+                                       onchange="SumEmployee(); CostMitigation(); TotalPLImpact(); WageImpact(); CalculateTotalEstimate();" />
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                    <br />
+
+                    <div class="rTableRow">
+                        <div class="rTableCell1">
+                            <span>
+                                <b>Total number of employees included in hourly wage increase</b>
+                            </span>
+                        </div>
+
+                        <div class="rTableCell2" style="border-right: none;">
+                            <span>&nbsp;</span>
+                        </div>
+
+                        <div class="rTableCell3" style="border-left: none; border-right: none;">
+                            <span>&nbsp;</span>
+                        </div>
+
+                        <div class="rTableCell4" style="border-left: none;">
+                            <span>
+                                <input type="text" name="CaField16" id="CaField16" value="@Model.CaField16"
+                                       onchange="CostMitigation(); TotalPLImpact(); WageImpact(); CalculateTotalEstimate();"
+                                       readonly style="padding: 5px 3px; width: 137px;" />
+                                <input type="hidden" name="CaField17" id="CaField17" value="@Model.CaField17"
+                                       style="width: 100px;" />
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                    <br />
+
+                </div>
+
+                <div class="clear"></div>
+                <br />
+
+                <div style="width: 100%;">
+                    <p class="ms-rteStyle-Subheader"><strong>What doesn't this show?</strong></p>
+                    <p>
+                        Another major category of P&L impact companies benefit from when they implement the Good Jobs Strategy is labor productivity.
+                        We have excluded this category here because it is so specific to the current state operations for every individual company.
+                        Please feel free to reach out to us if you would like to see the impact of increased labor productivity included in your output.
+                    </p>
+                </div>
+
+            </div>
+
+            <!---------------------------- Good Jobs Output Side Div ---------------------->
+            <div style="width: 28%; float: left; min-width: 300px; margin-left: 20px; border: solid 10px #eee; padding: 10px" class="divtab" >
+                <br />
+                <div>
+                    <p class="ms-rteStyle-Subheader"><strong>How are you gaining this impact?</strong></p>
+                    <p>
+                        Higher traffic, better customer and transaction conversion rate, & increased basket size result in an increase
+                        in sales/square foot. Better inside service drives increased gas sales. Improved operations leads to reduction
+                        in shrink. Improved jobs reduces turnover, which reduces turnover costs, as well as unplanned overtime hours
+                        needed.@* <%-- Good Jobs companies have reduced legal and compliance costs.--%> *@
+                    </p>
+                </div>
+
+                <br />
+
+                <div>
+                    <div>
+                        <div style="width: 100%;">
+                            <span style="float: left;">
+                                <b>Total estimated revenue uplift</b>
+                            </span>
+                            <div class="clear"></div>
+                            <span style="float: left; padding-left: 10px;">
+                                $
+                                <input type="text" name="ReField0" id="ReField0" value="@Model.ReField0" style="width: 155px; padding: 5px 3px; opacity: 1; background-color: #005f9e; color: white!important;"
+                                       readonly
+                                       title="" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency"
+                                       placeholder="$" />
+                            </span>
+                            <input type="hidden" name="ReField00" id="ReField00" value="@Model.ReField00" />
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div style="width: 100%;">
+                            <br />
+                            <span style="float: left;">
+                                A - <b>Gross profit uplift @* <%--from new GJS inside revenue uplift--%> *@</b>
+                            </span>
+                            <div class="clear"></div>
+                            <span style="float: left; padding-left: 10px;">
+                                $
+                                <input type="text" name="ReField1" id="ReField1" value="@Model.ReField1" style="width: 155px; padding: 5px 3px; opacity: 1; background-color: #005f9e; color: white!important;"
+                                       readonly
+                                       title="" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency"
+                                       placeholder="$" />
+                            </span>
+                            <input type="hidden" name="ReField11" id="ReField11" value="@Model.ReField11" />
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div style="width: 100%;">
+                            <br />
+                            <span style="float: left;">
+                                B - <b>Total estimated cost reduction</b>
+                            </span>
+                            <div class="clear"></div>
+                            <span style="float: left; padding-left: 10px;">
+                                $
+                                <input type="text" name="ReField2" id="ReField2" value="@Model.ReField2" style="width: 155px; padding: 5px 3px; opacity: 1; background-color: #005f9e; color: white!important;"
+                                       readonly
+                                       title="" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency"
+                                       placeholder="$" />
+                            </span>
+                            <input type="hidden" name="ReField22" id="ReField22" value="@Model.ReField22" />
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div style="width: 100%;">
+                            <br />
+                            <span style="float: left;">
+                                C - <b>Estimated increase in fuel profitability</b>
+                            </span>
+                            <div class="clear"></div>
+                            <span style="float: left; padding-left: 10px;">
+                                $
+                                <input type="text" name="ReField3" id="ReField3" value="@Model.ReField3" style="width: 155px; padding: 5px 3px; opacity: 1; background-color: #005f9e; color: white!important;"
+                                       readonly
+                                       title="" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency"
+                                       placeholder="$" />
+                            </span>
+                            <input type="hidden" name="ReField33" id="ReField33" value="@Model.ReField33" />
+                        </div>
+                        <br />
+                        <br />
+                    </div>
+
+                    <div class="clear"></div>
+                    <hr style="margin: 20px 0" />
+
+                    <div>
+                        <div style="width: 100%;">
+                            <div class="clear"></div>
+                            <span style="float: left;">
+                                <strong>Total P&L impact</strong> (A+B+C)
+                            </span>
+                            <div class="clear"></div>
+                            <span style="float: left; padding-left: 10px;">
+                                $
+                                <input type="text" name="ReField4" id="ReField4" value="@Model.ReField4" style="width: 155px; padding: 5px 3px; opacity: 1; background-color: #005f9e; color: white!important;"
+                                       readonly
+                                       title="" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency"
+                                       placeholder="$" />
+                                <input type="hidden" name="ReField44" id="ReField44" value="@Model.ReField44" />
+                            </span>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div style="width: 100%;">
+                            <br />
+                            <span style="float: left;">
+                                <strong>
+                                    If P&L impact were translated directly to wages,
+                                    each employee would see a total per hour increase of:
+                                </strong>
+                            </span>
+                            <div class="clear"></div>
+                            <span style="float: left; padding-left: 10px;">
+                                $
+                                <input type="text" name="ReField5" id="ReField5" value="@Model.ReField5" style="width: 155px; padding: 5px 3px; opacity: 1; background-color: #005f9e; color: white!important;"
+                                       readonly
+                                       title="" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency"
+                                       placeholder="$" />
+                            </span>
+                            <input type="hidden" name="ReField55" id="ReField55" value="@Model.ReField55" />
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div style="width: 100%;">
+                            <br />
+                            <div class="clear"></div>
+                            <span style="float: left;">
+                                <strong>P&L impact as % of current inside sales net income:</strong>
+                            </span>
+                            <div class="clear"></div>
+                            <span style="float: left; padding-left: 20px;">
+                                <input type="text" name="ReField6" id="ReField6" readonly value="@Model.ReField6"
+                                       style="width: 155px; padding: 5px 3px; opacity: 1; background-color: #005f9e; color: white!important;" />
+                                <input type="hidden" name="ReField66" id="ReField66" value="@Model.ReField66" />
+                                %
+                            </span>
+                        </div>
+                        <br />
+                        <br />
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="Row">
+    <div style="width: 100%; margin-top: 15px; margin: auto; min-width: 350px!important">
+            <input type="submit" id="prevStep" data-step="@(Model.CurrentStep - 1)" class="button" style="float: left; margin-bottom: 15px;" value="Previous: Step 2 – Cost" ></input>
+            <input type="submit" id="nextStep" data-step="@(Model.CurrentStep + 1)" class="button" style="float: right; margin-bottom: 15px;" value="Next: Step 4 – Take Action"></input>
+    </div>
+
+</div>
+
+
+@* custom calculation *@
+<!-- Script for Different Screen Size Auto-Adjustment -->
+<script src="viewport-units-buggyfill.js"></script>
+<script>window.viewportUnitsBuggyfill.init();</script>
+
+<!-- Script for Calculation and Sliders -->
+<script src="~/static/js/goodjobcalculator-calculation.js"></script>

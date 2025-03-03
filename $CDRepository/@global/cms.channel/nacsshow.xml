@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.channel>
+  <ChannelDisplayName>NACSShow</ChannelDisplayName>
+  <ChannelGUID>2083f08a-0932-4059-8087-f0556c420aa4</ChannelGUID>
+  <ChannelName>NACSShow</ChannelName>
+  <ChannelSize>Standard</ChannelSize>
+  <ChannelType>Website</ChannelType>
+</cms.channel>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>Test2-4a0hbikl</CodeName>
+    <GUID>f7d5b125-811c-464c-b87e-9319761aadc8</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>4057d6c3-56ab-47fd-887d-49f73c8fd509</WebPageItemGUID>
+  <WebPageItemName>Test2-4a0hbikl</WebPageItemName>
+  <WebPageItemOrder>3</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>EducationSessions-808m7csz</CodeName>
+    <GUID>fb7d59f9-cbf8-4904-8cda-f356a5d64a58</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>/Sessions/Education-Sessions/test2</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>0ba89fef-3be8-4973-83d2-c5cbbcb227cf</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSShow</CodeName>
+      <GUID>2083f08a-0932-4059-8087-f0556c420aa4</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

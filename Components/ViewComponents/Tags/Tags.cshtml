@@ -1,0 +1,7 @@
+﻿@using Convenience.org.Models
+@model Convenience.org.Models.TagsViewModel
+
+@if (Model != null)
+{
+	<span class="text-center mt-2 @Model.TagTextColor @Model.TagBgColor TagsStyle-module__card_badge">@Model.TagText</span>
+}

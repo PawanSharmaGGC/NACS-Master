@@ -1,0 +1,138 @@
+﻿.FooterStyle-module__footer_links ul li,
+.accordion-item ul li {
+    list-style-type: none;
+}
+
+.FooterStyle-module__main_card {
+    overflow: auto;
+}
+
+.FooterStyle-module__footer_links ul li a,
+.accordion-item ul li a,
+.FooterStyle-module__bottom_section a,
+.FooterStyle-module__back_to_btn a,
+.FooterStyle-module__main_card_body a {
+    list-style-type: none !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding-top: 10px;
+}
+
+.FooterStyle-module__footer_links ul li a,
+.accordion-item ul li a {
+    display: block;
+}
+
+.FooterStyle-module__footer_logo a {
+    color: transparent;
+}
+
+.NavbarStyle-module__bottom_nav_dropdown_menu_header {
+    width: 255px !important;
+}
+
+.ExternalSiteCardStyle-module__section_card .flexWidth{
+    flex:1;
+}
+.ExternalSiteCardStyle-module__section_card .logo-container {
+    background-color: #62BD19;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+
+}
+
+.ExternalSiteCardStyle-module__section_card .logo {
+    max-width: 100%;
+    max-height: 100%;
+    height:auto !important;
+    object-fit: contain;
+}
+@media only screen and (max-width: 480px) {
+    .ExternalSiteCardStyle-module__section_card .logo-container {
+        height: 22vh;
+    }
+}
+.PullQuoteStyle-module__main_card 
+{
+    width:100vw;
+}
+.ShareIconStyle-module__icon_list a {
+    display: flex; /* Ensures proper alignment */
+    align-items: center;
+    justify-content: center;
+    width: 56px; /* Match the size of the blue circles */
+    height: 56px; /* Match the size of the blue circles */
+    border-radius: 50%; /* Makes the shape circular */
+    background-color: #0053A5; /* Matches the blue background color */
+    color: white; /* Icon color */
+    text-decoration: none; /* Removes underline */
+    margin: 0 8px; /* Space between icons */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+    /* Hover effect */
+    .ShareIconStyle-module__icon_list a:hover {
+        background-color: #003d7a; /* Slightly darker blue on hover */
+    }
+
+    /* Style for the icons */
+    .ShareIconStyle-module__icon_list a i {
+        font-size: 20px; /* Icon size */
+        line-height: 1; /* Ensures vertical alignment */
+    }
+
+.ShareIconStyle-module__icon_list .cursor-pointer 
+{
+    cursor: pointer !important;
+}
+
+.form-download-report {
+    width: 80%;
+    margin:0 auto;
+}
+@media only screen and (max-width: 480px) {
+    .form-download-report {
+        width: 100%;
+    }
+}
+
+.breadcrumb-container {
+    padding: 30px 0;
+}
+
+.breadcrumb a {
+    color: #868F98;
+    text-decoration: none;
+}
+.custom-placeholder {
+    background-color: #e8e8e8;
+    color: #000000;
+    padding: 20px 50px;
+    width: fit-content;
+    margin: 30px 0 30px 0;
+}
+
+    .custom-placeholder p {
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+.box-text {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.boxRec {
+    width: 300px;
+    height: 250px;
+    background-color: #E8E8E8;
+}
+.clusterhead {
+    color:  #002569;
+}
+.videoTitle {
+    color: #0053A5;
+}

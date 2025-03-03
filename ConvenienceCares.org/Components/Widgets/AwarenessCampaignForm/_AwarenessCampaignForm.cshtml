@@ -1,0 +1,127 @@
+﻿@using NACS.Portal.Core.Models
+﻿@using ConvenienceCares.Models
+
+@model FormWidgetViewModel
+
+
+<section id="participation-content">
+    <div id="participation-introduction">
+        <div id="participation-intro-left"><img src="/_content/conveniencecares.org/nacs-awareness-img/participate01.png" /></div>
+        <div id="participation-intro-left"><img src="/App_Themes/NACSFoundationAwareness/img/participate01.png" /></div>
+        <div id="participation-intro-copy">
+            <h2>
+                Join the<br />
+                NACS Foundation
+            </h2>
+
+            <p>We invite all members of NACS to sign up in support of the NACS Foundation and join us in our mission. We can&rsquo;t do it without you. Let&rsquo;s do more, together.</p>
+        </div>
+
+        <div id="participation-intro-right"><img src="/_content/conveniencecares.org/nacs-awareness-img/participate02.png" /></div>
+        <div id="participation-intro-right"><img src="/App_Themes/NACSFoundationAwareness/img/participate02.png" /></div>
+    </div>
+
+    <div id="sign-up-content">
+        <div id="sign-up-form">
+
+
+
+
+            <div id="form_Panel" style="position:relative">
+                <div id="form-section">
+                    <span style="display:none;" class="ErrorLabel" id="error-message"></span>
+                    <div class="FormPanel" id="FormPanel">
+
+
+
+                        @Html.Raw(Model?.Heading)
+                        <p>@Html.Raw(Model?.Description)</p>
+
+                        <form id="awareness-campaign-form" method="post">
+
+                            <fieldset id="form-name-info">
+                                <span>
+                                    <label id="lblFirstName" class="EditingFormLabel" for="txtFirstName">First Name:</label>
+                                    <div id="firstname" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                        <input name="FirstName" type="text" maxlength="200" id="txtFirstName" class="form-control">
+                                    </div>
+                                </span>
+                                <span>
+                                    <label id="lblLastName" class="EditingFormLabel" for="txtLastName">Last Name:</label>
+                                    <div id="lastname" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                        <input name="LastName" type="text" maxlength="200" id="txtLastName" class="form-control">
+                                    </div>
+                                </span>
+                            </fieldset>
+
+                            <fieldset id="form-company-info">
+                                <span>
+                                    <label id="lblCompany" class="EditingFormLabel" for="txtCompany">Company Name:</label>
+                                    <div id="company" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                        <input name="Company" type="text" maxlength="200" id="txtCompany" class="form-control">
+                                    </div>
+                                </span>
+                                <span>
+                                    <label id="lblTitle" class="EditingFormLabel" for="txtTitle">Job Title:</label>
+                                    <div id="title" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                        <input name="Title" type="text" maxlength="200" id="txtTitle" class="form-control">
+                                    </div>
+                                </span>
+                            </fieldset>
+                            <fieldset id="form-contact-info">
+                                <span>
+                                    <label id="lblEmail" class="EditingFormLabel" for="txtEmail">Email:</label>
+                                    <div id="email" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                        <input name="Email" type="text" maxlength="254" id="txtEmail" class="form-control">
+
+                                    </div>
+                                </span>
+                                <span>
+                                    <label id="lblPhone" class="EditingFormLabel" for="txtPhone">Phone:</label>
+                                    <div id="phone" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                        <input name="Phone" type="text" maxlength="200" id="txtPhone" class="form-control">
+                                    </div>
+                                </span>
+                            </fieldset>
+                            <fieldset id="comments-block">
+                                <label id="lblAdditionalNotes" class="EditingFormLabel" for="txtAdditionalNotes">Additional Notes or Comments:</label>
+                                <div id="additionalnotes" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                    <textarea name="AdditionalNotes" rows="2" cols="20" id="txtAdditionalNotes" class="form-control"></textarea>
+                                </div>
+                            </fieldset>
+                            <fieldset id="consent-block">
+                                <div id="consent" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                    <span id="Consent_list" class="checkbox checkbox-list-vertical">
+                                        <input id="Consent_list_0" type="checkbox" name="Consent" value="I am interested in learning more about how my company can get involved as a participant with the NACS Foundation.">
+                                        <label for="Consent_list_0">I am interested in learning more about how my company can get involved as a participant with the NACS Foundation.</label><br>
+                                        <input id="Consent_list_1" type="checkbox" name="Consent" value="I am interested in learning more about how my company can fund or become a sponsor of the NACS Foundation.">
+                                        <label for="Consent_list_1">I am interested in learning more about how my company can fund or become a sponsor of the NACS Foundation.</label>
+                                    </span>
+                                </div>
+                            </fieldset>
+                            <div id="p_lt_ctl01_pageplaceholder_p_lt_ctl02_BizForm_viewBiz_ncpsecuritycode" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                <div class="g-recaptcha" data-sitekey="@Model?.captchaSiteKey"></div>
+                            </div>
+                            <p id="submit">
+                                <input type="submit" name="btnOK" value="Submit" id="btnOK" class="FormButton btn btn-primary">
+                            </p>
+
+                        </form>
+                    </div>
+
+
+
+
+                    <span style="display:none;" id="thank-you-message" class="InfoLabel">
+                        @Html.Raw(Model?.SubmitMessage)
+                    </span>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+</section>

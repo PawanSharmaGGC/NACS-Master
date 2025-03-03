@@ -1,0 +1,70 @@
+﻿@model Convenience.org.Components.Widgets.AlumniProfile.AlumniProfileViewModel
+
+<div>
+    <h4>Your Profile</h4>
+    <div>
+        <img src="@Model.ProfilePictureUrl" alt="Profile Picture" style="border-radius: 6px;" />
+        <div class="edit-link">
+            <a href="#" target="_blank">
+                <i class="far fa-pen-to-square fa-lg"></i> Edit
+            </a>
+        </div>
+    </div>
+
+    <div>
+        <h4>@Model.FullName</h4>
+        <i>@Model.JobTitle</i>
+        <p>@Model.AccountName</p>
+        <p>@Model.Address</p>
+    </div>
+
+    <div>
+        <h5>Preferences</h5>
+        <label>
+            Newsletter Subscription:
+            <input type="checkbox" id="toggleNewsletter" @(Model.IsSubscribedToNewsletter ? "checked" : "") />
+        </label>
+        <br />
+        <label>
+            Directory Listing:
+            <input type="checkbox" id="toggleDirectory" @(Model.IsListedInDirectory ? "checked" : "") />
+        </label>
+        <p id="statusMessage"></p>
+    </div>
+</div>
+
+<script>
+    async function updatePreference(toggleId, isChecked, preferenceType) {
+        const payload = {
+            UserId: "@Model.UserId",
+            IsSubscribedToNewsletter: preferenceType === "newsletter" ? isChecked : @Model.IsSubscribedToNewsletter.ToString().ToLower(),
+            IsListedInDirectory: preferenceType === "directory" ? isChecked : @Model.IsListedInDirectory.ToString().ToLower(),
+        };
+
+
+        document.getElementById("statusMessage").textContent = "Updating...";
+
+        try {
+            const response = await fetch('/AlumniUserProfile/UpdatePreferences', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+
+            const result = await response.json();
+            document.getElementById("statusMessage").textContent = result.message;
+        } catch (error) {
+            console.error(error);
+            document.getElementById("statusMessage").textContent = "An error occurred.";
+        }
+    }
+
+    document.getElementById("toggleNewsletter").addEventListener("change", (e) => {
+        updatePreference(e.target.id, e.target.checked, "newsletter");
+    });
+
+    document.getElementById("toggleDirectory").addEventListener("change", (e) => {
+        updatePreference(e.target.id, e.target.checked, "directory");
+    });
+</script>
+

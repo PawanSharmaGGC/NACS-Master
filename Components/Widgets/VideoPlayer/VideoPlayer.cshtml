@@ -1,0 +1,69 @@
+﻿@using Convenience.org.Components.Widgets
+@model VideoPlayerViewModel
+
+@if (Model != null)
+{
+	var cssClassOverlayShowHide = (Model.IsOverlayVisible) ? "d-block" : "d-none";
+	var cssClassOverlayColor = (Model.IsOverlayVisible) ? "video-js VideoPlayerComponentStyle-module__video vjs-fluid vjs_video_3-dimensions" : "video-js vjs-fluid vjs_video_3-dimensions";
+	<script src="https://vjs.zencdn.net/8.16.1/video.min.js"></script>
+	<div>
+		<div class=" p-3 main_card">
+			<div class="card-body p-0 main_card_body">
+				<div data-vjs-player>
+					<video class="@cssClassOverlayColor"
+						   id="my-video"
+						   controls
+						   preload="auto"
+						   poster="@Model.VideoPoster"
+						   data-setup="{}">
+							<source src="@Model.VideoURL"
+								type="video/mp4" />
+					</video>
+				</div>
+				<div class="@cssClassOverlayShowHide">
+					<div id="top_overlay_text" class="VideoPlayerComponentStyle-module__bottom_overlay_text">
+						<div class="p-3">
+							<div class="text-start d-flex justify-content-between align-items-baseline">
+								<div>
+									<div class="text-start mb-4 border_left_green EyebrowTitleStyle-module__eyebrow">
+										<span class="ps-4 text-uppercase font-monospace color-FFFFFF">@Model.EyebrowTitle</span>
+									</div>
+							</div>
+							</div>
+							<div class=" pt-3 fs-3 color-FFFFFF text-start">
+								@Model.Title
+							</div>
+							<div class="float-start pt-5">
+									<a href="@Model.CTALink" class="bg-FFFFFF p-3 border border-0 brdr-rad-30 text-decoration-none ">
+									<span><i class="align-middle color-0053A5"></i></span>
+									<span class="color-0053A5 text-start pe-lg-2 ps-lg-2 fw-medium undefined">@Model.CTAText</span>
+									<span><i class="align-middle color-0053A5 fa-regular fa-arrow-right-long " aria-hidden="true"></i></span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				
+		</div>
+	</div>
+	<script>
+			const player = videojs('my-video', {
+			  autoplay: false,
+			  controls: true,
+			  responsive: true,
+			  loop: true,
+		  muted: true,
+			  preload: 'auto',
+			  fluid: true,
+			});
+				console.log("hello");
+			const overlay = document.getElementById('top_overlay_text');
+		player.on('play', () => {
+			  overlay.style.display = 'none';
+			});
+			player.on('pause', () => {
+			  overlay.style.display = 'block';
+			});
+	</script>
+}

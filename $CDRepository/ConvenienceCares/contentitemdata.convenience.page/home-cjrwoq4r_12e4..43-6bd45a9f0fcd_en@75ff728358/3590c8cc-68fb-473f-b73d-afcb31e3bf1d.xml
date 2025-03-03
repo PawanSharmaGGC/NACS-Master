@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.convenience.page>
+  <ContentItemDataCommonDataID>
+    <GUID>12e4edbd-04c1-40cf-8443-6bd45a9f0fcd</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Home-cjrwoq4r</CodeName>
+      <GUID>f61f8adc-fa71-4416-976c-8e7ccb18f8f5</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>3590c8cc-68fb-473f-b73d-afcb31e3bf1d</ContentItemDataGUID>
+  <LeftNavShowTitle>True</LeftNavShowTitle>
+  <NavShowChildren>False</NavShowChildren>
+  <PageContent>
+    <![CDATA[<p>testtest</p>]]>
+  </PageContent>
+  <ReminderEmailInterval>Inherit</ReminderEmailInterval>
+  <SendOwnerReminderEmails>Inherit</SendOwnerReminderEmails>
+  <Title>Home</Title>
+</contentitemdata.convenience.page>

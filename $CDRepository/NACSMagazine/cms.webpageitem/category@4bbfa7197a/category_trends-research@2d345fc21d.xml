@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>Trends_Research-ip6xsuhw</CodeName>
+    <GUID>14dccba1-28e9-4f2a-905d-031f34694906</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>2f23b88d-d215-4ebc-9dfb-82899f5fdba9</WebPageItemGUID>
+  <WebPageItemName>Trends_Research-ip6xsuhw</WebPageItemName>
+  <WebPageItemOrder>8</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>Category-iooqnwpz</CodeName>
+    <GUID>d7b6ddbf-59b7-492a-aa64-c51811e733f7</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>/Category/Trends-Research</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>3257d9cb-79a6-4552-998d-e1f8e1a3cb3e</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSMagazine</CodeName>
+      <GUID>eecfdedc-a92f-48b7-9daa-eab81c106019</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

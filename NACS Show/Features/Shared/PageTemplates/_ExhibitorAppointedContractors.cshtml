@@ -1,0 +1,58 @@
+﻿@using CMS.ContentEngine
+@using Kentico.Content.Web.Mvc.PageBuilder
+@using NACSShow
+
+<vc:current-page-data />
+@{
+    Layout = "~/Features/Shared/NACSShow/_Layout.cshtml";
+    var currentPageData = TempData["CurrentPageData"] as Page ?? new Page();
+}
+
+<div id='detail-hero' class='hero' data-aos="fade-in" data-aos-delay='150' data-aos-duration='1000'>
+    <editable-area area-identifier="zoneHeaderImage"></editable-area>
+    if (currentPageData != null)
+    {
+    <vc:page-image header-image="@currentPageData.HeaderImage" header-image-mobile="@currentPageData.HeaderImageMobile"></vc:page-image>
+    }
+</div>
+
+<div id='content-wrapper'>
+    <div class='detail container'>
+        <div class='row'>
+            <div class='col-12 col-md-8' data-aos="fade-up" data-aos-delay="100">
+                <div class='row'>
+                    <div class='col-12 col-lg-8'>
+                        <editable-area area-identifier="TitleZone2"></editable-area>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style='background-image:linear-gradient(to right, rgba(255,255,255,0.79) 0%,rgba(255,255,255,0.79) 39%,rgba(255,255,255,0.64) 76%,rgba(255,255,255,0) 100%);padding-top:15px;flex-grow:1'>
+            <div class="col-12 main-content" style="width:100%">
+                <div class="row">
+                    <div class="col-12" style="width:100%">
+                        <editable-area area-identifier="TitleZone"></editable-area>
+                        <vc:convenience-page-title section-header="@currentPageData.SectionHeader" title="@currentPageData.Title"></vc:convenience-page-title>
+                        <editable-area area-identifier="ContentWidgetZone1"></editable-area>
+                        <editable-area area-identifier="ContentZone"></editable-area>
+                        @Html.Raw(currentPageData.PageContent)
+                        <editable-area area-identifier="ContentWidgetZone2"></editable-area>
+                    </div>
+                </div>
+                <div class="row">&nbsp;</div>
+                <div class="row">&nbsp;</div>
+                <div class="row advertisements">
+                    <div class="col-12 col-sm-4">
+                        <editable-area area-identifier="AdZone1"></editable-area>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <editable-area area-identifier="AdZone2"></editable-area>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <editable-area area-identifier="AdZone3"></editable-area>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

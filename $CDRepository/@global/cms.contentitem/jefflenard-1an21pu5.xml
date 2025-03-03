@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemContentFolderID>
+    <CodeName>Authors-x2ckb9ng</CodeName>
+    <GUID>d58df44d-be11-472c-adaa-9d5482d49d73</GUID>
+    <ObjectType>cms.contentfolder</ObjectType>
+  </ContentItemContentFolderID>
+  <ContentItemContentTypeID>
+    <CodeName>NACSMagazine.Author</CodeName>
+    <GUID>5392f8a7-a73e-4189-9a28-0b9dba7a0df1</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>d8846559-33ca-44b1-97d0-552c6a14e1cf</ContentItemGUID>
+  <ContentItemIsReusable>True</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>JeffLenard-1an21pu5</ContentItemName>
+</cms.contentitem>

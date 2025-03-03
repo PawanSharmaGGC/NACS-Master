@@ -1,0 +1,79 @@
+﻿@using Convenience.org.Models
+@model Convenience.org.Models.TagsClusterViewModel
+
+@if (Model != null)
+{
+
+    <div class="text-start clusterhead my-4 fs-4">Trending Topics</div>
+    <div id="tagsCluster">
+        @foreach (var tag in Model.TagCategory)
+        {
+            <span id="@tag.Identifier" class="badge rounded-pill text-center pt-2 filter_badge"
+                  data-identifier="@tag.Identifier"
+                  onclick="handleFilter(this)">
+                @tag.Title
+            </span>
+        }
+    </div>
+
+    <div id="articleContainer">
+        @foreach (var article in Model.Articles)
+        {
+            <div class="article-card" data-contentcategory="@string.Join(",", article.ContentCategory.Select(t => t.Identifier))">
+                <h3>@article.Title</h3>
+                <p>@Html.Raw(article.Description)</p>
+            </div>
+        }
+    </div>
+
+    <div class="mt-lg-4">
+        <button type="submit" class="text-white bg-primary btn fw-medium d-flex align-items-center p-3 border-0 rounded-pill w-auto">
+            <span class="text-white pe-2 ps-2 fw-medium">View All Topics</span>
+            <i class="align-middle text-white fa-regular fa-arrow-right-long" aria-hidden="true"></i>
+        </button>
+    </div>
+}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        window.selectedFilter = null;
+
+        window.handleFilter = function (element) {
+            let selectedIdentifier = element.getAttribute("data-identifier");
+            let previouslySelected = document.querySelector(".active_filter_badge");
+
+            // Remove previous selection
+            if (previouslySelected) {
+                previouslySelected.classList.remove("active_filter_badge");
+                previouslySelected.classList.add("filter_badge");
+            }
+
+            // Toggle selection
+            if (window.selectedFilter === selectedIdentifier) {
+                window.selectedFilter = null;
+            } else {
+                element.classList.remove("filter_badge");
+                element.classList.add("active_filter_badge");
+                window.selectedFilter = selectedIdentifier;
+            }
+
+            console.log("Selected Identifier:", window.selectedFilter);
+
+            // Apply filtering
+            filterArticles(window.selectedFilter);
+        };
+
+        function filterArticles(selectedIdentifier) {
+            let articleCards = document.querySelectorAll("#articleContainer .article-card");
+
+            articleCards.forEach(card => {
+                let contentCategories = card.dataset.contentcategory.split(",");
+                if (!selectedIdentifier || contentCategories.includes(selectedIdentifier)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    });
+</script>

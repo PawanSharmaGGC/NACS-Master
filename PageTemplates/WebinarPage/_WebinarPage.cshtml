@@ -1,0 +1,111 @@
+﻿@using CMS.Websites
+@using Convenience
+@using Convenience.org.Components.Widgets.BioCardWidget
+@using Kentico.Content.Web.Mvc.PageBuilder
+@using Convenience.org
+@using Convenience.org.Helpers
+
+@{
+	Layout = "~/Features/Shared/Convenience/_Layout.cshtml";
+}
+
+@model TemplateViewModel
+@inject MediaLibraryHelpers mediaHelper
+
+@{
+	var templateModel = Model.GetTemplateModel<Convenience.Webinar>();
+
+	var isPreviewModel = Context.Kentico().PageBuilder().EditMode;
+
+	string pageContent = templateModel?.PageContent;
+	string videoUrl = mediaHelper.GetVideoPath(templateModel?.WebinarVideoUpload?.FirstOrDefault());
+
+}
+
+@section GoogleAdsBeforeHeader {
+	<div>
+		@await Html.Kentico().EditableAreaAsync("WidgetAreaBeforeHeader")
+	</div>
+}
+
+<script src="https://vjs.zencdn.net/8.16.1/video.min.js"></script>
+
+<div>
+	<div class="card p-3 main_card">
+		<div class="row">
+			@await Html.Kentico().EditableAreaAsync("HeroWidgetArea")
+		</div>
+
+		@if (!string.IsNullOrEmpty(videoUrl))
+		{
+			<div data-vjs-player>
+				<video class="video-js vjs-fluid vjs_video_3-dimensions"
+					   id="my-video"
+					   controls
+					   preload="auto"
+					   data-setup="{}">
+					<source src="@videoUrl"
+							type="video/mp4" />
+				</video>
+			</div>
+		}
+
+		<div class="row">
+			@await Html.Kentico().EditableAreaAsync("VideoWidgetArea")
+		</div>
+
+		<div class="row card-body">
+			<div class="@(isPreviewModel?"col-8":"col-lg-8 col-sm-12")">
+				@await Html.Kentico().EditableAreaAsync("WidgetAreaBeforeContent")
+				@Html.Raw(pageContent)
+				@await Html.Kentico().EditableAreaAsync("WidgetAreaAfterContent")
+				@await Component.InvokeAsync("SocialShare")
+			</div>
+			<div class="@(isPreviewModel?"col-4":"col-lg-4 col-sm-12")">
+				@await Html.Kentico().EditableAreaAsync("RightTopWidgetArea")
+				@if (templateModel != null && templateModel.Speakers != null)
+				{
+					foreach (var item in templateModel.Speakers)
+					{
+						var widgetProp = new BioCardWidgetProperties
+					{
+						SelectedPerson = new List<WebPageRelatedItem> { item }
+					};
+						@await Component.InvokeAsync("BioCardWidget", new { widgetProperties = widgetProp })
+					}
+				}
+				@await Html.Kentico().EditableAreaAsync("RightBottomWidgetArea")
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		@await Html.Kentico().EditableAreaAsync("WidgetAreaBeforeEnd")
+	</div>
+
+	<div class="row">
+		@await Html.Kentico().EditableAreaAsync("WidgetAreaEnd")
+	</div>
+
+</div>
+
+
+<script>
+	const player = videojs('my-video', {
+		autoplay: false,
+		controls: true,
+		responsive: true,
+		loop: true,
+		muted: true,
+		preload: 'auto',
+		fluid: true,
+	});
+
+	const overlay = document.getElementById('top_overlay_text');
+	player.on('play', () => {
+		overlay.style.display = 'none';
+	});
+	player.on('pause', () => {
+		overlay.style.display = 'block';
+	});
+</script>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.navsecondlevel>
+  <ContentItemDataCommonDataID>
+    <GUID>b3ba74d6-d985-4ec1-81ec-093affb3c10a</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>AboutTheShow-vzjupgh2</CodeName>
+      <GUID>891e1ba5-1e80-4ef0-9d43-ca4e55faf8b9</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>37743b39-3c72-44ea-b035-951fc590ec19</ContentItemDataGUID>
+  <Feature />
+  <Title>About the Show</Title>
+  <URL>/about</URL>
+</contentitemdata.nacsshow.navsecondlevel>

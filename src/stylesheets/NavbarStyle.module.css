@@ -1,0 +1,278 @@
+.upper_sec {
+    background-color: #E9F0F4 !important;
+}
+
+.bottom_sec{
+    background-color: #002362 !important;
+}
+
+.upper_sec_list li:not(:last-child) {
+    border-right: 1px #D2DCE6 solid !important;
+
+}
+
+.upper_sec_list {
+    li {
+
+        padding: 0px 10px 0px 10px;
+    }
+}
+
+.input_icons {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.icon:not(:focus) {
+    padding-top: 12px;
+    padding-left: 10px;
+    z-index: 1 !important;
+}
+
+.input_field {
+    width: 55px !important;
+    height: 38px;
+    border-radius: 54px !important;
+    padding: 10px;
+    text-align: left;
+}
+
+.input_field:focus {
+    width: 300px !important;
+    border-top-left-radius: 18px !important;
+    border-bottom-left-radius: 18px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    padding-left: 20px;
+    transition: max-width 5s ease-in-out;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.search_btn {
+    display: none !important;
+}
+
+
+.input_field:focus+.search_btn {
+    display: block !important;
+}
+
+.dropdown_icon::after {
+    content: '\f107' !important;
+    /* Unicode for a downwards caret (FontAwesome) */
+    font-family: 'Font Awesome 5 Free';
+    /* FontAwesome font family */
+    font-weight: 900;
+    /* Set the correct font weight for the icon */
+    margin-left: 10px !important;
+    /* Space between the text and the icon */
+    transition: transform 0.3s ease;
+    /* Smooth rotation */
+    border: none !important;
+    vertical-align: middle !important;
+    color: #0053A5 !important
+}
+
+.show .dropdown_icon::after {
+    transform: rotate(180deg) !important;
+    /* Rotate the arrow 180 degrees */
+    color: #62BD19 !important;
+}
+
+.show .dropdown_icon {
+    border-color: #62BD19 !important;
+}
+
+.show {
+    display: block !important;
+}
+
+.dropdown_menu {
+    padding: 8px !important;
+}
+
+.dropdown_menu {
+    left: -7% !important;
+    li,
+    a {
+        color: #0053A5 !important;
+        padding: 5px;
+        padding-left: 20px;
+    }
+}
+
+.upper_nav_dropdown_menu_header {
+    background: rgba(255, 255, 255, 0.5) !important;
+    border-radius: 18px !important;
+    padding-left: 20px !important;
+}
+
+.bottom_sec {
+    background-color: #002569 !important;
+}
+
+.bottom_sec_list {
+    li {
+        padding: 0px 70px 0px 10px;
+    }
+
+    .bottom_sec_dropdown {
+        color: #FFFFFF
+    }
+
+    .bottom_sec_dropdown:hover,:focus{
+        color: #FFFFFF
+    }
+}
+
+.bottom_sec_dropdown::after {
+    content: none !important;
+}
+
+.btm_show .bottom_sec_dropdown::after {
+    content: '\f107' !important;
+    /* Unicode for a downwards caret (FontAwesome) */
+    font-family: 'Font Awesome 5 Free';
+    /* FontAwesome font family */
+    font-weight: 900;
+    /* Set the correct font weight for the icon */
+    margin-left: 10px !important;
+    /* Space between the text and the icon */
+    transition: transform 0.3s ease;
+    /* Smooth rotation */
+    border: none !important;
+    color: #62BD19 !important;
+    display: block !important;
+}
+
+.btm_show {
+    display: block !important;
+}
+
+.btm_show,
+.btm_sec_list_active {
+    color: #62BD19 !important
+}
+
+.bottom_sec_dropdown_menu {
+    display: none;
+}
+
+.bottom_sec_dropdown_menu {
+    left: -115% !important;
+    width: 420px !important;
+    top: 115% !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 18px !important;
+    border-bottom-right-radius: 18px !important;
+
+    a {
+        color: #0053A5 !important;
+    }
+}
+
+.bottom_nav_dropdown_menu_header {
+    background: rgba(255, 255, 255, 0.5) !important;
+    border-radius: 18px !important;
+    width: 342px !important;
+}
+
+.mobile_resonsive_search_login {
+    display: none;
+}
+
+@media only screen and (max-width: 480px) {
+    .upper_sec {
+        display: none !important;
+    }
+
+    .input_icons {
+        background: transparent !important;
+    }
+
+    .input_field {
+        background: transparent !important;
+        border: none !important;
+        width: 100px !important;
+    }
+
+    .mobile_resonsive_search_login {
+        display: flex;
+        width: 60%;
+        justify-content: end;
+        align-items: flex-end;
+
+    }
+
+    .input_field:focus{
+        width: 140px !important;
+    }
+
+    .input_field:focus,
+    .bottom_container {
+        justify-content: normal !important;
+    }
+
+    .nacs_logo {
+        width: 80px !important;
+    }
+
+    .dropdown_icon::after {
+        content: none !important;
+    }
+
+    .bottom_sec_list {
+        li {
+            padding: 20px 0px 20px 0px;
+            border-bottom: 0.5px rgba(255, 255, 255, 0.3) solid;
+            opacity: 0.9;
+            width: 75% !important;
+            a {
+                padding-left: 20px;
+            }
+        }
+    }
+
+    .divider {
+        color: white;
+        border-bottom: 0.5px white solid;
+        background: white;
+        opacity: 0.9;
+    }
+
+    .bottom_nav_dropdown_menu_header{
+        padding: 20px !important;
+        background-color: rgba(0, 83, 165, 0.3) !important;
+        border-radius: 50px !important;
+    }
+
+    .sub_menu_list{
+        list-style-type: none;
+        li:not(:first-child){
+            padding-left: 30px;
+            padding-bottom: 20px;
+            text-align: start;
+        }
+    }
+
+    .dropdown_menu{
+        left: -140px !important;
+    }
+
+    .list_side_icon{
+        width: 25%;
+        height: 92px;
+        background: #0053A5 !important;
+    }
+  
+  .navbar_toggler_icon {
+    width:auto !important;
+    height: auto !important;
+  }
+
+  .mobile_sub_menu_div{
+    box-shadow: 10px -3px 15px rgba(0, 0, 0, 0.1) !important
+  }
+}

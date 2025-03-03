@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageformerurlpath>
+  <WebPageFormerUrlPath>
+    <![CDATA[Education-Sessions/Unlocking-Executive-and-Enterprise-Value-with-Generative-AI]]>
+  </WebPageFormerUrlPath>
+  <WebPageFormerUrlPathContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>2cce1e88-3d98-4dd9-8c2d-4dd1c46a81bf</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </WebPageFormerUrlPathContentLanguageID>
+  <WebPageFormerUrlPathHash>
+    <![CDATA[DB28CA569F7A323226E5A234826F8ABFC2D6E311260B9A8BB41D7AA232E787F5]]>
+  </WebPageFormerUrlPathHash>
+  <WebPageFormerUrlPathWebPageItemID>
+    <CodeName>UnlockingExecutiveAndEnterpriseValueWithGenerativeAI-m33hgltl</CodeName>
+    <GUID>f32a74ff-03eb-47f3-9db4-9c173da0cbf2</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageFormerUrlPathWebPageItemID>
+  <WebPageFormerUrlPathWebsiteChannelID>
+    <GUID>0ba89fef-3be8-4973-83d2-c5cbbcb227cf</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSShow</CodeName>
+      <GUID>2083f08a-0932-4059-8087-f0556c420aa4</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageFormerUrlPathWebsiteChannelID>
+</cms.webpageformerurlpath>

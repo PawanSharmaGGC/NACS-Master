@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Website</ClassContentTypeType>
+  <ClassDisplayName>CCMenuItem</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="86115ce5-12bf-4088-a629-32b091236dbd" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="bac00255-5bfc-4601-872d-ce1e30d7b76c" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="126245f2-3ad1-4108-ae1d-e7f72927aad5" isunique="true" system="true" />
+      <field column="MenuItemName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="339f7636-009e-420b-a76a-0435b9ac3894" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Name</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MenuLink" columnprecision="0" columntype="webpages" enabled="true" guid="1329c47b-f2ff-4689-aec0-dfb2a6e67c84" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Menu To</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.WebPageSelector</controlname>
+          <MaximumPages>1</MaximumPages>
+          <Sortable>False</Sortable>
+        </settings>
+      </field>
+      <field allowempty="true" column="OpenInNewTab" columnprecision="0" columntype="boolean" enabled="true" guid="2b5fc69d-df52-45bb-8dd2-16c4d7d8c491" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Open In New Tab</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.Checkbox</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>25e1a45f-6d62-453e-b80a-9df67b224cdc</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-arrow-right-top-square</ClassIconClass>
+  <ClassName>ConvenienceCares.MenuItem</ClassName>
+  <ClassTableName>ConvenienceCares_MenuItem</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

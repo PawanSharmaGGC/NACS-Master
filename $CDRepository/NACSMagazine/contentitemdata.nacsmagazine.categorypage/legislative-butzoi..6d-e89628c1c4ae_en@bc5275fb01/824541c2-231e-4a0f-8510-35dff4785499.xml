@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.categorypage>
+  <ArticleList />
+  <ContentItemDataCommonDataID>
+    <GUID>bb594ec7-cc4b-4aa9-b36d-e89628c1c4ae</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Legislative-butzoiuv</CodeName>
+      <GUID>891cc96c-03a4-41ae-a2c9-36e028d3758f</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>824541c2-231e-4a0f-8510-35dff4785499</ContentItemDataGUID>
+  <PageNumber>0</PageNumber>
+  <PageSize>0</PageSize>
+  <SelectedYear />
+  <Title>Legislative</Title>
+  <TotalPages>0</TotalPages>
+  <Years />
+</contentitemdata.nacsmagazine.categorypage>

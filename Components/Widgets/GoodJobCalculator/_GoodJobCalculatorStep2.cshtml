@@ -1,0 +1,304 @@
+﻿@using Convenience.org.Models
+
+@model GoodJobCalculatorViewModel
+
+<link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'
+        media="screen" />
+<link rel="stylesheet" href='https://ka-p.fontawesome.com/releases/v6.7.2/css/pro.min.css?token=097aa4c14b'
+        media="screen" />
+
+@Html.Partial("~/Components/Widgets/GoodJobCalculator/_GoodJobCalculatorStepsHeading.cshtml", Model)
+
+<div class="row validate-inputs">
+    <div class="col">
+
+
+        <div style="width: 100%; margin: auto; padding-left: 10px">
+            <div class="clear"></div>
+            <br />
+
+            <h3>Cost, Shrink and Labor</h3>
+            <p>Answering these questions will help us in Step 3 to calculate the amount you could reduce your costs through GJS.</p>
+            <p>Please use FY, TTM, or your most recent 12 months of performance. <b style="color: red;">All fields are required</b>.</p>
+        </div>
+
+        <div class="clear"></div>
+
+        <div style="float: right; margin-right: 40px;">
+            <div style="float: left">
+                <strong style="color: #036!important;"><i class="fal fa-info-circle fa-2x"></i>&nbsp;</strong><strong style="font-size: 20px;">Need Help? &nbsp;</strong>
+            </div>
+            <div style="float: right">
+                <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
+                    Contact Us!
+                </button>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
+        <div style="width: 100%; margin: auto;">
+            <fieldset class="ctrl-container">
+                <div class="ctrl-header">
+                    <h4><i class="far fa-dollar-sign"></i>&nbsp;Total Costs</h4>
+                </div>
+                <div class="ctrl-content">
+                    <div style="width: 100%">
+                        <div style="width: auto; float: left">
+                            <span style="width: auto; float: left; font-weight: bold">Annual cost of goods sold for inside (merchandise and foodservice) per store</span>
+                        </div>
+                        <div style="width: auto; float: left;">
+                            $
+                            <input type="number" name="Field0C" id="Field0C" value="@Model.Field0C"
+                                   style="padding: 5px 3px; width: 155px;" placeholder="" required />
+                        </div>
+                        <div class="clear"></div>
+                        <div style="padding-left: 15px">
+                            <span id="ReqField0C" style="color: red; font-size: small; display: none;">Required*</span>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="ctrl-container">
+                <div class="ctrl-header">
+                    <h4><i class="far fa-compress-arrows-alt"></i>&nbsp;Shrink</h4>
+                </div>
+                <div class="ctrl-content">
+                    <div style="width: 100%">
+                        <div style="width: auto; float: left">
+                            <span style="width: auto; float: left; font-weight: bold">Annual merchandise shrink, as a % of inside sales</span>
+                        </div>
+                        <div style="width: auto; float: left; display: flex; align-items: center">
+                            <input type="number" name="Field7C" id="Field7C" value="@Model.Field7C"
+                                   placeholder="" style="padding: 5px 3px; width: 155px;" required />
+                            &nbsp;<span>%</span>
+                        </div>
+                        <div class="clear"></div>
+                        <div>
+                            <span id="ReqField7C" style="color: red; font-size: small; display: none;">Required*</span>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <span style="font-size: small; font-style: italic">
+                        *If your company has never calculated shrink, please use the convenience store estimated industry average of 2%.
+                    </span>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="clear"></div>
+        <br />
+
+        <div style="width: 100%; margin: auto;">
+            <fieldset class="ctrl-container">
+                <div class="ctrl-header">
+                    <h4><i class="far fa-users"></i>&nbsp;Employee Turnover Costs</h4>
+                </div>
+                <div class="ctrl-content">
+                    <p>
+                        <span style="font-size: small; font-style: italic">
+                            *Please include all hourly employees. Include team leaders / supervisors only if they're paid by the hour.
+                        </span>
+                    </p>
+                    <div><strong>Number of employees at the store-level</strong></div>
+                    <div class="clear"></div>
+                    <div style="width: 100%; text-align: center; padding-top: 10px; padding-bottom: 0px; padding-left: 50px; padding-right: 50px;">
+                        <div style="width: 40%; float: left; min-width: 200px;">
+                            <div style="width: auto; float: left">
+                                <span style="width: auto; float: left">Full-time employees</span>
+                            </div>
+                            <div class="clear"></div>
+                            <div style="width: auto; float: left;">
+                                <input type="number" name="Field2C" id="Field2C" value="@Model.Field2C"
+                                       style="padding: 5px 3px; width: 165px;" required />
+                            </div>
+                            <div class="clear"></div>
+                            <div style="float: left; padding-left: 15px;">
+                                <span id="ReqField2C" style="color: red; font-size: small; display: none;">Required*</span>
+                            </div>
+                        </div>
+
+                        <div style="width: 40%; float: left; min-width: 200px;">
+                            <div style="width: auto; float: left">
+                                <span style="width: auto; float: left">Part-time employees</span>
+                            </div>
+                            <div class="clear"></div>
+                            <div style="width: auto; float: left;">
+                                <input type="number" name="Field3C" id="Field3C" value="@Model.Field3C"
+                                       style="padding: 5px 3px; width: 165px;" required />
+                            </div>
+                            <div class="clear"></div>
+                            <div style="float: left; padding-left: 15px;">
+                                <span id="ReqField3C" style="color: red; font-size: small; display: none;">Required*</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                    <br />
+
+                    <div><strong>Cost of turnover for one store-level employee (Or cost of hiring, training and equipping an hourly store associate)</strong></div>
+                    <div class="clear"></div>
+
+                    <div style="width: 100%; text-align: center; padding-top: 10px; padding-bottom: 0px; padding-left: 50px; padding-right: 50px;">
+                        <div style="width: 40%; float: left; min-width: 200px;">
+                            <div style="width: auto; float: left">
+                                <span style="width: auto; float: left">Full-time employee</span>
+                            </div>
+                            <div class="clear"></div>
+                            <div style="width: auto; float: left;">
+                                $
+                                <input type="number" name="Field4C" id="Field4C" value="@Model.Field4C"
+                                       style="padding: 5px 3px; width: 165px;" required />
+                            </div>
+                            <div class="clear"></div>
+                            <div style="float: left; padding-left: 15px;">
+                                <span id="ReqField4C" style="color: red; font-size: small; display: none;">Required*</span>
+                            </div>
+                        </div>
+
+                        <div style="width: 40%; float: left; min-width: 200px;">
+                            <div style="width: auto; float: left;">
+                                <span style="width: auto; float: left">Part-time employee</span>
+                            </div>
+                            <div class="clear"></div>
+                            <div style="width: auto; float: left;">
+                                $
+                                <input type="number" name="Field5C" id="Field5C" value="@Model.Field5C"
+                                       style="padding: 5px 3px; width: 165px;" required />
+                            </div>
+                            <div class="clear"></div>
+                            <div style="float: left; padding-left: 15px;">
+                                <span id="ReqField5C" style="color: red; font-size: small; display: none;">Required*</span>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div>
+                        <span style="font-size: small; font-style: italic">
+                            *If your company has not ever calculated cost of turnover, please use the convenience store
+                            estimated industry average of $1,716 for full-time employees and $1,421 for part-time employees.
+                        </span>
+                    </div>
+
+                    <div class="clear"></div>
+                    <br />
+
+                    <div style="width: 100%">
+                        <div style="width: auto; float: left">
+                            <span style="width: auto; float: left; font-weight: bold">
+                                Annual hourly employee turnover rate
+                            </span>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="width: auto; float: left; display: flex; align-items: center">
+                            <input type="number" name="Field6C" id="Field6C" value="@Model.Field6C"
+                                   style="padding: 5px 3px; width: 150px;" required />&nbsp;<span>%</span>
+                        </div>
+                        <div class="clear"></div>
+                        <div>
+                            <span id="ReqField6C" style="color: red; font-size: small; display: none;">Required*</span>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="ctrl-container">
+                <div class="ctrl-header">
+                    <h4><i class="far fa-user-clock"></i>&nbsp;Overtime</h4>
+                </div>
+                <div class="ctrl-content">
+                    <div style="width: 100%">
+                        <div style="width: auto; float: left">
+                            <span style="width: auto; float: left; font-weight: bold">Average hourly store employee wage</span>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="width: auto; float: left; display: flex; align-items: center">
+                            $
+                            <input type="number" name="Field11C" id="Field11C" min="0" value="@Model.Field11C"
+                                   style="padding: 5px 3px; width: 155px;" placeholder="" required />&nbsp;<span>/hour</span>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="padding-left: 15px">
+                            <span id="ReqField11C" style="color: red; font-size: small; display: none;">Required*</span>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                    <br />
+
+                    <div style="width: 100%">
+                        <div style="width: auto; float: left">
+                            <span style="width: auto; float: left; font-weight: bold">Average hourly store employee overtime wage</span>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="width: auto; float: left; display: flex; align-items: center">
+                            $
+                            <input type="number" name="Field8C" id="Field8C" min="0" value="@Model.Field8C"
+                                   style="padding: 5px 3px; width: 155px;" placeholder="" required />&nbsp;<span>/hour</span>
+                        </div>
+                        <div class="clear"></div>
+                        <div style="padding-left: 15px">
+                            <span id="ReqField8C" style="color: red; font-size: small; display: none;">Required*</span>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                    <br />
+
+                    <p><b>Average number of unplanned overtime hours per store per employee per week for frontline in-store hourly employees</b></p>
+                    <div class="clear"></div>
+
+                    <div style="width: 100%; text-align: center; padding-top: 10px; padding-bottom: 0px;">
+                        <div style="width: 40%; float: left; min-width: 220px;">
+                            <div style="width: auto; float: left">
+                                <span style="width: auto; float: left">
+                                    Full-time employee<br />
+                                    <i style="font-size: small">(hours per employee/per store)</i>
+                                </span>
+                            </div>
+                            <div class="clear"></div>
+                            <div style="width: auto; float: left;">
+                                <input type="number" name="Field9C" id="Field9C" value="@Model.Field9C"
+                                       style="padding: 5px 3px; width: 210px;" required />
+                            </div>
+                            <div class="clear"></div>
+                            <div style="float: left; padding-left: 15px;">
+                                <span id="ReqField9C" style="color: red; font-size: small; display: none;">Required*</span>
+                            </div>
+                        </div>
+
+                        <div style="width: 40%; float: left; min-width: 220px;">
+                            <div style="width: auto; float: left">
+                                <span style="width: auto; float: left">
+                                    Part-time employee<br />
+                                    <i style="font-size: small">(hours per employee/per store)</i>
+                                </span>
+                            </div>
+                            <div class="clear"></div>
+                            <div style="width: auto; float: left;">
+                                <input type="number" name="Field10C" id="Field10C" value="@Model.Field10C"
+                                       style="padding: 5px 3px; width: 210px;" required />
+                            </div>
+                            <div class="clear"></div>
+                            <div style="float: left; padding-left: 15px;">
+                                <span id="ReqField10C" style="color: red; font-size: small; display: none;">Required*</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="Row">
+    <div style="width: 100%; margin-top: 15px; margin: auto; min-width: 350px!important">
+        <input type="submit" id="prevStep" data-step="@(Model.CurrentStep - 1)" class="button" style="float: left; margin-bottom: 15px;" value="Previous: Step 1 - Revenue" />
+        <input type="submit" id="nextStep" data-step="@(Model.CurrentStep + 1)" class="button" style="float: right; margin-bottom: 15px;" value="Next: Step 3 - Levers & Results" />
+    </div>
+</div>

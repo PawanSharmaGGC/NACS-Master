@@ -1,0 +1,31 @@
+﻿@using NACSShow.Components.Widgets.DailyNewsListing
+@model DailyNewsListingViewModel
+
+<div class="row center-xs text--white">
+    <div class="col-xs-10">
+        <h2 class="title">@Model.Title</h2>
+    </div>
+</div>
+<div class="row">
+    @if (Model.DailyNewsList != null && Model.DailyNewsList.Count() > 0)
+    {
+        @foreach (var newsItem in Model.DailyNewsList)
+        {
+            <div class="start-xs col-xs-12 col-md-3" style="display:flex;">
+                <div class="card-section__card">
+                    <a href="">
+                        <img src="" alt="@newsItem" class="card-profile-image" />
+                        <div class="card-content">
+                            <h4 class="card-content__article-title">@newsItem.Title</h4>
+                            <p class="card-content__desc">@Html.Raw(newsItem.Description)</p>
+                            <div class="card-content__date">@newsItem.Date.ToString("MMMM dd, yyyy")</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    }
+</div>
+<div class="text-center subsection--margin" style="padding:3rem 0">
+    <a class="button-pill-dark" href="/About/ForTheMedia/NACSShowNews" data-feathr-click-track="true">READ MORE</a>
+</div>

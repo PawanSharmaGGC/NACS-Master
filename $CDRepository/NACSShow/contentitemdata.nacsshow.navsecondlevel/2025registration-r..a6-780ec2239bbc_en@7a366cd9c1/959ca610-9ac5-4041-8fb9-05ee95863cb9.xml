@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.navsecondlevel>
+  <ContentItemDataCommonDataID>
+    <GUID>b18d303c-cffe-4611-b4a6-780ec2239bbc</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>2025Registration-r2xl9dvi</CodeName>
+      <GUID>e1967e4b-7723-4e4e-8848-e0cd9e8d9357</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>959ca610-9ac5-4041-8fb9-05ee95863cb9</ContentItemDataGUID>
+  <Feature />
+  <Title>2025 Registration</Title>
+  <URL>/Notify-Me</URL>
+</contentitemdata.nacsshow.navsecondlevel>

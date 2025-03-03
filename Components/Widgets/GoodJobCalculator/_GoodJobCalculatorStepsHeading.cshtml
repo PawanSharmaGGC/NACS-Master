@@ -1,0 +1,32 @@
+﻿@using Convenience.org.Models
+
+@model GoodJobCalculatorViewModel
+
+<div class="row" id="_divStepsHeader">
+    <input type="hidden" id="hfCurrentStep" value="@Model.CurrentStep" />
+
+    <div class="col">
+        <ul id="wizHeader" style="list-style-type: none; padding: 0;">
+            <li>
+                <a class="@(Model.CurrentStep == 1 ? "stepCurrent" : (Model.Step1Completed ? "stepCompleted" : "stepNotCompleted"))" title="Step 1<br/>Revenue">
+                    Step 1<br>Revenue
+                </a>
+            </li>
+            <li>
+                <a class="@(Model.CurrentStep == 2 ? "stepCurrent" : (Model.Step2Completed ? "stepCompleted" : "stepNotCompleted"))" title="Step 2<br/>Cost">
+                    Step 2<br>Cost
+                </a>
+            </li>
+            <li>
+                <a class="@(Model.CurrentStep == 3 ? "stepCurrent" : (Model.Step3Completed ? "stepCompleted" : "stepNotCompleted"))" title="Step 3<br/>Levers &amp; Results">
+                    Step 3<br>Levers &amp; Results
+                </a>
+            </li>
+            <li>
+                <a class="@(Model.CurrentStep == 4 ? "stepCurrent" : (Model.Step4Completed ? "stepCompleted" : "stepNotCompleted"))" title="Step 4<br/>Take Action">
+                    Step 4<br>Take Action
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

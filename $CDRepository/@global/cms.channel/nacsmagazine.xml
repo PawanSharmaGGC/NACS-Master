@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.channel>
+  <ChannelDisplayName>NACS Magazine</ChannelDisplayName>
+  <ChannelGUID>eecfdedc-a92f-48b7-9daa-eab81c106019</ChannelGUID>
+  <ChannelName>NACSMagazine</ChannelName>
+  <ChannelSize>Standard</ChannelSize>
+  <ChannelType>Website</ChannelType>
+</cms.channel>

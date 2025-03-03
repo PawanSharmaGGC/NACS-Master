@@ -1,0 +1,41 @@
+﻿@model Convenience.org.Components.Widgets.CommitteeListing.CommitteeListingViewModel
+
+@if (Model.Members!=null && Model?.Members.Any() == true)
+{
+    <div class="row" style="padding: 50px;">
+        <div class="col-12 col-sm-6">
+            @{
+                string currentPosition = null;
+            }
+
+            @foreach (var member in Model.Members)
+            {
+                if (member.Position != currentPosition)
+                {
+                    if (currentPosition != null)
+                    {
+                        <br />
+
+                        <br />
+                    }
+                    <h2 class="ArticlePageTitle">@member.Position</h2>
+                    currentPosition = member.Position;
+                }
+
+                <strong>@member.Name</strong>
+                <br />
+
+                @if (!string.IsNullOrEmpty(member.Title))
+                {
+                    <em>@member.Title</em>
+                    <br />
+                }
+
+                @member.CommitteeName
+                <br />
+
+                <br />
+            }
+        </div>
+    </div>
+}

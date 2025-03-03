@@ -1,0 +1,46 @@
+﻿@model List<Convenience.org.Components.Widgets.MemberSearchAllCompanies.MemberSearchAllCompaniesViewModel>
+<div class="member-search-company">
+    <h2>Member Companies</h2>
+    @if (Model != null && Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Account Type</th>
+                    <th>Supplier Type</th>
+                    <th>City</th>
+                    <th>State/Province</th>
+                    <th>Country</th>
+                    <th>Region</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var company in Model)
+                {
+                    <tr>
+                        <td>
+                            @* <a asp-controller="MemberSearchCompanyDetails" asp-action="GetCompanyDetails" asp-route-accountId="@company.AccountId">
+                                @company.Name
+                            </a> *@
+                            <a href="@Url.Action("GetCompanyDetails", "MemberSearchCompanyDetails", new { accountId = company.AccountId })" target="_blank">
+                                @company.Name
+                            </a>
+
+                        </td>
+                        <td>@company.AccountTypeName</td>
+                        <td>@company.SupplierTypeName</td>
+                        <td>@company.City</td>
+                        <td>@company.StateOrProvince</td>
+                        <td>@company.Country</td>
+                        <td>@company.Region</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No member companies found.</p>
+    }
+</div>

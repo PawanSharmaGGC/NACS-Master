@@ -1,0 +1,164 @@
+﻿@using Convenience.org.Models
+
+@model EVChargingCalculatorViewModel
+
+@* @Html.Partial("~/Components/Widgets/EVChargingCalculator/_EVChargingCalculatorStepsHeading.cshtml", Model) *@
+
+
+<div class="row validate-inputs">
+    <div class="col">
+        <input type="hidden" id="hfCurrentStep" value="@Model.CurrentStep" />
+        <div style="width: 100%; margin: auto; align-content: center; padding-left: 20px;">
+            @* <%-- <p>To take full advantage of the calculator please download the NACS EV Charging Calculator Overview and Instructions <a href="https://www.convenience.org/Topics/EV-Charging-Business-Modeling/Documents/NACS-EV-Charging-Calculator-Overview-and-Instructi.docx">here</a>.</p>--%> *@
+                          
+            <fieldset class="ctrl-container">
+                <div class="ctrl-header">
+                    @* <%--   <h4><i class="fa-solid fa-store"></i>&nbsp;Field Set One</h4>--%> *@
+                </div>
+
+                <div style="float: left; margin: auto; min-width: 250px; width: 50%; padding: 10px;">
+
+                    <label for="" style="font-size: 15px; font-weight: 500">Base C-Store Energy Costs</label>
+                    <div class="clear"></div>
+                    <span style="position: absolute; margin-left: 5px; margin-top: 15px; color: #727f8a; font-size: 18px;">&nbsp;$</span>
+                    <input type="number" id="_txtBaseCStoreEnergyCosts" name="_txtBaseCStoreEnergyCosts" value="@Model._txtBaseCStoreEnergyCosts" min="-1000000000000" max="1000000000000" step="0.01" class="txt1 space" required
+                        onkeyup="CalcBaseeCStoreUtilityCosts();" onchange="CalcBaseeCStoreUtilityCosts();" />
+
+                    <br />
+                    <br />
+
+                    <label for="_txtBaseCStoreDemandCharges" style="font-size: 15px; font-weight: 500">Base C-Store Demand Charges</label>
+                    <div class="clear"></div>
+                    <span style="position: absolute; margin-left: 5px; margin-top: 15px; color: #727f8a; font-size: 18px;">&nbsp;$</span>
+                    <input type="number" id="_txtBaseCStoreDemandCharges" name="_txtBaseCStoreDemandCharges" value="@Model._txtBaseCStoreDemandCharges" min="-1000000000000" max="1000000000000" step="0.01" class="txt1 space" required
+                        onkeyup="CalcBaseeCStoreUtilityCosts();" onchange="CalcBaseeCStoreUtilityCosts();" />
+
+                    <br />
+                    <br />
+
+                    <label for="_txtTotalBaseCStoreUtilityCosts" style="font-size: 15px; font-weight: 500">Total Base C-Store Utility Costs</label>
+                    <div class="clear"></div>
+                    <span style="position: absolute; margin-left: 5px; margin-top: 15px; color: #727f8a; font-size: 18px;">&nbsp;$</span>
+                    <input type="number" id="_txtTotalBaseCStoreUtilityCosts" name="_txtTotalBaseCStoreUtilityCosts" value="@Model._txtTotalBaseCStoreUtilityCosts" min="-1000000000000" max="1000000000000" step="0.01" class="txt1 space requiredBackground" style="pointer-events: none;" readonly="true" required />
+
+                    <div style="display: none">
+                        <input type="text" id="_hdTotalBaseCStoreUtilityCosts" name="_hdTotalBaseCStoreUtilityCosts" value="@Model._hdTotalBaseCStoreUtilityCosts" />
+                    </div>
+
+                </div>
+
+                <div style="float: left; margin: auto; min-width: 250px; width: 50%; padding: 10px;">
+
+                    <label for="_txtBasekW" style="font-size: 15px; font-weight: 500">Base kW</label>
+                    <div class="clear"></div>
+                    <span style="position: absolute; margin-left: 5px; margin-top: 15px; color: #727f8a; font-size: 18px;">&nbsp;kW</span>
+                    <input type="number" id="_txtBasekW" name="_txtBasekW" value="@Model._txtBasekW" step="0.01" class="txt1 space" min="-1000000000000" max="1000000000000" required />
+
+                    <br />
+                    <br />
+
+                    <label for="_txtDemandCostkw" style="font-size: 15px; font-weight: 500">Demand Cost/kW</label>
+                    <div class="clear"></div>
+                    <span style="position: absolute; margin-left: 5px; margin-top: 15px; color: #727f8a; font-size: 18px;">&nbsp;$</span>
+                    <input type="number" id="_txtDemandCostkW" name="_txtDemandCostkW" value="@Model._txtDemandCostkW" step="0.01" min="-1000000000000" max="1000000000000" class="txt1 space" required />
+
+                    <br />
+                    <br />
+
+                    <label for="_txtEnergyCostkwh" style="font-size: 15px; font-weight: 500">Energy Cost/kWh</label>
+                    <div class="clear"></div>
+                    <span style="position: absolute; margin-left: 5px; margin-top: 15px; color: #727f8a; font-size: 18px;">&nbsp;$</span>
+                    <input type="number" id="_txtEnergyCostkwh" name="_txtEnergyCostkwh" value="@Model._txtEnergyCostkwh" step="0.01" min="-1000000000000" max="1000000000000" class="txt1 space" required />
+
+                    <div style="display: none">
+                        <input type="text" id="_hdEnergyCostkwh" name="_hdEnergyCostkwh" value="@Model._hdEnergyCostkwh" />
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <fieldset class="ctrl-container">
+                <div class="ctrl-header">
+                    @* <%--<h4><i class="fa-solid fa-store"></i>&nbsp;Field Set Two</h4>--%> *@
+                </div>
+                <div style="float: left; margin: auto; min-width: 250px; width: 50%; padding: 10px;">
+
+                    <div style="display: none;">
+                        <label for="_txtDaysMonth" style="float: left; font-size: 15px; font-weight: 500">Days</label>
+                        <div class="clear"></div>
+                        <input type="number" id="_txtDaysMonth" name="_txtDaysMonth" value="@Model._txtDaysMonth" readonly="true" class="txt1" />
+
+                        <br />
+                        <br />
+                    </div>
+
+                    <label for="_txtNumberOfCharger" style="font-size: 15px; font-weight: 500">Number of Chargers</label>
+                    <div class="clear"></div>
+                    <input type="number" id="_txtNumberOfCharger" name="_txtNumberOfCharger" value="@Model._txtNumberOfCharger" step="1" min="1" class="txt1" required />
+
+                    <br />
+                    <br />
+
+                    <label for="_txtChargePerChargerPerDay" style="font-size: 15px; font-weight: 500">Charges per Charger per Day</label>
+                    <div class="clear"></div>
+                    <input type="number" id="_txtNumberChargePerChargerPerDay" name="_txtNumberChargePerChargerPerDay" value="@Model._txtNumberChargePerChargerPerDay" step="1" min="1" class="txt1" required />
+
+                    <br />
+                    <br />
+
+                    <label for="_txtHurdleRateROI" style="font-size: 15px; font-weight: 500">Hurdle Rate ROI</label>
+                    <div class="clear"></div>
+                    <span style="position: absolute; margin-left: 5px; margin-top: 15px; color: #727f8a; font-size: 18px;">&nbsp;%</span>
+                    <input type="number" id="_txtHurdleRateROI" name="_txtHurdleRateROI" step="0.01" value="@Model._txtHurdleRateROI" min="-1000000000000" max="1000000000000" class="txt1" required />
+
+                </div>
+
+                <div style="float: left; margin: auto; min-width: 250px; width: 50%; padding: 10px;">
+
+                    <label for="_txtkWCharger" style="font-size: 15px; font-weight: 500">kW Output/Charger</label>
+                    <div class="clear"></div>
+                    <span style="position: absolute; margin-left: 5px; margin-top: 15px; color: #727f8a; font-size: 18px;">&nbsp;kW</span>
+                    <input type="number" id="_txtkWCharger" name="_txtkWCharger" value="@Model._txtkWCharger" step="0.01" min="-1000000000000" max="1000000000000" class="txt1" required />
+
+                    <br />
+                    <br />
+
+                    <label for="_txtCapitalCostOfWHCharger" style="font-size: 15px; font-weight: 500">Capital Cost of Each Charger</label>
+                    <div class="clear"></div>
+                    <span style="position: absolute; margin-left: 5px; margin-top: 15px; color: #727f8a; font-size: 18px;">&nbsp;$</span>
+                    <input type="number" id="_txtCapitalCostOfWHCharger" name="_txtCapitalCostOfWHCharger" value="@Model._txtCapitalCostOfWHCharger" step="0.01" min="-1000000000000" max="1000000000000" class="txt1 space" required />
+
+                    <br />
+                    <br />
+
+                    <label for="_txtkWhCharge" style="font-size: 15px; font-weight: 500">kWh/Charge</label>
+                    <div class="clear"></div>
+                    <span style="position: absolute; margin-left: 5px; margin-top: 15px; color: #727f8a; font-size: 18px;">&nbsp;kWh</span>
+                    <input type="number" id="_txtkWhCharge" name="_txtkWhCharge" value="@Model._txtkWhCharge" step="0.01" min="-1000000000000" max="1000000000000" class="txt1" required />
+
+                </div>
+
+            </fieldset>
+            @* <%--<div style="float: left; margin: auto; min-width: 350px; width: 30%;"></div>--%> *@
+        </div>
+
+        <br />
+        <br />
+        <div class="clear"></div>
+
+
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="Row">
+    <div style="width: 95%; margin-top: 15px; margin: auto; min-width: 350px!important">
+        <input type="submit" id="nextStep" data-step="@(Model.CurrentStep + 1)" class="button"
+               style="float: right; margin-bottom: 15px;" value="Calculate" />
+    </div>
+
+</div>
+
+@Html.Partial("~/Components/Widgets/EVChargingCalculator/_EVChargingCalculatorStep2.cshtml", Model)
+@Html.Partial("~/Components/Widgets/EVChargingCalculator/_EVChargingCalculatorStep3.cshtml", Model)

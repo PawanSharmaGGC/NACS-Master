@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.resource>
+  <ResourceDescription>Kentico Tag Manager custom data</ResourceDescription>
+  <ResourceDisplayName>Kentico Integration - Tag Manager</ResourceDisplayName>
+  <ResourceGUID>6b738df7-6048-4af1-87cc-f922b4738b78</ResourceGUID>
+  <ResourceIsInDevelopment>False</ResourceIsInDevelopment>
+  <ResourceName>CMS.Integration.TagManager</ResourceName>
+</cms.resource>

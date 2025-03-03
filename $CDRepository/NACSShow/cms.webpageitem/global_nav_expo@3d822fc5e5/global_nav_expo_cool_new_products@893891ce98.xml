@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>CoolNewProducts-mkywr6ey</CodeName>
+    <GUID>bdc7d674-d5af-4f23-8d0e-a8c5ac815c89</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>ba1353ad-64ff-4878-b3c1-b87eac6f3311</WebPageItemGUID>
+  <WebPageItemName>CoolNewProducts-mkywr6ey</WebPageItemName>
+  <WebPageItemOrder>2</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>Expo-jtkybmyw</CodeName>
+    <GUID>6d91d257-b953-478a-a065-b085ab716c0f</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>/Global_Nav/Expo/Cool_New_Products</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>0ba89fef-3be8-4973-83d2-c5cbbcb227cf</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSShow</CodeName>
+      <GUID>2083f08a-0932-4059-8087-f0556c420aa4</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

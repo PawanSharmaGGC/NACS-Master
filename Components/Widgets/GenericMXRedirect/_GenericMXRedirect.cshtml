@@ -1,0 +1,30 @@
+﻿@model Convenience.org.Components.Widgets.GenericMXRedirect.GenericMXRedirectViewModel
+
+@if (Model != null)
+{
+    if (!string.IsNullOrEmpty(Model.RedirectURL))
+    {
+        <script type="text/javascript">
+            $(document).ready(function () {
+                window.location.href = '@Model.RedirectURL'; @* Redirects to the external URL *@
+                                    });
+        </script>
+    }
+
+    if (Model.ShowAuthenticatedPanel)
+    {
+        <div id="phAuthenticated">
+            <div align="center">
+                <a href="@Model.AuthenticatedNavigateUrl" id="hypAuthenticated" css="button"> Register </a>
+            </div>
+        </div>
+    }
+    if (Model.ShowAnonymousPanel)
+    {
+        <div id="phAnonymous">
+            <div align="center">
+                <a href="@Model.AnonymousNavigateUrl" id="hypAnonymous" css="button"> Log In to Register </a>
+            </div>
+        </div>
+    }
+}

@@ -1,0 +1,45 @@
+﻿@using ConvenienceCares.Models
+
+@model List<MenuItemViewModel>
+
+@if (Model != null)
+{
+    <nav>
+        <div id="nav-wrapper">
+            @* <a href="/" id="nav-logo"><img src="~/App_Themes/ConvenienceCares.org/img/logo-nacs-foundation.svg">	</a> *@
+            <a href="/" id="nav-logo"><img src="@Url.Content(ViewBag.HeaderLogo)">	</a>
+
+            <div id="nav-menu">
+
+
+                <ul>
+                    @foreach (var item in Model.OrderBy(x => x.ItemOrder))
+                    {
+                        if (item.Childern.Any())
+                        {
+                            <li>
+                                <span class="trigger">@item.MenuItemName</span>
+                                @Html.Partial("_MenuItemPartial", item.Childern)
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a href="@item.MenuLink" target="@(item.OpenInNewTab ? "_blank" : "_self")" rel="@item.MenuItemName">@item.MenuItemName</a>
+                            </li>
+                        }
+                    }
+                </ul>
+
+            </div>
+            <div id="nav-trigger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+}
+

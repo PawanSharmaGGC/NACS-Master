@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemContentFolderID>
+    <CodeName>Issues-f92ndaq2</CodeName>
+    <GUID>78ab585b-3b4f-4b2b-861a-8b5cf7719e01</GUID>
+    <ObjectType>cms.contentfolder</ObjectType>
+  </ContentItemContentFolderID>
+  <ContentItemContentTypeID>
+    <CodeName>NACSMagazine.Article</CodeName>
+    <GUID>bfc216b1-7940-4f1b-9085-01ec7902d4ff</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>6cacb5d8-9c80-4e95-af0b-7eb50a875bab</ContentItemGUID>
+  <ContentItemIsReusable>True</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>Test-gt5vqctx</ContentItemName>
+</cms.contentitem>

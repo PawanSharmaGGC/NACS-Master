@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>Legislative-butzoiuv</CodeName>
+    <GUID>891cc96c-03a4-41ae-a2c9-36e028d3758f</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>ff8ae139-9c7c-4310-a3c1-3b34dbddc076</WebPageItemGUID>
+  <WebPageItemName>Legislative-butzoiuv</WebPageItemName>
+  <WebPageItemOrder>7</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>Category-iooqnwpz</CodeName>
+    <GUID>d7b6ddbf-59b7-492a-aa64-c51811e733f7</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>/Category/Legislative</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>3257d9cb-79a6-4552-998d-e1f8e1a3cb3e</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSMagazine</CodeName>
+      <GUID>eecfdedc-a92f-48b7-9daa-eab81c106019</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

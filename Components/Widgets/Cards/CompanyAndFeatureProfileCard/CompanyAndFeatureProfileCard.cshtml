@@ -1,0 +1,92 @@
+﻿@using Convenience.org.Components.Widgets.Cards
+@using Convenience.org.Models
+@model CompanyAndFeatureProfileCardViewModel
+
+@if (Model.companyAndFeatureProfileCardItem != null)
+{
+	var cardType = Model.companyAndFeatureProfileCardItem.CardType;
+	@if (cardType == "Company Card")
+	{
+		<div>
+			<div class="border-0 p-3 card">
+				<div class="border-0 p-0 bg-E9F0F4 CompanyCardStyle-module__section_card card">
+					<div class="p-4 undefined card-body">
+						<div class="text-start mb-4 d-flex justify-content-between">
+							<div>
+								<div class="text-start mb-4 border_left_green EyebrowTitleStyle-module__eyebrow">
+									<span class="ps-4 text-uppercase font-monospace text-primary">@Model.companyAndFeatureProfileCardItem.EyebrowTitle</span>
+								</div>
+							</div>
+							<img src="@Model.companyAndFeatureProfileCardItem.ImageUrl" class="CompanyCardStyle-module__section_body_img" alt="@Model.companyAndFeatureProfileCardItem.Title">
+						</div>
+						<div class="text-start">
+							<p class="m-0 mb-3 fw-semibold fs-5 color-262d61">@Model.companyAndFeatureProfileCardItem.Title</p>
+							<p class="m-0 mb-3 fs-5 color-262d61 mb-2">@Model.companyAndFeatureProfileCardItem.SubTitle</p>
+
+							<p class="m-0 mb-3 ps-2 d-flex">
+								<span class="pe-2"><i class="fa-solid fa-location-dot color-396a99" aria-hidden="true"></i></span>
+								<span class="pe-2 color-396a99">@Model.companyAndFeatureProfileCardItem.Address</span>
+							</p>
+
+							<p class="m-0 mb-3 ps-2">
+								<span class="pe-2"><i class="fa-regular fa-link-simple color-396a99" aria-hidden="true"></i></span>
+								<span class="pe-2 color-396a99">@Model.companyAndFeatureProfileCardItem.Website</span>
+							</p>
+
+							<p class="m-0 mb-3 ps-2">
+								<span class="pe-2"><i class="fa-solid fa-circle-user color-396a99" aria-hidden="true"></i></span>
+								<span class="pe-2 color-396a99">@Model.companyAndFeatureProfileCardItem.Email</span>
+							</p>
+
+							<p class="m-0 mb-3 ps-2">
+								<span class="pe-2"><i class="fa-solid fa-phone color-396a99" aria-hidden="true"></i></span>
+								<span class="pe-2 color-396a99">@Model.companyAndFeatureProfileCardItem.ContactNo</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+	@if (cardType == "Featured Profile Card")
+	{
+		<div>			
+			<div class="border-0 p-3 card">
+				<div class="border-0 p-0 bg-E9F0F4 FeaturedProfileCardStyle-module__section_card card">
+					<div class="p-4 undefined card-body">
+						<div class="text-start mb-3 d-flex justify-content-between">
+							<div>
+								<div class="text-start mb-4 border_left_green EyebrowTitleStyle-module__eyebrow">
+									<span class="ps-4 text-uppercase font-monospace color-0053A5">@Model.companyAndFeatureProfileCardItem.EyebrowTitle</span>
+								</div>
+							</div>
+						<div>
+						<div>
+									<img id="avatarImage" class="rounded-circle" width="70" height="70" src="@Model.companyAndFeatureProfileCardItem.ImageUrl" alt="@Model.companyAndFeatureProfileCardItem.Title">
+						</div>
+					</div>
+				</div>
+			<div class="text-start">
+				<p class=" m-0 fw-semibold fs-5 color-262d61">@Model.companyAndFeatureProfileCardItem.Title</p>
+				<p class="m-0 fs-5 color-262d61 mb-2">@Model.companyAndFeatureProfileCardItem.SubTitle</p>
+				<p class="m-0 mb-1 ps-2">
+					<span class="pe-3"><i class="fa-solid fa-phone color-0053A5" aria-hidden="true"></i></span>
+					<span class="pe-3 color-0053A5">@Model.companyAndFeatureProfileCardItem.ContactNo</span>
+				</p>
+				<p class="m-0 mb-2 ps-2">
+					<span class="pe-3"><i class="fa-solid fa-envelope color-0053A5" aria-hidden="true"></i></span>
+					<span class="pe-3 color-0053A5">@Model.companyAndFeatureProfileCardItem.Email</span>
+				</p>
+				
+				<p class="fs-5 color-262d61">@Html.Raw(Model.companyAndFeatureProfileCardItem.Description)</p>
+				<a href="@Model.companyAndFeatureProfileCardItem.CTALink" class="fs-5 color-396a99 pointer text-decoration-none">
+					<span class="d-inline-block pe-1 fw-medium">@Model.companyAndFeatureProfileCardItem.CTAText</span> 
+					<span class="align-middle"><i class="fa-regular fa-arrow-right-long color-396a99" aria-hidden="true"></i></span>
+				</a>
+				</div>
+			</div>
+		</div>
+		</div>
+		</div>
+	}
+}

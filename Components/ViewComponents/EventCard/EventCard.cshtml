@@ -1,0 +1,130 @@
+﻿@model Convenience.org.Models.EventCardViewModel
+
+@if (Model != null)
+{
+	<div>
+		<div class="p-0 mb-4 border-0 EventCardStyle-module__main_card card">
+			<div class="border-0 EventCardStyle-module__section_card card">
+				<div class="p-4 card-body">
+					<div class="p-1 text-start fs-4">
+						<span class="color-FFFFFF">
+							@Model.Title
+						</span>
+					</div>
+					<div class="text-start">
+						<div class="fs-5 mt-3">
+							<i class="fa-solid fa-calendar-days color-FFFFFF" aria-hidden="true"></i>
+							<span class="ms-2 color-FFFFFF">@Model.Datetime</span>
+						</div>
+						<div class="fs-5 mt-3">
+							<i class="fa-solid fa-location-dot color-FFFFFF" aria-hidden="true"></i>
+							<span class="ms-2 color-FFFFFF">@Model.Location</span>
+						</div>
+					</div>
+					<div class="d-flex justify-content-between mt-3">
+						<div class="fs-5 mt-2 mb-2">
+							@if (Model.Images != null && Model.Images.Count > 0)
+							{
+								var iCount = 1;
+								<div class="EventCardStyle-module__images_wrapper">
+									@foreach (var image in Model.Images)
+									{
+										if (iCount == Model.Images.Count)
+										{
+											<div><span class="pt-1 color-FFFFFF">@image.Url</span></div>
+										}
+										else
+										{
+											<div>
+												<img id="avatarImage" class="rounded-circle" width="80" height="80" src="@image.Url" alt="@image.AltText">
+											</div>
+										}
+										iCount++;
+									}
+								</div>
+							}
+						</div>
+						<div class="align-self-end">
+							<div class="">
+								@if (!string.IsNullOrEmpty(Model.CTAText) && !string.IsNullOrEmpty(Model.CTAUrl))
+								{
+									<a href="@Model.CTAUrl" class="bg-FFFFFF p-3 border border-0 brdr-rad-30 text-decoration-none ">
+										<span>
+											<i class="align-middle color-0053A5 undefined undefined "></i>
+										</span>
+										<span class="color-0053A5 text-start pe-lg-2 ps-lg-2 fw-medium fs-5">
+											@Model.CTAText
+										</span>
+										<span>
+											<i class="align-middle color-0053A5 fa-solid fa-square-plus fa-lg" aria-hidden="true"></i>
+										</span>
+									</a>
+								}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	@* 	<link href="~/css/modules/EventCardStyle.css" rel="stylesheet" />
+
+	<div class="p-3 border-0 EventCard-main_card card">
+		<div class="border-0 EventCard-section_card card">
+			<div class="p-4 card-body">
+				<div class="p-1 text-start fs-4">
+					<span class="color-FFFFFF">
+						@Model.Title
+					</span>
+				</div>
+				<div class="text-start">
+					<div class="fs-5 mt-3">
+						<i class="fa-solid fa-calendar-days color-FFFFFF" aria-hidden="true">
+						</i>
+						<span class="ms-2 color-FFFFFF">
+							@Model.Datetime
+						</span>
+					</div>
+					<div class="fs-5 mt-3">
+						<i class="fa-solid fa-location-dot color-FFFFFF" aria-hidden="true">
+						</i><span class="ms-2 color-FFFFFF">
+							@Model.Location
+						</span>
+					</div>
+				</div>
+				<div class="d-flex justify-content-between mt-3">
+					<div class="fs-5 mt-2 mb-2">
+						@if (Model.Images != null && Model.Images.Count > 0)
+						{
+							var iCount = 1;
+							<div class="EventCard-images_wrapper">
+								@foreach (var image in Model.Images)
+								{
+									if (iCount == Model.Images.Count)
+									{
+										<div><span class="pt-1 color-FFFFFF">@image.Url</span></div>
+									}
+									else
+									{
+										<div><img src="@image.Url" alt="@image.AltText"></div>
+									}
+									iCount++;
+								}
+								@*<div><img src="" alt="image 2"></div> *
+													</div>
+}
+					</div>
+<div class="align-self-end">
+	<div class="">
+		@if (Model.CTA != null)
+		{
+			@await Component.InvokeAsync("Buttons", Model.CTA)
+		}
+	</div>
+</div>
+				</div>
+			</div>
+		</div>
+	</div> *@
+}

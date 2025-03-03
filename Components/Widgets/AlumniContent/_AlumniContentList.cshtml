@@ -1,0 +1,15 @@
+﻿
+@model List<Convenience.org.Components.Widgets.AlumniContent.AlumniItem>
+
+
+<ul class="alumni-list">
+    @foreach (var item in Model)
+    {
+        <li>
+            <span>@item.Type</span>
+            <a href="@item.URL" target="_blank">@item.Title</a>
+            <p>@item.Description</p>
+            <small>Posted on @item.StartDate.ToString("MMM d, yyyy")</small>
+        </li>
+    }
+</ul>

@@ -1,0 +1,17 @@
+.section_card {
+    border-radius: 18px !important;
+    overflow: hidden;
+    width: 40vw;
+}
+
+
+.section_body_img {
+    float: left;
+    border-radius: 100% !important;
+}
+
+@media only screen and (max-width: 480px) {
+    .section_card {
+        width: 93vw;
+    }
+}

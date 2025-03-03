@@ -1,0 +1,59 @@
+.main_card {
+    /* width: 400px */
+}
+
+
+.slider_card {
+    background-color: #0053A5;
+    border-radius: 18px
+}
+
+.active_slider_card {
+    background-color: #DBEAB9;
+    border-radius: 18px
+}
+
+  /* Default styles for the cards container */
+.container_div {
+    max-height: 37vh;
+    display: flex;
+    flex-wrap: wrap;   /* Allow wrapping for mobile */
+    gap: 16px;         /* Space between cards */
+    padding: 10px;
+    justify-content: flex-start;
+  }
+  
+  /* Style for individual cards */
+  .flex_card {
+    height: 200px;     /* Fixed height for the card */
+    transition: transform 0.3s ease;
+  }
+  
+  .flex_card:hover {
+    transform: translateY(-10px); /* Hover effect */
+  }
+  
+  /* For larger screens (Desktop mode: horizontal scroll) */
+  @media (min-width: 768px) {
+    .container_div {
+      flex-wrap: nowrap;          /* No wrapping, cards will be on one row */
+      overflow-x: auto;           /* Enable horizontal scroll */
+      overflow-y: hidden;         /* Prevent vertical scrolling */
+      width: 100%;
+    }
+  
+    .flex_card {
+      flex: 0 0 auto; /* Prevent cards from growing/shrinking */
+      width: 400px;
+    }
+  }
+  
+  /* For smaller screens (Mobile mode: vertical scroll) */
+  @media (max-width: 767px) {
+    .container_div {
+      overflow-x: hidden;          /* Prevent horizontal scrolling */
+      overflow-y: auto;            /* Enable vertical scroll */
+      max-height: 69vh;           /* Ensure the container can scroll vertically */
+    }
+  }
+  

@@ -1,0 +1,38 @@
+﻿@using NACSShow
+
+<vc:current-page-data />
+
+@{
+    Layout = "~/Features/Shared/NACSShow/_Layout.cshtml";
+    Page currentPageData = TempData["CurrentPageData"] as Page ?? new Page();
+}
+
+<div class="row">
+    <div class="col-12 col-lg-2 left-rail">
+        <editable-area area-identifier="LeftRailZone1"></editable-area>
+        
+        <editable-area area-identifier="LeftRailWidgetZone"></editable-area>
+        <div class="left-nav-ads">
+            <editable-area area-identifier="LeftRailZone2"></editable-area>
+        </div>
+    </div>
+    <div class="col-12 col-md-8 col-lg-7 main-content">
+        <div class="row">
+            <div class="col-12">
+                <editable-area area-identifier="ContentZone"></editable-area>
+                @Html.Raw(currentPageData.PageContent)
+                <editable-area area-identifier="ContentWidgetZone"></editable-area>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-3 right-rail">
+        <editable-area area-identifier="RightRailWidgetZoneTop"></editable-area>
+        <editable-area area-identifier="RightRail"></editable-area>
+        <editable-area area-identifier="RightRailWidgetZoneBottom"></editable-area>
+        <div class="responsive-left-ad-placeholder">&nbsp;</div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/assets/js/ad-mover.js"></script>
+}

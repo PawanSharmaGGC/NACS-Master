@@ -1,0 +1,89 @@
+﻿@model Convenience.org.Components.Widgets.MemberSearchMyDirectory.MemberSearchMyDirectoryViewModel
+
+<style>
+    #sidebarWidget {
+        padding: 15px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+    }
+
+        #sidebarWidget ul {
+            list-style: none;
+            padding: 0;
+        }
+
+            #sidebarWidget ul li {
+                margin-bottom: 10px;
+            }
+
+</style>
+<div id="sidebarWidget">
+    <!-- Saved Persons -->
+    <h4>Saved Persons (@Model.Persons.Count)</h4>
+    <ul>
+        @if (Model.Persons.Any())
+        {
+            foreach (var person in Model.Persons.Take(5)) 
+            {
+                <li>
+                    <div>
+                        <strong>@person.SavedItemDisplayName</strong> <!-- Person's name -->
+                        <div>@person.SavedItemDisplayDescription</div> <!-- Company name -->
+                    </div>
+                </li>
+            }
+        }
+        else
+        {
+            <li>No persons saved yet.</li>
+        }
+    </ul>
+
+    <!-- Saved Companies -->
+    <h4>Saved Companies (@Model.Companies.Count)</h4>
+    <ul>
+        @if (Model.Companies.Any())
+        {
+            foreach (var company in Model.Companies.Take(5)) 
+            {
+                <li>
+                    <div>
+                        <strong>@company.SavedItemDisplayName</strong> <!-- Company name -->
+                        <div>@company.SavedItemDisplayDescription</div> <!-- Account type -->
+                    </div>
+                </li>
+            }
+        }
+        else
+        {
+            <li>No companies saved yet.</li>
+        }
+    </ul>
+
+    <!-- View All Button -->
+    <div style="margin-top: 20px;">
+        <a href="@Url.Action("Index", "MemberSearchMyDirectory")" class="btn btn-primary">View All</a>
+    </div>
+</div>
+<div id="recentViewsWidget">
+    <h4>Recently Viewed</h4>
+    <ul>
+        @if (Model.RecentViews != null && Model.RecentViews.Any())
+        {
+            foreach (var view in Model.RecentViews)
+            {
+                <li>
+                    <a href="@view.URL" target="_blank">
+                        <span>@view.Title</span>
+                        <span style="font-size: small;">(@view.Type)</span>
+                    </a>
+                </li>
+            }
+        }
+        else
+        {
+            <li>No recent views available.</li>
+        }
+    </ul>
+</div>
+

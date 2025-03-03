@@ -1,0 +1,164 @@
+﻿@model Convenience.org.Components.Widgets.RecommendedCardCarouselWidget.RecommendedCardCarouselWidgetViewModel
+
+@if (Model != null)
+{
+	<link href="~/css/custom-slick-carousel.css" rel="stylesheet" />
+	<!-- jQuery and Slick Slider JS -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script src="/js/custom-slick-carousel.js"></script>
+
+
+	<div>
+		<div class="p-0 border-0 bg-trans card">
+			<div class="d-flex justify-content-between ps-lg-5 pe-lg-5 ps-0 pe-0">
+				<div class="fs-3 color-0053A5">
+					@Model.LeftTitle
+				</div>
+				@if (!string.IsNullOrEmpty(Model.CTAText) && !string.IsNullOrEmpty(Model.CTALink))
+				{
+					<div>
+						<div class="">
+							<a href="@Model.CTALink" class="bg-0053A5 p-3 border border-0 brdr-rad-30 text-decoration-none w-100 d-inline-block">
+								<span>
+									<i class="align-middle color-FFFFFF undefined undefined "></i>
+								</span>
+								<span class="color-FFFFFF pe-2 ps-2 fw-medium undefined">
+									@Model.CTAText
+								</span>
+								<span>
+									<i class="align-middle color-FFFFFF fa-regular fa-arrow-right-long " aria-hidden="true"></i>
+								</span>
+							</a>
+						</div>
+					</div>
+				}
+			</div>
+			@if (Model.ArticleItems != null && Model.ArticleItems.Count > 0)
+			{
+				<div class="bg-trans RecommendedCardCarouselStyle-module__slider_container">
+					<div class="slick-carousel">
+						@foreach (var item in Model.ArticleItems)
+						{
+							<div>
+								<div class="RecommendedCardCarouselStyle-module__flex_card RecommendedCardCarouselStyle-module__slider_card border border-0 card">
+									<div class="bg-DBEAB9 m-3 brdr-rad-18 RecommendedCardCarouselStyle-module__slider_card_body card-body">
+										<div>
+											<div class="text-start mb-4 border_left_blue EyebrowTitleStyle-module__eyebrow">
+												<span class="ps-4 text-uppercase font-monospace text-primary">
+													@item.Status
+												</span>
+											</div>
+										</div>
+										<div class="p-1 text-start fs-4">
+											<span class="color-0053A5">
+												@item.Title
+											</span>
+										</div>
+										<div class="">
+											<img src="@item.ImageUrl" class="img-fluid" alt="@item.ImageAlttext">
+											<div class="d-flex align-items-end flex-column">
+												<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAoCAYAAAB5ADPdAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANSSURBVHgBzVhdUhpBEO5uKWKqUql9SiAv4QaYG0DUVOUpeAJWLwCcQDiB+G7JmgvoWypFLOAE4gmCD0beQqpSGlMynZ7hJ0gWmAVc81UBy27v7Lc9M939NcKccD/FEhDBDCEnGXANkB0ETAyuM3BLvlpydM4Km9CFuve+3bIZGyEA3GPHgeerOWRIIWIKAoKZ66zgyHvX9mBRUkMyQHkEdmBBMECLu1yaRG4mKbcaSyFhRQwTsGQYcr85PT6tNO0m9zS2S4S1hyCkocelKH51qy/zY+cnEYrvCeM8hAQFXPTW2yV9vAL/ASEN2bmpZPYZND/+bOC/hGTKAIvwSFBKFe6tKffzi8xjEtIgWnGGntLBEKMLLeoL+bSG/xCTEpjswwdiBxgLh+uXXmR4Moq5wIRQSDAeKboue+lOZ/yyW5MXVSt5RPVB9n9iykgNhcr13vZCg/GU9pLemhCMUWkSGV9yXUMu53NZvHNVHj1hPCWEcmDNBTvUVVsHm1d121u8tPFAfuc0rn/3euNASyFteenL5ri9WegSWTNgCVR32web7TrMgb5HCvK8fYU3b/wImWfoNKKjttWoMmWH69+K8MCIkC47bGDcfV2GEECMkLKyZKzbLOplQNYUvrYyVOoIQgIh2sWmeRf3PBBPWUXdUKZtALK0C5sU2jww4dachctgW5AkzR9WlnerdqFjCSCJrk0rQ7AMHUuAyDaoW1rmwppCktrYylMCh9STXQgBpnTZOX313TI0SLkqkmiBmNUrt9lRdFualCGo/6R9sIQk72OdxGEOuNV4vldui6hVT8+M9J9ESkVWy5ahQcPRVYV+Y0t7o7CNQqJ+LQUjms9nnGGNvlONFWUxB1ozA/k9qXlhPBGF7Cy5L0VBk295azDGX+FQSzjEt2czaumpBCXmtYYnkNaC9B1G+wv3dF+wgu+hwN693NfbVViCRwWe+/YStr/EPSlpshA6euW2b5VQ2bhymck6TCyTkD6aWLpUNi7zoUwlmlBUGBUkVk0zWsHKvLtyBhqK2O3rQrAmNYCkoqI0W7NLIWf6BlwaV8aBSWlo+S0ZPKXThGzdJARHQz4nim68acooECk/gsiUYWlX+3RZLnTqQuamXK8r+nViK9H+AK5DYXSgkEZQAAAAAElFTkSuQmCC" class="img-fluid pt-3" alt="c-logo-green">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						}
+					</div>
+					<div class="text-center">
+						<i class="fa-regular fa-angle-left prevNav fa-lg color-868F98" aria-hidden="true"></i>
+						<span class="pe-5"></span>
+						<i class="fa-regular fa-angle-right nextNav fa-lg color-868F98" aria-hidden="true"></i>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+
+
+	<script>
+
+		function loadScript(sScriptSrc, oCallback, oErrorback) {
+		  var oScript = document.createElement('script');
+		  oScript.type = 'text/javascript';
+		  oScript.src = sScriptSrc;
+		  // most browsers
+		  if (oCallback) {
+			oScript.addEventListener("load", oCallback);
+		  }
+		  if (oErrorback) {
+			oScript.addEventListener("error", oErrorback);
+		  }
+		  // IE
+		  oScript.onreadystatechange = function() {
+			if (this.readyState == 'complete') {
+			  if (oCallback) {
+				oCallback();
+			  }
+			}
+		  }
+		  document.body.appendChild(oScript);
+		}
+
+		//USAGE
+		var jQSlickscr = 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js';
+		//USAGE
+		var jQJSscr = 'https://code.jquery.com/jquery-3.6.0.min.js';
+		//USAGE
+		var jQscr = '/js/custom-slick-carousel.js';
+
+		function successJQLoad() {
+			  //Successful Loading Callback
+			callCustomJSCodeAfterDomRender();
+		}
+
+		function errorJQLoad() {
+		  //Error Callback
+		}
+
+		//Call function with appropriate parameters
+		loadScript(jQJSscr, successJQLoad, errorJQLoad);
+		loadScript(jQSlickscr, successJQLoad, errorJQLoad);
+		loadScript(jQscr, successJQLoad, errorJQLoad);
+
+		function callCustomJSCodeAfterDomRender(){
+		var options = {
+			className: "center",
+			centerMode: true,
+			centerPadding: "60px",
+			autoplay : true,
+			autoplaySpeed : 2000,
+			infinite: true,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			responsive: [
+				{
+					breakpoint: 1240,
+					settings: {
+						slidesToShow: 2,
+						centerPadding: '40px'
+					}
+				},
+				{
+					breakpoint: 1008,
+					settings: {
+						slidesToShow: 1,
+						centerPadding: '40px'
+					}
+				},
+				{
+					breakpoint: 800,
+					settings: {
+						slidesToShow: 1,
+						centerPadding: '0px'
+					}
+				}
+			],
+		};
+		initCarousel('.slick-carousel',options);
+		handlePrevNext('.slick-carousel','.prevNav','.nextNav','.RecommendedCardCarouselStyle-module__flex_card');
+	}
+		</script>
+
+}

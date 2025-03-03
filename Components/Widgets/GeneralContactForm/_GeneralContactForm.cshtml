@@ -1,0 +1,868 @@
+﻿@model Convenience.org.Components.Widgets.GeneralContactForm.GeneralContactFormViewModel
+<!--Javascript fix for AJAX in SharePoint-->
+<script type="text/javascript">
+    _spSuppressFormOnSubmitWrapper = true;
+</script>
+<!--/Javascript fix for AJAX in SharePoint-->
+<script type="text/javascript" src='https://www.google.com/recaptcha/api.js'></script>
+<script language="javascript" type="text/javascript">
+
+    //For dropdown request type change listner
+    document.addEventListener('DOMContentLoaded', function () {
+        var ddlIssue = document.getElementById('ddlIssue');
+        if (ddlIssue) {
+            ddlIssue.addEventListener('change', ddlIssueSelectIndexChanged);
+        }
+        var btnSubmit = document.getElementById('btnSubmit');
+        if (btnSubmit) {
+            btnSubmit.addEventListener('click', SubmitGeneralForm);
+        }
+    });
+
+    function SubmitGeneralForm() {
+        var _txtFirstName = document.getElementById('_txtFirstName').value;
+        var _txtLastName = document.getElementById('_txtLastName').value;
+        var _txtEmail = document.getElementById('_txtEmail').value;
+        var _txtCompany = document.getElementById('_txtCompany').value;
+        var _txtPhone = document.getElementById('_txtPhone').value;
+        var _txtExt = document.getElementById('_txtExt').value;
+        var _cboUnsubDaily = document.getElementById('_cboUnsubDaily').value;
+        var _cboUnsubMagazine = document.getElementById('_cboUnsubMagazine').value;
+        var _rdSameCompany = document.getElementById('_rdSameCompany').value;
+        var _rdDiffCompany = document.getElementById('_rdDiffCompany').value;
+        var _lblOldContactToChange = document.getElementById('_lblOldContactToChange').innerText;
+        var _lblNewContactToChange = document.getElementById('_lblNewContactToChange').innerText;
+        var _txtOldFirstName = document.getElementById('_txtOldFirstName').value;
+        var _txtOldLastName = document.getElementById('_txtOldLastName').value;
+        var _txtOldEmail = document.getElementById('_txtOldEmail').value;
+        var _txtOldPhone = document.getElementById('_txtOldPhone').value;
+        var _txtOldExt = document.getElementById('_txtOldExt').value;
+        var _txtNewFirstName = document.getElementById('_txtNewFirstName').value;
+        var _txtNewLastName = document.getElementById('_txtNewLastName').value;
+        var _txtNewEmail = document.getElementById('_txtNewEmail').value;
+        var _txtNewPhone = document.getElementById('_txtNewPhone').value;
+        var _txtNewCompany = document.getElementById('_txtNewCompany').value;
+        var _txtNewExt = document.getElementById('_txtNewExt').value;
+        var _txtMessage = document.getElementById('_txtMessage').value;
+        var _ddlIssue = document.getElementById('ddlIssue').value;
+        var _cbPrivacy1 = document.getElementById('_cbPrivacy1').value;
+        var _cbPrivacy2 = document.getElementById('_cbPrivacy2').value;
+
+        var isValidInfo = true;
+
+        //Validate form input
+        if (_ddlIssue === "2") {
+            _valSummary.innerHTML = '';
+            _valSummary.style.display = "none";
+
+            if (_txtNewFirstName === "") {
+                // Append the error
+                _valSummary.innerHTML += '<br>New contact First Name cannot be blank.';
+                _valSummary.style.display = "block";
+                isValidInfo = false;
+            }
+            if (_txtNewLastName === "") {
+                // Append the error
+                _valSummary.innerHTML += '<br>New contact Last Name cannot be blank.';
+                _valSummary.style.display = "block";
+                isValidInfo = false;
+            }
+            if (_txtNewEmail === "") {
+                // Append the error
+                _valSummary.innerHTML += '<br>New contact Email cannot be blank.';
+                _valSummary.style.display = "block";
+                isValidInfo = false;
+            }
+            if (_txtNewCompany === "") {
+                // Append the error
+                _valSummary.innerHTML += '<br>New contact Company cannot be blank.';
+                _valSummary.style.display = "block";
+                isValidInfo = false;
+            }
+            if (_txtMessage === "") {
+                // Append the error
+                _valSummary.innerHTML += '<br>Issue/Question cannot be blank.';
+                _valSummary.style.display = "block";
+                isValidInfo = false;
+            }
+            if (_txtFirstName === "") {
+                // Append the error
+                _valSummary.innerHTML += '<br>First Name cannot be blank.';
+                _valSummary.style.display = "block";
+                isValidInfo = false;
+            }
+            if (_txtLastName === "") {
+                // Append the error
+                _valSummary.innerHTML += '<br>Last Name cannot be blank.';
+                _valSummary.style.display = "block";
+                isValidInfo = false;
+            }
+            if (_txtEmail === "") {
+                // Append the error
+                _valSummary.innerHTML += '<br>Email cannot be blank.';
+                _valSummary.style.display = "block";
+                isValidInfo = false;
+            }
+            if (_txtCompany === "") {
+                // Append the error
+                _valSummary.innerHTML += '<br>Company cannot be blank.';
+                _valSummary.style.display = "block";
+                isValidInfo = false;
+            }
+        }
+        else {
+            _valSummary.innerHTML = '';
+            _valSummary.style.display = "none";
+            if (_txtMessage === "") {
+                // Append the error
+                _valSummary.innerHTML += '<br>Issue/Question cannot be blank.';
+                _valSummary.style.display = "block";
+                isValidInfo = false;
+            }
+            if (_txtFirstName === "") {
+                // Append the error
+                _valSummary.innerHTML += '<br>FirstName cannot be blank.';
+                _valSummary.style.display = "block";
+                isValidInfo = false;
+            }
+            if (_txtLastName === "") {
+                // Append the error
+                _valSummary.innerHTML += '<br>LastName cannot be blank.';
+                _valSummary.style.display = "block";
+                isValidInfo = false;
+            }
+            if (_txtEmail === "") {
+                // Append the error
+                _valSummary.innerHTML += '<br>Email cannot be blank.';
+                _valSummary.style.display = "block";
+                isValidInfo = false;
+            }
+            if (_txtCompany === "") {
+                // Append the error
+                _valSummary.innerHTML += '<br>Company cannot be blank.';
+                _valSummary.style.display = "block";
+                isValidInfo = false;
+            }
+        }
+
+        if (isValidInfo) {
+            var model = {
+                FirstName: _txtFirstName,
+                LastName: _txtLastName,
+                CompanyName: _txtCompany,
+                Email: _txtEmail,
+                Event: "_txtEvent",
+                Phone: _txtPhone,
+                PhoneExt: _txtExt,
+                IsUnsubDaily: false,
+                IsSubMagazine: false,
+                SameCompany: false,
+                DiffCompany: false,
+                CompanyConfirmation: _txtCompany,
+                OldInfoLabel: _lblOldContactToChange,
+                NewInfoLabel: _lblNewContactToChange,
+                OldFirstName: _txtOldFirstName,
+                OldLastName: _txtOldLastName,
+                OldEmail: _txtOldEmail,
+                OldPhone: _txtOldPhone,
+                OldExt: _txtOldExt,
+                NewFirstName: _txtNewFirstName,
+                NewLastName: _txtNewLastName,
+                NewEmail: _txtNewEmail,
+                NewPhone: _txtNewPhone,
+                Message: _txtMessage,
+                NewExt: _txtNewExt,
+                Subject: _txtCompany,
+                Issue: _ddlIssue,
+                IsPrivacyRequest: false,
+                IsPrivacyDelete: false
+            };
+
+            $.ajax({
+                url: '@Url.Action("SendEmails", "GeneralContactForm")', // MVC Controller Action
+                type: 'POST',
+                data: model,
+                success: function (response) {
+                    console.log(response)
+                },
+                error: function () {
+                    console.log("An error occurred.");
+                }
+            });
+        }
+
+    }
+
+    function ddlIssueSelectIndexChanged(event) {
+        var _valSummary = document.getElementById('_valSummary');
+        _valSummary.innerHTML = '';
+        // Get the selected value from the dropdown
+        var selectedValue = document.getElementById('ddlIssue').value;
+
+        if (selectedValue === "0") {
+            document.getElementById('_pnl1').style.display = 'none';
+            document.getElementById('_pnl2').style.display = 'none';
+            document.getElementById('_pnl3').style.display = 'none';
+            document.getElementById('_pnl4').style.display = 'none';
+            document.getElementById('_pnl5').style.display = 'none';
+            document.getElementById('_pnl6').style.display = 'none';
+            document.getElementById('_pnl7').style.display = 'none';
+            document.getElementById('_pnl8').style.display = 'none';
+            document.getElementById('_pnl9').style.display = 'none';
+            document.getElementById('_pnl10').style.display = 'none';
+            document.getElementById('_pnl11').style.display = 'none';
+            document.getElementById('_pnl12').style.display = 'none';
+            document.getElementById('_pnl13').style.display = 'none';
+        }
+        if (selectedValue === "1") {
+            document.getElementById('_pnl1').style.display = 'none';
+            document.getElementById('_pnl2').style.display = 'none';
+            document.getElementById('_pnl3').style.display = 'none';
+            document.getElementById('_pnl4').style.display = 'none';
+            document.getElementById('_pnl5').style.display = 'none';
+            document.getElementById('_pnl6').style.display = 'none';
+            document.getElementById('_pnl7').style.display = 'none';
+            document.getElementById('_pnl8').style.display = 'none';
+            document.getElementById('_pnl9').style.display = 'none';
+            document.getElementById('_pnl10').style.display = 'none';
+            document.getElementById('_pnl11').style.display = 'none';
+            document.getElementById('_pnl12').style.display = 'block';
+            document.getElementById('_pnl13').style.display = 'block';
+        }
+        if (selectedValue === "2") {
+            document.getElementById('_pnl1').style.display = 'block';
+            document.getElementById('_pnl2').style.display = 'none';
+            document.getElementById('_pnl3').style.display = 'none';
+            document.getElementById('_pnl4').style.display = 'none';
+            document.getElementById('_pnl5').style.display = 'none';
+            document.getElementById('_pnl6').style.display = 'none';
+            document.getElementById('_pnl7').style.display = 'none';
+            document.getElementById('_pnl8').style.display = 'none';
+            document.getElementById('_pnl9').style.display = 'none';
+            document.getElementById('_pnl10').style.display = 'none';
+            document.getElementById('_pnl11').style.display = 'none';
+            document.getElementById('_pnl12').style.display = 'block';
+            document.getElementById('_pnl13').style.display = 'none';
+        }
+        if (selectedValue === "3") {
+            document.getElementById('_pnl1').style.display = 'none';
+            document.getElementById('_pnl2').style.display = 'block';
+            document.getElementById('_pnl3').style.display = 'none';
+            document.getElementById('_pnl4').style.display = 'none';
+            document.getElementById('_pnl5').style.display = 'none';
+            document.getElementById('_pnl6').style.display = 'none';
+            document.getElementById('_pnl7').style.display = 'none';
+            document.getElementById('_pnl8').style.display = 'none';
+            document.getElementById('_pnl9').style.display = 'none';
+            document.getElementById('_pnl10').style.display = 'none';
+            document.getElementById('_pnl11').style.display = 'none';
+            document.getElementById('_pnl12').style.display = 'block';
+            document.getElementById('_pnl13').style.display = 'none';
+        }
+        if (selectedValue === "4") {
+            document.getElementById('_pnl1').style.display = 'none';
+            document.getElementById('_pnl2').style.display = 'none';
+            document.getElementById('_pnl3').style.display = 'block';
+            document.getElementById('_pnl4').style.display = 'none';
+            document.getElementById('_pnl5').style.display = 'none';
+            document.getElementById('_pnl6').style.display = 'none';
+            document.getElementById('_pnl7').style.display = 'none';
+            document.getElementById('_pnl8').style.display = 'none';
+            document.getElementById('_pnl9').style.display = 'none';
+            document.getElementById('_pnl10').style.display = 'none';
+            document.getElementById('_pnl11').style.display = 'none';
+            document.getElementById('_pnl12').style.display = 'block';
+            document.getElementById('_pnl13').style.display = 'none';
+        }
+        if (selectedValue === "5") {
+            document.getElementById('_pnl1').style.display = 'none';
+            document.getElementById('_pnl2').style.display = 'none';
+            document.getElementById('_pnl3').style.display = 'none';
+            document.getElementById('_pnl4').style.display = 'block';
+            document.getElementById('_pnl5').style.display = 'none';
+            document.getElementById('_pnl6').style.display = 'none';
+            document.getElementById('_pnl7').style.display = 'none';
+            document.getElementById('_pnl8').style.display = 'none';
+            document.getElementById('_pnl9').style.display = 'none';
+            document.getElementById('_pnl10').style.display = 'none';
+            document.getElementById('_pnl11').style.display = 'none';
+            document.getElementById('_pnl12').style.display = 'block';
+            document.getElementById('_pnl13').style.display = 'none';
+        }
+        if (selectedValue === "6") {
+            document.getElementById('_pnl1').style.display = 'none';
+            document.getElementById('_pnl2').style.display = 'none';
+            document.getElementById('_pnl3').style.display = 'none';
+            document.getElementById('_pnl4').style.display = 'none';
+            document.getElementById('_pnl5').style.display = 'block';
+            document.getElementById('_pnl6').style.display = 'none';
+            document.getElementById('_pnl7').style.display = 'none';
+            document.getElementById('_pnl8').style.display = 'none';
+            document.getElementById('_pnl9').style.display = 'none';
+            document.getElementById('_pnl10').style.display = 'none';
+            document.getElementById('_pnl11').style.display = 'none';
+            document.getElementById('_pnl12').style.display = 'block';
+            document.getElementById('_pnl13').style.display = 'none';
+        }
+        if (selectedValue === "7") {
+            document.getElementById('_pnl1').style.display = 'none';
+            document.getElementById('_pnl2').style.display = 'none';
+            document.getElementById('_pnl3').style.display = 'none';
+            document.getElementById('_pnl4').style.display = 'none';
+            document.getElementById('_pnl5').style.display = 'none';
+            document.getElementById('_pnl6').style.display = 'block';
+            document.getElementById('_pnl7').style.display = 'none';
+            document.getElementById('_pnl8').style.display = 'none';
+            document.getElementById('_pnl9').style.display = 'none';
+            document.getElementById('_pnl10').style.display = 'none';
+            document.getElementById('_pnl11').style.display = 'none';
+            document.getElementById('_pnl12').style.display = 'block';
+            document.getElementById('_pnl13').style.display = 'none';
+        }
+        if (selectedValue === "8") {
+            document.getElementById('_pnl1').style.display = 'none';
+            document.getElementById('_pnl2').style.display = 'none';
+            document.getElementById('_pnl3').style.display = 'none';
+            document.getElementById('_pnl4').style.display = 'none';
+            document.getElementById('_pnl5').style.display = 'none';
+            document.getElementById('_pnl6').style.display = 'none';
+            document.getElementById('_pnl7').style.display = 'block';
+            document.getElementById('_pnl8').style.display = 'none';
+            document.getElementById('_pnl9').style.display = 'none';
+            document.getElementById('_pnl10').style.display = 'none';
+            document.getElementById('_pnl11').style.display = 'none';
+            document.getElementById('_pnl12').style.display = 'block';
+            document.getElementById('_pnl13').style.display = 'none';
+        }
+        if (selectedValue === "9") {
+            document.getElementById('_pnl1').style.display = 'none';
+            document.getElementById('_pnl2').style.display = 'none';
+            document.getElementById('_pnl3').style.display = 'none';
+            document.getElementById('_pnl4').style.display = 'none';
+            document.getElementById('_pnl5').style.display = 'none';
+            document.getElementById('_pnl6').style.display = 'none';
+            document.getElementById('_pnl7').style.display = 'none';
+            document.getElementById('_pnl8').style.display = 'block';
+            document.getElementById('_pnl9').style.display = 'none';
+            document.getElementById('_pnl10').style.display = 'none';
+            document.getElementById('_pnl11').style.display = 'none';
+            document.getElementById('_pnl12').style.display = 'block';
+            document.getElementById('_pnl13').style.display = 'none';
+        }
+        if (selectedValue === "10") {
+            document.getElementById('_pnl1').style.display = 'none';
+            document.getElementById('_pnl2').style.display = 'none';
+            document.getElementById('_pnl3').style.display = 'none';
+            document.getElementById('_pnl4').style.display = 'none';
+            document.getElementById('_pnl5').style.display = 'none';
+            document.getElementById('_pnl6').style.display = 'none';
+            document.getElementById('_pnl7').style.display = 'none';
+            document.getElementById('_pnl8').style.display = 'none';
+            document.getElementById('_pnl9').style.display = 'block';
+            document.getElementById('_pnl10').style.display = 'none';
+            document.getElementById('_pnl11').style.display = 'none';
+            document.getElementById('_pnl12').style.display = 'block';
+            document.getElementById('_pnl13').style.display = 'none';
+        }
+        if (selectedValue === "11") {
+            document.getElementById('_pnl1').style.display = 'none';
+            document.getElementById('_pnl2').style.display = 'none';
+            document.getElementById('_pnl3').style.display = 'none';
+            document.getElementById('_pnl4').style.display = 'none';
+            document.getElementById('_pnl5').style.display = 'none';
+            document.getElementById('_pnl6').style.display = 'none';
+            document.getElementById('_pnl7').style.display = 'none';
+            document.getElementById('_pnl8').style.display = 'none';
+            document.getElementById('_pnl9').style.display = 'none';
+            document.getElementById('_pnl10').style.display = 'block';
+            document.getElementById('_pnl11').style.display = 'none';
+            document.getElementById('_pnl12').style.display = 'block';
+            document.getElementById('_pnl13').style.display = 'none';
+        }
+        if (selectedValue === "12") {
+            document.getElementById('_pnl1').style.display = 'none';
+            document.getElementById('_pnl2').style.display = 'none';
+            document.getElementById('_pnl3').style.display = 'none';
+            document.getElementById('_pnl4').style.display = 'none';
+            document.getElementById('_pnl5').style.display = 'none';
+            document.getElementById('_pnl6').style.display = 'none';
+            document.getElementById('_pnl7').style.display = 'none';
+            document.getElementById('_pnl8').style.display = 'none';
+            document.getElementById('_pnl9').style.display = 'none';
+            document.getElementById('_pnl10').style.display = 'none';
+            document.getElementById('_pnl11').style.display = 'block';
+            document.getElementById('_pnl12').style.display = 'block';
+            document.getElementById('_pnl13').style.display = 'none';
+        }
+    }
+
+    function ShowHidePanels(oSrc) {
+        var Index = document.getElementById(oSrc.id).selectedIndex;
+        var EventDDL = oSrc.id.replace("ddlIssue", "_ddlEvent");
+        var Panel = oSrc.id.replace("ddlIssue", "_pnl")
+        var CBO1 = oSrc.id.replace("ddlIssue", "_cboUnsubDaily")
+        var CBO2 = oSrc.id.replace("ddlIssue", "_cboUnsubMagazine")
+
+        if (Index != 1) {
+            document.getElementById(EventDDL).selectedIndex = 0;
+        }
+
+        if (Index != 13) {
+            document.getElementById(CBO1).checked = false;
+            document.getElementById(CBO2).checked = false;
+        }
+
+        //hides all 10 "Issue" panels
+        for (i = 1; i <= 13; i++) {
+            document.getElementById(Panel + i).style.display = "none";
+            document.getElementById(Panel + i).style.visibility = "hidden";
+        }
+
+        //shows the selected "Issue" panel
+        document.getElementById(Panel + Index).style.display = "";
+        document.getElementById(Panel + Index).style.visibility = "visible";
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////
+    // Validate Event dropdownlist
+    function valEvent(oSrc, args) {
+        args.IsValid = true;
+        var DDL = oSrc.id.replace("_val", "_ddl");
+        var Panel = DDL.replace("_ddlEvent", "_pnl2");
+
+        if (document.getElementById(Panel).style.visibility == "visible" && document.getElementById(DDL).selectedIndex == 0) {
+            args.IsValid = false;
+        }
+    }
+
+    function ValCompanyType(oSrc, args) {
+        args.IsValid = false;
+        var Radio1 = document.getElementById("_rdoCompanyType1");
+        var Radio2 = document.getElementById("_rdoCompanyType2");
+        var Radio3 = document.getElementById("_rdoCompanyType3");
+
+        if (Radio1.checked || Radio2.checked || Radio3.checked) {
+            args.IsValid = true;
+        }
+    }
+
+    function ValCompanyType2(oSrc, args) {
+        args.IsValid = false;
+        var Radio11 = document.getElementById("_rdoCompanyType11");
+        var Radio22 = document.getElementById("_rdoCompanyType22");
+        var Radio33 = document.getElementById("_rdoCompanyType33");
+
+        if (document.getElementById(Panel).style.visibility == "visible" && document.getElementById(DDL).selectedIndex != 1) {
+            args.IsValid = false;
+        }
+
+        if (Radio11.checked || Radio22.checked || Radio33.checked) {
+            args.IsValid = true;
+        }
+    }
+
+    function ValCompanyType3(oSrc, args) {
+        args.IsValid = false;
+        var Radio111 = document.getElementById("_rdoCompanyType111");
+        var Radio222 = document.getElementById("_rdoCompanyType222");
+        var Radio333 = document.getElementById("_rdoCompanyType333");
+
+        if (document.getElementById(Panel).style.visibility == "visible" && document.getElementById(DDL).selectedIndex != 1) {
+            args.IsValid = false;
+        }
+
+        if (Radio111.checked || Radio222.checked || Radio333.checked) {
+            args.IsValid = true;
+        }
+    }
+
+    function ValCompanyConfirmation(oSrc, args) {
+        args.IsValid = false;
+        var RadioSameCompany = document.getElementById("_rdSameCompany");
+        var RadioDiffCompany = document.getElementById("_rdDiffCompany");
+
+        args.IsValid = true;
+        var DDL = oSrc.id.replace("_val", "_ddl");
+        var Panel = DDL.replace("_ddlEvent", "_pnl2");
+
+        if (document.getElementById(Panel).style.visibility == "visible" && document.getElementById(DDL).selectedIndex == 1) {
+            args.IsValid = false;
+        }
+
+        if (RadioSameCompany.checked || RadioDiffCompany.checked) {
+            args.IsValid = true;
+        }
+    }
+
+    function ValReCaptcha(oSrc, args) {
+        args.IsValid = true;
+    }
+
+</script>
+
+<div id="_pnlMain">
+    <div id="_valSummary" style="display:none;" class="errorBox"></div>
+    <div class="col-12">
+        <h1>
+            Can't find what you need?<br>
+            Ask NACS
+        </h1>
+        <p>Ask your question with the form below and a member services representative will be in contact with you as soon as possible.</p>
+    </div>
+
+    <div class="col-12">
+        <div class="selectdiv">
+            <label for="ddlIssue">
+                Type of Request
+                <span id="_valIssue" ErrorMessage="Type of Request cannot be blank" Text="<img src='/Convenience.org/media/PublishingImages/icons/warning_16.png'>&nbsp;" />
+            </label>
+            @if (Model.ListRequestType != null && Model.ListRequestType.Count > 0)
+            {
+                <select id="ddlIssue">
+                    @foreach (var type in Model.ListRequestType)
+                    {
+                        <option value="@type.Value">@type.Text</option>
+                    }
+                </select>
+            }
+        </div>
+    </div>
+
+    <!-- Advertisement -->
+    <div id="_pnl13" class="col-12" style="display:none">
+        <br />
+        <span>Please enter your Advertisements or Publications questions below</span><br />
+    </div>
+
+    <!-- Contact Changes & Updates -->
+    <div id="_pnl1" class="col-12" style="display:none">
+        <br />
+        To update your own personal information, please click
+        <label id="_lblManageProfile"></label>
+        <br />
+        <br />
+        To update someone else's information in your organization, please provide the information below.
+        <br />
+        <br />
+
+        <label id="_lblOldContactToChange" class="col-12">Old Contact Information</label>
+        <br />
+        <br />
+        <fieldset class="col-12 col-sm-6" style="float: left">
+            <label for="supCLastName">
+                First Name
+            </label>
+            <input type="text" id="_txtOldFirstName" class="textInput" />
+        </fieldset>
+
+        <fieldset class="col-12 col-sm-6" style="float: left">
+            <label for="supCLastName">
+                Last Name
+            </label>
+            <input type="text" id="_txtOldLastName" class="textInput" />
+        </fieldset>
+
+        <fieldset class="col-12 col-sm-6" style="float: left">
+            <label for="supCCompany">
+                Company Name
+            </label>
+            <input type="text" id="_txtOldCompany" class="textInputLarge" />
+        </fieldset>
+
+        <fieldset class="col-12 col-sm-4" style="float: left">
+            <label for="_txtOldPhone">Phone</label>
+            <input type="text" id="_txtOldPhone" class="textInput" />
+        </fieldset>
+        <fieldset class="col-12 col-sm-2" style="float: left">
+            <label for="_txtOldExt">Ext</label>
+            <input type="text" id="_txtOldExt" class="textInputSmall" />
+        </fieldset>
+
+        <fieldset class="col-12">
+            <label for="supCEmail">
+                Email
+            </label>
+            <input type="text" id="_txtOldEmail" class="textInputLarge" />
+        </fieldset>
+
+        <fieldset class="col-12 radios">
+            <label>
+                What type of company are you with?
+            </label>
+            <div class="clear"></div>
+            <input type="radio" id="_rdoCompanyType111" name="_grpCompanyType3" value="Retailer">
+            <label for="_rdoCompanyType111">Retailer</label>&nbsp;
+
+            <input type="radio" id="_rdoCompanyType222" name="_grpCompanyType3" value="Supplier">
+            <label for="_rdoCompanyType222">Supplier</label>&nbsp;
+
+            <input type="radio" id="_rdoCompanyType333" name="_grpCompanyType3" value="Not Sure">
+            <label for="_rdoCompanyType333">Not Sure</label>
+        </fieldset>
+
+        <br />
+        <br />
+
+        <label id="_lblNewContactToChange" class="col-12">New Contact Information</label>
+        <br />
+        <br />
+
+        <fieldset class="col-12 col-sm-6" style="float: left">
+            <label for="supCLastName">
+                *First Name
+            </label>
+            <input type="text" id="_txtNewFirstName" class="textInput" />
+        </fieldset>
+
+        <fieldset class="col-12 col-sm-6" style="float: left">
+            <label for="supCLastName">
+                *Last Name
+            </label>
+            <input type="text" id="_txtNewLastName" class="textInput" />
+        </fieldset>
+
+        <fieldset class="col-12 col-sm-6" style="float: left">
+            <label for="supCCompany">
+                *Company Name
+                <span id="valCompanyNameError" style="display: none;"><img src="/Convenience.org/media/PublishingImages/icons/warning_16.png">&nbsp;</span>
+            </label>
+            <input type="text" id="_txtNewCompany" class="textInputLarge" />
+        </fieldset>
+
+        <fieldset class="col-12 col-sm-4" style="float: left">
+            <label for="_txtNewPhone">Phone</label>
+            <input type="text" id="_txtNewPhone" class="textInput" />
+        </fieldset>
+        <fieldset class="col-12 col-sm-2" style="float: left">
+            <label for="_txtNewExt">Ext</label>
+            <input type="text" id="_txtNewExt" class="textInputSmall" />
+        </fieldset>
+
+        <fieldset class="col-12">
+            <label for="supCEmail">
+                *Email
+            </label>
+            <input type="text" id="_txtNewEmail" class="textInputLarge" />
+        </fieldset>
+
+        <fieldset class="col-12 radios">
+            <label>
+                What type of company are you with?
+            </label>
+            <div class="clear"></div>
+            <input type="radio" id="_rdoCompanyType11" name="_grpCompanyType2" value="Retailer">
+            <label for="_rdoCompanyType11">Retailer</label>&nbsp;
+
+            <input type="radio" id="_rdoCompanyType22" name="_grpCompanyType2" value="Supplier">
+            <label for="_rdoCompanyType22">Supplier</label>&nbsp;
+
+            <input type="radio" id="_rdoCompanyType33" name="_grpCompanyType2" value="Not Sure">
+            <label for="_rdoCompanyType33">Not Sure</label>
+        </fieldset>
+        <br />
+        <br />
+    </div>
+
+    <!--Events-->
+    <div id="_pnl2" class="col-12" style="display:none">
+        <div class="selectdiv">
+            <label>
+                *Choose an Event
+            </label>
+            <select id="_ddlEvent">
+                <option value="0">Select</option>
+                <option value="1">NACS Show</option>
+                <option value="2">Other NACS Events</option>
+            </select>
+        </div>
+        <div class="clear"></div>
+        <span>Please enter your Event questions below</span><br />
+    </div>
+
+    <!--NACS Retail Membership-->
+    <div id="_pnl3" class="col-12" style="display:none">
+        <br />
+        <span>Please enter your Retail Membership questions below</span><br />
+    </div>
+
+    <!--NACS Supplier Membership-->
+    <div id="_pnl4" class="col-12" style="display:none">
+        <br />
+        <span>Enter your Supplier Membership questions below</span><br />
+    </div>
+
+    <!--NACS Products & Ordering-->
+    <div id="_pnl5" class="col-12">
+        <br />
+        <span>Enter your Product/Ordering questions below</span><br />
+    </div>
+
+    <!--Login Issues-->
+    <div id="_pnl6" class="col-12" style="display:none">
+        <div class="clear"></div>
+        If you do not have an account, you can create your own:
+        <a href="/Create-Login" target="_blank">Create an Account</a>
+        <br />
+        <br />
+        If you already have an account but cannot log in, please try to
+        <a href="/Forgot-Password" target="_blank">Reset Your Password</a>. (use your
+        email address if you do not remember your username.)<br />
+        <br />
+        If you are having other issues, or still cannot login/register, please enter
+        your issues/questions below<br />
+    </div>
+
+    <!--Website Issues-->
+    <div id="_pnl7" class="col-12" style="display:none">
+        <br />
+        <span>Please enter your Website questions below</span><br />
+    </div>
+
+    <!--Privacy: My Information-->
+    <div id="_pnl8" class="col-12" style="display:none">
+        <br />
+        Please select one or two options below
+        <br />
+        <br />
+        <fieldset>
+            <input type="checkbox" id="_cbPrivacy1" class="checkbox">
+            <label for="_cbPrivacy1">Please send me a copy of all my personal information.</label>
+            <br>
+            <br>
+            <input type="checkbox" id="_cbPrivacy2" class="checkbox">
+            <label for="_cbPrivacy2">Please delete all of my personal information from your database.</label>
+            <br>
+        </fieldset>
+        <div class="clear"></div>
+        <br />
+        <br />
+        If you have any other questions or concerns, please enter them below:<br />
+
+    </div>
+
+    <!--Regulatory and Government Relations Issues-->
+    <div id="_pnl9" class="col-12" style="display:none">
+        <br />
+        <span>Enter your Regulatory and Government Relations questions/concerns below</span><br />
+    </div>
+
+    <!--Research and Publications-->
+    <div id="_pnl10" class="col-12" style="display:none">
+        <br />
+        <span>Enter your Research questions/concerns below</span>
+        <br />
+    </div>
+
+    <!--Unsubscribe from NACS Magazine or NACS Daily-->
+    <div id="_pnl11" class="col-12" style="display:none">
+        <br />
+        Unsubscribe from?<br />
+        <input type="checkbox" id="_cboUnsubDaily" name="_cboUnsubDaily">
+        <label for="_cboUnsubDaily">NACS Daily</label>
+        <br>
+        <input type="checkbox" id="_cboUnsubMagazine" name="_cboUnsubMagazine">
+        <label for="_cboUnsubMagazine">NACS Magazine</label>
+        <br>
+        <br>
+        <span>Still employed with the same company?</span>
+        <div class="clear"></div>
+        <input type="radio" id="_rdSameCompany" name="_grpCompanyConfirmation">
+        <label for="_rdSameCompany">Work with the same company</label>
+        <br>
+        <input type="radio" id="_rdDiffCompany" name="_grpCompanyConfirmation">
+        <label for="_rdDiffCompany">Work with a different company</label>
+        <br>
+        <br>
+        If unsubscribing a person(s) other than yourself, please specify below and state
+        whether or not they are still with your organization<br />
+    </div>
+
+    <!--Auto populated form when user is logged in-->
+    <div id="_pnl12" style="display:none">
+        <!--style="position: relative; width: 100%; min-height: 1px; padding-right: 10px; padding-left: 10px;"  class="col-12" -->
+        <div class="row">
+            <fieldset class="col-12">
+                <label id="MessageQuestion">
+                    Your Questions / Reasons for Change
+                </label>
+                <input type="text" id="_txtMessage" TextMode="MultiLine"
+                       Rows="8" class="Normal" Style="font-size: 1.2em; width: 100%; max-width: 350px" class="textInputLarge" />
+            </fieldset>
+        </div>
+
+        <br />
+
+        <label class="col-12">Contact Information for Follow-Up</label>
+        <div class="clear"></div>
+        <br />
+        <fieldset class="col-12 col-sm-6" style="float: left">
+            <label for="supCLastName">
+                *First Name
+            </label>
+            <input type="text" id="_txtFirstName" class="textInput" />
+
+        </fieldset>
+
+        <fieldset class="col-12 col-sm-6" style="float: left">
+            <label for="supCLastName">
+                *Last Name
+            </label>
+            <input type="text" id="_txtLastName" class="textInput" />
+
+        </fieldset>
+
+        <fieldset class="col-12 col-sm-6" style="float: left">
+            <label for="supCCompany">
+                *Company Name
+            </label>
+            <input type="text" id="_txtCompany" class="textInputLarge" />
+
+        </fieldset>
+
+        <fieldset class="col-12 col-sm-4" style="float: left">
+            <label for="supCPhone">Phone</label>
+            <input type="text" id="_txtPhone" class="textInput" />
+        </fieldset>
+
+        <fieldset class="col-12 col-sm-2" style="float: left">
+            <label for="supTSPhone">Ext</label>
+            <input type="text" id="_txtExt" class="textInputSmall" />
+        </fieldset>
+
+        <fieldset class="col-12">
+            <label for="supCEmail">
+                *Email
+            </label>
+            <input type="text" id="_txtEmail" class="textInputLarge" />
+        </fieldset>
+
+        <div class="col-12 g-recaptcha" data-sitekey="6LeNxj4UAAAAAFmEP2mw9XqNN0W-5E1pS7xOP2mY"></div>
+
+        <div class="col-12">
+            <button id="btnSubmit" class="button">Submit Your Question</button>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="_pnlFinish" class="row" style="display:none">
+    <script language="javascript">
+        var dataLayer = window.dataLayer = window.dataLayer || [];
+        dataLayer.push({ 'event': 'contact us' });
+    </script>
+    <br />
+    <div style="margin-left: 0px!important;">
+        <p>
+            <img src='/Convenience.org/media/PublishingImages/icons/tick_16.png' align="absmiddle">&nbsp;<span style="font-weight: 700; font-size: 20px; color: #444444">Message Sent!</span>
+            <br />
+            <br />
+            <strong style="font-size: 18px; color: #003366">Thank You for Contacting NACS!</strong><br />
+            <br />
+            A confirmation has been emailed to the address you provided, and someone will follow up with you shortly.
+        </p>
+        <p>&nbsp;</p>
+    </div>
+</div>
+
+<input type="hidden" id="_hdnCiD" />

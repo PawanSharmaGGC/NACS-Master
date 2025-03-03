@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagGUID>e38c6059-8750-42d9-9786-afd4fa534458</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{}}]]>
+  </TagMetadata>
+  <TagName>Foodservice</TagName>
+  <TagOrder>4</TagOrder>
+  <TagTaxonomyID>
+    <CodeName>Categories</CodeName>
+    <GUID>bafcd699-6640-40b9-9082-ae3839c7c547</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>Foodservice</TagTitle>
+</cms.tag>

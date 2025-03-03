@@ -1,0 +1,310 @@
+﻿@using Convenience.org.Models
+@inject IHtmlHelper Html
+@model GlobalNavbarViewModel
+
+@{
+	var topLeftNavigations = Model?.TopNavBarMenu?.Where(x => x.Menu?.IsLeftNavItem == true).ToList();
+	var topRightNavigations = Model?.TopNavBarMenu?.Where(x => x.Menu?.IsLeftNavItem == false && !x.SubMenu.Any()).ToList();
+	var topRightUserNavigations = Model?.TopNavBarMenu?.Where(x => x.Menu?.IsLeftNavItem == false && x.SubMenu.Any()).ToList();
+}
+
+<input type="hidden" id="hdnResponsiveToggleId" value="0" />
+<div>
+	<div class="NavbarStyle-module__upper_sec">
+		<nav class="navbar navbar-expand-lg ps-3 pe-3">
+			<div class="container-fluid color-0053A5">
+				@foreach (var item in topLeftNavigations)
+				{
+
+					if (!string.IsNullOrEmpty(item?.Menu?.Url))
+					{
+						<a class="color-0053A5 fs-6 fw-semibold navbar-brand" href="@item?.Menu?.Url">
+							@item.Menu?.Title
+						</a>
+					}
+					else
+					{
+						<span class="fs-6 fw-light">@item.Menu.Title</span>
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+								data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+								aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+					}
+				}
+				<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+					<ul class="navbar-nav mb-2 mb-lg-0 NavbarStyle-module__upper_sec_list">
+						@{
+							var i = 0;
+						}
+						@foreach (var item in topRightNavigations)
+						{
+							<li class="nav-item">
+								<a class="color-0053A5 fw-light nav-link @(i==0?"active":"")"
+								@(i == 0 ? "aria-current='page'" : "") href="@item?.Menu?.Url">
+									@item?.Menu?.Title
+								</a>
+							</li>
+							i++;
+						}
+					</ul>
+					<form class="d-flex" role="search">
+						<div class="input-group NavbarStyle-module__input_icons">
+							<i class="color-0053A5 fa-solid fa-magnifying-glass position-absolute NavbarStyle-module__icon"
+							   aria-hidden="true"></i>
+							<input type="search" class="form-control brdr-l-rad-18 NavbarStyle-module__input_field" aria-label="Recipient's username" aria-describedby="basic-addon2">
+							<span class="bg-0053A5 color-FFFFFF input-group-text brdr-r-rad-18 NavbarStyle-module__search_btn" id="basic-addon2">
+								Search
+							</span>
+						</div>
+					</form>
+					<div class="dropdown ps-3 pe-5 dropdown ">
+						@foreach (var item in topRightUserNavigations)
+						{
+							var iSubNav = 0;
+
+							<button class="btn bg-trans primary-rounded-brdr dropdown-toggle NavbarStyle-module__dropdown_icon"
+									type="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="color-0053A5 fa-regular fa-circle-user" aria-hidden="true"></i>
+								<span class="color-0053A5 ps-2">@item.Menu.Title</span>
+							</button>
+
+							<ul class="dropdown-menu @(iSubNav==0? "bg-E9F0F4 color-0053A5 NavbarStyle-module__dropdown_menu dropdown-menu":"")">
+								@foreach (var subNav in item.SubMenu)
+								{
+									if (iSubNav == item.SubMenu.Count() - 1)
+									{
+										<li>
+											<a class="dropdown-item" href="@subNav.Url">
+												@subNav.Title
+												<span class="ps-2">
+													<i class="color-0053A5 fa-regular fa-arrow-right" aria-hidden="true"></i>
+												</span>
+											</a>
+										</li>
+
+									}
+									else
+									{
+										<li>
+											<a class="dropdown-item @(iSubNav==0? "fs-6 fw-semibold NavbarStyle-module__upper_nav_dropdown_menu_header":"")" href="@subNav.Url">
+												@subNav.Title
+												@if (iSubNav == 0)
+												{
+													<span class="ps-2"><i class="color-0053A5 fa-regular fa-arrow-right" aria-hidden="true"></i></span>
+												}
+											</a>
+										</li>
+									}
+									iSubNav++;
+								}
+							</ul>
+
+						}
+					</div>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div class="NavbarStyle-module__bottom_sec">
+		<nav class="navbar navbar-expand-lg">
+			<div class="container-fluid ps-0 pe-0 NavbarStyle-module__bottom_container">
+				<a class="navbar-brand ps-4" href="#"><img src="data:image/png;base64,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" alt="" class="NavbarStyle_nacs_logo__cAon8"></a>
+				<div class="NavbarStyle-module__mobile_resonsive_search_login">
+					<form class="" role="search">
+						<div class="input-group NavbarStyle-module__input_icons">
+							<i class="color-FFFFFF fa-solid fa-magnifying-glass position-absolute NavbarStyle-module__icon" aria-hidden="true">
+							</i><input type="search" class="form-control color-FFFFFF brdr-l-rad-18 NavbarStyle-module__input_field" aria-label="Recipient's username" aria-describedby="basic-addon2">
+							<span class="bg-0053A5 color-FFFFFF input-group-text brdr-r-rad-18 NavbarStyle-module__search_btn" id="basic-addon2">
+								Search
+							</span>
+						</div>
+					</form>
+					<div class="dropdown pb-2 dropdown ">
+
+						@foreach (var item in topRightUserNavigations)
+						{
+							var iSubNav = 0;
+
+							<button class="btn bg-trans primary-rounded-brdr dropdown-toggle NavbarStyle-module__dropdown_icon"
+									type="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="color-0053A5 fa-regular fa-circle-user" aria-hidden="true"></i>
+								<span class="color-0053A5 ps-2">@item.Menu.Title</span>
+							</button>
+
+							<ul class="dropdown-menu @(iSubNav==0? "bg-E9F0F4 color-0053A5 NavbarStyle-module__dropdown_menu dropdown-menu":"")">
+								@foreach (var subNav in item.SubMenu)
+								{
+									if (iSubNav == item.SubMenu.Count() - 1)
+									{
+										<li>
+											<a class="dropdown-item" href="@subNav.Url">
+												@subNav.Title
+												<span class="ps-2">
+													<i class="color-0053A5 fa-regular fa-arrow-right" aria-hidden="true"></i>
+												</span>
+											</a>
+										</li>
+
+									}
+									else
+									{
+										<li>
+											<a class="dropdown-item @(iSubNav==0? "fs-6 fw-semibold NavbarStyle-module__upper_nav_dropdown_menu_header":"")" href="@subNav.Url">
+												@subNav.Title
+												@if (iSubNav == 0)
+												{
+													<span class="ps-2">
+														<i class="color-0053A5 fa-regular fa-arrow-right" aria-hidden="true"></i>
+													</span>
+												}
+											</a>
+										</li>
+									}
+									iSubNav++;
+								}
+							</ul>
+						}
+					</div>
+				</div>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<i class="fa-solid fa-bars color-FFFFFF" aria-hidden="true"></i>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent1">
+					<div id="navbarSupprotedContent11" class="d-block" style="width: 100%;">
+						<ul id="small_screen_nav_menu" class="d-lg-none d-xl-none navbar-nav text-start mb-lg-0 bg-002362 NavbarStyle-module__bottom_sec_list" style="width: 100%;">
+							@{
+								var iMainNav = 0;
+							}
+							@foreach (var item in Model.MainNavBarMenu)
+							{
+								<div class="d-flex">
+								<li class="nav-item @(iMainNav==0?"pt-4":"")">
+									<a class="nav-link NavbarStyle-module__bottom_sec_dropdown" href="@item?.Menu?.Url" role="button" aria-expanded="false">
+										<i class="color-FFFFFF fa-solid @item.Menu.IconClass fa-lg pe-3" aria-hidden="true"></i>
+										<span class="d-inline">@item?.Menu?.Title</span>
+									</a>
+								</li>
+								<div class="NavbarStyle-module__list_side_icon d-inline">
+									<i class="color-FFFFFF float-end pe-5 pt-5 fa-regular fa-angle-right fa-xl "
+									   onClick="responsiveToggle(@iMainNav+1)" aria-hidden="true"></i>
+								</div>
+						</div>
+								iMainNav++;
+							}
+
+					</ul>
+
+					<div class="d-sm-block d-md-none d-lg-none NavbarStyle-module__mobile_sub_menu_div d-none">
+							@{
+								var iDesktopMainNav = 1;
+							}
+							@foreach (var item in Model.MainNavBarMenu)
+							{
+							<div id="div-@iDesktopMainNav" class="d-none">
+								<div class="float-start p-3">
+									<i class="color-FFFFFF fa-solid fa-arrow-turn-left fa-lg" onclick="responsiveToggle(@iDesktopMainNav)" aria-hidden="true"></i>
+									<span class="text-white ps-3">Back</span>
+								</div>
+
+									@if (item.SubMenu != null)
+									{
+										var iSubNav = 0;
+									<ul class="bg-trans color-FFFFFF p-4 NavbarStyle-module__sub_menu_list">
+										<li class="pb-3">
+											<a class="dropdown-item fs-6 fw-semibold NavbarStyle-module__bottom_nav_dropdown_menu_header"
+											   href="@item.Menu.Url">
+												<span class="color-FFFFFF float-start">
+														@item.Menu.Title
+												</span>
+												<span class="ps-2">
+													<i class="color-FFFFFF float-end fa-regular fa-arrow-right pt-1" aria-hidden="true"></i>
+												</span>
+											</a>
+										</li>
+											@foreach (var subNav in item.SubMenu)
+											{
+											<li class="@(iSubNav==0?"pb-3":"")">
+												<a class="dropdown-item"
+												   href="@subNav.Url">@subNav.Title</a>
+											</li>
+												iSubNav++;
+											}
+
+									</ul>
+									}
+							</div>
+								iDesktopMainNav++;
+							}
+
+					</div>
+					<ul class="d-none d-sm-flex navbar-nav ps-5 mb-lg-0 NavbarStyle-module__bottom_sec_list">
+
+							@foreach (var item in Model.MainNavBarMenu)
+							{
+								var isTwoColumn = item.Menu.IsChildInTwoColumn ?? false;
+
+							<li class="nav-item dropdown dropdown">
+								<a class="nav-link dropdown-toggle NavbarStyle-module__bottom_sec_dropdown"
+								   href="@item?.Menu?.Title" role="button" data-bs-toggle="dropdown"
+								   aria-expanded="true">@item?.Menu?.Title</a>
+									@if (item.SubMenu != null && item?.SubMenu?.Count() > 0)
+									{
+										var iSubMenu = 1;
+									<ul class="dropdown-menu bg-E9F0F4 color-0053A5 NavbarStyle-module__bottom_sec_dropdown_menu" data-bs-popper="static">
+
+											@if (isTwoColumn)
+											{
+												@Html.Raw("<li class='row'>")
+											}
+											@foreach (var subNav in item.SubMenu)
+											{
+												if (isTwoColumn)
+												{
+												<div class="col-6 w-50">
+													<a id="@iSubMenu" href="@subNav.Url" class="dropdown-item text-wrap">
+															@subNav.Title
+													</a>
+												</div>
+												}
+												else
+												{
+												<li>
+													<a class="dropdown-item" href="@subNav.Url">
+															@subNav.Title
+													</a>
+												</li>
+												}
+												iSubMenu++;
+											}
+											@if (isTwoColumn)
+											{
+												@Html.Raw("</li>")
+											}
+									</ul>
+									}
+							</li>
+							}
+
+					</ul>
+				</div>
+					@if (topRightNavigations != null && topRightNavigations.Count > 0)
+					{
+						var iNav = 0;
+					<ul class="d-lg-none d-xl-none navbar-nav mb-2 ps-5 pt-3 mb-lg-0 text-start d-block">
+							@foreach (var item in topRightNavigations)
+							{
+							<li class="nav-item">
+								<a class="color-FFFFFF fw-light nav-link @(iNav==0? "active":"")" @(iNav != 0 ? "" : "aria-current='page'")
+								   href="@item?.Menu?.Url">@item?.Menu?.Title</a>
+							</li>
+								iNav++;
+							}
+					</ul>
+					}
+			</div>
+
+		</nav>
+	</div>
+</div>
+<script src="~/js/custome.js"></script>

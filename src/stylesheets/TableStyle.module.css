@@ -1,0 +1,7 @@
+.custom_table_striped:global(.table>tbody>tr:nth-of-type(even)){
+    --bs-table-bg-type: #F4F9E9 !important;
+}
+
+.custom_table_striped:global(.table>thead){
+    --bs-table-bg-type: #F4F9E9 !important;
+}

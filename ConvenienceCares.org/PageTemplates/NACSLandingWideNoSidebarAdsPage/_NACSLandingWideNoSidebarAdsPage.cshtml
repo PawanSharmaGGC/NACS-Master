@@ -1,0 +1,27 @@
+﻿@using Convenience
+@using ConvenienceCares.Models
+
+@{
+    Layout = "~/Features/Shared/ConvenienceCares/_Layout.cshtml";
+    var viewModel = Model.GetTemplateModel<ConveniencePageViewModel>();
+    ViewBag.Title = viewModel.Title;
+}
+
+<div class="row">
+    <div class="col-12 main-content">
+        <editable-area area-identifier="editableAreaTitle"></editable-area>
+
+        <vc:page-title page-model="@viewModel"></vc:page-title>
+
+        <editable-area area-identifier="editableAreaContent"></editable-area>
+
+        @Html.Raw(viewModel.PageContent)
+
+        <editable-area area-identifier="editableAreaFooter"></editable-area>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/_content/conveniencecares.org/js/widenosidebarpagetemplate.js"></script>
+    <script src="~/app_themes/conveniencecares.org/js/widenosidebarpagetemplate.js"></script>
+}

@@ -1,0 +1,18 @@
+﻿@using Convenience.org.Components.Sections.CAccordionSection
+@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+
+@model ComponentViewModel<CAccordionSectionProperties>
+
+<div>
+    <div class="border border-0 card">
+        <p class="text-start color-0053A5 card-text">@Model.Properties.Heading</p>
+        <div class="card-body">
+            <div id="faq-container" class="faq-container">
+                @await Html.Kentico().WidgetZoneAsync(allowedWidgets: new[] { "Convenience.AccordionWidget" })
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/static/js/accordion.js"></script>

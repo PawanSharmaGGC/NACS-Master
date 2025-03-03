@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.issuepage>
+  <ContentItemDataCommonDataID>
+    <GUID>b12a0977-69de-4eaf-bc89-94904a1000f8</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>May2024-93utealv</CodeName>
+      <GUID>1716b112-7fc6-4a5f-99d5-6330d2de0e55</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>a2aeb999-f443-43d6-8232-7b562df88b88</ContentItemDataGUID>
+  <Issue>
+    <![CDATA[[{"Identifier":"2146b3be-f3c1-4f5c-acab-9b646c7f847e"}]]]>
+  </Issue>
+  <Title>May 2024</Title>
+</contentitemdata.nacsmagazine.issuepage>

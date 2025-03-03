@@ -1,0 +1,75 @@
+﻿@model Convenience.org.Components.Widgets.AlumniContent.AlumniContentViewModel
+
+<div id="alumni-directory">
+    <div class="filters">
+        <form id="filterForm">
+            @foreach (var filter in new[] { "Executive", "Finance", "Innovation", "Marketing", "Diversity", "Industry" })
+            {
+                <label>
+                    <input type="checkbox" name="filters" value="@filter"
+                           @(Model.Filters.Contains(filter) ? "checked" : "") />
+                    @filter
+                </label>
+            }
+        </form>
+    </div>
+
+    <div id="alumni-items">
+        @await Html.PartialAsync("~/Components/Widgets/AlumniContent/_AlumniContentList.cshtml", Model.Items)
+    </div>
+
+    @* @if (Model.CanShowMore)
+    {
+        <button id="showMore" data-limit="@Model.Limit">Show More</button>
+    } *@
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    let offset = 0; 
+    const limit = @Model.Limit; 
+
+    function fetchMoreData() {
+        const filters = $('input[name="filters"]:checked').map(function () {
+            return $(this).val();
+        }).get().join(',');
+
+        $.post('@Url.Action("ShowItems", "AlumniContent")', { filters: filters, limit: limit, offset: offset }, function (data) {
+            if (data.trim() !== "") {
+                $('#alumni-items').append(data); 
+                offset += limit; 
+            } else {
+                $(window).off('scroll'); 
+            }
+        });
+    }
+
+    // Initial data load
+    $(document).ready(function () {
+        fetchMoreData(); 
+    });
+
+    $(window).on('scroll', function () {
+        if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+            fetchMoreData();
+        }
+    });
+
+    $(document).on('change', 'input[name="filters"]', function () {
+        offset = 0; 
+        const filters = $('input[name="filters"]:checked').map(function () {
+            return $(this).val();
+        }).get().join(',');
+
+        $.post('@Url.Action("ShowItems", "AlumniContent")', { filters: filters, limit: limit, offset: offset }, function (data) {
+            $('#alumni-items').html(data); 
+            offset += limit; 
+        });
+    });
+
+</script>
+
+
+
+
+

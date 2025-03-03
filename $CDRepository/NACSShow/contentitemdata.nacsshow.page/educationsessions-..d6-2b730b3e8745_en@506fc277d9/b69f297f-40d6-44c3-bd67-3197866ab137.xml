@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.page>
+  <ContentItemDataCommonDataID>
+    <GUID>9ecfd600-ed68-4438-a7d6-2b730b3e8745</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>EducationSessions-808m7csz</CodeName>
+      <GUID>f540249b-858a-479c-a8df-7155979819fe</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>b69f297f-40d6-44c3-bd67-3197866ab137</ContentItemDataGUID>
+  <Description>
+<![CDATA[
+Unlock trends, skills, and best business practices that are shaping the future of the convenience and fuel retail industry at the premier convenience retail event: the NACS Show.
+
+NACS Show education and training sessions are designed by your industry peers to specifically solve the challenges you face in today’s convenience marketplace. Discuss critical issues in small, intimate gatherings or dive deep into complex topics. Secure the insights and data you need to grow profits and outsmart the competition.
+]]>
+  </Description>
+  <ImageAltText />
+  <LeftNavShowTitle>True</LeftNavShowTitle>
+  <LeftNavTitleOverride />
+  <NavShowChildren>False</NavShowChildren>
+  <NavType>Inherit</NavType>
+  <PageContent>
+    <![CDATA[<p>edu sessions</p>]]>
+  </PageContent>
+  <SectionHeader />
+  <SubHead>
+    <![CDATA[When it comes to learning, the power of peers is unequaled. Connect and share with real-world industry insiders and retail superstars who are shaping the future of convenience.]]>
+  </SubHead>
+  <Title>Education Sessions</Title>
+</contentitemdata.nacsshow.page>

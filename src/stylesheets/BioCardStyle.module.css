@@ -1,0 +1,42 @@
+.main_card {
+    width: fit-content;
+}
+
+.section_card {
+    width: fit-content;
+    border-radius: 18px !important;
+    box-shadow: rgba(100, 100, 111, 0.2) 8px 8px 8px 0px;
+}
+
+.read_bio_btn{
+    background-color: #396a99;
+    padding: 16px;
+    cursor: pointer
+}
+
+.read_bio_btn_50{
+    width: 50%;
+    border-radius: 0px 0px 18px 0px;
+}
+
+.read_bio_btn_100{
+    width: 100%;
+    border-radius: 0px 0px 18px 18px;
+}
+
+.collapse_body_content{
+    border-radius: 0px 0px 18px 18px;
+    width: 29vw;
+}
+
+@media only screen and (max-width: 480px) {
+    .main_card {
+        width: -webkit-fill-available;
+    }
+    
+    .section_card {
+        width: fit-content;
+        border-radius: 18px !important;
+        box-shadow: rgba(100, 100, 111, 0.2) 8px 8px 8px 0px;
+    }
+}

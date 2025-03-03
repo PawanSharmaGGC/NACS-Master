@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>NACSShow</CodeName>
+    <GUID>2083f08a-0932-4059-8087-f0556c420aa4</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemContentTypeID>
+    <CodeName>NACSShow.NavSecondLevel</CodeName>
+    <GUID>c2adea38-6201-4783-979a-27e294ba2660</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>fdb1550b-6d1a-4139-bb7f-ac025a6985ef</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>2024ExhibitorDirectory-buiujb9e</ContentItemName>
+</cms.contentitem>

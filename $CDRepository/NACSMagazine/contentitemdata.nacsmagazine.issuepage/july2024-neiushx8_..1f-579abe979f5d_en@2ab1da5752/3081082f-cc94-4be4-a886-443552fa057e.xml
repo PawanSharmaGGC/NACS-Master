@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.issuepage>
+  <ContentItemDataCommonDataID>
+    <GUID>ff82db3a-f4ce-4276-b21f-579abe979f5d</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>July2024-neiushx8</CodeName>
+      <GUID>c1f1064f-d380-4149-96cf-e8d08e266d85</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>3081082f-cc94-4be4-a886-443552fa057e</ContentItemDataGUID>
+  <Issue>
+    <![CDATA[[{"Identifier":"c7372837-b5f6-412c-8442-489513330f7b"}]]]>
+  </Issue>
+  <Title>July 2024</Title>
+</contentitemdata.nacsmagazine.issuepage>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.navsecondlevel>
+  <ContentItemDataCommonDataID>
+    <GUID>93f9638f-5f1f-470a-9134-90e54a7c1808</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>First-TimeExhibitors-4b743z2j</CodeName>
+      <GUID>5b6f419f-bd96-44cf-92fa-6c0f1621ec44</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>44bbe0ec-5ab9-4c47-8ff2-70e79d075768</ContentItemDataGUID>
+  <Title>First-Time Exhibitors</Title>
+  <URL>/Exhibit/ExhibitHall/New-Exhibitor-Area</URL>
+</contentitemdata.nacsshow.navsecondlevel>

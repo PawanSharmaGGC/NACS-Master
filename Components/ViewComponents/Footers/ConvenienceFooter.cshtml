@@ -1,0 +1,145 @@
+﻿@model Convenience.org.Models.FooterViewModel
+
+@if (Model != null)
+{
+	<div>
+		<div class=" pt-5 bg-002569 FooterStyle-module__main_card card">
+			<img class="FooterStyle-module__clip_img" src="@Model.ClipImageSrc" alt="">
+			<div class="p-4 p-lg-5 p-md-5 w-100">
+				<div class="d-flex justify-content-between">
+					<img class="card-img-top mb-3 me-5 FooterStyle-module__footer_logo" src="@Model.FooterLogo" />
+					<span class="text-light fw-lighter text-start ms-5 FooterStyle-module__info">
+						@Model.TopShortDescription
+					</span>
+				</div>
+				<hr class="FooterStyle-module__divider mb-lg-5">
+				<div class="text-start p-0 card-body">
+					<div class="FooterStyle-module__footer_body">
+						<div class="flex-grow-1 FooterStyle-module__main_card_body">
+							<div class="pe-lg-5">
+								<div class="mt-lg-1 mt-md-1 mt-3 text-white card-text">
+									<p class="m-0 fs-5 fw-bold">@Model.HeadquarterTitle</p>
+									<p class="m-0 mt-lg-2 fs-5 fw-light">@Model.AddressLine1</p>
+									<p class="m-0 fs-5 fw-light">@Model.AddressLine2</p>
+									<p class="m-0 fs-5 fw-light">@Model.City, @Model.State @Model.ZipCode</p>
+									<p class="mt-lg-2 mt-md-2 mt-5 text-white card-text">
+									<p class="m-0 fs-5 fw-bold">Contact</p>
+									<p class="m-0 mt-lg-2 fs-5 fw-light">
+										<a href="tel:@(Model.ContactNumber)">
+												@Model.ContactNumber
+										</a>
+									</p>
+									<p class="m-0 fs-5 fw-light">
+										<a href="mailto:@(Model.ContactEmail)">
+												@Model.ContactEmail
+										</a>
+									</p>
+								</div>
+							</div>
+							<div class=" flex-grow-1 mt-lg-1 mt-md-1 text-white footer_links FooterStyle-module__footer_links">
+								@if (Model.FooterLinks is not null && Model.FooterLinks.Count() > 0)
+								{
+									foreach (var topNav in Model.FooterLinks)
+									{
+										<div class="card-text">
+
+											<h6 class="m-0 fs-5 fw-bold">@topNav.Menu.Title</h6>
+											<ul class="text-start p-0 mt-3">
+												@foreach (var item in topNav.SubMenu)
+												{
+													<li><a href="@item.Url">@item.Title</a></li>
+												}
+											</ul>
+										</div>
+									}
+								}
+
+							</div>
+							<div class="card-text">
+								<div class="accordion accordion-flush FooterStyle-module__footer_accordion" id="accordionFlushExample">
+									@if (Model.FooterLinks is not null && Model.FooterLinks.Count() > 0)
+									{
+										var i = 1;
+										foreach (var topNav in Model.FooterLinks)
+										{
+											<div class="accordion-item border_bottom_white pt-3 pb-3">
+												<h2 class="accordion-header">
+													<button class="accordion-button collapsed ps-0" type="button" data-bs-toggle="collapse" data-bs-target="@("#flush-collapse" + i)" aria-expanded="false" aria-controls="@("flush-collapse"+i)">
+														@topNav.Menu?.Title
+													</button>
+												</h2>
+												<div id="@("flush-collapse"+i)" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+													<div class="accordion-body">
+														<ul class="text-start p-0 mt-3">
+															@foreach (var item in topNav?.SubMenu)
+															{
+																<li><a href="@item.Url">@item.Title</a></li>
+															}
+														</ul>
+													</div>
+												</div>
+											</div>
+											i++;
+										}
+									}
+
+								</div>
+							</div>
+						</div>
+						<div class="card-text">
+							<div class="d-flex justify-content-between mt-lg-2 mb-lg-2 mt-4 mb-4 FooterStyle-module__footer_logo">
+								<div class="m-auto ms-0">
+									@if (Model.SocialMediaLinks != null && Model.SocialMediaLinks.Count() > 0)
+									{
+										foreach (var link in Model.SocialMediaLinks)
+										{
+											var openIn = link.Menu.OpenInNewTab == true ? "_blank" : "";
+											<a href="@link.Menu.Url" target="@openIn">
+												<i class="fa-brands @link.Menu.IconClass fa-xl color-FFFFFF pe-3" aria-hidden="true"></i>
+											</a>
+										}
+									}
+								</div>
+								<div class="mt-lg-4 FooterStyle-module__back_to_btn">
+									<a href="#backToTop">
+										<i class="fa-light fa-arrow-up-from-arc color-FFFFFF" aria-hidden="true"></i>
+										<span class="ps-2 fs-6 text-white">Back To top</span>
+									</a>
+								</div>
+								<div class="mt-lg-4 FooterStyle-module__get_help_btn">
+									<i class="fa-light fa-message-question color-FFFFFF" aria-hidden="true"></i>
+									<span class="ps-2 fs-6 text-white">Get Help</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr class="FooterStyle-module__divider">
+				<div class="card-body">
+					<div class="text-white FooterStyle-module__bottom_section card-text">
+						<p class="m-0 mb-1">
+							<i class="fa-regular fa-copyright color-FFFFFF" aria-hidden="true"></i>
+							<span class="ps-2">@Model.CopyRightText</span>
+						</p>
+						<p class="m-0 mb-1">
+							@if (Model.FooterPrivacyLinks != null && Model.FooterPrivacyLinks.Count() > 0)
+							{
+								var i = 1;
+								foreach (var links in Model.FooterPrivacyLinks)
+								{
+									<a href="@links.Menu.Url">@links.Menu.Title</a>
+									if (i < Model.FooterPrivacyLinks.Count())
+									{
+										@Html.Raw("|")
+									}
+									i++;
+								}
+							}
+						</p>
+						<p class="m-0 mb-1">@Model.DesignByText</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+}

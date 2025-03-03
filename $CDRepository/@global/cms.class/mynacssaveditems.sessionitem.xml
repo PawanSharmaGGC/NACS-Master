@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassCodeGenerationSettings>
+    <Data>
+      <CodeNameColumn>KenticoClassName</CodeNameColumn>
+      <DisplayNameColumn>SavedItemDisplayName</DisplayNameColumn>
+      <ObjectType>MyNACSSavedItems.SessionItem</ObjectType>
+      <UseGuidHashtable>False</UseGuidHashtable>
+      <UseIdHashtable>False</UseIdHashtable>
+      <UseNameHashtable>False</UseNameHashtable>
+    </Data>
+  </ClassCodeGenerationSettings>
+  <ClassDisplayName>SessionItem</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="SessionItemID" columntype="integer" enabled="true" guid="849a5d14-6db2-4ff9-a29f-4e7297032d60" isPK="true" />
+      <field allowempty="true" column="SavedItemDisplayName" columnprecision="0" columnsize="300" columntype="text" enabled="true" guid="c5801c67-bb76-4e85-8c1b-6ee32c30f515" />
+      <field allowempty="true" column="SavedItemDisplayDescription" columnprecision="0" columnsize="300" columntype="text" enabled="true" guid="1377b2e5-736c-4bc3-aa7c-1da7b1531a60" />
+      <field allowempty="true" column="SavedDate" columnprecision="7" columntype="datetime" enabled="true" guid="72834db9-dd50-47b8-9416-2db8d3af9ed1">
+        <properties>
+          <defaultvalue>10/10/9999 2:10:10 PM</defaultvalue>
+        </properties>
+      </field>
+      <field allowempty="true" column="SavedType" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="c6dd5ee7-71fd-4d9a-83f5-81f8f181b866" />
+      <field allowempty="true" column="KenticoUserID" columnprecision="0" columntype="integer" enabled="true" guid="fd2e2742-fedf-43ab-8275-5ee563474184" />
+      <field allowempty="true" column="KenticoContactID" columnprecision="0" columntype="integer" enabled="true" guid="0035e836-9f76-494d-bf9b-57b6185e633e" />
+      <field allowempty="true" column="KenticoClassName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="7d3e317e-7a67-4ddd-815b-1244ade259c9" />
+      <field allowempty="true" column="KenticoNodeGUID" columnprecision="0" columnsize="50" columntype="text" enabled="true" guid="9493dbee-dab9-4a65-b908-c903cfbaf9f6" />
+      <field allowempty="true" column="KenticoNodeAliasPath" columnprecision="0" columnsize="300" columntype="text" enabled="true" guid="151f11bc-d7c5-4d98-aaad-97a7417ea060" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>b990abdd-b2df-4d08-97ed-279d44d9ab87</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassName>MyNACSSavedItems.SessionItem</ClassName>
+  <ClassResourceID>
+    <CodeName>MyNACSSavedItems</CodeName>
+    <GUID>096f96de-7687-43ae-997a-c430005218da</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassTableName>MyNACSSavedItems_SessionItem</ClassTableName>
+  <ClassType>Other</ClassType>
+</cms.class>

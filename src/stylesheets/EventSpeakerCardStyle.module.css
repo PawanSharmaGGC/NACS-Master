@@ -1,0 +1,20 @@
+.main_card {
+    width: 34vw;
+}
+
+.section_card {
+    width: 30vw;
+    border-radius: 40px !important;
+    box-shadow: rgba(100, 100, 111, 0.09) 8px 8px 8px 0px;
+    background-color: #E9F0F4 !important;
+}
+
+@media only screen and (max-width: 480px) {
+    .main_card {
+        width: 100vw;
+    }
+    
+    .section_card {
+        width: 92vw;
+    }
+}

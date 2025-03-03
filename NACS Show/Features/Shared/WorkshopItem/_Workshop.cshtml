@@ -1,0 +1,415 @@
+﻿@{
+    Layout = @"~/Features/Shared/NACSShow/_Layout.cshtml";
+    NACSShow.Workshop ws = Model.WorkshopItem;
+}
+@using NACSShow.Features.Shared.WorkshopItem
+@using System.Text
+
+@model WorkshopViewModel
+
+<style>
+    .save-button
+    {
+      display:inline-block;
+      margin:2rem !important;
+    }
+</style>
+<section class="section--margins section--margins-x-xl">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 padding">
+            <div class="row">
+              <div class="margin-bottom-md">
+                @* Title *@
+                <h1 class="detail-title">@(!string.IsNullOrWhiteSpace(ws.SectionHeader) ? ws.SectionHeader : ws.Title)</h1>
+                  @(!string.IsNullOrWhiteSpace(ws.Icon) ? "" : Html.Raw(string.Format("<img id='session-icon' style='width:auto;margin-bottom:15px' src='/Sessions/Education-Sessions/PublishingImages/{0} />", ws.Icon)))
+                @* {% IfEmpty(Icon, "", "<img id='session-icon' style='width:auto;margin-bottom:15px' src='/Sessions/Education-Sessions/PublishingImages/" + Icon + "' />") %} *@
+                @* End Title *@
+                @* Track/Format *@
+                <!-- jQuery Modal/Dialog -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+                <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+
+                <script type="text/javascript">
+                function showDialog(obj,format) {
+
+                  var vw = $(window).width() * 0.8;
+
+                    $('#_divDialog').dialog({
+                        modal: true,
+                        show: 'fade',
+                        width: vw
+                    });
+                }
+                </script>
+
+                <style type="text/css">
+                .modal {
+                    overflow:visible;
+                    max-width:1000px;
+                    background-color: var(--color-white-smoke);
+                    padding: 50px 15px 15px 15px;
+                    margin:auto;
+                }
+                /* media screen and (max-width:479px) {
+                    max-width:400px !important;
+                    margin:auto;
+                } */
+
+
+                  .blocker {
+                    background-color:rgba(13,44,108,0.5)
+                }
+                .ui-dialog-titlebar {
+                    text-align:center;
+                    padding-right:20px;
+                }
+                .ui-dialog-titlebar > button {
+                    background-color: #60bc50;
+                    color: #fff !important;
+                    padding: 1rem 3rem;
+                    border-radius: 0px 0px 20px 20px;
+                    top: 51px;
+                    right: -20px;
+                    position: relative;
+                    z-index: 10;
+                    cursor:pointer;
+                }
+                span.ui-button-icon-space:before {
+                    font-family: "Font Awesome 5 Pro";
+                    font-weight: 800;
+                    content: "\f00d";
+                }
+                .detail {
+                    margin: 10px 10px 10px 75px;
+
+                }
+                .detail span {
+                    display:inline-block;  
+                    vertical-align:middle;
+                    max-width:90%;
+                    font-size:0.9em;
+                }
+                .detail span strong{
+                    font-size:1.1em;
+                }
+                .format-icon-detail {
+                    width:75px;
+                    margin-left:-75px;
+                    vertical-align:middle;
+                }
+                </style>
+
+                <div id="_divDialog" class="modal">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6 padding">
+                    <div class="detail" id="Case Study">
+                        <img class='format-icon-detail' src='~/_content/NACSShow/img/FormatIcons/format_icon_CaseStudy.png' alt='Format: Case Study' title='Format: Case Study' />
+                        <span><strong>Case Study</strong><br>
+                        General topic presenting lessons learned start to finish.</span>
+                    </div>
+                    <div class="detail" id="Expert/Expert Interview">
+                        <img class='format-icon-detail' src='~/_content/NACSShow/img/FormatIcons/format_icon_ExpertExpertInterview.png' alt='Format: Expert-Expert Interview' title='Format: Expert-Expert Interview' />
+                        <span><strong>Expert-Expert Interview</strong><br>
+                        Replaces fireside chat or single presenter format. Must be known industry expert or presentation of robust data.</span>
+                    </div>
+                    <div class="detail" id="Ignite">
+                        <img class='format-icon-detail' src='~/_content/NACSShow/img/FormatIcons/format_icon_Ignite.png' alt='Format: Ignite' title='Format: Ignite' />
+                        <span><strong>Ignite</strong><br>
+                        Slides run automatically keeping speaker pacing. Keeps session moving.</span>
+                    </div>
+                    <div class="detail" id="Kaleidoscope">
+                        <img class='format-icon-detail' src='~/_content/NACSShow/img/FormatIcons/format_icon_Kaleidoscope.png' alt='Format: Kaleidoscope' title='Format: Kaleidoscope' />
+                        <span><strong>Kaleidoscope</strong><br>
+                        One topic through the eyes of different functional teams (e.g. supply chain, store ops, frontline, finance, etc.)</span>
+                    </div>
+                    <div class="detail" id="Lightning">
+                        <img class='format-icon-detail' src='~/_content/NACSShow/img/FormatIcons/format_icon_Lightning.png' alt='Format: Lightning' title='Format: Lightning' />
+                        <span><strong>Lightning</strong><br>
+                        Moderated Q&A with small panel with efforts to drive diverse perspective; after 3 minutes on question, buzzer sounds and move to next question; forces people to be brief and clear on answers. </span>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 padding">
+                    <div class="detail" id="Masterclass">
+                        <img class='format-icon-detail' src='~/_content/NACSShow/img/FormatIcons/format_icon_Masterclass.png' alt='Format: Masterclass' title='Format: Masterclass' />
+                        <span><strong>Masterclass</strong><br>
+                        Single topic session which is a solo presenter and acts more like an university lecture. Must include multiple media, audience interaction, etc.</span>
+                    </div>
+                    <div class="detail" id="Great Debate: Point Counterpoint">
+                        <img class='format-icon-detail' src='~/_content/NACSShow/img/FormatIcons/format_icon_PointCounterpoint.png' alt='Format: Great Debate: Point Counterpoint' title='Format: Great Debate: Point Counterpoint'/>
+                        <span><strong>Great Debate: Point Counterpoint</strong><br>
+                        Facilitator stimulates point/counterpoint debate on key industry topic.</span>
+                    </div>
+                    <div class="detail" id="Roundtables"><img class='~/_content/NACSShow/img/FormatIcons/format_icon_Roundtables.png' alt='Format: Roundtables' title='Format: Roundtables' />
+                        <span><strong>Roundtables</strong><br>
+                        Facilitated discussion. Limited use of slides or video to set-up topic.</span>
+                    </div>
+                    <div class="detail" id="Think You Know Me?">
+                        <img img class='format-icon-detail' src='~/_content/NACSShow/img/FormatIcons/format_icon_ThinkYouKnowMe.png' alt='Format: Think You Know Me?' title='Format: Think You Know Me?' />
+                        <span><strong>Think You Know Me?</strong><br>
+                        One group is polled on a topic, and then the other has to guess the outcomes, as a stimulant for discussion.</span>
+                    </div>
+                    <div class="detail" id="Workshop">
+                    <img img class='format-icon-detail' src='~/_content/NACSShow/img/FormatIcons/format_icon_Workshop.png' alt='Format: Workshop' title='Format: Workshop' />
+                    <span><strong>Workshop</strong><br>
+                    Traditional small group classroom style format.</span>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <style>
+                    .format-icon {
+                        width: 52px !important;
+                        vertical-align: middle;
+                        padding-right: 5px;
+                    }
+
+                    .format-name {
+                        /*padding: 1rem 2rem;*/
+                        display: inline-block;
+                        border-radius: 100em;
+                        font-size: .825rem;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        color: var(--color-cobalt);
+                    }
+
+                    .format-pill {
+                        border: 2px solid var(--color-dark-pastel-green);
+                        background-color: var(--color-cobalt);
+                        color: #fff;
+                    }
+
+                    .detail-sub-header {
+                        font-size: 1.5rem;
+                    }
+
+                    .btn-filter {
+                        margin-right: 2rem;
+                    }
+                </style>
+                 @* @{
+                   public string GetFormatIcon(string format)
+                      {
+                        string icon = "";       
+                              
+                        if (format == "Awards")
+                          icon = "<img class='format-icon' src='~/App_Themes/NACSShow2024/img/format_icon_Awards.png' alt='Format: Awards' title='Format: Awards' />";
+                        else if (format == "Case Study")
+                          icon = "<img class='format-icon' src='~/App_Themes/NACSShow2024/img/format_icon_CaseStudy.png' alt='Format: Case Study' title='Format: Case Study' />";
+                        else if (format == "Expert/Expert Interview")
+                          icon = "<img class='format-icon' src='~/App_Themes/NACSShow2024/img/format_icon_ExpertExpertInterview.png' alt='Format: Expert-Expert Interview' title='Format: Expert-Expert Interview' />";
+                        else if (format == "Ignite")
+                          icon = "<img class='format-icon' src='~/App_Themes/NACSShow2024/img/format_icon_Ignite.png' alt='Format: Ignite' title='Format: Ignite' />";
+                        else if (format == "Kaleidoscope")
+                          icon = "<img class='format-icon' src='~/App_Themes/NACSShow2024/img/format_icon_Kaleidoscope.png' alt='Format: Kaleidoscope' title='Format: Kaleidoscope' />";
+                        else if (format == "Lightning")
+                          icon = "<img class='format-icon' src='~/App_Themes/NACSShow2024/img/format_icon_Lightning.png' alt='Format: Lightning' title='Format: Lightning' />";
+                        else if (format == "Masterclass")
+                          icon = "<img class='format-icon' src='~/App_Themes/NACSShow2024/img/format_icon_Masterclass.png' alt='Format: Masterclass' title='Format: Masterclass' />";
+                        else if (format == "Panel")
+                          icon = "<img class='format-icon' src='~/App_Themes/NACSShow2024/img/format_icon_Panel.png' alt='Format: Panel' title='Format: Panel' />";
+                        else if (format == "Great Debate: Point Counterpoint")
+                          icon = "<img class='format-icon' src='~/App_Themes/NACSShow2024/img/format_icon_PointCounterpoint.png' alt='Format: Great Debate: Point Counterpoint' title='Format: Great Debate: Point Counterpoint' />";
+                        else if (format == "Roundtables")
+                          icon = "<img class='format-icon' src='~/App_Themes/NACSShow2024/img/format_icon_Roundtables.png' alt='Format: Roundtables' title='Format: Roundtables' />";
+                        else if (format == "Think You Know Me?")
+                          icon = "<img class='format-icon' src='~/App_Themes/NACSShow2024/img/format_icon_ThinkYouKnowMe.png' alt='Format: Think You Know Me?' title='Format: Think You Know Me?' />";
+                        else if (format == "Workshop")
+                          icon = "<img class='format-icon' src='~/App_Themes/NACSShow2024/img/format_icon_Workshop.png' alt='Format: Workshop' title='Format: Workshop' />";
+                        else
+                          icon = string.Empty;
+
+                        return "<div class='format-name'>" + icon + " " + format + " <a href='#' title='Info' onclick='showDialog(this,0); return false;'><i class='far fa-info-circle fa-lg' title='Click for Format explanations'></i></a></div>";
+                      }
+                    } *@
+
+                <div>
+                    <div class='margin-top-sm link--pill btn-filter segment1'><i class='fa fa-tag fa-sm'></i>&nbsp;@ws.Keyword</div>
+                    @{
+                        var icon = string.Empty;
+                        switch(ws.Format)
+                        {
+                            case "Awards":
+                                icon = "<img class='format-icon' src='~/_content/NACSShow/img/FormatIcons/format_icon_Awards.png' alt='Format: Awards' title='Format: Awards' />";
+                                break;
+                            case "Case Study":
+                                icon = "<img class='format-icon' src='~/_content/NACSShow/img/FormatIcons/format_icon_CaseStudy.png' alt='Format: Case Study' title='Format: Case Study' />";
+                                break;
+                            case "Expert/Expert Interview":
+                                icon = "<img class='format-icon' src='~/_content/NACSShow/img/FormatIcons/format_icon_ExpertExpertInterview.png' alt='Format: Expert-Expert Interview' title='Format: Expert-Expert Interview' />";
+                                break;
+                            case "Ignite":
+                                icon = "<img class='format-icon' src='~/_content/NACSShow/img/FormatIcons/format_icon_Ignite.png' alt='Format: Ignite' title='Format: Ignite' />";
+                                break;
+                            case "Kaleidoscope":
+                                icon = "<img class='format-icon' src='~/_content/NACSShow/img/FormatIcons/format_icon_Kaleidoscope.png' alt='Format: Kaleidoscope' title='Format: Kaleidoscope' />";
+                                    break;
+                            case "Lightning":
+                                icon = "<img class='format-icon' src='~/_content/NACSShow/img/FormatIcons/format_icon_Lightning.png' alt='Format: Lightning' title='Format: Lightning' />";
+                                    break;
+                            case "Masterclass":
+                                icon = "<img class='format-icon' src='~/_content/NACSShow/img/FormatIcons/format_icon_Masterclass.png' alt='Format: Masterclass' title='Format: Masterclass' />";
+                                break;
+                            case "Panel":
+                                icon = "<img class='format-icon' src='~/_content/NACSShow/img/FormatIcons/format_icon_Panel.png' alt='Format: Panel' title='Format: Panel' />";
+                                break;
+                            case "Great Debate: Point Counterpoint":
+                                icon = "<img class='format-icon' src='~/_content/NACSShow/img/FormatIcons/format_icon_PointCounterpoint.png' alt='Format: Great Debate: Point Counterpoint' title='Format: Great Debate: Point Counterpoint' />";
+                                break;
+                            case "Roundtables":
+                                icon = "<img class='format-icon' src='~/_content/NACSShow/img/FormatIcons/format_icon_Roundtables.png' alt='Format: Roundtables' title='Format: Roundtables' />";
+                                break;
+                            case "Think You Know Me?":
+                                icon = "<img class='format-icon' src='~/_content/NACSShow/img/FormatIcons/format_icon_ThinkYouKnowMe.png' alt='Format: Think You Know Me?' title='Format: Think You Know Me?' />";
+                                break;
+                            case "Workshop":
+                                icon = "<img class='format-icon' src='~/_content/NACSShow/img/FormatIcons/format_icon_Workshop.png' alt='Format: Workshop' title='Format: Workshop' />";
+                                    break;
+                            default:
+                                    icon = string.Empty;
+                                break;
+                        }
+
+                        @Html.Raw("<div class='format-name'>" + icon + " " + ws.Format + " <a href='#' title='Info' onclick='showDialog(this,0); return false;'><i class='far fa-info-circle fa-lg' title='Click for Format explanations'></i></a></div>")
+                      }
+                    
+                </div>
+                @* End Track/Format *@
+              </div>                     
+            </div>
+            @* Page Content *@
+            
+            <style>
+                .segment-statement{
+                    font-size: 1.4em;
+                }
+            </style>
+            @if(!string.IsNullOrWhiteSpace(ws.Segment))
+            {
+                <p><span class='segment-statement " + @ws.Segment + "'><i class='fa fa-quote-left fa-lg'></i> " + @(!string.IsNullOrWhiteSpace(ws.SegmentStatment) ? "&nbsp;" : ws.SegmentStatment) + " <i class='fa fa-quote-right fa-lg'></i></span></p>
+            }
+
+            <div style="line-height: 1.5em"><p>@Html.Raw(ws.PageContent)</p></div>
+
+            
+            @if(!string.IsNullOrWhiteSpace(ws.Objective1))
+            {   
+                var sb = new StringBuilder();
+                sb.Append("<p class='detail-sub-header'>Objectives:</p>");
+                sb.Append("<ul>");
+                sb.Append("<li>" + ws.Objective1 + "</li>");
+                if (!string.IsNullOrWhiteSpace(ws.Objective2)) sb.Append("<li>" + ws.Objective2 + "</li>");
+                if (!string.IsNullOrWhiteSpace(ws.Objective3)) sb.Append("<li>" + ws.Objective3 + "</li>");
+                if (!string.IsNullOrWhiteSpace(ws.Objective4)) sb.Append("<li>" + ws.Objective4 + "</li>");
+                if (!string.IsNullOrWhiteSpace(ws.Objective5)) sb.Append("<li>" + ws.Objective5 + "</li>");
+                sb.Append("</ul>");
+
+                @Html.Raw(sb.ToString())
+             }
+            
+            @* End Page Content *@
+          </div>
+
+          <div class="col-xs-12 col-sm-4 margin-top-lg" style="padding-left:20px;">
+            @* Sidebar *@
+            <div class="detail-date"><i class='fas fa-calendar-day' style='margin-right:10px;' title='Day'></i>" + FormatDateTime(StartTime, "MMMM dd, yyyy")) %}</div>
+            <div class="detail-date"><br/><i class='fas fa-clock' style='margin-right:10px;' title='Time'></i>" + FormatDateTime(StartTime, "h:mm tt") + " - " + FormatDateTime(EndTime, "h:mm tt") + " PDT") %}</div>
+            <div class="detail-date"><br/><i class='fas fa-location-dot' style='margin-right:10px;' title='Room'></i> " + Room_Location) %}</div>
+            <div class="detail-date" style="color:#ED8B00">{% IfEmpty(Translation,"" , "<br/><span style='color:#ED8B00'><i class='fas fa-headset' style='margin-right:10px;' title='Translation Available'></i></span>" + Translation) %}</div>
+
+            <br/><br/><br/>
+            <!-- Button code -->
+            <div title="Add to Calendar" class="addeventatc">
+                Add to Calendar
+                <span class="start">{%FormatDateTime(StartTime, "MM/dd/yyyy h:mm tt")%}</span>
+                <span class="end">{%FormatDateTime(EndTime, "MM/dd/yyyy h:mm tt")%}</span>
+                <span class="timezone">America/Los_Angeles</span>
+                <span class="title">NACS Show Education Session - @(!string.IsNullOrWhiteSpace(ws.SectionHeader) ? ws.SectionHeader : ws.Title)</span>
+                <span class="description">@Html.Raw(ws.PageContent)</span>
+                <span class="location">Las Vegas Convention Center: @ws.Room_Location</span>
+            </div>
+            <div style="padding: 20px 0px">
+                @* TODO: My NACS Show - Save Item goes here *@
+            </div>
+            @* End Sidebar *@
+          </div>
+        </div>
+      </div>
+      <div class="row center-xs margin-top-lg">
+        @* <cms:CMSWebPartZone ZoneID="ContentWidgetZone" runat="server" />  *@
+        @* There was no content in this zone. *@
+      </div>
+    </section>
+     @* Speakers *@
+    <section class="section--margins">
+        <h2 class="row center-xs margin-top-lg">Speakers</h2>
+          <div class="daily-articles__cards row center-xs start-md">
+            <div class="col-xs-12 col-md-8 margin--zero-auto">
+              <div class="row center-xs">
+                @*<style>
+                    div.card-section__card a {
+                    color: var(--text-color-body) !important;
+                    }            
+                </style> *@
+                @* @if(Model.Speakers is null)
+                {
+                        @Html.Raw("<div>No data found.</div>");
+                } 
+                else 
+                {*@
+                    @if(Model.WorkshopItem is not null)
+                    {
+                        foreach(NACSShow.Speaker speaker in ws.Speakers)
+                        {
+                    
+                    
+                            <div class="col-xs-9 col-sm-5 col-md-3">
+                                <div class="card-section__card">
+                                    <a title="Learn more about @speaker.Title..." href="/* @speaker.WebsiteURL */">
+                                        <img class="card-profile-image speaker-session-headshot-fix" alt="@speaker.ImageAltText" src="@speaker.Image">
+                                        <div class="card-content fill--solid-very-light-grey text-left rounded-bottom">
+                                            <h4 class="card-content__name_lg">@speaker.Title</h4>
+                                            <div class="card-content__title_lg">@speaker.JobTitle</div>
+                                            <div class="card-content__title_lg">{% Company %}</div>
+                                            <p class="card-content__desc">@Html.Raw(speaker.PageContent)</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    }
+                    
+                @* } *@
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="row center-xs section--padded">
+        <div class="col-xs-12 col-md-8 mobile--margins">
+            <a class="button-pill-dark" href="/Sessions/Education-Sessions">BACK TO SESSIONS</a>
+        </div>
+    </div>
+    @* End Speakers *@
+@* TODO: Ads go here *@
+@* <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="wrapper container">
+            <div class="block--sponsorship">
+              <div class="ad">
+                <div class="ad__wrapper">
+                  <div class="multi-ad-container">                    
+                     <cms:CMSWebPartZone ZoneID="AdZone1" runat="server" />
+                     <cms:CMSWebPartZone ZoneID="AdZone2" runat="server" />
+                     <cms:CMSWebPartZone ZoneID="AdZone3" runat="server" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+    </section>*@    
+    <script type="text/javascript" src="~/_content/NACSShow/assets/js/workshop.js"></script>

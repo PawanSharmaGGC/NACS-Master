@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>NACSShow</CodeName>
+    <GUID>2083f08a-0932-4059-8087-f0556c420aa4</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemContentTypeID>
+    <CodeName>NACSShow.NavSecondLevel</CodeName>
+    <GUID>c2adea38-6201-4783-979a-27e294ba2660</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>290d7e34-a16d-47d8-91a4-f1ecb5292c4e</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>ExhibitorPortal-h51iwmjx</ContentItemName>
+</cms.contentitem>

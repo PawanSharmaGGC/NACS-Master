@@ -1,0 +1,20 @@
+﻿@using Convenience
+@using ConvenienceCares.Models
+
+
+@{
+    Layout = "~/Features/Shared/ConvenienceCares/_Layout.cshtml";
+    var viewModel = Model.GetTemplateModel<Page>();
+}
+
+
+<editable-area area-identifier="editableAreaTitle"></editable-area>
+
+<vc:home-page-title page-model="@viewModel"></vc:home-page-title>
+
+<editable-area area-identifier="editableAreaContent"></editable-area>
+
+@Html.Raw(viewModel.PageContent)
+
+<editable-area area-identifier="editableAreaFooter"></editable-area>
+

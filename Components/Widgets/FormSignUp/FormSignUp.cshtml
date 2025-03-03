@@ -1,0 +1,118 @@
+﻿@using Convenience.org.Components.Widgets.FormSignUp
+@model FormSignUpViewModel
+
+<div>
+    <div class="bg-DBEAB9 h-100 m-lg-2 brdr-rad-18 card">
+        <div class="card-body">
+            <h6 class="color-0053A5 fw-normal fs-4">Sign Up</h6>
+            <p class="fw-light">Please fill out the form below to sign up for the webinar.</p>
+
+            <!-- Form -->
+            <form id="form" class="text-start" asp-action="FormSignUp" asp-controller="FormSignUpWidget" method="post">
+                @Html.AntiForgeryToken()
+
+                <!-- First Name -->
+                <div class="mb-3">
+                    <label asp-for="FirstName" class="form-label">First Name</label>
+                    <input asp-for="FirstName" class="form-control" required />
+                </div>
+
+                <!-- Last Name -->
+                <div class="mb-3">
+                    <label asp-for="LastName" class="form-label">Last Name</label>
+                    <input asp-for="LastName" class="form-control" />
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" required type="email" class="form-control" />
+                </div>
+
+                <!-- Company Name -->
+                <div class="mb-3">
+                    <label asp-for="CompanyName" class="form-label">Company Name</label>
+                    <input asp-for="CompanyName" class="form-control" />
+                </div>
+
+                <!-- Submit Button -->
+                <div class="mb-3">
+                    <div>
+                        <button type="submit" class="color-0053A5 bg-FFFFFF p-3 border border-0 brdr-rad-30 text-decoration-none">
+                            <span class="color-0053A5 text-start pe-lg-2 ps-lg-2 fw-medium">Sign Up</span>
+                            <i class="align-middle color-0053A5 fa-regular fa-arrow-right-long" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="position-fixed top-0 end-0 p-3 z-1" id="toastContainer">
+    <div class="toast bg-DBEAB9 text-light" id="successToast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body p-3">
+            <p class="color-0053A5 fs-5 text-start m-0 mb-2">Form submitted!</p>
+            <p id="toastMessage" class="color-000000 text-start m-0">You have signed up for the webinar. See you there!</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("form");
+        const successToast = new bootstrap.Toast(document.getElementById("successToast"));
+        const toastMessage = document.getElementById("toastMessage");
+
+        if (!form) {
+            console.error("Form element not found!");
+            return;
+        }
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();  // Prevent default form submission
+
+            const formData = new FormData(form);  // Create FormData object from the form
+
+            try {
+                // Make AJAX request using Fetch API
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest"  // Indicate it's an AJAX request
+                    }
+                });
+
+                // Check if the response is successful
+                if (!response.ok) {
+                    console.error("Server error:", response.status);
+                    alert("An error occurred while submitting the form. Please try again.");
+                    return;
+                }
+
+                const result = await response.json();  // Parse the JSON response
+
+                if (result.success) {
+                    toastMessage.textContent = result.message || "You have signed up for the webinar. See you there!";  // Set toast message
+                    successToast.show();  // Show the success toast
+
+                    // Reset the form after submission
+                    form.reset();
+
+                    // Hide the toast after 3 seconds
+                    setTimeout(() => {
+                        successToast.hide();
+                    }, 3000);
+                } else {
+                    alert(result.message || "An error occurred.");
+                }
+            } catch (error) {
+                console.error("Fetch error:", error);
+                alert("An unexpected error occurred. Please try again.");
+            }
+        });
+    });
+</script>

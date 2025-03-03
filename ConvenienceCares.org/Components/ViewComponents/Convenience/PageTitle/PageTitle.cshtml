@@ -1,0 +1,14 @@
+﻿@using CMS.Helpers
+@using Convenience
+@using ConvenienceCares.Models
+
+@model ConveniencePageViewModel
+
+@{
+    var title = ValidationHelper.GetString(string.IsNullOrEmpty(Model.SectionHeader) ? Model.Title : Model.SectionHeader, "");
+}
+
+@if (!string.IsNullOrEmpty(title))
+{
+    <h1 class="page-title">@title</h1>
+}

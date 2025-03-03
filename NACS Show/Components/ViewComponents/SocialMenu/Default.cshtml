@@ -1,0 +1,15 @@
+﻿@using NACSShow.Models
+
+@model IEnumerable<NavigationItem>
+
+<ul>
+    @foreach (var menuItem in Model)
+    {
+        <li>
+            <a href="@menuItem.MenuURL" target="_blank" rel="noreferrer noopener">
+                <span class="sr-text">@menuItem.MenuName</span>
+                @Html.Raw(menuItem.Icon)
+            </a>
+        </li>
+    }
+</ul>

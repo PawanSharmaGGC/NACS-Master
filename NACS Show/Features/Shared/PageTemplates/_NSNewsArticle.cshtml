@@ -1,0 +1,83 @@
+﻿@using CMS.ContentEngine
+@using Kentico.Content.Web.Mvc.PageBuilder
+@using NACSShow.Models
+
+<vc:current-page-data />
+@{
+    Layout = "~/Features/Shared/NACSShow/_Layout.cshtml";
+
+    var currentPageData = TempData["CurrentPageData"] as DailyNewsArticleViewModel ?? new DailyNewsArticleViewModel();
+}
+
+@section styles {
+    <style>
+        .share-this-title {
+            display: inline;
+            vertical-align: middle;
+            font-size: 2em;
+        }
+
+        .addthis_inline_share_toolbox {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .blue-container {
+            background: #00aecc;
+            border-radius: 5px;
+            padding: 15px;
+            color: #fff;
+            margin: 3em 0;
+        }
+    </style>
+}
+
+<!-- News item info -->
+<section class="section--margins section--margins-x-xl">
+    <div class="container">
+        <div class="row center-xs">
+
+            <h2 class="article-page-title" style="margin-bottom:0">
+                <editable-area area-identifier="TitleZone"></editable-area>
+                <vc:news-article-title title="@Html.Raw(currentPageData.Title)" description="@Html.Raw(currentPageData.Description)"
+                                       date="@currentPageData.Date" header-image="@currentPageData.HeaderImage"></vc:news-article-title>
+                <editable-area area-identifier="TitleZone1"></editable-area>
+            </h2>
+
+            <div class="row page-info main-content">
+                <div class="col-12">
+                    <editable-area area-identifier="ContentZone"></editable-area>
+                    <vc:news-article-page-content page-content="@Html.Raw(currentPageData.PageContent)"></vc:news-article-page-content>
+
+                    <editable-area area-identifier="ContentWidgetZone"></editable-area>
+
+                    <div class="blue-container">
+                        <span class="title share-this-title">Share this article:</span>
+                        <!-- AddToAny BEGIN -->
+                        <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-icon-color="#00aecc"
+                             style="display:inline-block; vertical-align:middle">     </div>
+                        <script async src="https://static.addtoany.com/menu/page.js" type="text/javascript"></script> 
+                        <!-- AddToAny END -->
+                    </div>
+
+                    <div class="row inner">
+                    </div>
+                    <editable-area area-identifier="ContentZoneBottom"></editable-area>
+
+                    <div class="row advertisements">
+                        <div class="col-12 col-sm-4">
+                            <editable-area area-identifier="AdZone1"></editable-area>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <editable-area area-identifier="AdZone2"></editable-area>
+                        </div>
+                        <div class="col-12 col-sm-4">
+                            <editable-area area-identifier="AdZone3"></editable-area>
+                        </div>
+                    </div>
+                    <editable-area area-identifier="ContentWidgetZoneBottom"></editable-area>
+                </div>
+            </div>
+        </div>
+</section>
+

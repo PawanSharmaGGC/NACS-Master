@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kenticolucene.lucenereusablecontenttypeitem>
+  <LuceneReusableContentTypeItemContentTypeName>NACSShow.Speaker</LuceneReusableContentTypeItemContentTypeName>
+  <LuceneReusableContentTypeItemGuid>68fa3319-92d9-48ea-be16-7b960a2e1a3d</LuceneReusableContentTypeItemGuid>
+  <LuceneReusableContentTypeItemIndexItemId>
+    <CodeName>NS_SESSION_SEARCH</CodeName>
+    <GUID>0f405c4b-e7ab-4df6-85b9-88d90c8eb464</GUID>
+    <ObjectType>kenticolucene.luceneindexitem</ObjectType>
+  </LuceneReusableContentTypeItemIndexItemId>
+</kenticolucene.lucenereusablecontenttypeitem>

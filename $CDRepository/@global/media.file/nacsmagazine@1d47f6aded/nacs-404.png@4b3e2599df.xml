@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<media.file>
+  <FileCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </FileCreatedByUserID>
+  <FileCreatedWhen>2024-06-27 00:14:15Z</FileCreatedWhen>
+  <FileDescription />
+  <FileExtension>.png</FileExtension>
+  <FileGUID>ea908efe-df62-45aa-b630-2ecbf1731811</FileGUID>
+  <FileImageHeight>105</FileImageHeight>
+  <FileImageWidth>300</FileImageWidth>
+  <FileLibraryID>
+    <CodeName>NACSMagazine</CodeName>
+    <GUID>0f56ef68-0033-461f-9096-5f90c3a29b74</GUID>
+    <ObjectType>media.library</ObjectType>
+  </FileLibraryID>
+  <FileMimeType>image/png</FileMimeType>
+  <FileModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </FileModifiedByUserID>
+  <FileName>NACS-404</FileName>
+  <FilePath>NACS-404.png</FilePath>
+  <FileSize>7272</FileSize>
+  <FileTitle />
+</media.file>

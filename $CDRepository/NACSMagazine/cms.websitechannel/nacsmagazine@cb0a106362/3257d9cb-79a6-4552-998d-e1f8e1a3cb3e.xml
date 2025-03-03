@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.websitechannel>
+  <WebsiteChannelChannelID>
+    <CodeName>NACSMagazine</CodeName>
+    <GUID>eecfdedc-a92f-48b7-9daa-eab81c106019</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </WebsiteChannelChannelID>
+  <WebsiteChannelDefaultCookieLevel>1000</WebsiteChannelDefaultCookieLevel>
+  <WebsiteChannelDomain>localhost:65490</WebsiteChannelDomain>
+  <WebsiteChannelGUID>3257d9cb-79a6-4552-998d-e1f8e1a3cb3e</WebsiteChannelGUID>
+  <WebsiteChannelHomePage>/Home</WebsiteChannelHomePage>
+  <WebsiteChannelPrimaryContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>2cce1e88-3d98-4dd9-8c2d-4dd1c46a81bf</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </WebsiteChannelPrimaryContentLanguageID>
+  <WebsiteChannelStoreFormerUrls>True</WebsiteChannelStoreFormerUrls>
+</cms.websitechannel>

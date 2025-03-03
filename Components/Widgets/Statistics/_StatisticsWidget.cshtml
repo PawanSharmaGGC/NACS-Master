@@ -1,0 +1,102 @@
+﻿@model Convenience.org.Components.Widgets.Statistics.StatisticsWidgetViewModel
+
+@{
+	string ReplacePTagFromString(string text)
+	{
+		return text.Replace("<p>", "").Replace("</p>", "");
+
+	};
+}
+@if (Model != null)
+{
+	<div>
+		<div class="p-3 card">
+			<div class="p-1 mb-4 card-body">
+				<h4 class="text-start pb-4 color-002569">By The Numbers</h4>
+				<div class="StatisticsStyle-module__by_the_num">
+					<div class="StatisticsStyle-module__by_the_num_blocks">
+						<p class="m-0 text-body-tertiary fs-sm-6 fs-lg-5 fs-xl-5">Retail Gas Price (AAA)</p>
+						<p class="m-0">
+							<span class="fs-2 color-0053A5 fw-semibold">
+								$ @Html.Raw(ReplacePTagFromString(Model.NumberRetailGasPrice))
+							</span>
+							<span class="fs-4 color-0053A5">
+								/gal
+							</span>
+						</p>
+						<p class="m-0">
+
+							<span class="@(Model.NumberRetailGasStatus=="up"? "fs-2 color-62BD19 fw-semibold":"fs-2 color-DC241F fw-semibold")">
+								<i class="pe-1 fa-regular @(Model.NumberRetailGasStatus=="up"? "fa-arrow-up":"fa-arrow-down")" aria-hidden="true"></i>
+								@Html.Raw(ReplacePTagFromString(Model.NumberRetailGasPriceVariation))
+							</span>
+							<span class="text-body-tertiary">
+								since yesterday
+							</span>
+						</p>
+					</div>
+					<div class="StatisticsStyle-module__by_the_num_blocks">
+						<p class="m-0 text-body-tertiary fs-sm-6 fs-lg-5 fs-xl-5">Retail Diesel Price (AAA)</p>
+						<p class="m-0">
+							<span class="fs-2 color-0053A5 fw-semibold">
+							$ @Html.Raw(ReplacePTagFromString(Model.NumberRetailDieselPrice))
+							</span><span class="fs-4 color-0053A5">/gal</span>
+						</p>
+						<p class="m-0">
+							<span class="@(Model.NumberRetailDieselStatus=="up"? "fs-2 color-62BD19 fw-semibold":"fs-2 color-DC241F fw-semibold")">
+								<i class="pe-1 fa-regular @(Model.NumberRetailDieselStatus=="up"? "fa-arrow-up":"fa-arrow-down")" aria-hidden="true"></i>
+								@Html.Raw(ReplacePTagFromString(Model.NumberRetailDieselPriceVariation))
+							</span>
+							<span class="text-body-tertiary">since yesterday</span>
+						</p>
+					</div>
+					<div class="StatisticsStyle-module__by_the_num_blocks">
+						<p class="m-0 text-body-tertiary fs-sm-6 fs-lg-5 fs-xl-5">Cruid Oil (NYMEX)</p>
+						<p class="m-0">
+							<span class="fs-2 color-0053A5 fw-semibold">
+								$ @Html.Raw(ReplacePTagFromString(Model.NumberCruidOilPrice))
+							</span><span class="fs-4 color-0053A5">/bbl</span>
+						</p>
+						<p class="m-0">
+							<span class="@(Model.NumberCruidOilStatus=="up"? "fs-2 color-62BD19 fw-semibold":"fs-2 color-DC241F fw-semibold")">
+								<i class="pe-1 fa-regular @(Model.NumberCruidOilStatus=="up"? "fa-arrow-up":"fa-arrow-down")" aria-hidden="true"></i>
+								@Html.Raw(ReplacePTagFromString(Model.NumberCruidOilPriceVariation))
+							</span><span class="text-body-tertiary">since yesterday</span>
+						</p>
+					</div>
+					<div class="StatisticsStyle-module__by_the_num_blocks">
+						<p class="m-0 text-body-tertiary fs-sm-6 fs-lg-5 fs-xl-5">Retail Fuel Margin (OPIS)</p>
+						<p class="m-0">
+							<span class="fs-2 color-0053A5 fw-semibold">
+								$ @Html.Raw(ReplacePTagFromString(@Model.NumberRetailFuelMarginPrice))
+							</span><span class="fs-4 color-0053A5">/gal</span>
+						</p>
+						<p class="m-0">
+							<span class="@(Model.NumberRetailFuelMarginStatus=="up"? "fs-2 color-62BD19 fw-semibold":"fs-2 color-DC241F fw-semibold")">
+								<i class="pe-1 fa-regular @(Model.NumberRetailFuelMarginStatus=="up"? "fa-arrow-up":"fa-arrow-down")" aria-hidden="true"></i>
+								@Html.Raw(ReplacePTagFromString(Model.NumberRetailFuelMarginPriceVariation))
+							</span><span class="text-body-tertiary">since last week</span>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="p-1 card-body">
+				<h4 class="text-start pb-4 color-002569">Factoid</h4>
+				<div class="StatisticsStyle-module__factor_id">
+					<div class="StatisticsStyle-module__factor_id_blocks">
+						<div class="StatisticsStyle-module__factor_id_flex_blocks">
+							@Html.Raw(ReplacePTagFromString(Model.FactoidPrice))
+							@*<p class="m-0 text-body-tertiary fs-sm-6 fs-lg-5 fs-xl-5">Retail Gas Price (AAA)</p>
+							<p class="m-0"><span class="fs-2 color-0053A5 fw-semibold">$3.491</span><span class="fs-4 color-0053A5">/gal</span></p> *@
+						</div>
+						<div>
+							<span class="fs-sm-6 fs-lg-4 fs-xl-4 text-body-tertiary">
+								@Html.Raw(ReplacePTagFromString(Model.FactoidSummary))
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+}

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>ForTheMedia-q0427wwi</CodeName>
+    <GUID>2a8dba71-87ff-482d-a8a4-60ecddc4e6d7</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>00e6ae78-39c1-49b2-ab89-b65e955b3db2</WebPageItemGUID>
+  <WebPageItemName>ForTheMedia-q0427wwi</WebPageItemName>
+  <WebPageItemOrder>3</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>Nav-6cdsfayr</CodeName>
+    <GUID>30ff80a1-2c3d-41cd-8f8b-016bcc3c9473</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>/Global_Nav/Nav/For_the_Media</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>0ba89fef-3be8-4973-83d2-c5cbbcb227cf</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSShow</CodeName>
+      <GUID>2083f08a-0932-4059-8087-f0556c420aa4</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

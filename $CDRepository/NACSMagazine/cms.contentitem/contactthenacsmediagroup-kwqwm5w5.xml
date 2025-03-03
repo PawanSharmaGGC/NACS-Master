@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemChannelID>
+    <CodeName>NACSMagazine</CodeName>
+    <GUID>eecfdedc-a92f-48b7-9daa-eab81c106019</GUID>
+    <ObjectType>cms.channel</ObjectType>
+  </ContentItemChannelID>
+  <ContentItemContentTypeID>
+    <CodeName>NACSMagazine.LandingPage</CodeName>
+    <GUID>5068cb57-f300-45d6-b038-c429dbacb4cf</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>4bf3d158-0364-4d85-ad0e-daea0596608f</ContentItemGUID>
+  <ContentItemIsReusable>False</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>ContactTheNACSMediaGroup-kwqwm5w5</ContentItemName>
+</cms.contentitem>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.navsecondlevel>
+  <ContentItemDataCommonDataID>
+    <GUID>f1dfd2a4-caec-4f76-a476-e834a9906931</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>SpeakAtThe2025NACSShow-hrgt5scm</CodeName>
+      <GUID>74474c14-5f1f-4a52-aa4d-67650fe1d428</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>8a766b12-2997-42d1-9872-424508302c2f</ContentItemDataGUID>
+  <Title>Speak at the 2025 NACS Show</Title>
+  <URL>
+    <![CDATA[https://www.convenience.org/events/Engagement-in-NACS-Education]]>
+  </URL>
+</contentitemdata.nacsshow.navsecondlevel>

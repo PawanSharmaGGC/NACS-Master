@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.categorypage>
+  <ArticleList />
+  <ContentItemDataCommonDataID>
+    <GUID>73774f0d-7804-4a0d-9878-70487f8a9fb2</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>CategoryManagement-7o0ven4f</CodeName>
+      <GUID>ac833c47-6e4a-46cc-a768-3e745e90b928</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>2bceea1c-5669-43fc-9072-443854580122</ContentItemDataGUID>
+  <PageNumber>0</PageNumber>
+  <PageSize>0</PageSize>
+  <SelectedYear />
+  <Title>Category Management</Title>
+  <TotalPages>0</TotalPages>
+  <Years />
+</contentitemdata.nacsmagazine.categorypage>

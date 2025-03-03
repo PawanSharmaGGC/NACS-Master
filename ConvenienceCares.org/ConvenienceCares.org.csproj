@@ -1,0 +1,181 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+	  <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\**" />
+    <Compile Remove="Configuration\**" />
+    <Compile Remove="PageTemplates\Operations\**" />
+    <Compile Remove="Properties\**" />
+    <Content Remove="Areas\**" />
+    <Content Remove="Configuration\**" />
+    <Content Remove="PageTemplates\Operations\**" />
+    <Content Remove="Properties\**" />
+    <EmbeddedResource Remove="Areas\**" />
+    <EmbeddedResource Remove="Configuration\**" />
+    <EmbeddedResource Remove="PageTemplates\Operations\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Areas\**" />
+    <None Remove="Configuration\**" />
+    <None Remove="PageTemplates\Operations\**" />
+    <Compile Remove="Properties\**" />
+    <Content Remove="Areas\**" />
+    <Content Remove="Configuration\**" />
+    <Content Remove="Properties\**" />
+    <EmbeddedResource Remove="Areas\**" />
+    <EmbeddedResource Remove="Configuration\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Areas\**" />
+    <None Remove="Configuration\**" />
+    <None Remove="Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Components\Widgets\FormWidgetProperties.cs" />
+    <Compile Remove="Configuration\ServiceCollectionAppExtensions.cs" />
+    <Compile Remove="Interface\Services\IAssetItemService.cs" />
+    <Compile Remove="Models\AssetViewModel.cs" />
+    <Compile Remove="Models\FormWidgetViewModel.cs" />
+    <Compile Remove="Operations\NACSFoundationPageQuery.cs" />
+    <Compile Remove="PageContentTypes\Page.generated.cs" />
+    <Compile Remove="PageContentTypes\ReusableFieldSchemas\ISocialMetaTags.generated.cs" />
+    <Compile Remove="Program.cs" />
+    <Compile Remove="Services\AssetItemService.cs" />
+    <Compile Remove="Program.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="appsettings.json" />
+    <Content Remove="Features\Shared\_Layout.cshtml" />
+    <Content Remove="_ViewImports.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Components\ViewComponents\Convenience\PageTitle\PageTitle.cshtml" />
+    <None Include="Components\ViewComponents\Footer\Footer.cshtml" />
+    <None Include="Components\ViewComponents\MenuItem\MenuItem.cshtml" />
+    <None Include="Components\ViewComponents\NACSFoundation\HomePageTitle\HomePageTitle.cshtml" />
+    <None Include="Components\ViewComponents\SocialLinks\SocialLink.cshtml" />
+    <None Include="Components\ViewComponents\SocialMetaTags\SocialMetaTag.cshtml" />
+    <None Include="Components\Widgets\AwarenessCampaignForm\_AwarenessCampaignForm.cshtml" />
+    <None Include="Components\Widgets\ContactForm\_ContactForm.cshtml" />
+    <None Include="Components\Widgets\CorporateInvolvementForm\_CorporateInvolvementForm.cshtml" />
+    <None Include="Components\Widgets\GetInvolvedForm\_GetInvolvedForm.cshtml" />
+    <None Include="Components\Widgets\NACSFoundation_24_7DayForm\_NACS_24_7DayForm.cshtml" />
+    <None Include="Components\Widgets\SponsorNACSFoundationForm\_SponsorNACSForm.cshtml" />
+    <None Include="Features\Shared\ConvenienceCares\_Layout.cshtml" />
+    <None Include="Features\Shared\_MenuItemPartial.cshtml" />
+    <None Include="Features\_ViewStart.cshtml" />
+    <None Include="PageTemplates\NACSFoundation24_7DayPage\_NACSFoundation24_7DayPage.cshtml" />
+    <None Include="PageTemplates\NACSFoundationAwarenessCampaign\_NACSFoundationAwarenessCampaign.cshtml" />
+    <None Include="PageTemplates\NACSFoundationContactPage\_NACSFoundationContactPage.cshtml" />
+    <None Include="PageTemplates\NACSFoundationHomePage\_NACSFoundationHomePage.cshtml" />
+    <None Include="PageTemplates\NACSFoundationLandingPage\_NACSFoundationLandingPage.cshtml" />
+    <None Include="PageTemplates\NACSFoundationProgramLandingPage\_NACSFoundationProgramLanding.cshtml" />
+    <None Include="PageTemplates\NACSFoundationScholarshipPage\_NACSFoundationScholarshipPage.cshtml" />
+    <None Include="PageTemplates\NACSFoundationWide\_NACSFoundationWide.cshtml" />
+    <None Include="PageTemplates\NACSLandingWideNoSidebarAdsPage\_NACSLandingWideNoSidebarAdsPage.cshtml" />
+    <None Include="wwwroot\img\header-bottom-shape.svg" />
+    <None Include="wwwroot\img\icon-social-fb.svg" />
+    <None Include="wwwroot\img\icon-social-tw.svg" />
+    <None Include="wwwroot\img\Icon_17.svg" />
+    <None Include="wwwroot\img\Icon_apple.svg" />
+    <None Include="wwwroot\img\Icon_clock.svg" />
+    <None Include="wwwroot\img\Icon_coffee-grey.svg" />
+    <None Include="wwwroot\img\Icon_cstore.svg" />
+    <None Include="wwwroot\img\Icon_employee.svg" />
+    <None Include="wwwroot\img\Icon_forkup-grey.svg" />
+    <None Include="wwwroot\img\Icon_graduation.svg" />
+    <None Include="wwwroot\img\Icon_handgive.svg" />
+    <None Include="wwwroot\img\Icon_Heart-2.svg" />
+    <None Include="wwwroot\img\Icon_heart-grey.svg" />
+    <None Include="wwwroot\img\Icon_Heart.svg" />
+    <None Include="wwwroot\img\Icon_highway.svg" />
+    <None Include="wwwroot\img\Icon_home.svg" />
+    <None Include="wwwroot\img\Icon_hospital.svg" />
+    <None Include="wwwroot\img\Icon_moneybag.svg" />
+    <None Include="wwwroot\img\Icon_people.svg" />
+    <None Include="wwwroot\img\Icon_phonehand.svg" />
+    <None Include="wwwroot\img\Icon_recycle.svg" />
+    <None Include="wwwroot\img\Icon_speechround.svg" />
+    <None Include="wwwroot\img\Icon_us.svg" />
+    <None Include="wwwroot\img\logo-community.svg" />
+    <None Include="wwwroot\img\logo-future.svg" />
+    <None Include="wwwroot\img\logo-nacs-foundation.svg" />
+    <None Include="wwwroot\img\logo-neighborhood.svg" />
+    <None Include="wwwroot\img\logo-racetrac.svg" />
+    <None Include="wwwroot\img\logo-response.svg" />
+    <None Include="wwwroot\img\logo-sheetz.svg" />
+    <None Include="wwwroot\img\logo-tomorrow.svg" />
+    <None Include="wwwroot\img\logo-wawa.svg" />
+    <None Include="wwwroot\img\Logo_Allsups.jpg_Zone.Identifier" />
+    <None Include="wwwroot\img\Logo_ampm_RGB.svg" />
+    <None Include="wwwroot\img\Logo_BP.svg" />
+    <None Include="wwwroot\img\Logo_CFCA_RGB.svg" />
+    <None Include="wwwroot\img\Logo_extramile_RGB.svg" />
+    <None Include="wwwroot\img\Logo_GSTV_2018_RGB.png_Zone.Identifier" />
+    <None Include="wwwroot\img\Logo_GSTV_RGB.svg" />
+    <None Include="wwwroot\img\Logo_Loop_RGB.svg" />
+    <None Include="wwwroot\img\Logo_Primary_RaceTrac_2017_Web.png_Zone.Identifier" />
+    <None Include="wwwroot\img\Logo_Racetrac_RGB.svg" />
+    <None Include="wwwroot\img\Logo_Sheetz_RGB 2.svg" />
+    <None Include="wwwroot\img\Logo_Sheetz_RGB.svg" />
+    <None Include="wwwroot\img\Logo_shell_RGB.svg" />
+    <None Include="wwwroot\img\Logo_Sudden_Service.png_Zone.Identifier" />
+    <None Include="wwwroot\img\Logo_thorntons.svg" />
+    <None Include="wwwroot\img\Logo_Twice_Daily.png_Zone.Identifier" />
+    <None Include="wwwroot\img\Logo_WaWa_RGB.svg" />
+    <None Include="wwwroot\img\Logo_Yesway.svg" />
+    <None Include="wwwroot\img\NACSFoundation_logo-white_RGB.svg" />
+    <None Include="wwwroot\img\NACSFoundation_logo_RGB.svg" />
+    <None Include="wwwroot\img\program-logo-cc.svg" />
+    <None Include="wwwroot\img\program-logo-ff.svg" />
+    <None Include="wwwroot\img\program-logo-nn.svg" />
+    <None Include="wwwroot\img\program-logo-rr.svg" />
+    <None Include="wwwroot\img\program-logo-tt.svg" />
+    <None Include="wwwroot\img\svg-arrow.svg" />
+    <None Include="wwwroot\img\svg-countries.svg" />
+    <None Include="wwwroot\img\svg-customers.svg" />
+    <None Include="wwwroot\img\svg-nationwide.svg" />
+    <None Include="wwwroot\img\Wakepoint_fff_color.png_Zone.Identifier" />
+    <None Include="wwwroot\img\Yesway_4C_5Sprites.jpg_Zone.Identifier" />
+    <None Include="wwwroot\js\customform.js" />
+    <None Include="wwwroot\js\jquery.cycle2.caption2.min.js" />
+    <None Include="wwwroot\js\jquery.cycle2.min.js" />
+    <None Include="wwwroot\js\jquery.cycle2.swipe.min.js" />
+    <None Include="wwwroot\js\jquery.easing.1.3.js" />
+    <None Include="wwwroot\js\master.js" />
+    <None Include="wwwroot\js\WideNoSideBarPageTemplate.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Kentico.Xperience.Admin" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.AzureStorage" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.Cloud" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.ImageProcessing" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.Lucene" Version="10.0.0" />
+    <PackageReference Include="Kentico.Xperience.TagManager" Version="3.2.1" />
+    <PackageReference Include="Kentico.Xperience.WebApp" Version="29.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NACS.Portal.Core\NACS.Portal.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="PageContentTypes\ReusableFieldSchemas\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NACS.Portal.Core\NACS.Portal.Core.csproj" />
+  </ItemGroup>
+</Project>

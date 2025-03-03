@@ -1,0 +1,43 @@
+﻿@using NACSShow.Components.ViewComponents.SpeakerSearch
+@using Kentico.Content.Web.Mvc.PageBuilder
+@using NACSShow
+
+
+<vc:current-page-data />
+@{
+    Layout = "/Features/Shared/NACSShow/_Layout.cshtml";
+    Page currentPageData = TempData["CurrentPageData"] as Page ?? new Page();
+} 
+
+
+
+
+<section class="row center-xs margins-none">
+    <div class="container-fluid">
+        <div class="row center-xs">
+            <div class="col-xs-12">
+                <h1 class="detail-title">
+                    @Html.Raw((string.IsNullOrEmpty(currentPageData.SectionHeader)) ? currentPageData.Title : currentPageData.SectionHeader)
+                </h1>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                @Html.Raw(currentPageData.SubHead)
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="detail container">
+
+    <div class="row center-xs section--margins">
+        <div class="col-12 main-content">
+            <div class="row">
+                <div class="col-12">
+                    @Html.Raw(currentPageData.PageContent)
+                    <vc:speaker-search />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.issue>
+  <ContentItemDataCommonDataID>
+    <GUID>1b6d763e-7812-4ea5-b36c-8f7758db1fc6</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>June2024-m3sjrap2</CodeName>
+      <GUID>6f3e7644-f90f-4bd6-87f2-b512e4336f54</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>cb1d7d4c-fec8-4289-aa1a-e385b948505f</ContentItemDataGUID>
+  <DigitalIssueLink>
+    <![CDATA[https://issuu.com/nacsmagazine/docs/nacs_june2024_issuu]]>
+  </DigitalIssueLink>
+  <IssueDate>2024-06-01 04:00:00Z</IssueDate>
+  <IssueIntro>
+    <![CDATA[<p>Find exclusive coverage of all the insights and data revealed at the 2024 NACS State of the Industry Summit in this issue of NACS Magazine. From prepared food to operational and financial peformance, we're recapping a record year of inside sales in 2023, as well as what to keep an eye on the remainder of this year.</p>]]>
+  </IssueIntro>
+  <MagazineCover>
+    <![CDATA[{"Identifier":"851da716-f23f-4287-8bb5-eaa609b62d73","Name":"NACS_June2024_HiRes_Singles-1.jpg","Extension":".jpg","Size":1042320,"LastModified":"2024-07-01T22:37:15.9143382Z"}]]>
+  </MagazineCover>
+  <Title>June 2024</Title>
+</contentitemdata.nacsmagazine.issue>

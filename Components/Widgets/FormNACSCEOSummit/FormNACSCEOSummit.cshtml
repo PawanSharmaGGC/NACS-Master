@@ -1,0 +1,139 @@
+﻿@using Convenience.org.Components.Widgets.FormNACSCEOSummit
+@model FormNACSCEOSummitViewModel
+
+<div>
+    <div class="m-lg-2 card border-0">
+        <div class="card-body">
+            <p class="text-start pt-3 card-text">
+                <h6 class="color-0053A5 fw-normal fs-4">2024 NACS CEO Summits</h6>
+            <p class="fw-light">
+                A premier, invitation-only experience for CEOs. Please fill out the form below to request an invitation to one of the three upcoming 2024 NACS CEO summits.
+            </p>
+
+            <p class="card-text">
+                <form class="text-start FormTransStyle-module__form_trans" asp-action="FormNACSCEOSummit" asp-controller="FormNACSCEOSummitWidget" asp-antiforgery="true" id="form">
+                    <!-- First Row: First Name & Last Name -->
+                    <div class="mb-3 row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div>
+                                <label class="form-label" asp-for="FirstName">First Name</label>
+                                <input asp-for="FirstName" required class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div>
+                                <label class="form-label" asp-for="LastName">Last Name</label>
+                                <input asp-for="LastName" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Second Row: Email & Company Name -->
+                    <div class="mb-3 row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="mb-3">
+                                <label class="form-label" asp-for="Email"></label>
+                                <input asp-for="Email" type="email" required class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="mb-3">
+                                <label class="form-label" asp-for="CompanyName">Company Name</label>
+                                <input asp-for="CompanyName" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Third Row: Dropdown -->
+                    <div class="mb-3 row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="col">
+                                <label class="form-label" asp-for="DropDown"></label>
+                                <select asp-for="DropDown" class="form-control" id="formGridDropdown">
+                                    <option selected="selected">option1</option>
+                                    <option>option2</option>
+                                    <option>option3</option>
+                                    <option>option4</option>
+                                    <option>option5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="mb-3">
+                        <div>
+                            <button type="submit" class="color-FFFFFF bg-0053A5 p-3 border border-0 brdr-rad-30 text-decoration-none">
+                                <span class="color-FFFFFF pe-2 ps-2 fw-medium undefined">View all fuel</span>
+                                <i class="align-middle color-FFFFFF fa-regular fa-arrow-right-long" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="position-fixed top-0 end-0 p-3 z-1" id="toastContainer">
+    <div class="toast bg-DBEAB9 text-light" id="successToast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body p-3">
+            <p class="color-0053A5 fs-5 text-start m-0 mb-2">Form Submitted!</p>
+            <p id="toastMessage" class="color-000000 text-start m-0">You have submitted NACS CEO Summit, See you there!</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("form");
+        const successToast = new bootstrap.Toast(document.getElementById("successToast"));
+        const toastMessage = document.getElementById("toastMessage");
+
+        if (!form) {
+            console.error("Form element not found!");
+            return;
+        }
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            console.log("Form submission intercepted.");
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest"
+                    }
+                });
+
+                if (!response.ok) {
+                    console.error("Server returned an error response:", response.status);
+                    alert("An error occurred while submitting the form. Please try again.");
+                    return;
+                }
+
+                const result = await response.json();
+                console.log("Server response:", result);
+
+                if (result.success) {
+                    toastMessage.textContent = result.message || "You have submitted NACS CEO Summit, See you there!";
+                    successToast.show();
+                    form.reset(); // Reset the form if needed
+                    setTimeout(() => {
+                        successToast.hide(); // Hide the toast after 3 seconds
+                    }, 3000);
+                } else {
+                    alert(result.message || "An error occurred.");
+                }
+            } catch (error) {
+                console.error("Fetch error:", error);
+                alert("An unexpected error occurred. Please try again.");
+            }
+        });
+    });
+</script>

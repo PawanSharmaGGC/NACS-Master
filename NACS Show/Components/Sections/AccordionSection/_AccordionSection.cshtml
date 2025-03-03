@@ -1,0 +1,38 @@
+﻿@using Kentico.Web.Mvc
+@using Kentico.PageBuilder.Web.Mvc
+@using NACSShow.Components.Sections
+
+@model ComponentViewModel<AccordionSectionProperties>
+
+@{
+    var sectionWidth = !string.IsNullOrEmpty(Model.Properties.SectionWidth) ? $"width:{Model.Properties.SectionWidth}" : "";
+}
+
+
+<section class="row center-xs schedule--accordion">
+    <div class="accordion" style="@sectionWidth">
+        @for (int i = 0; i < Model.Properties.AccordionItems; i++)
+        {
+            var headZoneId = $"WidgetHeadingZone{i}";
+            var bodyZoneId = $"WidgetBodyZone{i}";
+            <div class="accordion--header padding-left-md @(i==0?"margin-bottom-sm":"")">
+                <a class="accordion--link" href="javascript:void(0)">
+                    <span>@await Html.Kentico().WidgetZoneAsync(@headZoneId)</span>
+                    <img class="accordion--chevron-down" src="~/_content/NACSShow/img/chevron-down-green.png" />
+                </a>
+            </div>
+            <div class="accordion--item">
+                @await Html.Kentico().WidgetZoneAsync(@bodyZoneId)
+            </div>
+        }
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        var $window = $(window);
+        if ($window.width() > 960) {
+            $(".accordion--item").show();
+        }
+    });//(jQuery);
+</script>

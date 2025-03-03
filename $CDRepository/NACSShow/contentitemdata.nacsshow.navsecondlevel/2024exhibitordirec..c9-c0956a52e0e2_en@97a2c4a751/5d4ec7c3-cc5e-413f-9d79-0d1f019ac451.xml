@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.navsecondlevel>
+  <ContentItemDataCommonDataID>
+    <GUID>44c173d3-cf80-4254-94c9-c0956a52e0e2</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>2024ExhibitorDirectory-buiujb9e</CodeName>
+      <GUID>fdb1550b-6d1a-4139-bb7f-ac025a6985ef</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>5d4ec7c3-cc5e-413f-9d79-0d1f019ac451</ContentItemDataGUID>
+  <Title>2024 Exhibitor Directory</Title>
+  <URL>https://nacs24.mapyourshow.com/8_0</URL>
+</contentitemdata.nacsshow.navsecondlevel>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kenticolucene.lucenecontenttypeitem>
+  <LuceneContentTypeItemContentTypeName>NACSShow.Workshop</LuceneContentTypeItemContentTypeName>
+  <LuceneContentTypeItemGuid>5a746f67-01d8-4c38-9eb3-2d5eba9bf3e9</LuceneContentTypeItemGuid>
+  <LuceneContentTypeItemIncludedPathItemId>
+    <GUID>55dadb5d-45b2-485f-be09-4cc27faf9ccb</GUID>
+    <ObjectType>kenticolucene.luceneincludedpathitem</ObjectType>
+  </LuceneContentTypeItemIncludedPathItemId>
+  <LuceneContentTypeItemIndexItemId>
+    <CodeName>NS_SESSION_SEARCH</CodeName>
+    <GUID>0f405c4b-e7ab-4df6-85b9-88d90c8eb464</GUID>
+    <ObjectType>kenticolucene.luceneindexitem</ObjectType>
+  </LuceneContentTypeItemIndexItemId>
+</kenticolucene.lucenecontenttypeitem>

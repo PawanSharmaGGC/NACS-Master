@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Website</ClassContentTypeType>
+  <ClassDisplayName>NMArticlePage</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="805ec638-7142-4f2c-92e6-bd2f7e76b434" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="93a01b33-8f0f-4256-9056-9a86ca02a99c" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="5886657c-4c6b-4a68-ac9c-93daa5663fbf" isunique="true" system="true" />
+      <field allowempty="true" column="ArticleContent" columnprecision="0" columntype="contentitemreference" enabled="true" guid="37d76705-9061-4e9f-b5ab-1ae356ed1800" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Article Content Item</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["bfc216b1-7940-4f1b-9085-01ec7902d4ff"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <SelectionType>contentTypes</SelectionType>
+        </settings>
+      </field>
+      <field allowempty="true" column="EditorsPicks" columnprecision="0" columntype="contentitemreference" enabled="true" guid="4b967194-d00b-4633-ab1b-dd9b7132c9b1" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>
+            <![CDATA[Editor's Picks]]>
+          </fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["bfc216b1-7940-4f1b-9085-01ec7902d4ff"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <SelectionType>contentTypes</SelectionType>
+        </settings>
+      </field>
+      <field allowempty="true" column="YouMayAlsoLikeArticles" columnprecision="0" columntype="contentitemreference" enabled="true" guid="e7d41e66-19f3-4327-8307-42f8817b64ef" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>YouMayAlsoLikeArticles</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["bfc216b1-7940-4f1b-9085-01ec7902d4ff"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <SelectionType>contentTypes</SelectionType>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>3d1ca966-73b3-4339-97b7-1aa84de9c073</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-lines-rectangle</ClassIconClass>
+  <ClassName>NACSMagazine.ArticlePage</ClassName>
+  <ClassTableName>NACSMagazine_ArticlePage</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
+</cms.contenttype>

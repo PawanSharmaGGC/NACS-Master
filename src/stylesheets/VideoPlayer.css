@@ -1,0 +1,74 @@
+/* Hide the default Video.js icons */
+.vjs-play-control .vjs-icon-placeholder,
+.vjs-volume-menu-button .vjs-icon-placeholder,
+.vjs-fullscreen-control .vjs-icon-placeholder {
+    display: none !important;
+}
+
+/* Replace the play button with Font Awesome icon */
+.vjs-big-play-button:before {
+    font-family: "Font Awesome 6 Pro" !important;
+    content: "\f04b" !important; /* Font Awesome play icon */
+    font-weight: 900 !important;
+}
+
+/* Replace the pause button with Font Awesome icon */
+.vjs-paused .vjs-play-control:before {
+    font-family: "Font Awesome 6 Pro" !important;
+    content: "\f04b" !important; /* Font Awesome pause icon */
+}
+
+/* Replace the play button with Font Awesome icon */
+.vjs-playing .vjs-play-control:before {
+    font-family: "Font Awesome 6 Pro" !important;
+    content: "\f04c" !important; /* Font Awesome pause icon */
+}
+
+/* Replace the fullscreen button with Font Awesome icon */
+.vjs-fullscreen-control:before {
+    font-family: "Font Awesome 6 Pro" !important;
+    content: "\f065" !important; /* Font Awesome expand icon */
+}
+
+/* Replace the volume icon with Font Awesome icon */
+.vjs-mute-control:before {
+    font-family: "Font Awesome 6 Pro" !important;
+    content: "\f028" !important; /* Font Awesome volume icon */
+}
+
+.video-js .vjs-big-play-button{
+    line-height: 1.9em !important;
+    height: 2em !important;
+    width: 2em !important;
+    backdrop-filter: blur(10px);
+    border-radius: 100% !important;
+    padding: 0px 0px 0px 7px !important;
+    z-index: 1;
+}
+
+.vjs-tech{
+    border-radius: 18px;
+}
+
+.vjs-control-bar{
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+.vjs-poster img {
+    /* width: auto;
+    height: auto; */
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+@media only screen and (max-width: 480px) {
+    /* .vjs-poster img {
+        width: 100vw;
+    } */
+    
+    .slider_video .vjs-big-play-button {
+        top: 45% !important;
+        left: 58% !important;
+    }
+}

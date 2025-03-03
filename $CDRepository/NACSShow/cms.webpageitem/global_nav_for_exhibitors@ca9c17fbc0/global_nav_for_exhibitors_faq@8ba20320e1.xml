@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>FAQ-1ow6v6w8</CodeName>
+    <GUID>3d1b47dd-aa26-45ed-9b9a-a25bf28c9691</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>4685a723-81f7-4919-b873-b8892e28e456</WebPageItemGUID>
+  <WebPageItemName>FAQ-1ow6v6w8</WebPageItemName>
+  <WebPageItemOrder>6</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>ForExhibitors-o568uk16</CodeName>
+    <GUID>6b91a0da-92ea-4da6-a19f-9e4c1a37e55e</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>/Global_Nav/For_Exhibitors/FAQ</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>0ba89fef-3be8-4973-83d2-c5cbbcb227cf</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSShow</CodeName>
+      <GUID>2083f08a-0932-4059-8087-f0556c420aa4</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

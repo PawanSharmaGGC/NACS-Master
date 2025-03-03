@@ -1,0 +1,186 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <RootNamespace>NACSShow</RootNamespace>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\**" />
+    <Compile Remove="Components\GlobalNavigation\**" />
+    <Compile Remove="Components\Widgets\AttendeeDirectoryWidget\**" />
+    <Compile Remove="Components\Widgets\AttendeePortalWidget\**" />
+    <Compile Remove="Components\Widgets\AttendeeRegistrationStartWidget\**" />
+    <Compile Remove="Components\Widgets\ExhibitorApplicationWidget\**" />
+    <Compile Remove="Components\Widgets\ExhibitorAppointedContractorApplicationsWidget\**" />
+    <Compile Remove="Components\Widgets\ExhibitorAppointedContractorsWidget\**" />
+    <Compile Remove="Components\Widgets\ExhibitorPortal\**" />
+    <Compile Remove="Components\Widgets\ExhibitorPortal_v2Widget\**" />
+    <Compile Remove="Components\Widgets\ExhibitorPortal_v3Widget\**" />
+    <Compile Remove="Components\Widgets\LoginRetrievalWidget\**" />
+    <Compile Remove="Components\Widgets\MyNACSShow_SaveItemWidget\**" />
+    <Compile Remove="Components\Widgets\MyNACSShow_SaveItem_TransformationsWidget\**" />
+    <Compile Remove="Components\Widgets\NACSShow_LoginRetrievalWidget\**" />
+    <Compile Remove="Components\Widgets\RequestProspectusWidget\**" />
+    <Compile Remove="Components\Widgets\RSVPForm_JointSessionWidget\**" />
+    <Compile Remove="Components\Widgets\VisaLetterRequestWidget\**" />
+    <Compile Remove="Helpers\**" />
+    <Compile Remove="PageContentTypes\**" />
+    <Compile Remove="Properties\**" />
+    <Compile Remove="Views\**" />
+    <Content Remove="Areas\**" />
+    <Content Remove="Components\GlobalNavigation\**" />
+    <Content Remove="Components\Widgets\AttendeeDirectoryWidget\**" />
+    <Content Remove="Components\Widgets\AttendeePortalWidget\**" />
+    <Content Remove="Components\Widgets\AttendeeRegistrationStartWidget\**" />
+    <Content Remove="Components\Widgets\ExhibitorApplicationWidget\**" />
+    <Content Remove="Components\Widgets\ExhibitorAppointedContractorApplicationsWidget\**" />
+    <Content Remove="Components\Widgets\ExhibitorAppointedContractorsWidget\**" />
+    <Content Remove="Components\Widgets\ExhibitorPortal\**" />
+    <Content Remove="Components\Widgets\ExhibitorPortal_v2Widget\**" />
+    <Content Remove="Components\Widgets\ExhibitorPortal_v3Widget\**" />
+    <Content Remove="Components\Widgets\LoginRetrievalWidget\**" />
+    <Content Remove="Components\Widgets\MyNACSShow_SaveItemWidget\**" />
+    <Content Remove="Components\Widgets\MyNACSShow_SaveItem_TransformationsWidget\**" />
+    <Content Remove="Components\Widgets\NACSShow_LoginRetrievalWidget\**" />
+    <Content Remove="Components\Widgets\RequestProspectusWidget\**" />
+    <Content Remove="Components\Widgets\RSVPForm_JointSessionWidget\**" />
+    <Content Remove="Components\Widgets\VisaLetterRequestWidget\**" />
+    <Content Remove="Helpers\**" />
+    <Content Remove="PageContentTypes\**" />
+    <Content Remove="Properties\**" />
+    <Content Remove="Views\**" />
+    <EmbeddedResource Remove="Areas\**" />
+    <EmbeddedResource Remove="Components\GlobalNavigation\**" />
+    <EmbeddedResource Remove="Components\Widgets\AttendeeDirectoryWidget\**" />
+    <EmbeddedResource Remove="Components\Widgets\AttendeePortalWidget\**" />
+    <EmbeddedResource Remove="Components\Widgets\AttendeeRegistrationStartWidget\**" />
+    <EmbeddedResource Remove="Components\Widgets\ExhibitorApplicationWidget\**" />
+    <EmbeddedResource Remove="Components\Widgets\ExhibitorAppointedContractorApplicationsWidget\**" />
+    <EmbeddedResource Remove="Components\Widgets\ExhibitorAppointedContractorsWidget\**" />
+    <EmbeddedResource Remove="Components\Widgets\ExhibitorPortal\**" />
+    <EmbeddedResource Remove="Components\Widgets\ExhibitorPortal_v2Widget\**" />
+    <EmbeddedResource Remove="Components\Widgets\ExhibitorPortal_v3Widget\**" />
+    <EmbeddedResource Remove="Components\Widgets\LoginRetrievalWidget\**" />
+    <EmbeddedResource Remove="Components\Widgets\MyNACSShow_SaveItemWidget\**" />
+    <EmbeddedResource Remove="Components\Widgets\MyNACSShow_SaveItem_TransformationsWidget\**" />
+    <EmbeddedResource Remove="Components\Widgets\NACSShow_LoginRetrievalWidget\**" />
+    <EmbeddedResource Remove="Components\Widgets\RequestProspectusWidget\**" />
+    <EmbeddedResource Remove="Components\Widgets\RSVPForm_JointSessionWidget\**" />
+    <EmbeddedResource Remove="Components\Widgets\VisaLetterRequestWidget\**" />
+    <EmbeddedResource Remove="Helpers\**" />
+    <EmbeddedResource Remove="PageContentTypes\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <EmbeddedResource Remove="Views\**" />
+    <None Remove="Areas\**" />
+    <None Remove="Components\GlobalNavigation\**" />
+    <None Remove="Components\Widgets\AttendeeDirectoryWidget\**" />
+    <None Remove="Components\Widgets\AttendeePortalWidget\**" />
+    <None Remove="Components\Widgets\AttendeeRegistrationStartWidget\**" />
+    <None Remove="Components\Widgets\ExhibitorApplicationWidget\**" />
+    <None Remove="Components\Widgets\ExhibitorAppointedContractorApplicationsWidget\**" />
+    <None Remove="Components\Widgets\ExhibitorAppointedContractorsWidget\**" />
+    <None Remove="Components\Widgets\ExhibitorPortal\**" />
+    <None Remove="Components\Widgets\ExhibitorPortal_v2Widget\**" />
+    <None Remove="Components\Widgets\ExhibitorPortal_v3Widget\**" />
+    <None Remove="Components\Widgets\LoginRetrievalWidget\**" />
+    <None Remove="Components\Widgets\MyNACSShow_SaveItemWidget\**" />
+    <None Remove="Components\Widgets\MyNACSShow_SaveItem_TransformationsWidget\**" />
+    <None Remove="Components\Widgets\NACSShow_LoginRetrievalWidget\**" />
+    <None Remove="Components\Widgets\RequestProspectusWidget\**" />
+    <None Remove="Components\Widgets\RSVPForm_JointSessionWidget\**" />
+    <None Remove="Components\Widgets\VisaLetterRequestWidget\**" />
+    <None Remove="Helpers\**" />
+    <None Remove="PageContentTypes\**" />
+    <None Remove="Properties\**" />
+    <None Remove="Views\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\Generated\PageContentTypes\EventPage.generated.cs" />
+    <Compile Remove="Program.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="appsettings.json" />
+    <Content Remove="Features\AttendeeDirectory\AttendeeDirectory.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Components\Widgets\ExhibitorPortal\ExhibitorPortalViewModel.cs" />
+    <Compile Include="Components\Widgets\LoginRetrievalWidget\LoginRetrievalWidgetViewModel.cs" />
+  </ItemGroup>
+
+
+  <!--<ItemGroup>
+    <Compile Include="Components\Widgets\LoginRetrievalWidget\LoginRetrievalFormPostController.cs" />
+    <Compile Include="Components\Widgets\LoginRetrievalWidget\LoginRetrievalWidgetViewComponent.cs" />
+    <Compile Include="Components\Widgets\LoginRetrievalWidget\LoginRetrievalWidgetViewModel.cs" />
+  </ItemGroup>-->
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Components\Widgets\LoginRetrievalWidget\Index.cshtml" />
+    <Content Include="Components\Widgets\ExhibitorPortal\_ExhibitorPortal.cshtml" />
+    <None Include="Features\AttendeeDirectory\AttendeeDirectory.cshtml" />
+    <None Include="Features\AttendeeDirectory\ContentTypes\AttendeeDirectory.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.12.0" />
+    <PackageReference Include="Kentico.Xperience.Admin" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.AzureStorage" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.Cloud" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.Core" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.ImageProcessing" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.Lucene" Version="10.0.0" />
+    <PackageReference Include="Kentico.Xperience.TagManager" Version="3.2.1" />
+    <PackageReference Include="Kentico.Xperience.WebApp" Version="29.5.3" />
+    <PackageReference Include="Lucene.Net.QueryParser" Version="4.8.0-beta00017" />
+    <PackageReference Include="System.Data.Common" Version="4.3.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.10.3" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.10.3" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NACS.Portal.Core\NACS.Portal.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Components\ViewComponents\GlobalSearch\" />
+    <Folder Include="Repositories\General\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CatalystFire.Ignition">
+      <HintPath>..\lib\CatalystFire.Ignition.dll</HintPath>
+    </Reference>
+    <Reference Include="GemBox.Spreadsheet">
+      <HintPath>..\lib\GemBox.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="NACS.Connector">
+      <HintPath>..\lib\NACS.Connector.dll</HintPath>
+    </Reference>
+    <Reference Include="NACS.Helper">
+      <HintPath>..\lib\NACS.Helper.dll</HintPath>
+    </Reference>
+    <Reference Include="NACS.Protech">
+      <HintPath>..\lib\NACS.Protech.dll</HintPath>
+    </Reference>
+    <Reference Include="NACS_Classes">
+      <HintPath>..\lib\NACS_Classes.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+
+
+</Project>

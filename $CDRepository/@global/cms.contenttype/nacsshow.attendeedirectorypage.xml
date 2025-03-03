@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Website</ClassContentTypeType>
+  <ClassDisplayName>NSAttendee-DirectoryPage</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="c072f4e8-1cc8-40ab-9cf5-ade2b09f6899" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="31e8582f-f7b3-4f63-aaf4-3c8be7acac1d" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="4306be00-ffad-4696-a729-9acae609a778" isunique="true" system="true" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>fac0a6e6-323a-4673-b47b-913db5f9f938</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassName>NACSShow.AttendeeDirectoryPage</ClassName>
+  <ClassTableName>NACS_AttendeeDirectoryPage</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
+</cms.contenttype>

@@ -1,0 +1,40 @@
+﻿@using Convenience.org.Models
+
+@model TestimonialViewModel
+
+
+@if (Model != null && Model.TestimonialItems != null && Model.TestimonialItems.Any())
+{
+    <div class="p-3 SingleTestimonialStyle-module__main_card card">
+        @if (Model.TestimonialItems.Any())
+        {
+            var testimonial = Model.TestimonialItems.FirstOrDefault();
+            <div class="d-flex flex-column overflow-auto">
+                <div class="flex-card border border-0 mb-3 card">
+                    <div class="p-0 SingleTestimonialStyle-module__section_card_body card-body">
+                        <div class="text-start p-4">
+                            <div class="mb-2"><i class="fa-solid fa-quote-left color-0053A5 fa-2xl" aria-hidden="true"></i></div>
+                            <div class="fs-5 mb-2 color-002569">@Html.Raw(testimonial.Text)</div>
+                            <div class="color-000000">@testimonial.Author</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="mt-5">
+            @{
+                var backToLogButtonModel = new Convenience.org.Models.ButtonsViewModel
+                {
+                    ButtonText = Model.CTAText,
+                    ButtonURL = Model.CTAUrl,
+                    ButtonType = Convenience.org.Models.ButtonTypeEnum.BackToLog,
+                    RightIconColor = "color-DC241F",
+                    RightIconName = "fa-arrow-right",
+                    RightIconType = "fa-regular",
+                    ButtonBGColor = "color-DC241F"
+                };
+            }
+            @await Component.InvokeAsync("Buttons", new { model = backToLogButtonModel })
+        </div>
+    </div>
+}

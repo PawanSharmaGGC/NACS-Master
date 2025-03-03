@@ -1,0 +1,67 @@
+﻿@using Convenience.org.Models
+@model Convenience.org.Models.ButtonsViewModel
+
+@if (Model != null)
+{
+    var buttonType = Model.ButtonType;
+    var buttonText = Model.ButtonText;
+    var url = Model.ButtonURL;
+    var buttonTextColor = Model.ButtonTextColor;
+    var leftIconType = Model.LeftIconType;
+    var leftIconName = Model.LeftIconName;
+    var leftIconColor = Model.LeftIconColor;
+    var rightIconType = Model.RightIconType;
+    var rightIconName = Model.RightIconName;
+    var rightIconColor = Model.RightIconColor;
+    var buttonBGColor = Model.ButtonBGColor;
+
+
+    @if (buttonType ==  ButtonTypeEnum.TextLinkButton)
+    {
+        <a href="@url" class="fs-5 color-396a99 pointer text-decoration-none">
+            <span class="d-inline-block pe-1 fw-medium @buttonTextColor">@buttonText</span>
+            <span class="align-middle"><i class="@rightIconColor @rightIconType @rightIconName"></i></span>
+        </a>
+    }
+    else if (buttonType ==  ButtonTypeEnum.SideRoundButton)
+    {
+
+        <a href="@url" class="@buttonBGColor ps-4 pe-4 p-3 border border-0 brdr-rad-30  btn btn-primary">
+            <span><i class="align-middle @leftIconType @leftIconName @leftIconColor"></i></span>
+            <span class="@buttonTextColor pe-2 ps-2 fw-medium">@buttonText</span>
+            <span><i class="align-middle @rightIconColor @rightIconType @rightIconName" aria-hidden="true"></i></span>
+        </a>
+    }
+    else if (buttonType ==  ButtonTypeEnum.InvertedButton)
+    {
+        <a href="@url" class="@buttonBGColor p-3 border border-0 brdr-rad-30 text-decoration-none">
+            <span><i class="align-middle color-0053A5 @leftIconType @leftIconName @leftIconColor"></i></span>
+            <span class="@buttonTextColor text-start pe-lg-2 ps-lg-2 fw-medium">@buttonText</span>
+            <span><i class="align-middle @rightIconColor @rightIconType @rightIconName"></i></span>
+        </a>
+    }
+    else if (buttonType ==  ButtonTypeEnum.GreyButton)
+    {
+        <a href="@url" class="@buttonBGColor p-3 border border-0 brdr-rad-30 text-decoration-none">
+            <span><i class="align-middle @leftIconType @leftIconName @leftIconColor"></i></span>
+            <span class="@buttonTextColor pe-2 ps-2 fw-medium">@buttonText</span>
+            <span><i class="align-middle @rightIconColor @rightIconType @rightIconName"></i></span>
+        </a>
+    }
+    else if (buttonType ==  ButtonTypeEnum.BackToLog)
+    {
+        <a href="@url" class="fs-5 @buttonBGColor text-decoration-none">
+            <span class="d-inline-block pe-1 @buttonTextColor">@buttonText</span>
+            <span class="align-middle"><i class="@rightIconColor @rightIconType @rightIconName"></i></span>
+        </a>
+    }
+    else if (buttonType == ButtonTypeEnum.DoubleIconNoBGButton)
+    {
+        <a href="@url" class="@buttonBGColor text-decoration-none">
+            <span><i class="pe-2 @leftIconType @leftIconName @leftIconColor" aria-hidden="true"></i></span>
+            <span class="@buttonTextColor">@buttonText</span>
+            <span><i class="ps-2 @rightIconColor @rightIconType @rightIconName" aria-hidden="true"></i></span>
+        </a>
+    }
+}
+

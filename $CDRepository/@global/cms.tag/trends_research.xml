@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagGUID>1d40b195-b305-4b73-ba9c-eb985eb1e492</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{}}]]>
+  </TagMetadata>
+  <TagName>Trends_Research</TagName>
+  <TagOrder>9</TagOrder>
+  <TagTaxonomyID>
+    <CodeName>Categories</CodeName>
+    <GUID>bafcd699-6640-40b9-9082-ae3839c7c547</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>Trends and Research</TagTitle>
+</cms.tag>

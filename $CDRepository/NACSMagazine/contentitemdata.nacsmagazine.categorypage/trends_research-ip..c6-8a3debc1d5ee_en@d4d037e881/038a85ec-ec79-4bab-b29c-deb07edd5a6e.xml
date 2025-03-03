@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.categorypage>
+  <ContentItemDataCommonDataID>
+    <GUID>6f55cb9d-1881-4041-80c6-8a3debc1d5ee</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Trends_Research-ip6xsuhw</CodeName>
+      <GUID>14dccba1-28e9-4f2a-905d-031f34694906</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>038a85ec-ec79-4bab-b29c-deb07edd5a6e</ContentItemDataGUID>
+  <Title>Trends and Research</Title>
+</contentitemdata.nacsmagazine.categorypage>

@@ -1,0 +1,16 @@
+﻿@using ConvenienceCares.Models
+
+@model List<SocialLinkViewModel>
+
+@if (Model != null)
+{
+    foreach (var link in Model)
+    {
+        <a class="footer-@link.Title.ToLower()" href="@link.Url" target="_blank">
+            @if (link.Icon != null)
+            {
+                <img src="@Url.Content(link.Icon?.URLData?.RelativePath)" alt="@link.Title" title="@link.Title" loading="lazy" />
+            }
+        </a>
+    }
+}

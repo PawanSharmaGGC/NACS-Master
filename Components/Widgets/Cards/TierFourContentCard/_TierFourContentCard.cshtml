@@ -1,0 +1,28 @@
+﻿@model Convenience.org.Components.Widgets.Cards.TierFourContentCard.TierFourContentCardViewModel
+
+@if (Model != null)
+{
+    <div class="p-3 border-0 Tier4ContentCard-module__main_card card">
+        <div class="border-0 Tier4ContentCard-module__section_card card">
+            <div class="p-4 card-body">
+                <div class="p-1 text-start fw-semibold">
+                    <span class="color-0053A5">@Model.Title</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <p class="mb-0 text-primary">
+                        <span class="text-secondary me-3">@Model.PublishedDate</span>
+                        <span class="text-body-tertiary">@Model.Caption</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5">
+            <a href="#" class="fs-5 color-DC241F text-decoration-none">
+                <span class="d-inline-block pe-1">Back To Log</span>
+                <span class="align-middle">
+                    <i class="fa-regular fa-arrow-right color-DC241F" aria-hidden="true"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+}

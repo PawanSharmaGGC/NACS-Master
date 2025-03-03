@@ -1,0 +1,56 @@
+﻿@using Convenience.org.Models
+
+@model FeaturedContentCardViewModel
+
+@if (Model != null)
+{
+    <div class="border-0 p-3 card">
+        <div class="p-0 FeaturedContentCardStyle-module__section_card card">
+            <div class="p-4 card-body">
+                <div class="text-start align-items-baseline d-flex justify-content-between">
+        @if (Model.Eyebrow != null)
+        {
+            @await Component.InvokeAsync("EyebrowTitle", new { model = Model.Eyebrow })
+        }
+                    <span class="text-center mt-2 color-0053A5 bg-DBEAB9 TagsStyle-module__card_badge">NEW</span>
+                </div>
+                <div class="d-flex FeaturedContentCardStyle-module__section_body_card">
+                    <div>
+                        <p class="fs-4 text-start color-0053A5 mb-4 d-lg-none d-sm-block">@Model.Title</p>
+                        <img src="@Model.Image" class="image-fluid FeaturedContentCardStyle-module__content_image" alt="@Model.ImageAltText">
+                    </div>
+                    <div class="ps-lg-5 text-start mt-5">
+                        <p class="fs-4 color-0053A5 mb-4 d-none d-lg-block">@Model.Title</p>
+                        <div class="d-flex mb-4 fs-5">
+                            <span class="pe-3 pt-3 pt-lg-0">
+                    @await Component.InvokeAsync("Avatars", new { model = Model.Author })
+                            </span><span class="pe-3 color-0053A5">@Model.AuthorName</span>
+                            <span class="pe-3 text-body-tertiary">@Model.PublishedDate</span>
+                            <span class="pe-3 text-body-tertiary"><span id="time"></span></span>
+                        </div>
+                        <p>
+                            <div class="">
+                    @await Component.InvokeAsync("Buttons", new { model = Model.CTA })
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<script type="text/javascript">
+    function readingTime() {
+        const text = '@Model.PageContent';
+        if(text.length>0){
+            const wpm = 225;
+            const words = text.trim().split(/\s+/).length;
+            const time = Math.ceil(words / wpm);
+            document.getElementById("time").innerText = time + " min read";
+            }
+    }
+    readingTime();
+</script>

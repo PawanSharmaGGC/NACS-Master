@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.issue>
+  <ContentItemDataCommonDataID>
+    <GUID>80340178-c4e7-44e9-98a9-f433349654d3</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>June2023-oh0k45vw</CodeName>
+      <GUID>fcfe9f9c-9bee-489f-bf64-b2a625947701</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>79b2d8b7-68af-49be-af54-e9473f888699</ContentItemDataGUID>
+  <IssueDate>2023-06-01 04:00:00Z</IssueDate>
+  <MagazineCover>
+    <![CDATA[{"Identifier":"91895f4c-8a67-4e16-ac36-e0dbc4a969b9","Name":"NACS_June2024_HiRes_Singles-1.jpg","Extension":".jpg","Size":1042320,"LastModified":"2024-07-09T20:15:37.4221456Z"}]]>
+  </MagazineCover>
+  <Title>June 2023</Title>
+</contentitemdata.nacsmagazine.issue>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.navsecondlevel>
+  <ContentItemDataCommonDataID>
+    <GUID>59c4f57a-5c18-41b6-823a-5ccf91d4f43c</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>2024EducationSessions-kprd43na</CodeName>
+      <GUID>385ebbee-c45c-4a31-afee-d1f0a7338b26</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>095145ed-b91a-4683-9446-5b966a8c5d2a</ContentItemDataGUID>
+  <Title>2024 Education Sessions</Title>
+  <URL>/Sessions/Education-Sessions</URL>
+</contentitemdata.nacsshow.navsecondlevel>

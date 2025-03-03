@@ -1,0 +1,84 @@
+﻿@using NACSShow
+<vc:current-page-data />
+@{
+    Layout = "~/Features/Shared/NACSShow/_Layout.cshtml";
+    Page currentPageData = TempData["CurrentPageData"] as Page ?? new Page();
+}
+
+<!-- BANNER -->
+<section class="row center-xs margins-none">
+    <div class="col-xs-12">
+        <vc:full-width-page-title section-header="@currentPageData.SectionHeader" title="@currentPageData.Title"></vc:full-width-page-title>
+        <editable-area area-identifier="TitleZone"></editable-area>
+        <div class="section--centered-text bold">
+            @Html.Raw(currentPageData.SubHead)
+            <editable-area area-identifier="SubheadSection"></editable-area>
+        </div>
+    </div>
+</section>
+
+<!-- Text Section -->
+<section class="row center-xs section--margins">
+    <vc:shaw-page-description-text description="@currentPageData.Description"></vc:shaw-page-description-text>
+    <editable-area area-identifier="DescriptionZone"></editable-area>
+</section>
+
+<!-- We Got This -->
+<section class="row center-xs">
+    <div class="section--margins-x ">
+        <vc:page-image header-image="@currentPageData.HeaderImage" header-image-mobile="@currentPageData.HeaderImageMobile"></vc:page-image>
+        <editable-area area-identifier="zoneHeaderImage"></editable-area>
+    </div>
+</section>
+
+<!-- Schedule -->
+<!-- NOTE: this HTML is generated from an Excel template for easier updating -->
+@{
+    var optionsDefaultSection = new EditableAreaOptions
+            {
+                DefaultSectionIdentifier = "NACSShow.AccordionSection"
+            };
+}
+@await Html.Kentico().EditableAreaAsync("AreaWithSection", optionsDefaultSection)
+
+<div class="row center-xs text-center subsection--margin" style="margin-top: 2rem">
+</div>
+
+
+<!-- SPONSOR 1 -->
+<section>
+    <div class="row center-xs section--padded">
+        <div class="col-xs-12">
+            <div class="wrapper container">
+                <div class="ad">
+                    <div class="ad__wrapper">
+                        <editable-area area-identifier="AdZone"></editable-area>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@Html.Raw(currentPageData.PageContent)
+<editable-area area-identifier="ContentZone"></editable-area>
+
+<section>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="wrapper container">
+                <div class="block--sponsorship">
+                    <div class="ad">
+                        <div class="ad__wrapper">
+                            <div class="multi-ad-container">
+                                <editable-area area-identifier="AdZone1"></editable-area>
+                                <editable-area area-identifier="AdZone2"></editable-area>
+                                <editable-area area-identifier="AdZone3"></editable-area>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,78 @@
+﻿@using Convenience.org.Components.Widgets
+@model EventVideoCardViewModel
+
+@if (Model != null)
+{
+	var cssClassOverlayShowHide = (Model.IsOverlayVisible) ? "d-block" : "d-none";
+	var cssClassOverlayColor = (Model.IsOverlayVisible) ? "video-js EventVideoCardStyle-module__section_card vjs-fluid vjs_video_3-dimensions" : "video-js vjs-fluid vjs_video_3-dimensions";
+	<script src="https://vjs.zencdn.net/8.16.1/video.min.js"></script>
+	<div>
+		<div class="p-2 EventVideoCardStyle-module__main_card card">
+			<div class="border EventVideoCardStyle-module__section_card card">
+				<div data-vjs-player>
+					<video class="@cssClassOverlayColor"
+						   id="my-video"
+						   controls
+						   preload="auto"
+						   poster="@Model.VideoPoster"
+						   data-setup="{}">
+						<source src="@Model.VideoURL"
+								type="video/mp4" />
+					</video>
+				</div>
+				<div class="@cssClassOverlayShowHide">
+					<div id="top_overlay_text" class="EventVideoCardStyle-module__top_overlay_text">
+						<div class="p-2">
+							<div class="text-start align-items-baseline d-flex justify-content-between">
+								<div>
+									<div class="text-start mb-4 border_left_white EyebrowTitleStyle-module__eyebrow">
+										<span class="ps-4 text-uppercase font-monospace color-FFFFFF">@Model.EyebrowTitle</span>
+									</div>
+								</div>
+								<span class="text-center mt-2 color-0053A5 bg-DBEAB9 TagsStyle-module__card_badge">@Model.TagName</span>
+							</div>
+						</div>
+					</div>
+					<div id="bottom_overlay_text" class="EventVideoCardStyle-module__bottom_overlay_text">
+						<div class="p-3">
+							<p class="fs-5 fw-lighter mb-0 color-FFFFFF bottom-0 end-0">@Model.Title</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mt-5">
+				@{
+					var backToLogButtonModel = new Convenience.org.Models.ButtonsViewModel
+				{
+					ButtonText = "Back to Log",
+					ButtonURL = "/log",
+					ButtonType = Convenience.org.Models.ButtonTypeEnum.BackToLog
+				};
+				}
+				@await Component.InvokeAsync("Buttons", new { model = backToLogButtonModel })
+			</div>
+		</div>
+	</div>
+	<script>
+			const player = videojs('my-video', {
+			  autoplay: false,
+			  controls: true,
+			  responsive: true,
+			  loop: true,
+		  muted: true,
+			  preload: 'auto',
+			  fluid: true,
+			});
+				console.log("hello");
+			const top_overlay = document.getElementById('top_overlay_text');
+			const bottom_overlay = document.getElementById('bottom_overlay_text');
+		player.on('play', () => {
+			  top_overlay.style.display = 'none';
+			  bottom_overlay.style.display = 'none';
+			});
+			player.on('pause', () => {
+			  top_overlay.style.display = 'block';
+			  bottom_overlay.style.display = 'block';
+			});
+	</script>
+}

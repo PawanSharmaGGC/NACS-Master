@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.sessionsearch>
+  <ContentItemDataCommonDataID>
+    <GUID>f3ac2ae6-bc91-42f8-b589-12574927b4bd</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Search-v89z6fut</CodeName>
+      <GUID>8626252b-9ac2-4be5-8738-569e431df044</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>58854088-1a43-4436-be9d-546b8725c748</ContentItemDataGUID>
+</contentitemdata.nacsshow.sessionsearch>

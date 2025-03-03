@@ -1,0 +1,32 @@
+﻿@using Convenience.org.Components.Widgets
+@model PullQuoteViewModel
+
+@if (Model != null)
+{
+	<div>
+		<div class="p-3 PullQuoteStyle-module__main_card card">
+			<div class="d-flex flex-column overflow-auto">
+				<div class="flex-card border border-0 mb-3 card">
+					<div class="p-0 PullQuoteStyle-module__section_card_body card-body">
+						<div class="text-start p-4">
+							<div class="mb-2"><i class="fa-solid fa-quote-left color-0053A5 fa-2xl" aria-hidden="true"></i></div>
+							<div class="fs-1 mb-2 color-002569">@Model.Quote</div>
+							<div class="color-000000 fs-3">@Model.AuthorName</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div class="mt-5">
+				@{
+					var backToLogButtonModel = new Convenience.org.Models.ButtonsViewModel
+				{
+					ButtonText = "Back to Log",
+					ButtonURL = "/log",
+					ButtonType = Convenience.org.Models.ButtonTypeEnum.BackToLog
+				};
+				}
+				@await Component.InvokeAsync("Buttons", new { model = backToLogButtonModel })
+			</div>
+	</div>
+</div>
+}

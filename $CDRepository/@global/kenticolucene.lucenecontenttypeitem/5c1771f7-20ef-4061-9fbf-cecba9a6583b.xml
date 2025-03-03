@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kenticolucene.lucenecontenttypeitem>
+  <LuceneContentTypeItemContentTypeName>NACSMagazine.LandingPage</LuceneContentTypeItemContentTypeName>
+  <LuceneContentTypeItemGuid>5c1771f7-20ef-4061-9fbf-cecba9a6583b</LuceneContentTypeItemGuid>
+  <LuceneContentTypeItemIncludedPathItemId>
+    <GUID>51760c74-8e0f-4f0a-b801-75eb45115354</GUID>
+    <ObjectType>kenticolucene.luceneincludedpathitem</ObjectType>
+  </LuceneContentTypeItemIncludedPathItemId>
+  <LuceneContentTypeItemIndexItemId>
+    <CodeName>ARTICLE_SEARCH</CodeName>
+    <GUID>ed32d3c7-8a5b-47e1-9d44-92868071efbe</GUID>
+    <ObjectType>kenticolucene.luceneindexitem</ObjectType>
+  </LuceneContentTypeItemIndexItemId>
+</kenticolucene.lucenecontenttypeitem>

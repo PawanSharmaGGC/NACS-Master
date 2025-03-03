@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.article>
+  <CategoryTags />
+  <ContentCategory>
+    <![CDATA[[{"Identifier":"e38c6059-8750-42d9-9786-afd4fa534458"}]]]>
+  </ContentCategory>
+  <ContentItemDataCommonDataID>
+    <GUID>e6859f2d-388e-4391-9eda-83ba53fed22d</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Test-gt5vqctx</CodeName>
+      <GUID>6cacb5d8-9c80-4e95-af0b-7eb50a875bab</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>442d7856-97f4-42fc-8035-dccdd720add3</ContentItemDataGUID>
+  <CoverStory>True</CoverStory>
+  <CurrentIssue>True</CurrentIssue>
+  <EditorsPick>True</EditorsPick>
+  <Image>
+    <![CDATA[{"Identifier":"f090241d-467a-4518-83c0-5c7337da5e1d","Name":"JUL24_Cover.png","Extension":".png","Size":2150350,"LastModified":"2024-07-18T18:57:26.6721923Z"}]]>
+  </Image>
+  <IssueDate>2024-07-01 04:00:00Z</IssueDate>
+  <LedeText>test</LedeText>
+  <Locked>True</Locked>
+  <MagazineSection>The Big Question</MagazineSection>
+  <PageContent>
+    <![CDATA[<p>testtest teest test</p>]]>
+  </PageContent>
+  <PageContentTeaser>
+    <![CDATA[<p class="font-m-14">test testttttest testetst test</p>]]>
+  </PageContentTeaser>
+  <RollupImage>
+    <![CDATA[{"Identifier":"261232b3-1627-4d16-ba79-fd621d7e5ac2","Name":"JUL24_BTN_Rollup.png","Extension":".png","Size":117630,"LastModified":"2024-07-18T18:57:31.3397493Z"}]]>
+  </RollupImage>
+  <Title>test</Title>
+</contentitemdata.nacsmagazine.article>

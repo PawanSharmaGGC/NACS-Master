@@ -1,0 +1,979 @@
+﻿<asp:PlaceHolder id="phScript">
+    <script type='text/javascript' src='/CMSScripts/Custom/Convenience/jquery.simplemodal.js'></script>
+    <script type='text/javascript' src='/CMSScripts/Custom/Convenience/NACS.simplemodal.js'></script>
+
+    <script language="javascript" type="text/javascript">
+
+        //Show/Hide panels
+        function ShowHidePanel(oSrc, Answer) {
+            var Panel = oSrc.id.replace("_rdo", "_pnl").replace("Yes", "").replace("No", "");
+            var Panel2 = Panel + "2";
+
+            if (Answer == "Yes") {
+                document.getElementById(Panel).style.display = "";
+                document.getElementById(Panel).style.visibility = "visible";
+                document.getElementById(Panel2).style.display = "none";
+                document.getElementById(Panel2).style.visibility = "hidden";
+            }
+            else if (Answer == "No") {
+                document.getElementById(Panel).style.display = "none";
+                document.getElementById(Panel).style.visibility = "hidden";
+                document.getElementById(Panel2).style.display = "";
+                document.getElementById(Panel2).style.visibility = "visible";
+            }
+            else {
+                document.getElementById(Panel).style.display = "none";
+                document.getElementById(Panel).style.visibility = "hidden";
+                document.getElementById(Panel2).style.display = "";
+                document.getElementById(Panel2).style.visibility = "visible";
+            }
+        }
+
+        function ValidateSelections() {
+            var count = 0;
+            $('select.slotselections').each(function () {
+                //the ",10" forces base10 counting incase of possible leading 0's that could be interpretted as base8 or some other
+                count += parseInt($(this).val(), 10);
+            });
+
+            if (count == 0) {
+                alert("No time slots have been selected. Click 'Go Back' to cancel.");
+                return false;
+            }
+        }
+
+        function SetSelfRegSlot(i) {
+            var ClientID = '<%= this.ClientID %>' + "_";
+            var SlotHolder = document.getElementById(ClientID + "_hdnSelfRegSlot");
+
+            SlotHolder.value = i;
+        }
+
+        function ValSelfRegSlot() {
+            var ClientID = '<%= this.ClientID %>' + "_";
+            var SlotHolder = document.getElementById(ClientID + "_hdnSelfRegSlot");
+
+            if (SlotHolder.value == "") {
+                alert("Please make a selection before continuing.");
+                return false;
+            }
+            else { return true; }
+        }
+
+        // test
+        function CompanySetSelfRegSlot(i) {
+            var CompanyClientID = '<%=companyClientID %>' + "_";
+            var SlotHolder = document.getElementById(CompanyClientID + "_hdnMaxCompanyRegSlot");
+
+            SlotHolder.value = i;
+        }
+
+        function ValCompanySetSelfRegSlot() {
+            var CompanyClientID = '<%=companyClientID %>' + "_";
+            var SlotHolder = document.getElementById(CompanyClientID + "_hdnMaxCompanyRegSlot");
+
+            if (SlotHolder.value > i) {
+                alert("Please selection less to continue.");
+                return false;
+            }
+
+            else { return true; }
+        }
+        // end test
+
+        function ClearValidators() {
+            var ClientID = '<%= this.ClientID %>' + "_";
+            var Validator = document.getElementById(ClientID + "_lblValidation");
+            var valFirstName = document.getElementById(ClientID + "_valVFirstName");
+            var valLastName = document.getElementById(ClientID + "_valVLastName");
+            var valTitle = document.getElementById(ClientID + "_valVTitle");
+            var valEmail = document.getElementById(ClientID + "_valVEmail");
+            var valMobile = document.getElementById(ClientID + "_valVMobile");
+
+            document.getElementById(Validator).innerHTML == "";
+            document.getElementById(valFirstName).style.display = "none";
+            document.getElementById(valFirstName).style.visibility = "hidden";
+            document.getElementById(valLastName).style.display = "none";
+            document.getElementById(valLastName).style.visibility = "hidden";
+            document.getElementById(valTitle).style.display = "none";
+            document.getElementById(valTitle).style.visibility = "hidden";
+            document.getElementById(valEmail).style.display = "none";
+            document.getElementById(valEmail).style.visibility = "hidden";
+            document.getElementById(valMobile).style.display = "none";
+            document.getElementById(valMobile).style.visibility = "hidden";
+        }
+
+        function ValidateContactInfo() {
+            var ClientID = '<%= this.ClientID %>' + "_";
+            var Validator = ClientID + "_lblValidation";
+            var FirstName = ClientID + "_txtVFirstName";
+            var valFirstName = ClientID + "_valVFirstName";
+            var LastName = ClientID + "_txtVLastName";
+            var valLastName = ClientID + "_valVLastName";
+            var Title = ClientID + "_txtVTitle";
+            var valTitle = ClientID + "_valVTitle";
+            var Email = ClientID + "_txtVEmail";
+            var valEmail = ClientID + "_valVEmail";
+            var Mobile = ClientID + "_txtVMobile";
+            var valMobile = ClientID + "_valVMobile";
+
+            var valString = "";
+            document.getElementById(Validator).innerHTML = valString;
+
+            if (document.getElementById(FirstName).value == "") {
+                valString += "<li>First Name cannot be blank</li>";
+                document.getElementById(valFirstName).style.display = '';
+                document.getElementById(valFirstName).style.visibility = "visible";
+            }
+            else {
+                document.getElementById(valFirstName).style.display = "none";
+                document.getElementById(valFirstName).style.visibility = "hidden";
+            }
+
+            if (document.getElementById(LastName).value == "") {
+                valString += "<li>Last Name cannot be blank</li>";
+                document.getElementById(valLastName).style.display = '';
+                document.getElementById(valLastName).style.visibility = "visible";
+            }
+            else {
+                document.getElementById(valLastName).style.display = "none";
+                document.getElementById(valLastName).style.visibility = "hidden";
+            }
+
+            if (document.getElementById(Title).value == "") {
+                valString += "<li>Title cannot be blank</li>";
+                document.getElementById(valTitle).style.display = '';
+                document.getElementById(valTitle).style.visibility = "visible";
+            }
+            else {
+                document.getElementById(valTitle).style.display = "none";
+                document.getElementById(valTitle).style.visibility = "hidden";
+            }
+
+            if (document.getElementById(Email).value == "") {
+                valString += "<li>Email cannot be blank</li>";
+                document.getElementById(valEmail).style.display = '';
+                document.getElementById(valEmail).style.visibility = "visible";
+            }
+            else {
+                document.getElementById(valEmail).style.display = "none";
+                document.getElementById(valEmail).style.visibility = "hidden";
+            }
+
+            if (document.getElementById(Mobile).value == "") {
+                valString += "<li>Mobile Phone cannot be blank</li>";
+                document.getElementById(valMobile).style.display = '';
+                document.getElementById(valMobile).style.visibility = "visible";
+            }
+            else {
+                document.getElementById(valMobile).style.display = "none";
+                document.getElementById(valMobile).style.visibility = "hidden";
+            }
+
+            if (valString == "") {
+                document.getElementById(Validator).style.display = "none";
+                document.getElementById(Validator).style.visibility = "hidden";
+                return true;
+            }
+            else {
+                document.getElementById(Validator).innerHTML = valString;
+                document.getElementById(Validator).style.display = '';
+                document.getElementById(Validator).style.visibility = "visible";
+                return false;
+            }
+        }
+
+        function ValidateFile() {
+            var validFilesTypes = ["bmp", "gif", "png", "jpg", "jpeg", "tif", "tiff"];
+            var file = $get("<%=_fuCompanyLogo.ClientID%>");
+            var label = $get("<%=_lblUploadMsg.ClientID%>");
+            var path = file.value;
+            var ext = path.substring(path.lastIndexOf(".") + 1, path.length).toLowerCase();
+
+            var isValidFile = false;
+            for (var i = 0; i < validFilesTypes.length; i++) {
+                if (ext == validFilesTypes[i]) {
+                    isValidFile = true;
+                    break;
+                }
+            }
+
+            if (!isValidFile) {
+                label.style.color = "red";
+                label.innerHTML = "Invalid File. Please select a filetype in " + validFilesTypes.join(", ");
+            }
+            return isValidFile;
+        }
+
+        function CheckExbSelection() {
+            var ExbValue = $get("<%=_ddlExhibitors.ClientID%>").value;
+            if (ExbValue == "-1") {
+                alert("Please select an Exhibitor to continue");
+                return false;
+            }
+            else { return true; }
+        }
+    </script>
+
+    <script>
+        function toggleShow(elementId) {
+            let el = document.getElementById(elementId);
+            el.style.display = "block";
+        }
+
+        function toggleHide(elementId) {
+            let el = document.getElementById(elementId);
+            el.style.display = "none";
+        }
+    </script>
+
+    <style type="text/css">
+        .clear {
+            clear: both;
+        }
+
+        .subheaderName {
+            font-size: 30px !important;
+            font-weight: 600;
+            color: #666666 !important;
+            padding-bottom: 5px !important;
+            line-height: 20px !important;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px !important;
+            border-radius: 20px !important;
+            font-weight: 600;
+            text-align: center;
+            text-transform: uppercase;
+            text-decoration: none !important;
+            background: var(--linear-gradient-pacific-blue-to-bondi-blue) !important;
+            color: #ffffff !important;
+            border: none !important;
+        }
+
+            .button:hover {
+                display: inline-block;
+                padding: 10px !important;
+                border-radius: 20px !important;
+                font-weight: 600;
+                text-align: center;
+                text-transform: uppercase;
+                text-decoration: none !important;
+                background: var(--color-light-grey) !important;
+                color: #009fdf !important;
+                border: none !important;
+            }
+
+        .textbox, .textarea {
+            width: 350px !important;
+            padding: 5px !important;
+            border-radius: 6px !important;
+            border: 1px solid var(--color-sapphire) !important;
+            color: var(--color-sapphire) !important;
+        }
+
+        .UploadField {
+            width: 250px !important;
+            padding: 5px !important;
+            border-radius: 6px !important;
+            border: 1px solid var(--color-sapphire) !important;
+            color: var(--color-sapphire) !important;
+        }
+
+        .button1 {
+            width: 150px !important;
+            display: inline-block;
+            padding: 10px !important;
+            border-radius: 20px !important;
+            font-weight: 600;
+            text-align: center;
+            text-transform: uppercase;
+            text-decoration: none !important;
+            background: var(--linear-gradient-pacific-blue-to-bondi-blue) !important;
+            color: #ffffff !important;
+            border: none !important;
+        }
+
+            .button1:hover {
+                width: 150px !important;
+                display: inline-block;
+                padding: 10px !important;
+                border-radius: 20px !important;
+                font-weight: 600;
+                text-align: center;
+                text-transform: uppercase;
+                text-decoration: none !important;
+                background: var(--color-light-grey) !important;
+                color: #009fdf !important;
+                border: none !important;
+                cursor: pointer;
+            }
+
+        .buttonchk {
+            display: inline-block;
+            padding: 10px !important;
+            border-radius: 20px !important;
+            font-weight: 600;
+            text-align: center;
+            text-transform: uppercase;
+            text-decoration: none !important;
+            background: var(--linear-gradient-pacific-blue-to-bondi-blue) !important;
+            color: #ffffff !important;
+            border: none !important;
+        }
+
+            .buttonchk:hover {
+                display: inline-block;
+                padding: 10px !important;
+                border-radius: 20px !important;
+                font-weight: 600;
+                text-align: center;
+                text-transform: uppercase;
+                text-decoration: none !important;
+                background: var(--color-light-grey) !important;
+                color: #009fdf !important;
+                border: none !important;
+            }
+
+        .button2 {
+            width: 350px !important;
+            display: inline-block;
+            padding: 10px !important;
+            border-radius: 20px !important;
+            font-weight: 600;
+            text-align: center;
+            text-transform: uppercase;
+            text-decoration: none !important;
+            background: var(--linear-gradient-pacific-blue-to-bondi-blue) !important;
+            color: #ffffff !important;
+            border: none !important;
+        }
+
+            .button2:hover {
+                width: 350px !important;
+                display: inline-block;
+                padding: 10px !important;
+                border-radius: 20px !important;
+                font-weight: 600;
+                text-align: center;
+                text-transform: uppercase;
+                text-decoration: none !important;
+                background: var(--color-light-grey) !important;
+                color: #009fdf !important;
+                border: none !important;
+                cursor: pointer;
+            }
+
+        .slotselections {
+            background-image: url('/App_Themes/NACSShow2021Core/img/icon-select-list-open.png') !important;
+            background-repeat: no-repeat !important;
+            background-position: right !important;
+            border: 1px solid #0a2253 !important;
+            line-height: 15px !important;
+            padding: .5em 3.5em .5em 1em !important;
+            border-radius: 6px !important;
+            /*margin: 0;*/
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+        }
+
+        .table, .tr, .td {
+            border: none !important;
+        }
+    </style>
+</asp:PlaceHolder>
+
+
+<h1><label id="_lblPageTitle"></label></h1>
+<h3>NACS Show <label id="_lblShowYear" Text="YEAR" /></h3>
+
+<!-- Panel Edit Info -->
+<div id="_pnlError">
+    <div id="Div1">
+        <p>
+            &nbsp;
+        </p>
+        <p>
+            You have reached this page in error. Please contact
+            <label id="_lblNACSContactName"></label>
+            at
+            <label id="_lblNACSContactPhone"></label>
+            or
+            <lLabel id="_lblNACSContactEmail"></lLabel>
+            if
+            you need assistance.
+        </p>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<!-- Panel Check In -->
+<div id="_pnlCheckIn" Visible="false">
+    <div id="controLWell">
+        <div style="width: 100%;">
+            <div style="float: left; width: 65%;">
+                <strong>Select an Exhibitor below to check-in related Ambassadors</strong>
+                <br />
+                <br />
+                <asp:DropDownList id="_ddlExhibitors" style="width: 90%;" />
+            </div>
+            <div style="float: left; width: 35%;">
+                <br />
+                &nbsp;<input type="button" id="_btnSelectExhibitor" class="buttonchk"
+                             onclick="return CheckExbSelection();" value="Continue" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<!-- Panel Get Report  -->
+<div id="_pnlReport" style="width:100%; text-align:right;" Visible="false">
+    <div id="controLWell">
+        <br />
+        <br />
+        <table width="100%">
+            <tr>
+                <td>
+                    <asp:Label id="_lblErrorReport" />
+                </td>
+                <td>
+                    <input type="button" id="_btnGetReport" class="button1"
+                           onlclick="_btnGetReport_Click" value="Get Report" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<!-- Panel Upload Logo controLWell-->
+<div id="_pnlMain" Visible="false">
+    <br />
+    <div style="width: 100%">
+        <div>
+            <label id="_lblExhibitingAs" Text="ExhibitingAs" class="subheaderName"></label>
+        </div>
+        <div class="clear"></div>
+        <br />
+        <div style="width: 100%; margin: auto;">
+            <div style="width: 70%; float: left; margin: auto; padding-left: 10px;">
+                <div>
+                    <div style="color: #30aa44; padding-bottom: 5px;">
+                        <i class="fas fa-person-booth"></i>&nbsp;
+                        <label id="_lblExhibitBooth" style="font-weight: 500; margin-left: 5px"></label>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div>
+                    <div style="padding-bottom: 5px;">
+                        <b><i class="fas fa-id-badge"></i></b>&nbsp;
+                        <label id="_lblExhibitContact" style="font-weight: 500; color: black; margin-left: 10px"></label>
+                    </div>
+                    <div class="clear"></div>
+                    <div style="padding-bottom: 5px;">
+                        <b><i class="fas fa-phone-alt"></i></b>&nbsp;
+                        <label id="_lblExhibitorPhone" style="font-weight: 500; color: black; margin-left: 5px"></label>
+                    </div>
+                    <div class="clear"></div>
+                    <div style="color: #009fdf">
+                        <b><i class="fas fa-light fa-at"></i></b>&nbsp;
+                        <a id="_lblExhibitorEmail" href="" style="font-weight: 500; margin-left: 11px;"></a>
+                    </div>
+                    <div class="clear"></div>
+                    <br />
+                    <div>
+                        <b><i class="fas fa-map-marked-alt"></i></b>&nbsp;
+                        <label id="_lblCompanyCity" style="font-weight: 500; color: black; margin-left: 10px;"></label>
+                        &nbsp;
+                        <label id="_lblCompanyState" style="font-weight: 500; color: black;"></label>
+                        &nbsp;
+                        <label id="_lblCompanyZip" style="font-weight: 500; color: black;"></label>
+                        <br />
+                        <label id="_lblCompanyCountry" style="font-weight: 500; color: black; margin-left: 38px"></label>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 30%; float: right; margin: auto; text-align: -moz-center;">
+                <b style="padding-top: 5px">
+                    <label id="_lblLogoLabel">Add your logo:</label>
+                </b>
+                <div class="clear"></div>
+                <div>
+                    <a id="_lnkCompanyLogo" href="" target="_blank" Visible="false">
+                        <img id="_imgCompanyLogo" style="width: 250px; margin-left: 15px;" />
+                    </a>
+
+                    <input type="file" id="_fuCompanyLogo" class="UploadField" />
+
+                    <div class="clear"></div>
+                    <br />
+
+                    <input type="button" id="_btnUploadLogo" class="button1"
+                           onlclick="return ValidateFile();" OnClick="_btnUploadLogo_Click" value="Upload" />
+                    <input type="button" id="_btnDeleteCompanyLogo" Visible="false" class="button1"
+                           value="Delete" OnClick="_btnDeleteCompanyLogo_Click" style="margin-left: 16px;" />
+                    <br />
+                    <label id="_lblUploadMsg"></label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="clear"></div>
+<br />
+
+<!-- Panel Show Images -->
+<div style="display:none;">
+    <asp:Panel id="_pnlStationsImage" Visible="true">
+        <br />
+        <div style="width: 100%; float: left; min-width: 300px;">
+
+            <span style="font-size: large; font-weight: bold;">Station Images:</span>
+            <br />
+            <span style="font-style: italic; font-size: x-small;">(Click on the station name to view a full picture.)</span>
+
+            <div class="clear"></div>
+            <br />
+
+            <div style="width: 100%; min-width: 350px; margin: auto">
+
+                <div style="float: left; padding-right: 5px; width: 105px;">
+                    <div style="font-size: inherit">
+                        <a href="/Exhibit/Portal/PublishingImages/Station-1" onmouseenter="toggleShow('image1');" onmouseleave="toggleHide('image1');" target="_blank">Station 1</a>
+                        <%--
+                    </div>
+                    <div>
+                        --%>
+                        <%--<img style="display: none;" id="image1" src="/Exhibit/Portal/PublishingImages/Station-1" class="img-fluid" alt="Responsive image" />--%>
+                    </div>
+                </div>
+
+                <div style="float: left; padding-right: 5px; width: 105px;">
+                    <div style="font-size: inherit">
+                        <a href="/Exhibit/Portal/PublishingImages/Station-2" onmouseenter="toggleShow('image2');" onmouseleave="toggleHide('image2');" target="_blank">Station 2</a>
+                        <%--
+                    </div>
+                    <div>
+                        --%>
+                        <%--    <img style="display: none;" id="image2" src="/Exhibit/Portal/PublishingImages/Station-2" class="img-fluid" alt="Responsive image" />--%>
+                    </div>
+                </div>
+
+                <div style="float: left; padding-right: 5px; width: 105px;">
+                    <div style="font-size: inherit">
+                        <a href="/Exhibit/Portal/PublishingImages/Station-3" onmouseenter="toggleShow('image3');" onmouseleave="toggleHide('image3');" target="_blank">Station 3</a>
+                        <%--
+                    </div>
+                    <div>
+                        --%>
+                        <%-- <img style="display: none;" id="image3" src="/Exhibit/Portal/PublishingImages/Station-3" class="img-fluid" alt="Responsive image" />--%>
+                    </div>
+                </div>
+
+                <div style="float: left; padding-right: 5px; width: 105px;">
+                    <div style="font-size: inherit">
+                        <a href="/Exhibit/Portal/PublishingImages/Station-4" onmouseenter="toggleShow('image4');" onmouseleave="toggleHide('image4');" target="_blank">Station 4</a>
+                        <%--
+                    </div>
+                    <div>
+                        <img style="display: none;" id="image4" src="/Exhibit/Portal/PublishingImages/Station-4" class="img-fluid" alt="Responsive image" />--%>
+                    </div>
+                </div>
+
+                <div style="float: left; padding-right: 5px; width: 105px;">
+                    <div style="font-size: inherit">
+                        <a href="/Exhibit/Portal/PublishingImages/Station-5" onmouseenter="toggleShow('image5');" onmouseleave="toggleHide('image5');" target="_blank">Station 5</a>
+                        <%--
+                    </div>
+                    <div>
+                        <img style="display: none;" id="image5" src="/Exhibit/Portal/PublishingImages/Station-5" class="img-fluid" alt="Responsive image" />--%>
+                    </div>
+                </div>
+
+                <div style="float: left; padding-right: 5px; width: 105px;">
+                    <div style="font-size: inherit">
+                        <a href="/Exhibit/Portal/PublishingImages/Station-6" onmouseenter="toggleShow('image6');" onmouseleave="toggleHide('image6');" target="_blank">Station 6</a>
+                        <%--
+                    </div>
+                    <div>
+                        <img style="display: none;" id="image6" src="/Exhibit/Portal/PublishingImages/Station-6" class="img-fluid" alt="Responsive image" />--%>
+                    </div>
+                </div>
+
+                <div style="float: left; padding-right: 5px; width: 105px;">
+                    <div style="font-size: inherit">
+                        <a href="/Exhibit/Portal/PublishingImages/Station-7" onmouseenter="toggleShow('image7');" onmouseleave="toggleHide('image7');" target="_blank">Station 7</a>
+                        <%--
+                    </div>
+                    <div>
+                        <img style="display: none;" id="image7" src="/Exhibit/Portal/PublishingImages/Station-7" class="img-fluid" alt="Responsive image" />--%>
+                    </div>
+                </div>
+
+                <div style="float: left; padding-right: 5px; width: 105px;">
+                    <div style="font-size: inherit">
+                        <a href="/Exhibit/Portal/PublishingImages/Station-8" onmouseenter="toggleShow('image8');" onmouseleave="toggleHide('image8');" target="_blank">Station 8</a>
+                        <%--
+                    </div>
+                    <div>
+                        <img style="display: none;" id="image8" src="/Exhibit/Portal/PublishingImages/Station-8" class="img-fluid" alt="Responsive image" />--%>
+                    </div>
+                </div>
+
+                <div style="float: left; padding-right: 5px; width: 105px;">
+                    <div style="font-size: inherit">
+                        <a href="/Exhibit/Portal/PublishingImages/Station-9" onmouseenter="toggleShow('image9');" onmouseleave="toggleHide('image9');" target="_blank">Station 9</a>
+                        <%--
+                    </div>
+                    <div>
+                        <img style="display: none;" id="image9" src="/Exhibit/Portal/PublishingImages/Station-9" class="img-fluid" alt="Responsive image" />--%>
+                    </div>
+                </div>
+
+                <div style="float: left; padding-right: 5px; width: 105px;">
+                    <div style="font-size: inherit">
+                        <a href="/Exhibit/Portal/PublishingImages/Station-10" onmouseenter="toggleShow('image10');" onmouseleave="toggleHide('image10');" target="_blank">Station 10</a>
+                        <%--
+                    </div>
+                    <div>
+                        --%>
+                        <%--  <img style="display: none;" id="image10" src="/Exhibit/Portal/PublishingImages/Station-10" class="img-fluid" alt="Responsive image" />--%>
+                    </div>
+                </div>
+
+                <div style="float: left; width: 105px;">
+                    <div style="font-size: inherit">
+                        <a href="/Exhibit/Portal/PublishingImages/Station-11" onmouseenter="toggleShow('image11');" onmouseleave="toggleHide('image11');" target="_blank">Station 11</a>
+                        <%--
+                    </div>
+                    <div>
+                        --%>
+                        <%-- <img style="display: none;" id="image11" src="/Exhibit/Portal/PublishingImages/Station-11" class="img-fluid" alt="Responsive image" />--%>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div style="width: 80%; margin: auto;">
+                <div style="width: 25%; text-align: center; float: left; margin: auto;">&nbsp;</div>
+                <div style="width: 50%; text-align: center; float: left; margin: auto;">
+                    <img style="display: none;" id="image1" src="/Exhibit/Portal/PublishingImages/Station-1" class="img-fluid" alt="Responsive image" />
+                    <img style="display: none;" id="image2" src="/Exhibit/Portal/PublishingImages/Station-2" class="img-fluid" alt="Responsive image" />
+                    <img style="display: none;" id="image3" src="/Exhibit/Portal/PublishingImages/Station-3" class="img-fluid" alt="Responsive image" />
+                    <img style="display: none;" id="image4" src="/Exhibit/Portal/PublishingImages/Station-4" class="img-fluid" alt="Responsive image" />
+                    <img style="display: none;" id="image5" src="/Exhibit/Portal/PublishingImages/Station-5" class="img-fluid" alt="Responsive image" />
+                    <img style="display: none;" id="image6" src="/Exhibit/Portal/PublishingImages/Station-6" class="img-fluid" alt="Responsive image" />
+                    <img style="display: none;" id="image7" src="/Exhibit/Portal/PublishingImages/Station-7" class="img-fluid" alt="Responsive image" />
+                    <img style="display: none;" id="image8" src="/Exhibit/Portal/PublishingImages/Station-8" class="img-fluid" alt="Responsive image" />
+                    <img style="display: none;" id="image9" src="/Exhibit/Portal/PublishingImages/Station-9" class="img-fluid" alt="Responsive image" />
+                    <img style="display: none;" id="image10" src="/Exhibit/Portal/PublishingImages/Station-10" class="img-fluid" alt="Responsive image" />
+                    <img style="display: none;" id="image11" src="/Exhibit/Portal/PublishingImages/Station-11" class="img-fluid" alt="Responsive image" />
+                </div>
+                <div style="width: 25%; text-align: center; float: left; margin: auto;">&nbsp;</div>
+            </div>
+        </div>
+
+    </asp:Panel>
+</div>
+
+<div class="clear"></div>
+
+<!-- Panel Time Slots -->
+<div id="_pnlReservedTimeSlots_pnlReservedTimeSlots" style="width:100%;" Visible="false">
+    <label id="_lblVolunteers" style="font-size: large;font-weight: bold;">
+        Volunteers / Reserved Slots<br />
+    </label>
+    <br />
+    <br />
+    <div id="_phReservedTimeSlots" />
+    <br />
+    <br />
+    <input type="button" id="_btnReserveTimeSlots" value="Reserve Time Slots" class="button2"
+           OnClick="_btnReserveTimeSlots_Click" />
+    <br />
+</div>
+
+<div class="clear"></div>
+
+<div id="_pnlSelectTimeSlots" style="width:100%; min-width:700px;" Visible="false">
+    <div id="controLWell" style="width: 100%">
+        <h3>Available Time Slots</h3>
+        <div id="_phAvailableTimeSlots"></div>
+        <div class="clear"></div>
+        <br />
+
+
+        <div style="width: 100%; padding: 5px;">
+            <div id="_trReserveSlots" style="width: 100%;">
+                <br />
+                <div style="width: 30%; float: left; min-width: 350px; margin: 5px;">
+                    <input type="button" id="_btnReserveSlotsGoBack"
+                           class="button" value="Go BACK" OnClick="_btnReserveSlotsGoBack_Click" />
+                </div>
+
+                <div style="width: 30%; float: left; font-weight: 500; min-width: 350px; margin: 5px;">
+                    &nbsp;
+                </div>
+
+                <div style="width: 30%; float: left; font-weight: 500; min-width: 350px; margin: 5px;">
+                    <input type="button" id="_btnReserveSelectedSlots" class="button2" style="float:right;"
+                           onclick="return ValidateSelections();" OnClick="_btnReserveSelectedSlots_Click" value="Reserve Selected Slots" />
+                </div>
+            </div>
+
+            <div id="_trSelfRegReserveSlots" style="width: 100%; display:none;">
+                <div style="width: 33%; float: left; font-weight: 500; min-width: 350px; margin: 5px;">
+                    <input type="button" id="_btnSelfRegContinue" class="button2"
+                           value="Continue" onclick="return ValSelfRegSlot();" OnClick="_btnSelfRegContinue_Click" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br />
+</div>
+
+<div class="clear"></div>
+
+<!-- Panel Edit Info -->
+<div id="_pnlEditReservation" Visible="false">
+    <div style="width: 100%; padding: 5px; text-align: center">
+
+        <h3>Volunteer&#39;s Contact Information</h3>
+
+        <b>Ambassador Reservation for: &nbsp;<label id="_lblSlotInfo" style="color: #30aa44;"></label></b>
+    </div>
+
+    <div class="clear"></div>
+    <br />
+
+    <div style="width: 100%; padding: 5px; min-width: 350px;">
+        <fieldset style="min-width: 350px; border:none;">
+            <div style="width: 30%; float: left; font-weight: 500; min-width: 350px; margin: 5px;">
+                <label for="_txtFirstName">First name:</label>
+                <div class="clear"></div>
+                <input type="text" id="_txtFirstName" class="textbox" />
+                <div class="clear"></div>
+            </div>
+
+            <div style="width: 30%; float: left; font-weight: 500; min-width: 350px; margin: 5px;">
+                <label for="_txtLastName">Last name:</label>
+                <div class="clear"></div>
+                <input type="text" id="_txtLastName" class="textbox" />
+            </div>
+        </fieldset>
+
+        <br />
+
+        <fieldset style="min-width: 350px; border:none;">
+            <div style="width: 30%; float: left; font-weight: 500; min-width: 350px; margin: 5px;">
+                <label for="_txtTitle">Title:</label>
+                <div class="clear"></div>
+                <input type="text" id="_txtTitle" class="textbox" />
+                <div class="clear"></div>
+            </div>
+
+            <div style="width: 30%; float: left; font-weight: 500; min-width: 350px; margin: 5px;">
+                <label for="_txtEmail">Email:</label>
+                <div class="clear"></div>
+                <input type="text" id="_txtEmail" class="textbox" />
+                <div class="clear"></div>
+            </div>
+
+            <div style="width: 30%; float: left; font-weight: 500; min-width: 350px; margin: 5px;">
+                <label for="_txtMobile">Mobile #:</label>
+                <div class="clear"></div>
+                <input type="text" id="_txtMobile" class="textbox" />
+                <div class="clear"></div>
+            </div>
+        </fieldset>
+
+        <br />
+
+        <fieldset style="min-width: 350px; border:none;">
+            <div style="width: 30%; float: left; min-width: 350px; margin: 5px; text-align: center;">
+                <div style="width: 100%; float: left;">
+                    <div style="width: 30%; float: left; padding: 5px; font-weight: 500;">
+                        <label for="_cboLanguages5">Chinese</label>
+                    </div>
+                    <div style="width: 30%; float: left; padding: 5px;">
+                        <input type="checkbox" id="_cboLanguages5" value="Chinese" />
+                    </div>
+                </div>
+                <div class="clear"></div>
+
+                <div style="width: 100%; float: left;">
+                    <div style="width: 30%; float: left; padding: 5px; font-weight: 500;">
+                        <label for="_cboLanguages2">French</label>
+                    </div>
+                    <div style="width: 30%; float: left; padding: 5px;">
+                        <input type="checkbox" id="_cboLanguages2" value="French" />
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div style="width: 30%; float: left; min-width: 350px; margin: 5px; text-align: center;">
+                <div style="width: 100%; float: left; min-width: 350px;">
+                    <div style="width: 30%; float: left; padding: 5px; font-weight: 500;">
+                        <label for="_cboLanguages3">German</label>
+                    </div>
+                    <div style="width: 30%; float: left; padding: 5px;">
+                        <input type="checkbox" id="_cboLanguages3" value="German" />
+                    </div>
+                </div>
+                <div class="clear"></div>
+
+                <div style="width: 100%; float: left; min-width: 350px;">
+                    <div style="width: 30%; float: left; padding: 5px; font-weight: 500;">
+                        <label for="_cboLanguages6">Japanese</label>
+                    </div>
+                    <div style="width: 30%; float: left; padding: 5px;">
+                        <input type="checkbox" id="_cboLanguages6" value="Japanese" />
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div style="width: 30%; float: left; min-width: 350px; margin: 5px; text-align: center;">
+                <div style="width: 100%; float: left; min-width: 350px;">
+                    <div style="width: 30%; float: left; padding: 5px; font-weight: 500;">
+                        <label for="_cboLanguages4">Portuguese</label>
+                    </div>
+                    <div style="width: 30%; float: left; padding: 5px;">
+                        <input type="checkbox" id="_cboLanguages4" value="Portuguese" />
+                    </div>
+                </div>
+                <div class="clear"></div>
+
+                <div style="width: 100%; float: left; min-width: 350px;">
+                    <div style="width: 30%; float: left; padding: 5px; font-weight: 500;">
+                        <label for="_cboLanguages1">Spanish</label>
+                    </div>
+                    <div style="width: 30%; float: left; padding: 5px;">
+                        <input type="checkbox" id="_cboLanguages1" value="Spanish" />
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="clear"></div>
+
+    <div style="color:red; text-align:center;">
+        @*  <asp:ValidationSummary id="_valSummary" CssClass="errorBox" /> *@
+    </div>
+
+    <div class="clear"></div>
+
+    <div style="width: 100%; padding: 5px;">
+        <div id="_trSaveDetails" width="100%">
+            <div style="width: 30%; float: left; min-width: 350px; margin: 5px;">
+                <input type="button" id="_btnAmbassadorDetailsGoBack" value="Go Back" class="button"
+                       onclick="ClearValidators();" OnClick="_btnAmbassadorDetailsGoBack_Click" />
+            </div>
+
+            <div style="width: 30%; float: left; font-weight: 500; min-width: 350px; margin: 5px;">
+                &nbsp;
+            </div>
+
+            <div style="width: 33%; float: left; font-weight: 500; min-width: 350px; margin: 5px;">
+                <input type="button" id="_btnAmbassadorDetailsSave" value="Save Details"
+                       class="button" OnClick="_btnAmbassadorDetailsSave_Click" style="float: right" />
+            </div>
+
+        </div>
+
+        <div id="_trSelfRegSaveDetails" visible="false" width="100%">
+            <br />
+            <div style="width: 33%; float: left; font-weight: 500; min-width: 350px; margin: 5px;">
+                <input type="button" id="_btnSelfRegDetailsGoBack" value="Go Back" class="button"
+                       onclick="ClearValidators();" OnClick="_btnSelfRegDetailsGoBack_Click" />
+            </div>
+
+            <div style="width: 30%; float: left; font-weight: 500; min-width: 350px; margin: 5px;">
+                &nbsp;
+            </div>
+
+            <div style="width: 33%; float: left; font-weight: 500; min-width: 350px; margin: 5px;">
+                <input type="button" id="_btnSelfRegDetailsSave" value="Save Details" class="button"
+                       OnClick="_btnSelfRegDetailsSave_Click" style="float: right" />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="clear"></div>
+
+<!-- Panel Self Reg -->
+<div id="_pnlSelfRegComplete" Visible="false">
+    <br />
+    <h3>Reservation Submitted!</h3>
+    <br />
+    The following NACS Show Ambassador reservation has been received:<br />
+    <br />
+    <table>
+        <tr>
+            <td width="25px">&nbsp;</td>
+            <td align="right"><b>TimeSlot:</b></td>
+            <td>&nbsp;&nbsp;</td>
+            <td>
+                <b>
+                    <label id="_lblSlotInfo2" />
+                </b>
+            </td>
+        </tr>
+        <tr>
+            <td width="25px">&nbsp;</td>
+            <td align="right"><b>Ambassador:</b></td>
+            <td>&nbsp;&nbsp;</td>
+            <td>
+                <b>
+                    <label id="_lblReservationName" />
+                    (<label id="_lblReservationEmail" />)
+                </b>
+            </td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    You will receive additional instructions as we get closer to the Show. In the
+    meantime, we thank you for your support!<br />
+    <br />
+    <br />
+    <input type="button" id="_btnAddToCalendar" class="button" Visible="false"
+           value="Add to Calendar" OnClick="_btnAddToCalendar_Click" />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
+
+<input type="hidden" id="_hdnExhibitorKey" />
+<input type="hidden" id="_hdnMYSID" />
+<input type="hidden" id="_hdnDirectoryName" />
+<input type="hidden" id="_hdnEmail" />
+<input type="hidden" id="_hdnCompanyName" />
+<input type="hidden" id="_hdnTSC" />
+<input type="hidden" id="_hdnBoothNumber" />
+<input type="hidden" id="_hdnCiD" />
+<input type="hidden" id="_hdnIndKey" />
+<input type="hidden" id="_hdnOrgKey" />
+<input type="hidden" id="_hdnFile1" />
+<input type="hidden" id="_hdnUploadFlag" />
+<input type="hidden" id="_hdnMaxSlots" Value="0" />
+<input type="hidden" id="_hdnAmbassadorID" />
+<input type="hidden" id="_hdnCheckInFlag" />
+<input type="hidden" id="_hdnSelfRegFlag" />
+<input type="hidden" id="_hdnSelfRegSlot" />

@@ -1,0 +1,76 @@
+﻿.PaginationDot-module__carousel_dots {
+    z-index: 1001 !important;
+}
+
+.slick-active span.PaginationDot-module__dot {
+    background-color: #ED8000;
+}
+
+.nextArrowBtn, .nextBtn {
+    z-index: 1000;
+    color: #0053A5;
+}
+
+.prevArrowBtn, .prevBtn {
+    z-index: 1000;
+    color: #0053A5;
+}
+
+.nextArrowBtn{
+    position: absolute;
+    z-index: 1000;
+    top: 100%;
+    right: 40%;
+    color: #0053A5;
+}
+
+    .prevArrowBtn.slick-disabled,
+    .nextArrowBtn.slick-disabled,
+    .nextBtn.slick-disabled,
+    .prevBtn.slick-disabled {
+        color: #868F98 !important;
+    }
+
+.prevArrowBtn {
+    position: absolute;
+    z-index: 1000;
+    top: 100%;
+    left: 40%;
+    color: #0053A5;
+}
+
+@media only screen and (max-width: 786px) {
+    .nextArrowBtn {
+        position: absolute;
+        z-index: 1000;
+        top: 100%;
+        right: 2%;
+        color: #BFAFB2;
+    }
+
+    .prevArrowBtn {
+        position: absolute;
+        z-index: 1000;
+        top: 100%;
+        left: 2%;
+        color: #BFAFB2;
+    }
+}
+
+    @media only screen and (max-width: 480px) {
+        .nextArrowBtn {
+            position: absolute;
+            z-index: 1000;
+            top: 100%;
+            right: 8%;
+            color: #BFAFB2;
+        }
+
+        .prevArrowBtn {
+            position: absolute;
+            z-index: 1000;
+            top: 100%;
+            left: 8%;
+            color: #BFAFB2;
+        }
+    }

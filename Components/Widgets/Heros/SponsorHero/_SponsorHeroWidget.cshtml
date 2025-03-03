@@ -1,0 +1,94 @@
+﻿@model Convenience.org.Components.Widgets.Heros.SponsorHero.SponsorHeroWidgetViewModel
+
+@if (Model != null)
+{
+	<div>
+		<div class="p-0 bg-FFFFFF card">
+			<div class="border-0 card">
+				<div class="p-0 card-body">
+					<div class="SponsorHeroStyle-module__hero_card">
+						<div class="flex-grow-1 p-3 p-lg-5">
+							<div>
+								<div class="text-start mb-4 border_left_green EyebrowTitleStyle-module__eyebrow">
+									<span class="ps-4 text-uppercase font-monospace text-primary">
+										@Model.EyebrowTitle
+									</span>
+								</div>
+							</div>
+							<div class="d-flex">
+								<div class="d-flex flex-column text-start pe-3 fs-5 color-3C5567">
+									<div>@Model.DateMonth</div>
+									<div>@Model.DateYear</div>
+								</div>
+								<div class="fs-1 fw-semibold ">
+									<div class="color-E54800">@Model.DateDay</div>
+								</div>
+							</div>
+							<div class="text-start">
+								<p class="fw-semibold text-start m-0 mt-2 color-002569 SponsorHeroStyle-module__sponsor_title">
+									@Model.Title
+								</p>
+								@if (!string.IsNullOrEmpty(Model.SponsorImageUrl))
+								{
+									<p class="m-0 mt-3 fw-light text-secondary fs-5 color-3C5567">
+										Sponsor By:
+										<div>
+											<img src="@Model.SponsorImageUrl" alt="@Model.SponsorImageUrlAlt">
+										</div>
+									</p>
+								}
+							</div>
+							<div class="mt-4 d-flex SponsorHeroStyle-module__btn_section">
+								@if (!string.IsNullOrEmpty(Model.CTALink) && !string.IsNullOrEmpty(Model.CTAText))
+								{
+									<div class="mt-3 float-start">
+										<div class="mb-4">
+											<a href="@Model.CTALink" class="bg-0053A5 p-3 border border-0 brdr-rad-30 text-decoration-none ">
+												<span class="color-FFFFFF pe-2 ps-2 fw-medium undefined">
+													@Model.CTAText
+												</span>
+												<span>
+													<i class="align-middle color-FFFFFF fa-regular fa-arrow-right-long " aria-hidden="true"></i>
+												</span>
+											</a>
+										</div>
+									</div>
+								}
+								
+								@if (!Model.HideAddToCalendarButton)
+								{
+									<div class="mt-3 d-flex justify-content-between">
+										<div class="">
+											<a href="/event/downloadeventcalendar/@Model.WebPageGuid" class="bg-FFFFFF p-3 border border-0 brdr-rad-30 text-decoration-none ">
+												<span>
+													<i class="align-middle color-0053A5 fa-solid fa-calendar-circle-plus " aria-hidden="true"></i>
+												</span>
+												<span class="color-0053A5 text-start pe-lg-2 ps-lg-2 fw-medium undefined">
+													Add To Calendar
+												</span>
+												<span>
+													<i class="align-middle color-0053A5 fa-solid fa-plus " aria-hidden="true"></i>
+												</span>
+											</a>
+										</div>
+									</div>
+								}
+							</div>
+						</div>
+						<div class="SponsorHeroStyle-module__img_section">
+							<img src="/static/media/Clip path group.0252d1b32f2be88e2063.png" width="689" alt="" class="ms-5">
+							<div class="SponsorHeroStyle-module__c_shape_container">
+								<video class="SponsorHeroStyle-module__c_shaped_video" autoplay="" loop="">
+									<source src="@Model.VideoUrl" type="video/mp4">
+								</video>
+								<div class="SponsorHeroStyle-module__c_shape_cutout"></div>
+								<div class="SponsorHeroStyle-module__rect_shape_cutout"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+}

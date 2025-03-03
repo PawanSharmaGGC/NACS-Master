@@ -1,0 +1,8 @@
+
+.breadcrumb_list li {
+    color:  #868f98;
+  }
+  
+  .breadcrumb_list li:nth-last-child(1){
+    color: #0053A5 !important;
+  }

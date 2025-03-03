@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Website</ClassContentTypeType>
+  <ClassDisplayName>NACSShow Session Search</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="23202778-7398-4aed-8b94-393b013a60d5" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="46feed39-3fe5-4df7-9559-261f8260a0e2" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="f101679c-b846-486c-861c-21e19249dffd" isunique="true" system="true" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>a8821754-f568-42c2-9d2d-aca4c2ebf151</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-magnifier</ClassIconClass>
+  <ClassName>NACSShow.SessionSearch</ClassName>
+  <ClassTableName>NACSShow_SessionSearch</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
+</cms.contenttype>

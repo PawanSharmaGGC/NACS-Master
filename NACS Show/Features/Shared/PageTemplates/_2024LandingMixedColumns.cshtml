@@ -1,0 +1,83 @@
+﻿@using CMS.ContentEngine
+@using Kentico.Content.Web.Mvc.PageBuilder
+@using NACSShow
+
+<vc:current-page-data />
+@{
+    Layout = "~/Features/Shared/NACSShow/_Layout.cshtml";
+
+    var currentPageData = TempData["CurrentPageData"] as Page ?? new Page();
+}
+
+@section styles {
+    <style>
+        h1 {
+            margin: 0.67em 0;
+        }
+    </style>
+}
+
+<section class="section--margins container" style="margin-bottom:5rem">
+    <div class="center-xs">
+        <editable-area area-identifier="TitleZone"></editable-area>
+        <vc:full-width-page-title section-header="@currentPageData.SectionHeader" title="@currentPageData.Title"></vc:full-width-page-title>
+        <vc:shaw-page-description-text description="@currentPageData.Description"></vc:shaw-page-description-text>
+        <editable-area area-identifier="TitleZone1"></editable-area>
+    </div>
+</section>
+
+<div class="detail container" style="display:block">
+
+    <!-- 1 column -->
+    <section class="section--margins container">
+        <editable-area area-identifier="FullZone1"></editable-area>
+    </section>
+
+    <!-- 2 columns with ad -->
+    <section class="row center-xs section--margins  container">
+
+        <div class="col-xs col-md-8" style="display:flex">
+            <div>
+                <editable-area area-identifier="HalfZone3"></editable-area>
+            </div>
+        </div>
+        <div class="col-xs col-md-4 ad" style="display:flex">
+            <div class="ad__wrapper">
+                <editable-area area-identifier="AdZone"></editable-area>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1 column -->
+    <section class="section--margins container">
+        <editable-area area-identifier="FullZone2"></editable-area>
+    </section>
+
+
+    <section>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="wrapper container">
+                    <div class="block--sponsorship">
+                        <div class="ad">
+                            <div class="ad__wrapper">
+                                <div class="multi-ad-container">
+                                    <div>
+                                        <editable-area area-identifier="AdZone1"></editable-area>
+                                    </div>
+                                    <div>
+                                        <editable-area area-identifier="AdZone2"></editable-area>
+                                    </div>
+                                    <div>
+                                        <editable-area area-identifier="AdZone3"></editable-area>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

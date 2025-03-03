@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<media.file>
+  <FileCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </FileCreatedByUserID>
+  <FileCreatedWhen>2024-06-27 00:09:15Z</FileCreatedWhen>
+  <FileDescription />
+  <FileExtension>.jpg</FileExtension>
+  <FileGUID>e2742969-34d9-4412-ad08-a046aebe535a</FileGUID>
+  <FileImageHeight>403</FileImageHeight>
+  <FileImageWidth>936</FileImageWidth>
+  <FileLibraryID>
+    <CodeName>NACSMagazine</CodeName>
+    <GUID>0f56ef68-0033-461f-9096-5f90c3a29b74</GUID>
+    <ObjectType>media.library</ObjectType>
+  </FileLibraryID>
+  <FileMimeType>image/jpeg</FileMimeType>
+  <FileModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </FileModifiedByUserID>
+  <FileName>magazine-covers</FileName>
+  <FilePath>magazine-covers.jpg</FilePath>
+  <FileSize>157830</FileSize>
+  <FileTitle />
+</media.file>

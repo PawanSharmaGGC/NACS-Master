@@ -1,0 +1,19 @@
+﻿@using Convenience
+@using ConvenienceCares.Helpers
+@using ConvenienceCares.Models
+
+@{
+    Layout = "~/Features/Shared/ConvenienceCares/_Layout.cshtml";
+    var viewModel = Model.GetTemplateModel<Page>();
+}
+
+<section id="@viewModel.PageTrimmedPath-content">
+
+    <editable-area area-identifier="editableAreaContent"></editable-area>
+
+    @Html.Raw(viewModel.PageContent)
+
+    <editable-area area-identifier="editableAreaFooter"></editable-area>
+
+</section>
+

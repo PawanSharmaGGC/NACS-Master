@@ -1,0 +1,27 @@
+﻿@using Convenience.org.Models
+@model Convenience.org.Models.CopyBlockViewModel
+
+@if (Model != null)
+{
+    <div>
+        <div class="p-3 CopyBlockStyle-module__main_card card">
+            <div class="border-0 CopyBlockStyle-module__section_card card">
+                <div class="p-0 card-body">
+                    @Html.Raw(Model.Content)
+                </div>
+            </div>
+            <div class="mt-5">
+                @{
+                    var buttonModel = new Convenience.org.Models.ButtonsViewModel
+                    {
+                        ButtonText = "Back To Log",
+                        ButtonURL = "https://example.com",
+                        ButtonType = Convenience.org.Models.ButtonTypeEnum.BackToLog
+                    };
+                }
+                @await Component.InvokeAsync("Buttons", new { model = buttonModel })
+            </div>
+        </div>
+    </div>
+}
+

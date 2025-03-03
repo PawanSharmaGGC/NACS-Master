@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Website</ClassContentTypeType>
+  <ClassDisplayName>NMArchivePage</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="531fd6af-7f7c-4ca5-be39-7ddf17157e95" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="5b442481-cf86-48c6-9e32-a284b6a9c0f7" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="8c78758b-6c68-4e0d-b528-008f6acbe28c" isunique="true" system="true" />
+      <field column="Title" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="4389d762-da44-4f1b-a99d-1a813dd5d794" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Title</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="PageContent" columnprecision="0" columntype="longtext" enabled="true" guid="5e131479-c66d-49f4-b20b-22de38e8c995" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Page Content</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.RichTextEditor</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Months" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="20b0a4c1-1cab-4707-9e10-6092244b59e6" />
+      <field allowempty="true" column="Years" columnprecision="0" columnsize="500" columntype="text" enabled="true" guid="a71f1805-9ee9-4501-9fd2-b7cc7cef37b0" />
+      <field allowempty="true" column="SelectedMonth" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="fb4f9148-96c3-4c6c-89c6-f8e1b1273b9f" />
+      <field allowempty="true" column="IssuesList" columnprecision="0" columntype="contentitemreference" enabled="true" guid="38477ee8-a173-47d6-bbe4-8f824db7cd51" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Issues</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["354c299c-6b86-4806-9007-0e772f233da0"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <SelectionType>contentTypes</SelectionType>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectedYear" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="6b3649f3-c1e8-46c3-8676-e102179ee0e1" />
+      <field allowempty="true" column="PageNumber" columnprecision="0" columntype="integer" enabled="true" guid="d655bfea-609d-4cbf-b587-bb51095a39e6" />
+      <field allowempty="true" column="PageSize" columnprecision="0" columntype="integer" enabled="true" guid="b559bd34-fb6e-42f8-8213-7337529c1327" />
+      <field allowempty="true" column="TotalPages" columnprecision="0" columntype="integer" enabled="true" guid="f879371e-4a85-4737-b088-bcd4fa57af96" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>4c931aec-0539-49a8-a514-f55bcdc53696</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-boxes</ClassIconClass>
+  <ClassName>NACSMagazine.ArchivePage</ClassName>
+  <ClassTableName>NACSMagazine_Archive_1</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
+</cms.contenttype>

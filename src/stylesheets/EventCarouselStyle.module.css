@@ -1,0 +1,51 @@
+.section_card {
+    border: none !important;
+    overflow: hidden;
+}
+
+.slider_card_badge {
+    background-color: #DBEAB9;
+    padding: 3px 15px 3px 15px;
+    border-radius: 18px;
+    height: fit-content;
+}
+
+.slider_container {
+    overflow: hidden !important;
+}
+
+.carousel_dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    width: fit-content;
+}
+
+.dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #0053A5;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.active_dot {
+    background-color: #ED8000;
+}
+
+.slider_container_card_body img{
+    width: 100vw;
+    height: 100vh;
+    border-radius: 18px;
+}
+
+@media only screen and (max-width: 480px) {
+    .section_card {
+        width: 93vw;
+    }
+    .slider_container_card_body img{
+        height: 30vh;
+    }
+}

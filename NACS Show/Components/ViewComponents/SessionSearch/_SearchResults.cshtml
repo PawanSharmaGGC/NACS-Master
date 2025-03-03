@@ -1,0 +1,1071 @@
+﻿@using Kentico.Content.Web.Mvc.PageBuilder
+@using CMS.ContentEngine
+@using Kentico.Content.Web.Mvc
+@using Microsoft.AspNetCore.Mvc.Localization
+@using NACSShow.Resources
+
+@inject IHtmlLocalizer<SharedResources> HtmlLocalizer;
+
+@using CMS.Helpers
+
+@using Kentico.Web.Mvc
+@using Kentico.PageBuilder.Web.Mvc
+
+@using Microsoft.AspNetCore.Html
+
+@model NACSShow.Components.ViewComponents.SessionSearch.SessionSearchResultsViewComponent.SessionSearchViewModel
+
+@{
+    //Layout = "/Features/Shared/NACSShow/_Layout.cshtml";
+
+    //   public DateTime GetHeaderByDay(string key, DateTime newValue)
+    //   {
+    //     DateTime oldValue = (DateTime)(CMS.Helpers.RequestStockHelper.GetItem(key) ?? default(DateTime));
+    //     if (oldValue == default(DateTime) || newValue.Day != oldValue.Day)
+    //     {
+    //       CMS.Helpers.RequestStockHelper.Add(key, newValue);
+    //       return newValue;
+    //     }
+    //     return default(DateTime);
+    //   }
+
+    //  public string GetTimeHeaderBySlot(string key, string newValue)
+    //   {
+    //     string oldValue = (string)(CMS.Helpers.RequestStockHelper.GetItem(key) ?? "");
+    //     if (oldValue == "" || newValue != oldValue)
+    //     {
+    //       CMS.Helpers.RequestStockHelper.Add(key, newValue);
+    //       return newValue;
+    //     }
+    //     return string.Empty;
+    //   }
+
+    // public string GetColor(string segment)
+    //   {
+    //     if (segment=="Launchers")
+    //       return "#f9c606";
+    //     else if (segment == "Experimenters")
+    //       return "#80c939";
+    //     else if (segment == "Transformers")
+    //       return "#00aeef";
+    //     else if (segment == "Influencers")
+    //       return "#9b1d8f";
+    //     else
+    //       return string.Empty;
+    //   }
+
+    // public string FormatDateHeader(DateTime HeaderDate)
+    //     {
+    //       string formatted = "";
+    //       string[] dayname = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+    //       string[] monthname = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+
+    //       if (HeaderDate.ToString() == "1/1/0001 12:00:00 AM")
+    //       {
+    //         formatted = "";
+    //       }
+    //       else
+    //       {
+    //         formatted = "<div class='session-date-header'>" + HeaderDate.DayOfWeek + ", " + monthname[HeaderDate.Month-1].ToString() + " " + HeaderDate.Day.ToString() + "</div>";// + " (" + monthname(HeaderDate.getMonth()) + " " + HeaderDate.getDate() + ")</div>";
+    //       }
+
+    //       return formatted;
+    //     }
+
+    //  public string FormatTimeHeader(string HeaderTime)
+    //     {
+    //       string formatted = "";
+
+    //       if (HeaderTime.ToString() == "")
+    //       {
+    //         formatted = "";
+    //       }
+    //       else
+    //       {
+    //         formatted = "<div class='session-listing-time'>" + HeaderTime.ToString() + "</div>";
+    //       }
+
+    //       return formatted;
+    //     }
+
+
+    //   //For search results, must populate this value BEFORE the user control loads fully, or it goes in empty.
+    //   // protected override void OnInit(EventArgs e)
+    //   // {
+    //   //     try
+    //   //     {
+    //   //       //if (!IsPostBack)
+    //   //       //{
+    //   //          SaveItemToggle.SearchNodeGUID = GetSearchValue("NodeGUID").ToString();
+    //   //          SaveItemToggle.NodeAliasPath = GetSearchValue("NodeAliasPath").ToString();
+    //   //          SaveItemToggle.ClassName = GetSearchValue("ClassName").ToString();
+    //   //       //}
+    //   //     }
+    //   //     catch{}
+
+    //   // }
+
+    string GetFormatIcon(string format)
+    {
+        string icon = "";
+
+        if (format == "Awards")
+            icon = "<img class='format-icon' src='~/_Content/NACSShow/img/icon/format_icon_Awards.png' alt='Format: Awards' title='Format: Awards' />";
+        else if (format == "Case Study")
+            icon = "<img class='format-icon' src='~/_Content/NACSShow/img/icon/format_icon_CaseStudy.png' alt='Format: Case Study' title='Format: Case Study' />";
+        else if (format == "Expert/Expert Interview")
+            icon = "<img class='format-icon' src='~/_Content/NACSShow/img/icon/format_icon_ExpertExpertInterview.png' alt='Format: Expert-Expert Interview' title='Format: Expert-Expert Interview' />";
+        else if (format == "Ignite")
+            icon = "<img class='format-icon' src='~/_Content/NACSShow/img/icon/format_icon_Ignite.png' alt='Format: Ignite' title='Format: Ignite' />";
+        else if (format == "Kaleidoscope")
+            icon = "<img class='format-icon' src='~/_Content/NACSShow/img/icon/format_icon_Kaleidoscope.png' alt='Format: Kaleidoscope' title='Format: Kaleidoscope' />";
+        else if (format == "Lightning")
+            icon = "<img class='format-icon' src='~/_Content/NACSShow/img/icon/format_icon_Lightning.png' alt='Format: Lightning' title='Format: Lightning' />";
+        else if (format == "Masterclass")
+            icon = "<img class='format-icon' src='~/_Content/NACSShow/img/icon/format_icon_Masterclass.png' alt='Format: Masterclass' title='Format: Masterclass' />";
+        else if (format == "Panel")
+            icon = "<img class='format-icon' src='~/_Content/NACSShow/img/icon/format_icon_Panel.png' alt='Format: Panel' title='Format: Panel' />";
+        else if (format == "Great Debate: Point Counterpoint")
+            icon = "<img class='format-icon' src='~/_Content/NACSShow/img/icon/format_icon_PointCounterpoint.png' alt='Format: Great Debate: Point Counterpoint' title='Format: Great Debate: Point Counterpoint' />";
+        else if (format == "Roundtables")
+            icon = "<img class='format-icon' src='~/_Content/NACSShow/img/icon/format_icon_Roundtables.png' alt='Format: Roundtables' title='Format: Roundtables' />";
+        else if (format == "Think You Know Me?")
+            icon = "<img class='format-icon' src='~/_Content/NACSShow/img/icon/format_icon_ThinkYouKnowMe.png' alt='Format: Think You Know Me?' title='Format: Think You Know Me?' />";
+        else if (format == "Workshop")
+            icon = "<img class='format-icon' src='~/_Content/NACSShow/img/icon/format_icon_Workshop.png' alt='Format: Workshop' title='Format: Workshop' />";
+        else
+            icon = string.Empty;
+
+        return "<div class='format-name'><a href='#' title='Info' onclick='showDialog(this,0); return false;'>" + icon + " " + format + " <i class='far fa-info-circle fa-lg' title='Click for Format explanations'></i></a></div>";
+    }
+}
+
+<style>
+        .form-control {
+            background-color: #f4f4f4;
+            display: unset !important;
+            width: unset !important;
+        }
+
+        .btn.my-2.my-sm-0.btn-default {
+            background: url(~/_Content/NACSShow/img/icon/icon-search.png) no-repeat;
+        }
+    /*FILTERS, FRAME */
+      .search-filter-horizontal
+      {
+        font-size: 0.9rem;
+        display:inline-block;
+        color:var(--text-color-body);
+        margin: 0px 10px;
+      }
+      .session-search-watermark
+      {
+        color:#ccc;
+      }
+      .search-filter-horizontal input
+      {
+        display:inline-block;
+      }
+      .search-filter-horizontal input.form-control, .search-filter-horizontal select.form-control
+      {
+        width:auto;
+        display:inline-block;
+      }
+      .search-filter-horizontal span input
+      {
+        display:none;
+        margin:5px;
+      }
+      .search-filter-horizontal.day input
+      {
+        display:none;
+        margin:5px;
+      }
+      .search-filter-horizontal.day table, .search-filter-horizontal.day table > tbody > tr > td
+      {
+        border:0px;
+         padding:0px;
+      }
+      .search-filter-horizontal.tracks span label
+      {
+        margin:0.25rem;
+        display:inline-block;
+        padding: .75rem 1.5rem;
+        border-radius: 100em;
+        font-weight: 600;
+        text-align: center;
+        border: solid 0.0625rem var(--color-pink);
+        color:var(--color-pink);
+      }
+     .search-filter-horizontal.segments span label
+      {
+        margin:0.5rem;
+        display:inline-block;
+        padding: 1rem 2rem;
+        border-radius: 100em;
+        font-weight: 600;
+        text-align: center;
+      }
+    .search-filter-horizontal.formats span label
+      {
+        margin:0.25rem;
+        display:inline-block;
+        padding: .75rem 1.5rem;
+        border-radius: 100em;
+        font-weight: 600;
+        text-align: center;
+        border: solid 0.0625rem var(--color-dark-pastel-green);
+        color: var(--color-cobalt);
+      }
+    .search-filter-horizontal.saved span label
+      {
+        margin:0.25rem;
+        display:inline-block;
+        padding: .75rem 1.5rem;
+        border-radius: 100em;
+        font-weight: 600;
+        text-align: center;
+        border: solid 0.0625rem var(--color-dark-pastel-green);
+        color: var(--color-dark-pastel-green);
+      }
+    .search-filter-horizontal.translated span label
+      {
+        margin:0.25rem;
+        display:inline-block;
+        padding: .75rem 1.5rem;
+        border-radius: 100em;
+        font-weight: 600;
+        text-align: center;
+        border: solid 0.0625rem #ED8B00;
+        color: #ED8B00;
+      }
+    .search-filter-horizontal.day span label
+      {
+        margin:0.25rem;
+        display:inline-block;
+        padding: .75rem 1.5rem;
+        border-radius: 100em;
+        font-weight: 600;
+        text-align: center;
+        border: solid 0.0625rem var(--color-dark-pastel-green);
+
+      }
+
+    .search-filter-horizontal.day label[for="p_lt_ctl07_pageplaceholder_p_lt_ctl05_ColumnLayout_Bootstrap_ColumnLayout_Bootstrap_1_DayFilter_radlstFilter_0"]
+    {
+
+      display:inline-block;
+      padding: .75rem 1rem;
+      font-weight: 600;
+      text-align: center;
+      border: solid 0.0625rem var(--text-color-body);
+      border-radius: 100em 0em 0em 100em;
+    }
+    .search-filter-horizontal.day label[for="p_lt_ctl07_pageplaceholder_p_lt_ctl05_ColumnLayout_Bootstrap_ColumnLayout_Bootstrap_1_DayFilter_radlstFilter_1"]
+    {
+
+      display:inline-block;
+      padding: .75rem 1rem;
+      font-weight: 600;
+      text-align: center;
+      border: solid 0.0625rem var(--text-color-body);
+    }
+    .search-filter-horizontal.day label[for="p_lt_ctl07_pageplaceholder_p_lt_ctl05_ColumnLayout_Bootstrap_ColumnLayout_Bootstrap_1_DayFilter_radlstFilter_2"]
+    {
+      display:inline-block;
+      padding: .75rem 1rem;
+      font-weight: 600;
+      text-align: center;
+      border: solid 0.0625rem var(--text-color-body);
+      border-radius: 0em 100em 100em 0em;
+    }
+
+    .search-filter-horizontal.segments span label[for="p_lt_ctl07_pageplaceholder_p_lt_ctl05_ColumnLayout_Bootstrap_ColumnLayout_Bootstrap_3_SegmentFilter_radlstFilter_1"]
+      {
+        border: solid 0.0625rem #80c939;
+        color:#80c939;
+      }
+     .search-filter-horizontal.segments span label[for="p_lt_ctl07_pageplaceholder_p_lt_ctl05_ColumnLayout_Bootstrap_ColumnLayout_Bootstrap_3_SegmentFilter_radlstFilter_2"]
+      {
+        border: solid 0.0625rem #f9c606;
+        color:#f9c606;
+      }
+     .search-filter-horizontal.segments span label[for="p_lt_ctl07_pageplaceholder_p_lt_ctl05_ColumnLayout_Bootstrap_ColumnLayout_Bootstrap_3_SegmentFilter_radlstFilter_3"]
+      {
+        border: solid 0.0625rem #00aeef;
+        color:#00aeef;
+      }
+
+
+
+
+
+      .search-filter-horizontal.tracks span label:before
+      {
+        content: '\f02b';
+        font-family: 'Font Awesome 5 Pro';
+        margin-right:3px;
+      }
+      .search-filter-horizontal.saved span label:before
+      {
+        content: '\f02e';
+        font-family: 'Font Awesome 5 Pro';
+        margin-right:3px;
+      }
+    .search-filter-horizontal.translated span label:before
+      {
+        content: '\f590';
+        font-family: 'Font Awesome 5 Pro';
+        margin-right:3px;
+      }
+
+     .search-filter-horizontal span label:hover, .search-filter-horizontal label:hover
+      {
+         /*margin:3px;
+        display:inline-block;
+        padding:5px;
+        border:2px solid #e0007a;
+        color:#e0007a;*/
+        cursor:pointer;
+        font-weight:bold;
+      }
+
+      .search-filter-horizontal.tracks span input:checked + label
+      {
+        margin:3px;
+        /*order:2px solid #e0007a;*/
+        color:#fff!important;
+        font-weight:bold;
+        background-color:var(--color-pink);
+      }
+     .search-filter-horizontal.segments span input:checked + label
+      {
+        margin:3px;
+        color:#fff!important;
+        font-weight:bold;
+      }
+    .search-filter-horizontal.formats span input:checked + label
+      {
+        margin:3px;
+        color:#fff!important;
+        font-weight:bold;
+        background-color:var(--color-cobalt);
+        color: #fff;
+      }
+    .search-filter-horizontal.saved span input:checked + label
+      {
+        margin:3px;
+        color:#fff!important;
+        font-weight:bold;
+        background-color:var(--color-dark-pastel-green);
+        color: #fff;
+      }
+    .search-filter-horizontal.translated span input:checked + label
+      {
+        margin:3px;
+        color:#fff!important;
+        font-weight:bold;
+        background-color:#ED8B00;
+        color: #fff;
+      }
+    .search-filter-horizontal.day input:checked + label
+      {
+        /*margin:3px;  */
+        color:#fff!important;
+        font-weight:bold;
+        background-color:var(--color-cobalt);
+        color: #fff;
+      }
+     .search-filter-horizontal.segments span input:checked + label[for="p_lt_ctl07_pageplaceholder_p_lt_ctl05_ColumnLayout_Bootstrap_ColumnLayout_Bootstrap_3_SegmentFilter_radlstFilter_1"]
+      {
+        background-color:#80c939;
+      }
+     .search-filter-horizontal.segments span input:checked + label[for="p_lt_ctl07_pageplaceholder_p_lt_ctl05_ColumnLayout_Bootstrap_ColumnLayout_Bootstrap_3_SegmentFilter_radlstFilter_2"]
+      {
+        background-color:#f9c606;
+      }
+     .search-filter-horizontal.segments span input:checked + label[for="p_lt_ctl07_pageplaceholder_p_lt_ctl05_ColumnLayout_Bootstrap_ColumnLayout_Bootstrap_3_SegmentFilter_radlstFilter_3"]
+      {
+        background-color:#00aeef;
+      }
+      .search-filter-view
+      {
+        /*float:right;*/
+        display:inline-flex;
+        align-items:center;
+        padding:10px;
+        font-size:14px;
+        float:right;
+      }
+      .search-filter-view span#toggle-hide
+      {
+        /*color:#e0007a;*/
+        font-weight:bold;
+      }
+      .view-toggle-fa
+      {
+        color:#004e8d;
+        display:inline-block;
+        cursor:pointer;
+      }
+    .gridview-toggle-fa
+      {
+        color:#004e8d;
+        display:inline-block;
+        cursor:pointer;
+      }
+
+
+    .session-search-results-data {
+      display:inline-block;
+      /*margin-right: 20px;*/
+      font-weight:700;
+    }
+    .session-filter-info {
+      display:inline-block;
+    }
+    #filter-clear {
+      border: .0625rem solid #2bbcf6;
+      padding: .5rem .75rem;
+      text-align:center;
+      cursor:pointer;
+      border-radius:100em;
+      font-size:.8em;
+    }
+    #filter-clear:hover {
+      color:#fff;
+      background-color:#2bbcf6;
+    }
+
+
+    /*Session Listing*/
+
+    .btn-fav {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+    }
+    .btn-fav > div > div > div > div > a {
+        color: var(--color-dark-pastel-green) !important;
+    }
+    .format-icon {
+      width:52px !important;
+      vertical-align:middle;
+      padding-right:5px;
+    }
+    .format-name {
+      /*padding: 1rem 2rem;*/
+      border-radius: 100em;
+      font-size: .825rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--color-cobalt);
+      /*border: 1px solid var(--color-bondi-blue);
+      padding-right: 1rem;*/
+    }
+    .format-pill {
+      border: 2px solid var(--color-dark-pastel-green);
+      background-color: var(--color-cobalt);
+      color: #fff;
+    }
+    div.card-content a {
+        color: var(--text-color-body) !important;
+    }
+    div.format-name a {
+      color: var(--color-bondi-blue) !important;
+    }
+    div.card-section__card h3
+    {
+      padding-top:0.5rem;
+    }
+    div.card-actions {
+      margin-bottom: 1.5rem;
+    }
+    span.segment-tag
+      {
+        font-weight:bold;
+        display:inline-block;
+        color:#fff;
+        font-size:16px;
+        padding:2px 7px;
+        margin:5px;
+        cursor:pointer;
+      }
+    span.segment-tag.Launchers /* case-sensitive - leave upper */
+    {background-color:#f9c606;}
+    span.segment-tag.Experimenters /* case-sensitive - leave upper */
+    {background-color:#80c939;}
+    span.segment-tag.Transformers /* case-sensitive - leave upper */
+    {background-color:#00aeef;}
+    span.segment-tag.Influencers /* case-sensitive - leave upper */
+    {background-color:#9b1d8f;}
+
+    .session-listing-container .session-listing-info .details span.segment-statement
+      {
+        font-decoration:italics;
+        padding:5px;
+        font-size: 1.25rem;
+        float:right;
+        max-width:40%;
+        margin:5px;
+      }
+
+    div.tooltip
+    {
+        width:100%;
+        max-width:400px;
+        min-width:300px;
+        left: 15px;
+    }
+    div.tooltip.fade.bs-tooltip-right
+    {
+        opacity:1;
+        padding-left:15px
+    }
+    div.tooltip.fade.bs-tooltip-bottom
+    {
+        opacity:1;
+        padding-top:15px
+    }
+    div.tooltip.fade.bs-tooltip-left
+    {
+        opacity:1;
+        padding-right:15px
+    }
+    div.tooltip.fade.bs-tooltip-top
+    {
+        opacity:1;
+        padding-bottom:15px
+    }
+    /*div.tooltip.fade.show
+    {
+        opacity:1;
+        padding-left:15px
+    }*/
+    div.tooltip.fade.bs-tooltip-top div.arrow::before
+    {
+        border-top-width: 15px !important;
+        border-right-width: 15px !important;
+        border-left-width: 15px !important;
+    }
+    div.tooltip.fade.bs-tooltip-right div.arrow::before
+    {
+        border-top-width: 15px !important;
+        border-right-width: 15px !important;
+        border-bottom-width: 15px !important;
+    }
+    div.tooltip.fade.bs-tooltip-bottom div.arrow::before
+    {
+        border-bottom-width: 15px !important;
+        border-right-width: 15px !important;
+        border-left-width: 15px !important;
+    }
+    div.tooltip.fade.bs-tooltip-left div.arrow::before
+    {
+        border-bottom-width: 15px !important;
+        border-top-width: 15px !important;
+        border-left-width: 15px !important;
+    }
+
+    /*Launchers*/
+    span.segment-tag.Launchers div.tooltip div.arrow, span.segment-tag.Launchers div.tooltip.fade.bs-tooltip-top div.arrow::before
+    {
+        border-top-color:#f9c606 !important;
+    }
+    span.segment-tag.Launchers div.tooltip div.arrow, span.segment-tag.Launchers div.tooltip.fade.bs-tooltip-right div.arrow::before
+    {
+        border-right-color:#f9c606 !important;
+    }
+    span.segment-tag.Launchers div.tooltip div.arrow, span.segment-tag.Launchers div.tooltip.fade.bs-tooltip-bottom div.arrow::before
+    {
+        border-bottom-color:#f9c606 !important;
+    }
+    span.segment-tag.Launchers div.tooltip div.arrow, span.segment-tag.Launchers div.tooltip.fade.bs-tooltip-left div.arrow::before
+    {
+        border-left-color:#f9c606 !important;
+    }
+    /*Experimenters*/
+    span.segment-tag.Experimenters div.tooltip div.arrow, span.segment-tag.Experimenters div.tooltip.fade.bs-tooltip-top div.arrow::before
+    {
+        border-top-color:#80c939 !important;
+    }
+    span.segment-tag.Experimenters div.tooltip div.arrow, span.segment-tag.Experimenters div.tooltip.fade.bs-tooltip-right div.arrow::before
+    {
+        border-right-color:#80c939 !important;
+    }
+    span.segment-tag.Experimenters div.tooltip div.arrow, span.segment-tag.Experimenters div.tooltip.fade.bs-tooltip-bottom div.arrow::before
+    {
+        border-bottom-color:#80c939 !important;
+    }
+    span.segment-tag.Experimenters div.tooltip div.arrow, span.segment-tag.Experimenters div.tooltip.fade.bs-tooltip-left div.arrow::before
+    {
+        border-left-color:#80c939 !important;
+    }
+
+    /*Transformers*/
+    span.segment-tag.Transformers div.tooltip div.arrow, span.segment-tag.Transformers div.tooltip.fade.bs-tooltip-top div.arrow::before
+    {
+        border-top-color:#00aeef !important;
+    }
+    span.segment-tag.Transformers div.tooltip div.arrow, span.segment-tag.Transformers div.tooltip.fade.bs-tooltip-right div.arrow::before
+    {
+        border-right-color:#00aeef !important;
+    }
+    span.segment-tag.Transformers div.tooltip div.arrow, span.segment-tag.Transformers div.tooltip.fade.bs-tooltip-bottom div.arrow::before
+    {
+        border-bottom-color:#00aeef !important;
+    }
+    span.segment-tag.Transformers div.tooltip div.arrow, span.segment-tag.Transformers div.tooltip.fade.bs-tooltip-left div.arrow::before
+    {
+        border-left-color:#00aeef !important;
+    }
+
+    /*Influencers*/
+    span.segment-tag.Influencers div.tooltip div.arrow, span.segment-tag.Influencers div.tooltip.fade.bs-tooltip-top div.arrow::before
+    {
+        border-top-color:#9b1d8f !important;
+    }
+    span.segment-tag.Influencers div.tooltip div.arrow, span.segment-tag.Influencers div.tooltip.fade.bs-tooltip-right div.arrow::before
+    {
+        border-right-color:#9b1d8f !important;
+    }
+    span.segment-tag.Influencers div.tooltip div.arrow, span.segment-tag.Influencers div.tooltip.fade.bs-tooltip-bottom div.arrow::before
+    {
+        border-bottom-color:#9b1d8f !important;
+    }
+    span.segment-tag.Influencers div.tooltip div.arrow, span.segment-tag.Influencers div.tooltip.fade.bs-tooltip-left div.arrow::before
+    {
+        border-left-color:#9b1d8f !important;
+    }
+
+
+    span.segment-tag.Launchers div.tooltip div.tooltip-inner
+    {
+        border:2px solid #f9c606 !important;
+    }
+    span.segment-tag.Experimenters div.tooltip div.tooltip-inner
+    {
+        border:2px solid #80c939 !important;
+    }
+    span.segment-tag.Transformers div.tooltip div.tooltip-inner
+    {
+        border:2px solid #00aeef !important;
+    }
+    span.segment-tag.Influencers div.tooltip div.tooltip-inner
+    {
+        border:2px solid #9b1d8f !important;
+    }
+    div.tooltip div.arrow
+    {
+        width:15px;
+        height:15px;
+    }
+
+    div.tooltip, div.tooltip div.tooltip-inner {
+      background-color: #fff;
+      color:#2c4454;
+      font-size: 1rem;
+      text-align:left;
+    }
+
+    div.tooltip div.tooltip-inner {
+      width:100%;
+      max-width:400px;
+      min-width:300px;
+      padding:10px;
+      border:1px solid #00aecc;
+    }
+
+    div.tooltip-inner img {
+      float:right;
+      margin:5px;
+    }
+
+
+    .session-listing-container .session-listing-info a.link-details
+      {
+        font-size:12px;
+      }
+    .session-listing-container .session-listing-time
+      {
+        float:left;
+        max-width:180px;
+        width:100%;
+        padding:10px;
+        line-height:36px;
+        display:inline-block;
+      }
+    .session-listing-time
+      {
+         position: -webkit-sticky;
+         position: sticky;
+         top: 30px;
+         background-color:#fff;
+    }
+
+
+    .session-listing-container .session-listing-time-gridview
+      {
+        display:none;
+      }
+
+
+    /*Session Grid*/
+
+    .session-listing-container.gridview
+      {
+        padding:10px;
+        margin:10px;
+        float:left;
+        max-width:30%;
+        min-width:30%;
+        border: 2px solid #00aecc;
+        height:300px;
+        position:relative;
+      }
+    .session-listing-container.gridview-desc
+      {
+        padding:10px;
+        margin:10px;
+        float:left;
+        max-width:30%;
+        min-width:30%;
+        border: 2px solid #00aecc;
+        height:500px;
+        font-size:0.8rem
+      }
+
+    .session-listing-container.gridview .session-listing-info
+      {
+        max-width: 100%;
+      }
+    .session-listing-container.gridview .session-listing-info span.title
+      {
+        font-weight:bold;
+        font-size:1.2rem;
+      }
+    .session-listing-container.gridview .session-listing-info span.track
+      {
+        font-weight:bold;
+        /*color:#e0007a;*/
+        /*margin:5px;*/
+        display:inline-block;
+        padding:5px;
+        /*border:1px solid #999;*/
+        color:#999;
+        bottom:0px;
+        left:0px;
+        cursor:pointer;
+        position:absolute;
+      }
+    .session-listing-container.gridview .session-listing-info span.segment-tag
+      {
+        font-weight:bold;
+        /*display:inline-block;*/
+        color:#fff;
+        font-size:16px;
+        padding:2px 7px;
+        margin:5px;
+        bottom:0px;
+        right:0px;
+        cursor:pointer;
+        position:absolute;
+      }
+    .session-listing-container.gridview .session-listing-info .details span.segment-statement
+      {
+        font-decoration:italics;
+        padding:5px;
+        font-size: 1.25rem;
+        float:right;
+        max-width:40%;
+        margin:5px;
+      }
+    .session-listing-container.gridview .session-listing-info a.link-details
+      {
+        font-size:12px;
+      }
+    .session-listing-container.gridview .session-listing-time-gridview
+      {
+        float:none;
+        display:block;
+        max-width:100%;
+        padding:10px;
+        line-height:16px;
+      }
+    .session-listing-container.gridview .session-listing-time
+      {
+        display:none;
+      }
+    .progress-overlay {
+        position: fixed;
+        background-color: rgba(255,255,255,0.7);
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        color:var(--color-pacific-blue);
+        text-align: center;
+        z-index:1000;
+    }
+
+    .progress-overlay-spinner {
+        /*margin-top:25%;
+        color:var(--color-pacific-blue);
+        text-align: center;*/
+        position: absolute;
+        top: 40%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .progress {
+        position: relative;
+    }
+
+    .modal {
+        overflow:visible;
+        max-width:1000px;
+        background-color: var(--color-white-smoke);
+        padding: 50px 15px 15px 15px;
+        margin:auto;
+    }
+    .blocker {
+        background-color:rgba(13,44,108,0.5)
+    }
+    .ui-dialog-titlebar {
+        text-align:center;
+        padding-right:20px;
+    }
+    .ui-dialog-titlebar > button {
+        background-color: #60bc50;
+        color: #fff !important;
+        padding: 1rem 3rem;
+        border-radius: 0px 0px 20px 20px;
+        top: 51px;
+        right: -20px;
+        position: relative;
+        z-index: 10;
+        cursor:pointer;
+    }
+    span.ui-button-icon-space:before {
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 800;
+        content: "\f00d";
+    }
+    .detail {
+        margin: 10px 10px 10px 75px;
+
+    }
+    .detail span {
+        display:inline-block;
+        vertical-align:middle;
+        max-width:90%;
+        font-size:0.9em;
+    }
+    .detail span strong{
+        font-size:1.1em;
+    }
+    .format-icon-detail {
+        width:75px;
+        margin-left:-75px;
+        vertical-align:middle;
+    }
+</style>
+@*<div class="container">
+    <div class="row">
+         <div class="col-12" style="text-align:center;">
+            @if (Model.Title is not null)
+            {
+                @Html.Raw(Model.Title)
+            }
+            <form method="get" id="sessionSearchForm">
+                <div class="row justify-content-center">
+                    <div class="col-sm-10 col-lg-7">
+                        <div class="input-group">
+                            <input asp-for="@Model.Query" type="text" class="form-control long-search"
+                                   aria-label="Search" aria-describedby="submitSearch" value="@Model.Query">
+                            <button class="btn my-2 my-sm-0 button-go" type="submit" id="submitSearch">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    @* <div class="d-flex justify-content-end align-items-center gap-3 mt-3">
+                    <label asp-for="@Model.SortBy" class="form-label text-nowrap mb-0">@HtmlLocalizer["Sort by"]</label>&nbsp;&nbsp;
+                    <select asp-for="@Model.SortBy" class="form-select form-select-sm w-auto" search-sort-by>
+                    <option value="relevance">@HtmlLocalizer["Relevance"]</option>
+                    <option value="publishdate">@HtmlLocalizer["Date Published"]</option>
+                    </select>
+                    </div>@
+                </div>
+            </form>
+        </div> *@
+
+        <div class="education-sessions__cards margin-top-lg row center-xs start-md">
+            <div>
+                @if (Model.Sessions.Count() == 0 && Model.TotalPages == 0)
+                {
+                    <div>
+                        <p>No results could be found.</p>
+                    </div>
+                }
+                else
+                {
+                    <div class='results-data'>
+                        <div id='count' class='session-search-results-data'>Showing @Model.Sessions.Count() session(s)</div>
+                        <div id='filters' class='session-filter-info'></div>
+                    </div>
+                    <div class='clear'></div>
+                    <div class='row'>
+                        @foreach (var session in Model.Sessions)
+                        {
+                            if(session != null)
+                            {
+                                <div class="start-xs col-xs-12 col-sm-9 col-md-3" data-jplist-item>
+                                    <div class='card-section__card' data-fav-id=''>
+                                        <div class="card-content">
+                                            <a title='Learn more about @session.Title...' href=''>
+                                                <h3>@session.Title</h3>
+                                                <div>@Html.Raw(session?.PageContent?.Substring(0, Math.Min(session.PageContent.Length, 200)))...</div>
+                                                <div class="card-section-date">
+                                            <div class="card-section-date__day">@session?.StartTime</div>
+                                            <div class="card-section-date__time">@session?.StartTime - @session?.EndTime PDT</div> 
+                                                </div>
+                                            </a>
+                                            <div class="card-actions">
+                                                <div class="margin-top-sm link--pill btn-filter segment1"><i class='fa fa-tag fa-sm'></i>&nbsp;@session?.Keyword</div>
+                                                @{
+                                                    var format = GetFormatIcon(session?.Format ?? string.Empty);
+                                                    @Html.Raw(format)
+                                                    ;
+                                                }
+                                                @*<div class="btn-fav">
+                                                    <div>
+                                                        <uc1:SaveItemToggle id="SaveItemToggle" runat="server" NodeGUID='' SearchNodeGUID='<%# GetSearchValue("NodeGUID").ToString() %>' SavedType='Session' NodeAliasPath='<%# GetSearchValue("NodeAliasPath") %>' ClassName='<%# GetSearchValue("ClassName") %>' />
+                                                    </div>
+                                                </div> *@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                }
+
+                @* @await Component.InvokeAsync("Pagination", Model) *@
+
+                    @*</div>
+                     <div class="col-12 col-sm-4 right-rail">
+                    <div class="container my-3"><p class="font-g-24" style="color:rgba(39,94,153,.75)">Other</p></div>
+                    <cms:CMSWebPartZone ZoneID="RightTopWidgetZone" runat="server" />
+                    <cms:CMSWebPartZone ZoneID="AdZone" runat="server" />
+                    <cms:CMSWebPartZone ZoneID="RightBottomWidgetZone" runat="server" />
+                    </div> 
+                </div>
+            </div>
+
+            <div class="progress-overlay" id="loadingDiv">
+                <div class="progress-overlay-spinner">
+                    <i class="far fa-circle-notch fa-5x fa-spin"></i>
+                </div>
+        </div> *@
+
+        <div id="_divDialog" class="modal">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 padding">
+                    <div class="detail" id="Awards">
+                        <img class='format-icon-detail' src='~/_content/NACSShow/img/icon/format_icon_Awards.png' alt='Format: Awards' title='Format: Awards' />
+                        <span>
+                            <strong>Awards</strong><br>
+                            Awards announcements and presentation.
+                        </span>
+                    </div>
+                    <div class="detail" id="Case Study">
+                        <img class='format-icon-detail' src='~/_content/NACSShow/img/icon/format_icon_CaseStudy.png' alt='Format: Case Study' title='Format: Case Study' />
+                        <span>
+                            <strong>Case Study</strong><br>
+                            General topic presenting lessons learned start to finish.
+                        </span>
+                    </div>
+                    <div class="detail" id="Expert/Expert Interview">
+                        <img class='format-icon-detail' src='~/_content/NACSShow/img/icon/format_icon_ExpertExpertInterview.png' alt='Format: Expert-Expert Interview' title='Format: Expert-Expert Interview' />
+                        <span>
+                            <strong>Expert-Expert Interview</strong><br>
+                            Replaces fireside chat or single presenter format. Must be known industry expert or presentation of robust data.
+                        </span>
+                    </div>
+                    <div class="detail" id="Ignite">
+                        <img class='format-icon-detail' src='~/_content/NACSShow/img/icon/format_icon_Ignite.png' alt='Format: Ignite' title='Format: Ignite' />
+                        <span>
+                            <strong>Ignite</strong><br>
+                            Slides run automatically keeping speaker pacing. Keeps session moving.
+                        </span>
+                    </div>
+                    <div class="detail" id="Kaleidoscope">
+                        <img class='format-icon-detail' src='~/_content/NACSShow/img/icon/format_icon_Kaleidoscope.png' alt='Format: Kaleidoscope' title='Format: Kaleidoscope' />
+                        <span>
+                            <strong>Kaleidoscope</strong><br>
+                            One topic through the eyes of different functional teams (e.g. supply chain, store ops, frontline, finance, etc.)
+                        </span>
+                    </div>
+                    <div class="detail" id="Lightning">
+                        <img class='format-icon-detail' src='~/_content/NACSShow/img/icon/format_icon_Lightning.png' alt='Format: Lightning' title='Format: Lightning' />
+                        <span>
+                            <strong>Lightning</strong><br>
+                            Moderated Q&A with small panel with efforts to drive diverse perspective; after 3 minutes on question, buzzer sounds and move to next question; forces people to be brief and clear on answers.
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 padding">
+                    <div class="detail" id="Masterclass">
+                        <img class='format-icon-detail' src='~/_content/NACSShow/img/icon/format_icon_Masterclass.png' alt='Format: Masterclass' title='Format: Masterclass' />
+                        <span>
+                            <strong>Masterclass</strong><br>
+                            Single topic session which is a solo presenter and acts more like an university lecture. Must include multiple media, audience interaction, etc.
+                        </span>
+                    </div>
+                    <div class="detail" id="Panel">
+                        <img class='format-icon-detail' src='~/_content/NACSShow/img/icon/format_icon_Panel.png' alt='Format: Panel' title='Format: Panel' />
+                        <span>
+                            <strong>Panel</strong><br>
+                            Multiple presenters, experts in a certain field discussing and sharing expertise and experience with one another.
+                        </span>
+                    </div>
+                    <div class="detail" id="Great Debate: Point Counterpoint">
+                        <img class='format-icon-detail' src='~/_content/NACSShow/img/icon/format_icon_PointCounterpoint.png' alt='Format: Great Debate: Point Counterpoint' title='Format: Great Debate: Point Counterpoint' />
+                        <span>
+                            <strong>Great Debate: Point Counterpoint</strong><br>
+                            Facilitator stimulates point/counterpoint debate on key industry topic.
+                        </span>
+                    </div>
+                    <div class="detail" id="Roundtables">
+                        <img class='format-icon-detail' src='~/_content/NACSShow/img/icon/format_icon_Roundtables.png' alt='Format: Roundtables' title='Format: Roundtables' />
+                        <span>
+                            <strong>Roundtables</strong><br>
+                            Facilitated discussion. Limited use of slides or video to set-up topic.
+                        </span>
+                    </div>
+                    <div class="detail" id="Think You Know Me?">
+                        <img img class='format-icon-detail' src='~/_content/NACSShow/img/icon/format_icon_ThinkYouKnowMe.png' alt='Format: Think You Know Me?' title='Format: Think You Know Me?' />
+                        <span>
+                            <strong>Think You Know Me?</strong><br>
+                            One group is polled on a topic, and then the other has to guess the outcomes, as a stimulant for discussion.
+                        </span>
+                    </div>
+                    <div class="detail" id="Workshop">
+                        <img img class='format-icon-detail' src='~/_content/NACSShow/img/icon/format_icon_Workshop.png' alt='Format: Workshop' title='Format: Workshop' />
+                        <span>
+                            <strong>Workshop</strong><br>
+                            Traditional small group classroom style format.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

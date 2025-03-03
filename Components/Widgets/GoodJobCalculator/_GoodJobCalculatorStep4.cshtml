@@ -1,0 +1,86 @@
+﻿@using Convenience.org.Models
+
+@model GoodJobCalculatorViewModel
+
+<link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'
+        media="screen" />
+<link rel="stylesheet" href='https://ka-p.fontawesome.com/releases/v6.7.2/css/pro.min.css?token=097aa4c14b'
+        media="screen" />
+
+@Html.Partial("~/Components/Widgets/GoodJobCalculator/_GoodJobCalculatorStepsHeading.cshtml", Model)
+
+<div class="row">
+    <div class="col">
+        <div style="padding-left: 10px">
+
+            <p style="font-size: 18px">Thank you! You&rsquo;ve completed the calculator, so what&rsquo;s next? Choose which path you&rsquo;d like to take&hellip;</p>
+
+            <div>
+                <div class="column third" style="padding: 10px; padding-top: 0px; display: flex; align-items: center; justify-content: center;">
+                    <div>
+                        <p align="center"><span style="font-size: 4em; color: #0d2c6c"><i class="fal fa-envelope"></i></span></p>
+
+                        <p><strong>Discuss your questions about Good Jobs Strategy and the calculator with the Good Jobs Institute team.</strong></p>
+
+                        <p>The process of completing the Good Jobs calculator may raise more questions. We are here to help! We can&nbsp;schedule a 1-on-1 meeting to answer&nbsp;questions/concerns. Reach out to the Good Jobs Institute at&nbsp;<a data-feathr-click-track="true" href="mailto:info@goodjobsinstitute.org">info@goodjobsinstitute.org</a>.</p>
+                    </div>
+                </div>
+
+                <div class="column third" style="border-right: 1px solid #eee; border-left: 1px solid #eee; padding: 10px; padding-top: 0px; display: flex; align-items: center; justify-content: center;">
+                    <div>
+                        <p align="center"><span style="font-size: 4em; color: #0d2c6c"><i class="fal fa-laptop"></i></span></p>
+
+                        <p><strong>Learn more about the Good Jobs Strategy and financial, competitive and moral reasons to pursue it. </strong></p>
+
+                        <p>After seeing the potential upside of investing in good jobs through the calculator, your company will need to determine what to change.</p>
+
+                        <p>Don&rsquo;t know where to start? We&rsquo;ve happy to share the Good Jobs Strategy (GJS) with you through a complementary webinar. This will provide an overview of the Good Jobs Strategy, our tools and resources, and give your team the opportunity to see how GJS might apply to your organization.</p>
+                    </div>
+                </div>
+
+                <div class="column third" style="display: flex; align-items: center; justify-content: center; padding: 10px; padding-top: 0px;">
+                    <div>
+                        <p align="center"><span style="font-size: 4em; color: #0d2c6c"><i class="fal fa-handshake"></i></span></p>
+
+                        <p><strong>Partner with the Good Jobs Institute.</strong></p>
+
+                        <p>If your leadership team believes there is a compelling case to pursue the GJS even further, we can partner to guide you through the process.</p>
+
+                        <p>Our partnerships start with a two-day workshop, which is a mix of executive education and strategic planning. We begin with a GJS deep dive, looking at your employee and customer experience, examples from other companies and interactive case studies, and apply GJS lessons to your context. The workshop can build urgency around good jobs, alignment on what needs to change in terms of operations and investment in people, potential barriers to this work, and ideas on where to start your Good Jobs journey.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div>
+                <div style="float: left">
+                    <p><strong>Export your data here.</strong></p>
+                </div>
+                <div id="animated-example" class="animated bounce" style="float: left">
+                    <a href="@Url.Action("ExportCalculatedData", "GoodJobCalculator")" class="animated bounce" >
+                        <button ID="Download" class="animated bounce" 
+                                     ToolTip="Export Data" ><i class="fal fa-arrow-alt-circle-down fa-3x"></i></button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <p><strong>If you have any questions, contact the Good Jobs Institute at <a data-feathr-click-track="true" href="mailto:info@goodjobsinstitute.org">info@goodjobsinstitute.org</a>.</strong></p>
+
+        </div>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="Row">
+    <div style="width: 100%; margin-top: 15px; margin: auto; min-width: 350px!important">
+            <input type="submit" id="prevStep" data-step="@(Model.CurrentStep - 1)" Class="button" Style="float: left; margin-bottom: 15px;" value="Previous: Step 3 - Levers & Results"></input>
+            <a href="https://www.GoodJobsInstitute.org/" traget="_blank" style="text-decoration:none;">
+            <input type="submit" id="finishStep" data-step="@(Model.CurrentStep + 1)" Class="button" Style="float: right; margin-bottom: 15px;" value="Finish"></input>
+            </a>
+    </div>
+
+</div>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.search>
+  <ContentItemDataCommonDataID>
+    <GUID>7f1f87ee-1bc2-456a-8ed5-e9325fc381b3</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>SearchResults-ilkif4ju</CodeName>
+      <GUID>70217d8f-65aa-4ab9-9a07-49b091784cd0</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>d1882e70-c9af-43bb-8c42-1857ed9c6e96</ContentItemDataGUID>
+  <Title>
+    <![CDATA[<div class="justify-content-center section-title"><hr><p class="d-flex justify-content-center">Search Results</p></div>]]>
+  </Title>
+</contentitemdata.nacsmagazine.search>

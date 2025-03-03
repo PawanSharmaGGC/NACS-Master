@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>Technology-hosdpb6i</CodeName>
+    <GUID>a353ca53-f494-4b68-9698-b445f15b946c</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>d4f97617-c5ff-494f-ab0d-bb7bd71dbf18</WebPageItemGUID>
+  <WebPageItemName>Technology-hosdpb6i</WebPageItemName>
+  <WebPageItemOrder>9</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>Category-iooqnwpz</CodeName>
+    <GUID>d7b6ddbf-59b7-492a-aa64-c51811e733f7</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>/Category/Technology</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>3257d9cb-79a6-4552-998d-e1f8e1a3cb3e</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSMagazine</CodeName>
+      <GUID>eecfdedc-a92f-48b7-9daa-eab81c106019</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

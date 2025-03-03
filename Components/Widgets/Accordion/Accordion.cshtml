@@ -1,0 +1,28 @@
+﻿@using Convenience.org.Components.Widgets.Accordion
+
+@model ComponentViewModel<AccordionWidgetProperties>
+
+@{
+    string guid = Guid.NewGuid().ToString("N");
+    int uniqueId = Math.Abs(guid.GetHashCode() % 9000) + 1000;
+    string itemId = uniqueId.ToString("D4");
+}
+
+@if (Model != null && (!string.IsNullOrEmpty(Model.Properties.Title) || !string.IsNullOrEmpty(Model.Properties.Description)))
+{
+    <div class="faq-item" data-id="@itemId">
+        <div id="first_collapse_@itemId" class="text-light text-center align-middle fs-5 bg-F5F5F5 brdr-rad-18 p-3 ps-4 mb-4 faq-title">
+            <div class="d-flex justify-content-between">
+                <span class="d-inline-block color-0053A5 text-start pt-1">
+                    @Html.Raw(Model.Properties.Title)
+                </span>
+                <span class="bg-0053A5 w-10 brdr-rad-18 pb-1 fs-4 pointer FAQCardStyle-module__faq_btn faq-btn">+</span>
+            </div>
+        </div>
+        <div class="collapse faq-desc mb-2" id="collapseExample-@itemId">
+            <div class="card card-body brdr-rad-18 border border-0 bg-secondary-subtle text-start p-3 fs-5">
+                <div>@Html.Raw(Model.Properties.Description)</div>
+            </div>
+        </div>
+    </div>
+}

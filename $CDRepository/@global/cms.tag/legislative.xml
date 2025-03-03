@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.tag>
+  <TagGUID>438d81bb-5e67-41d2-ac98-9f7618eb74ee</TagGUID>
+  <TagMetadata>
+    <![CDATA[{"Translations":{}}]]>
+  </TagMetadata>
+  <TagName>Legislative</TagName>
+  <TagOrder>6</TagOrder>
+  <TagTaxonomyID>
+    <CodeName>Categories</CodeName>
+    <GUID>bafcd699-6640-40b9-9082-ae3839c7c547</GUID>
+    <ObjectType>cms.taxonomy</ObjectType>
+  </TagTaxonomyID>
+  <TagTitle>Legislative</TagTitle>
+</cms.tag>

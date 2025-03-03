@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.articlepage>
+  <ArticleContent>
+    <![CDATA[[{"Identifier":"6cacb5d8-9c80-4e95-af0b-7eb50a875bab"}]]]>
+  </ArticleContent>
+  <ContentItemDataCommonDataID>
+    <GUID>21dd58d4-e3f4-491e-bd1c-3a1676d3338e</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Test-8vc7gqsa</CodeName>
+      <GUID>7e21e2da-204a-490a-9b30-20cad73fec98</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>c9b40722-8f09-4fe8-8e53-2e7aba83d195</ContentItemDataGUID>
+</contentitemdata.nacsmagazine.articlepage>

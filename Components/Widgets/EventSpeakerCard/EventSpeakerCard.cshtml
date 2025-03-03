@@ -1,0 +1,35 @@
+﻿@using Convenience.org.Models
+
+@model PersonBioViewModel
+
+@if (Model != null && !string.IsNullOrEmpty(Model.PersonBioItem?.Name))
+{
+    <div class="p-lg-4 p-md-4 p-sm-4 p-3 EventSpeakerCardStyle-module__main_card card">
+        <div class="border border-secondary-subtle p-4 EventSpeakerCardStyle-module__section_card card">
+            <img class="card-img-top" src="@Model.PersonBioItem.ImageUrl">
+            <div class="d-flex justify-content-between card-body">
+                <div class="w-75 text-start ps-3">
+                    <p class="fs-5 fw-semibold mb-0 color-262d61">@Model.PersonBioItem.Name</p>
+                    <p class="mb-0">@Html.Raw(Model.PersonBioItem.Designation)</p>
+                    <p class="mb-0">@Html.Raw(Model.PersonBioItem.CompanyName)</p>
+                </div>
+                <div class="align-self-end" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" 
+                aria-controls="staticBackdrop">
+                    <i class="fa-regular fa-arrow-right color-0053A5 fa-lg pointer" aria-hidden="true"></i>
+                </div>
+            </div>
+
+            <div class="offcanvas offcanvas-end EventSpeakerCardStyle-module__canvas_section" 
+            data-bs-backdrop="static" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="staticBackdropLabel">@Model.PersonBioItem.Name</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body text-start">
+                    @Html.Raw(Model.PersonBioItem.AdditionalInfo)
+                </div>
+            </div>
+
+        </div>
+    </div>
+}

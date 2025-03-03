@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttypechannel>
+  <Parent>
+    <CodeName>NACSMagazine.ArticlePage</CodeName>
+    <GUID>3d1ca966-73b3-4339-97b7-1aa84de9c073</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.channel_NACSMagazine">
+      <ContentTypeChannelChannelID>
+        <CodeName>NACSMagazine</CodeName>
+        <GUID>eecfdedc-a92f-48b7-9daa-eab81c106019</GUID>
+        <ObjectType>cms.channel</ObjectType>
+      </ContentTypeChannelChannelID>
+    </Binding>
+  </Bindings>
+</cms.contenttypechannel>

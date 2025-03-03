@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.author>
+  <ContentItemDataCommonDataID>
+    <GUID>f464eba5-c77e-44db-a133-1b4a4968481e</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>AdamRosenblatt-hnrjnln2</CodeName>
+      <GUID>9b49a22f-633e-4fa6-bdf4-407acb0e810e</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>ed6812ce-7de4-455d-8e74-7ccd4c8570b6</ContentItemDataGUID>
+  <FullName>Adam Rosenblatt</FullName>
+</contentitemdata.nacsmagazine.author>

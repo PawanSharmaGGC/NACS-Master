@@ -1,0 +1,60 @@
+﻿@using Convenience.org.Models
+@model Convenience.org.Models.EventCarouselViewModel
+
+@if (Model != null)
+{
+	<link href="~/css/custom-slick-carousel.css" rel="stylesheet" />
+
+	<div class="border-0 p-0 card">
+		<div class="p-0 EventCarouselStyle-module__section_card card">
+			<div class="p-0 card-body">
+				<div class="text-start mb-3 ms-2 me-2">
+					<div class="d-flex justify-content-between">
+						<div>
+							@if (Model.Eyebrow != null)
+							{
+									<div class="text-start mb-4 border_left_green EyebrowTitleStyle-module__eyebrow">
+										<span class="ps-4 text-uppercase font-monospace color-0053A5">@Model.Eyebrow.Title</span>
+										</div>
+								
+							}
+						</div>
+						<span class="text-center mt-2 color-0053A5 bg-DBEAB9 TagsStyle-module__card_badge">
+							@Model.Status
+						</span>
+					</div>
+					<p class="fs-4 color-002569 pt-3">@Model.Title</p>
+				</div>
+
+				<div class="EventCarouselStyle-module__slider_container carousel-container m-3">
+					<div class="slick-carousel">
+						@if (Model.EventItems != null && Model.EventItems.Count > 0)
+						{
+							var itemCnt = 0;
+							@foreach (var item in Model.EventItems)
+							{
+								<div class="border border-0 card">
+									<div class="EventCarouselStyle-module__slider_container_card_body card-body">
+										<img src="@item.Image" class="img-fluid" alt="@item.ImageAlt">
+										<p class="m-0 pt-4 text-muted fw-light float-start">@item.Title</p>
+									</div>
+								</div>
+								itemCnt++;
+							}
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- jQuery and Slick Slider JS -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script src="/js/custom-slick-carousel.js"></script>
+	<script>
+ 	   InitializeSlidercarousel('.slick-carousel');
+	   disbalePrevNext('.slick-carousel');
+	</script>
+
+}

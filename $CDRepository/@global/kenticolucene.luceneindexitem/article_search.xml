@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kenticolucene.luceneindexitem>
+  <LuceneIndexItemAnalyzerName>Standard</LuceneIndexItemAnalyzerName>
+  <LuceneIndexItemChannelName>NACSMagazine</LuceneIndexItemChannelName>
+  <LuceneIndexItemGuid>ed32d3c7-8a5b-47e1-9d44-92868071efbe</LuceneIndexItemGuid>
+  <LuceneIndexItemIndexName>ARTICLE_SEARCH</LuceneIndexItemIndexName>
+  <LuceneIndexItemStrategyName>ARTICLE_SEARCH</LuceneIndexItemStrategyName>
+</kenticolucene.luceneindexitem>

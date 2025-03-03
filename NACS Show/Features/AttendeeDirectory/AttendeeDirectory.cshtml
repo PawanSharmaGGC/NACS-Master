@@ -1,0 +1,25 @@
+﻿@addTagHelper *, Kentico.Content.Web.Mvc
+
+
+@section styles
+{
+    @* Includes CSS necessary for page builder functionality *@
+    <page-builder-styles />
+}
+@section scripts
+{
+    @* Includes scripts necessary for page builder functionality *@
+    <page-builder-scripts />
+}
+
+<section class="teaser">
+    <div class="col-sm-offset-3 col-sm-4">
+    </div>
+    <div class="clearfix"></div>
+</section>
+<section class="content">
+    <div class="col-sm-offset-3 col-sm-5">
+        <editable-area area-identifier="editableArea" />
+    </div>
+    <div class="clearfix"></div>
+</section>

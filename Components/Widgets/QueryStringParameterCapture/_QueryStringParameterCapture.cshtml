@@ -1,0 +1,8 @@
+﻿@model Convenience.org.Components.Widgets.QueryStringParameterCapture.QueryStringParameterCaptureViewModel
+
+@if (!string.IsNullOrEmpty(Model.Content))
+{
+    <div id="pnlQSCapture">
+        @Html.Raw(Model.Content)
+    </div>
+}

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>PageNotFound-fsi1kxgj</CodeName>
+    <GUID>d0b2db1f-bc9d-488f-b62a-5c07f7c09df8</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>5e69dd01-b0c6-4327-b695-334e8c62e68a</WebPageItemGUID>
+  <WebPageItemName>PageNotFound-fsi1kxgj</WebPageItemName>
+  <WebPageItemOrder>8</WebPageItemOrder>
+  <WebPageItemTreePath>/Page_Not_Found</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>3257d9cb-79a6-4552-998d-e1f8e1a3cb3e</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSMagazine</CodeName>
+      <GUID>eecfdedc-a92f-48b7-9daa-eab81c106019</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

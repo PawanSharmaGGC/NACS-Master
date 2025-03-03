@@ -1,0 +1,91 @@
+﻿@model Convenience.org.Components.Widgets.MailingListUnsubscribe.MailingListUnsubscribeViewModel
+
+@if (Model != null)
+{
+    <div id="contentMLUPrimary">
+        <style type="text/css">
+            .errorBox {
+                color: red;
+            }
+
+            .button-ns {
+                background: var(--linear-gradient-pacific-blue-to-bondi-blue);
+                display: inline-block;
+                padding: 1rem 2rem;
+                border-radius: 100em;
+                font-size: .825rem;
+                font-weight: 600;
+                text-align: center;
+                text-transform: uppercase;
+                color: #fff;
+            }
+
+                .button-ns:hover {
+                    background: #fff;
+                    border: 2px solid #ccc;
+                    color: var(--color-bondi-blue);
+                }
+        </style>
+
+
+        @if (Model.ShowErrorPanel)
+        {
+            <div id="_pnlError" style="width:100%;">
+                <h4>Whoops!</h4>
+                <label id="_lblError"></label>
+            </div>
+        }
+        @if (Model.ShowPromptPanel)
+        {
+            <div id="_pnlPrompt">
+                <p>&nbsp;</p>
+                <h4>Please Confirm</h4>
+                <p>Are you sure you want to unsubscribe from this mailing list: <strong><label id="_lblMLDisplayName1"></label></strong>?</p>
+                <input type="button" id="_lbUnsubscribe" class="button" value="Yes, please remove me" />
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </div>
+        }
+        @if (Model.ShowUnsubscribedPanel)
+        {
+            <div id="_pnlUnsubscribed" style="width:100%">
+                <p>&nbsp;</p>
+                <h4>You're Off the List</h4>
+                <p>You have been removed from this mailing list: <label id="_lblMLDisplayName2"></label></p>
+                <p>&nbsp;</p>
+                <p>You can always manage your subscriptions and email preferences here: <a href="https://www.convenience.org/accountadmin/myprofile">My Profile</a></p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </div>
+        }
+        <input type="hidden" id="_hdnNACSKey" />
+        <input type="hidden" id="_hdnMailingListKey" />
+        <input type="hidden" id="_hdnListName" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $('#_lbUnsubscribe').on('click', function () {
+                var hdnNACSKey = $('#_hdnNACSKey').val();
+                var hdnMailingListKey = $('#_hdnMailingListKey').val();
+                $.ajax({
+                    url: '/MailingListUnsubscribe/Update',
+                    type: 'Get',
+                    data: {
+                        nacsKey: hdnNACSKey,
+                        listName: hdnMailingListKey
+                    },
+                    success: function (response) {
+                        if (response) {
+                            $('#contentMLUPrimary').parent().html(response);
+                        }
+                        else {
+                            $('#contentMLUPrimary').html('<span class="text-danger">Something went wrong! Please try again.</span>');
+                        }
+                    },
+                    error: function (response) {
+                        $('#contentMLUPrimary').parent().html(response);
+                    }
+                });
+            });
+        </script>
+    </div>
+}

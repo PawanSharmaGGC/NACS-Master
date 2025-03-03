@@ -1,0 +1,140 @@
+.main_card {
+    border-radius: 0px !important;
+}
+
+.logo {
+    width: 25% !important;
+}
+
+.divider {
+    color: white;
+    border-bottom: 2px white solid;
+    background: white;
+    opacity: 0.9;
+}
+
+.footer_accordion {
+    display: none;
+}
+
+.main_card_body {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.main_card_body p {
+    font-size: 1rem !important;
+}
+
+.footer_links {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 15%;
+}
+
+.footer_links>p>ul>li,
+.footer_links>p>ul>li>a {
+    color: white !important;
+    list-style-type: none !important;
+    text-decoration: none !important;
+    padding-top: 10px;
+}
+
+.footer_body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer_logo {
+    flex-direction: column;
+}
+
+.bottom_section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.back_to_btn {
+    background-color: #0053A5;
+    border-radius: 30px;
+    width: fit-content;
+    padding: 10px 20px 10px 20px;
+}
+
+.get_help_btn {
+    background-color: transparent;
+    border-radius: 30px;
+    width: fit-content;
+    padding: 10px 20px 10px 20px;
+    border: 1px solid #0053A5;
+}
+
+.clip_img {
+    position: absolute;
+    right: 0%;
+    top: 4%;
+    rotate: 90deg;
+    width: 40vw;
+}
+
+@media only screen and (max-width: 480px) {
+    .bottom_section {
+        display: block;
+        text-align: start;
+    }
+
+    .logo {
+        width: 75% !important;
+    }
+
+    .info {
+        display: none !important;
+    }
+
+    .main_card_body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main_card_body p {
+        font-size: 1.25rem !important;
+    }
+
+    .footer_accordion {
+        display: block;
+        --bs-accordion-bg: transparent !important;
+        --bs-accordion-active-bg: transparent !important;
+        --bs-accordion-active-color: white !important;
+        --bs-accordion-color: white !important;
+        --bs-accordion-btn-color: white !important;
+        --bs-accordion-btn-icon: url("data:image/svg+xml,%3Csvg%20width%3D%2236%22%20height%3D%2236%22%20viewBox%3D%220%200%2036%2036%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M18.001%2034.667C27.205%2034.667%2034.667%2027.205%2034.667%2018C34.667%208.795%2027.205%201.33301%2018.001%201.33301C8.79598%201.33301%201.33398%208.795%201.33398%2018C1.33398%2027.205%208.79598%2034.667%2018.001%2034.667Z%22%20stroke%3D%22white%22%20stroke-width%3D%221.5%22%20stroke-miterlimit%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M12.1169%2015.9L18.0009%2021.767L23.8839%2015.9%22%20stroke%3D%22white%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E"
+            ) !important;
+        --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3Csvg%20width%3D%2236%22%20height%3D%2236%22%20viewBox%3D%220%200%2036%2036%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M18.001%2034.667C27.205%2034.667%2034.667%2027.205%2034.667%2018C34.667%208.795%2027.205%201.33301%2018.001%201.33301C8.79598%201.33301%201.33398%208.795%201.33398%2018C1.33398%2027.205%208.79598%2034.667%2018.001%2034.667Z%22%20stroke%3D%22white%22%20stroke-width%3D%221.5%22%20stroke-miterlimit%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M12.1169%2015.9L18.0009%2021.767L23.8839%2015.9%22%20stroke%3D%22white%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E"
+            ) !important;
+    }
+
+    .footer_links {
+        display: none !important;
+    }
+
+    .footer_body {
+        display: block;
+    }
+
+    .footer_logo {
+        flex-direction: row;
+    }
+
+    .get_help_btn {
+        display: none;
+    }
+
+    .back_to_btn {
+        background-color: transparent;
+    }
+
+    .clip_img {
+        display: none;
+    }
+}

@@ -1,0 +1,38 @@
+.img_highway_interchange {
+    width: -webkit-fill-available;
+    border-radius: 45px;
+    background:
+        linear-gradient(248.54deg, rgba(98, 189, 26, 0) 3.39%, rgba(98, 189, 26, 0) 47.6%, rgba(98, 189, 26, 0.14) 67.84%, rgba(98, 189, 26, 0.7) 118.55%)
+}
+
+.overlay_txt_img_pos {
+    top: 85% !important;
+    left: 0;
+    font-size: 3rem;
+    width: 40%;
+}
+
+.overlay_txt_img {
+    padding: 6px 0px;
+    color: #262d61;
+    background-color: #ffffff;
+    border-top-right-radius: 20px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    -ms-box-decoration-break: clone;
+    -o-box-decoration-break: clone;
+    -webkit-padding-end: 16px;
+}
+
+@media only screen and (max-width: 480px) {
+    .main_card {
+        width: 399px;
+    }
+
+    .overlay_txt_img_pos {
+        top: 60% !important;
+        font-size: 1.75rem !important;
+        width: 99%;
+    }
+
+}

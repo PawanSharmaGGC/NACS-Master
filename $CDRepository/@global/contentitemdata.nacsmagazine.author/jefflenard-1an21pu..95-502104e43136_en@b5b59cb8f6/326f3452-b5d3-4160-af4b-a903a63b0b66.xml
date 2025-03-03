@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.author>
+  <ContentItemDataCommonDataID>
+    <GUID>4f94cbb6-18db-4e61-b995-502104e43136</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>JeffLenard-1an21pu5</CodeName>
+      <GUID>d8846559-33ca-44b1-97d0-552c6a14e1cf</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>326f3452-b5d3-4160-af4b-a903a63b0b66</ContentItemDataGUID>
+  <FullName>Jeff Lenard</FullName>
+</contentitemdata.nacsmagazine.author>

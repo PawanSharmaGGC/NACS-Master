@@ -1,0 +1,35 @@
+﻿@using NACSShow.Components.Widgets
+@model NewsArticleListingViewModel
+
+
+@if (Model != null && Model.NewsArticleList.Count() > 0)
+{
+    <!-- More from today -->
+    <section class="section--margins">
+        <h2 class="row center-xs margin-top-lg">@Model.Heading</h2>
+        <div class="daily-articles__cards row center-xs start-md">
+            <div class="col-xs-12 col-md-10 margin--zero-auto">
+                <div class="row center-xs">
+                    @foreach (var newsArticle in Model.NewsArticleList)
+                    {
+
+                        <div class="start-xs col-xs-9 col-sm-5 col-md-4">
+                            <div class="card-section__card">
+                                <a href="@newsArticle.WebPagePath">
+                                    <img src="@newsArticle.RollupImage" alt="@newsArticle.ImageAltText" class="card-profile-image" />
+                                    <div class="card-content">
+                                        <p style="font-size:1.2rem;font-weight:bold">@newsArticle.Title</p>
+                                        <p>@newsArticle.Description</p>
+                                        <div class="card-content__date">
+                                            @newsArticle.Date
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+}

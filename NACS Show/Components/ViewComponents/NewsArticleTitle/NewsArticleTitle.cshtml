@@ -1,0 +1,18 @@
+﻿@using CMS.Helpers
+@using NACSShow.Models
+
+@model NewsArticleTitleViewModel
+
+@if (Model != null)
+{
+    <div class="margin-bottom-md">
+                <div class="detail-title">@Html.Raw(Model.Title)</div>
+                <p style="font-weight: 600;font-size: 1.5rem;">@Html.Raw(Model.Description)</p>
+                <div class="detail-date">
+                    @Model.Date
+                </div>
+     </div>
+    <div class="start-xs col-md-12">
+      <img src="@Model.HeaderImage" style="width:100%" alt=""/>
+    </div>
+}

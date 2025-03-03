@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.article>
+  <AuthorNames>Mike Rahel</AuthorNames>
+  <Authors>[]</Authors>
+  <CategoryTags />
+  <ContentCategory>
+    <![CDATA[[{"Identifier":"e38c6059-8750-42d9-9786-afd4fa534458"}]]]>
+  </ContentCategory>
+  <ContentItemDataCommonDataID>
+    <GUID>7ddf3bce-2489-4f74-ae6f-656881d61914</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>DocumentingTheDecile_HowRetailersStackUp-426dynrc</CodeName>
+      <GUID>0b444e16-3084-477d-a610-9d575a29ac5b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>cfe8049a-75a1-47e2-9788-ea0e56512e77</ContentItemDataGUID>
+  <CoverStory>False</CoverStory>
+  <CurrentIssue>False</CurrentIssue>
+  <EditorsPick>True</EditorsPick>
+  <IssueDate>2024-07-01 04:00:00Z</IssueDate>
+  <LedeText />
+  <Locked>True</Locked>
+  <MagazineSection>Feature</MagazineSection>
+  <PageContent>
+    <![CDATA[<p>The 2024 NACS State of the Industry Report® of 2023 Data is trying something new: instead of breaking out the top 25%— or top quartile—of retailers in order of store operating profit, this year’s report looks at the top 10%, or top decile.</p><p>NACS research implemented a decile scale to replace the former quartile rankings to help operators zero in on where they are excelling or spot potential opportunities for growth. While the top quartile results were impressive, top decile data is even more striking.</p><blockquote>In 2023, the top decile firms had foodservice sales 6.2x greater than firms in the bottom decile.</blockquote><p>In 2023, the top decile firms had foodservice sales of $138,883 per store, per month—6.2 times greater than firms in the bottom decile ($22,296) and 3.1 times greater than the national average sample ($45,099). Top decile firms brought in monthly merchandise sales of $275,348, which was 1.8 times more than the national sample of $155,568.</p><p>Higher sales were likely aided by the top decile’s average store size of 4,697 square feet, which was 1,408 square feet more than the national average of 3,289. In addition to a larger inside footprint, top performers also had more capacity on the forecourt. The top 10% of firms reported an average of 13.6 fueling positions per store, more than twice the national average of 6.3 pumps per store.</p><p>Read more about how the top decile performed in 2023 in the newly released <a href="https://www.convenience.org/Solutions/Store/Products/NACS-SOI-Report-of-2023-Data">NACS State of the Industry Report</a>.</p><p><img src="~/getattachment/Issues/July-2024/Documenting-the-Decile-How-Retailers-Stack-Up/JUL24_BTN_01.svg" class="fr-fic fr-dii"></p>]]>
+  </PageContent>
+  <PageContentTeaser>
+    <![CDATA[<p>The 2024 NACS State of the Industry Report® of 2023 Data is trying something new: instead of breaking out the top 25%— or top quartile—of retailers in order of store operating profit, this year’s report looks at the top 10%, or top decile.</p>]]>
+  </PageContentTeaser>
+  <RollupImage>
+    <![CDATA[{"Identifier":"5b2a617f-f69d-4602-b686-dab274b9afa7","Name":"JUL24_BTN_Rollup.png","Extension":".png","Size":117630,"LastModified":"2024-07-12T04:11:30.6541098Z"}]]>
+  </RollupImage>
+  <Title>Documenting the Decile: How Retailers Stack Up</Title>
+</contentitemdata.nacsmagazine.article>

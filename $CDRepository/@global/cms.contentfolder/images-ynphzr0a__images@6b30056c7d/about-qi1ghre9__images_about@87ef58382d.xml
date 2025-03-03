@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentfolder>
+  <ContentFolderCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </ContentFolderCreatedByUserID>
+  <ContentFolderCreatedWhen>2024-06-27 00:08:09Z</ContentFolderCreatedWhen>
+  <ContentFolderDisplayName>About</ContentFolderDisplayName>
+  <ContentFolderGUID>c4b47813-a131-47b8-9fef-e25421f424f8</ContentFolderGUID>
+  <ContentFolderModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </ContentFolderModifiedByUserID>
+  <ContentFolderName>About-qi1ghre9</ContentFolderName>
+  <ContentFolderParentFolderID>
+    <CodeName>Images-ynphzr0a</CodeName>
+    <GUID>b3cf7d53-e7d2-4013-bd6e-694301243e2a</GUID>
+    <ObjectType>cms.contentfolder</ObjectType>
+  </ContentFolderParentFolderID>
+  <ContentFolderTreePath>/Images/About</ContentFolderTreePath>
+</cms.contentfolder>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.conveniencecares.websitesettings>
+  <ContentItemDataCommonDataID>
+    <GUID>d4e1e0f3-d69e-42c3-ad44-39b915c60b30</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Settings-7hc3kye4</CodeName>
+      <GUID>327dc202-b035-4add-b5cf-e0396a92319b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>53daf8d1-81b6-4b7c-906c-acdb488fe6c0</ContentItemDataGUID>
+  <HeaderLogo>
+    <![CDATA[[{"Identifier":"48e0ffd2-945d-4043-9587-49a2e5f2120f","Name":"JUN24_CC_Rollup.png","Size":414495,"Dimensions":{"Width":750,"Height":330}}]]]>
+  </HeaderLogo>
+  <NavigationMenuFolderPath>/</NavigationMenuFolderPath>
+  <PageTitleFormat>{0}</PageTitleFormat>
+</contentitemdata.conveniencecares.websitesettings>

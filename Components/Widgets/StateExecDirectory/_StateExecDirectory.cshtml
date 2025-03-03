@@ -1,0 +1,237 @@
+﻿@model Convenience.org.Components.Widgets.StateExecDirectory.StateExecDirectoryViewModel
+
+
+<style>
+    .directory-cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 20px;
+        background-color: #f8f9fa;
+    }
+
+    .directory-card {
+        width: 250px;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .directory-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #343a40;
+        margin-bottom: 8px;
+    }
+
+    .card-image img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-bottom: 1px solid #ddd;
+    }
+    .placeholder-image {
+        width: 100%;
+        height: 150px;
+        background-color: #e9ecef;
+        color: #6c757d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        border-bottom: 1px solid #ddd;
+    }
+    .card-location {
+        font-size: 14px;
+        color: #6c757d;
+    }
+</style>
+
+<div class="filter-section">
+    <div>
+        <h4>Filter by Country:</h4>
+        @foreach (var country in Model.AvailableCountries)
+        {
+            <label>
+                <input type="checkbox" class="country-filter" value="@country" @(Model.SelectedCountries?.Contains(country) == true ? "checked" : "") />
+                @country
+            </label>
+
+            <br />
+        }
+    </div>
+    <div>
+        <h4>Filter by State:</h4>
+        @foreach (var state in Model.AvailableStates)
+        {
+            <label>
+                <input type="checkbox" class="state-filter" value="@state" @(Model.SelectedStates?.Contains(state) == true ? "checked" : "") />
+                @state
+            </label>
+
+            <br />
+        }
+    </div>
+</div>
+
+
+<div class="state-directory-header">
+    @if (!Model.Executives.Any())
+    {
+        <p>No executives found.</p>
+    }
+    else
+    {
+        <p>Showing @Model.Executives.Count() out of @Model.TotalCount executives</p>
+    }
+</div>
+
+<div style="text-align: center; margin: 20px;">
+    <input type="text" id="searchBox" placeholder="Search executives by name..." style="width: 300px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" />
+</div>
+
+<div id="executivesContainer" class="directory-cards-container"></div>
+
+<div id="loadingSpinner" style="display: none; text-align: center; margin: 20px;">
+    <p>Loading...</p>
+</div>
+
+<button id="loadMoreButton" style="margin: 20px auto; display: block;">Load More</button>
+
+<script>
+    let currentPage = 1;
+    let searchQuery = "";
+    let selectedCountries = [];
+    let selectedStates = [];
+    const executivesContainer = document.getElementById('executivesContainer');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const loadMoreButton = document.getElementById('loadMoreButton');
+
+    let isLoading = false;
+
+    function getSelectedFilters(selector) {
+        return Array.from(document.querySelectorAll(selector))
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.value);
+    }
+
+    function applyFilters() {
+        selectedCountries = getSelectedFilters('.country-filter');
+        selectedStates = getSelectedFilters('.state-filter');
+
+        loadExecutives(true);
+    }
+
+    async function loadExecutives(reset = false) {
+        if (isLoading) return;
+
+        isLoading = true;
+        loadingSpinner.style.display = 'block';
+        loadMoreButton.style.display = 'none';
+
+        try {
+            if (reset) {
+                executivesContainer.innerHTML = '';
+                currentPage = 1;
+            }
+
+            const queryParams = new URLSearchParams({
+                page: currentPage,
+                pageSize: 50,
+                searchTerm: searchQuery,
+                selectedCountries: selectedCountries.join(','),  
+                selectedStates: selectedStates.join(',')
+            });
+
+            console.log("Query Params:", queryParams.toString()); 
+
+
+            const response = await fetch(`/StateExecDirectory/GetExecutives?${queryParams.toString()}`);
+            const data = await response.json();
+
+            if (data.executives && data.executives.length > 0) {
+                data.executives.forEach(exec => {
+                    const executiveCard = createExecutiveCard(exec);
+                    executivesContainer.insertAdjacentHTML('beforeend', executiveCard);
+                });
+
+                currentPage++;
+
+                if (data.hasMorePages) {
+                    loadMoreButton.style.display = 'block';
+                } else {
+                    loadMoreButton.style.display = 'none';
+                }
+            } else if (reset) {
+                executivesContainer.innerHTML = "<p>No executives found.</p>";
+            }
+        } catch (error) {
+            console.error('Error loading executives:', error);
+        } finally {
+            isLoading = false;
+            loadingSpinner.style.display = 'none';
+        }
+    }
+
+    function createExecutiveCard(exec) {
+        const profileImage = exec.profileImage
+            ? `<img src="https://nacsstagednn1.pcbscloud.com/Portals/0/assets/images/contact/${exec.profileImage}" alt="Profile Picture" />`
+            : `<div class="placeholder-image">No Image</div>`;
+
+        const location = [exec.city, exec.stateOrProvince, exec.location]
+            .filter(part => part)
+            .join(", ");
+
+        return `
+            <div class="directory-card">
+                <div class="card-image">${profileImage}</div>
+                <div class="card-content">
+                    <h3 class="card-title">${exec.lastName}, ${exec.firstName}</h3>
+                    <i class="card-location">${exec.title || ""}</i>
+                    <p>${exec.company || ""}</p>
+                    <p class="card-location">${location}</p>
+                    ${exec.email ? `<p>${exec.email}</p>` : ""}
+                    ${exec.linkedInURL ? `<p class="card-location">${exec.linkedInURL}</p>` : ""}
+                </div>
+            </div>
+        `;
+    }
+
+    let debounceTimer;
+    document.getElementById('searchBox').addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+            searchQuery = document.getElementById('searchBox').value.trim();
+            loadExecutives(true);
+        }, 300);
+    });
+
+    document.querySelectorAll('.country-filter').forEach(checkbox => {
+        checkbox.addEventListener('change', applyFilters);
+    });
+
+    document.querySelectorAll('.state-filter').forEach(checkbox => {
+        checkbox.addEventListener('change', applyFilters);
+    });
+
+    loadMoreButton.addEventListener('click', () => {
+        loadExecutives();
+    });
+
+    loadExecutives();
+</script>
+

@@ -1,0 +1,36 @@
+﻿@using CMS.Helpers
+@using NACSShow
+
+@model Video
+
+@if (Model != null)
+{
+    <div class="center-xs text--sapphire">
+        @Model.Description
+    </div>
+    <div class="row center-xs">
+        <div class="col-12 video-details-box">
+            <p>
+                <span class="video-details">
+                    <strong>Posted:</strong>
+                    @(Model.Date != DateTime.MinValue ? Model.Date.ToString("M/d/yyyy") : "") &nbsp;&nbsp;&nbsp;<strong>Length:</strong>
+                    @Model.Duration
+                    @Html.Raw(string.IsNullOrEmpty(Model.Categories) ? "" :
+                             $"&nbsp;&nbsp;&nbsp;<span class='bolded'>Category:</span> {Model.Categories}")
+
+                </span>
+            </p>
+        </div>
+        <div class="col-12 page-info">
+            @Model.PageContent
+        </div>
+        @if (!string.IsNullOrEmpty(Model.vzaarPostingID))
+        {
+            <div class="col-xs-10 video-frame margin-top-lg margin-bottom-lg">
+                <div style="position:relative;padding-bottom:56.25%;overflow:hidden;height:0;max-width:100%;">
+                    <iframe id="@Model.vzaarPostingID" src="https://iframe.dacast.com/vod/055c2ee869fc56ac1e1023f3da7c3a9f/@Model.vzaarPostingID" width="100%" height="100%" frameborder="0" scrolling="no" allow="autoplay;encrypted-media" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen style="position:absolute;top:0;left:0;"></iframe>
+                </div>
+            </div>
+        }
+    </div>
+}

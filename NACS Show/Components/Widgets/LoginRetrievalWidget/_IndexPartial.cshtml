@@ -1,0 +1,51 @@
+﻿@using NACSShow.Components.Widgets.LoginRetrievalWidget
+@model LoginRetrievalWidgetViewModel
+@{
+    Layout = "~/Features/Shared/NACSShow/_Layout.cshtml";
+}
+<div>
+    @if (!string.IsNullOrEmpty(Model.ErrorMsg))
+    {
+        <div class="error">@Html.Raw(Model.ErrorMsg)</div>
+    }
+    else
+    {
+        <div id="result"></div>
+        <div id="LoginFound" class="col-xs col-md-6 left">
+            <p class="section--subtitle-text bold left" style="color:var(--color-dark-pastel-green)"><i class="fa fa-check-circle fa-pull-left"></i>Login Found!</p>
+            <p>Username: <label id="username"></label></p>
+            <p>Password: <em style="color: transparent;text-shadow: 0 0 5px rgba(0,0,0,0.5);">hidden</em> (<a href="@Model.PasswordResetUrl" id="passwordReset">Reset now</a>)</p>
+            <em>Clicking 'Reset Now' will send an e-mail verification to the address we have on file for you. Please check your email account for an email from webmaster@convenience.org to continue.</em>
+        </div>
+    }
+</div>
+
+@* <asp:UpdateProgress AssociatedUpdatePanelID="_updPanelMain" ID="_updProgressMain" runat="server">
+    <div class="progress-overlay">
+        <div class="progress-overlay-spinner">
+            <i class="fa fa-circle-notch fa-5x fa-spin"></i>
+        </div>
+    </div>
+</asp:UpdateProgress> *@
+
+<script>
+    $(document).ready(function () {
+        $('#loginRetrievalForm').submit(function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                success: function (response) {
+                    // Handle the response here
+                    $('#result').html(response);
+                },
+                error: function (error) {
+                    // Handle errors here
+                    //console.error('Error:', error);
+                }
+            });
+        });
+    });
+</script>

@@ -1,0 +1,36 @@
+﻿@model Convenience.org.Components.Widgets.Tier2Hero.Tier2HeroWidgetViewModel
+
+<div class="p-3 Tier2HeroStyle-module__main_card card">
+	<div>
+		<div>
+			<div class="text-start mb-4 border_left_green EyebrowTitleStyle-module__eyebrow">
+				<span class="ps-4 text-uppercase font-monospace text-primary">
+					@Model.EyebrowTitle
+				</span>
+			</div>
+		</div>
+		<div class="height_16_rem">
+			<div class="position-relative">
+				<img src="@Model.ImageUrl" alt="@Model.ImageAltText" class=" Tier2HeroStyle-module__img_highway_interchange">
+				<div class="text-start position-absolute fw-bolder Tier2HeroStyle-module__overlay_txt_img_pos">
+					<span class="Tier2HeroStyle-module__overlay_txt_img">
+						@Model.Title
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="text-start mt-sm-2 mt-lg-5 pt-lg-5 color-262d61">
+			<p class="fs-4 d-lg-none d-sm-block d-xl-none">
+				@Model.MobileTitle
+			</p>
+			<p class="fs-5 pt-lg-4">
+				<span>@Model.DateTime</span>
+				@if (!string.IsNullOrEmpty(Model.LocationOrReadMinutes))
+				{
+					@Html.Raw("|")
+					<span class="text-body-tertiary">@Model.LocationOrReadMinutes</span>
+				}
+			</p>
+		</div>
+	</div>
+</div>

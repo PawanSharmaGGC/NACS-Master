@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.navtoplevel>
+  <ContentItemDataCommonDataID>
+    <GUID>72d3c0f4-9ed6-4d91-956f-a3da0f3b40fb</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Schedule-xk2p3lxh</CodeName>
+      <GUID>72fc0574-2f2f-4884-849d-224b758a6306</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>fa65d0a3-03fa-4c0c-bd3f-0975c0712fe0</ContentItemDataGUID>
+  <ShowOnlySecondLevel>False</ShowOnlySecondLevel>
+  <Title>Schedule</Title>
+  <Url>/Schedule</Url>
+</contentitemdata.nacsshow.navtoplevel>

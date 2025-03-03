@@ -1,0 +1,137 @@
+﻿@using NACSShow
+@using Kentico.PageBuilder.Web.Mvc
+<vc:current-page-data />
+@{
+    Layout = "~/Features/Shared/NACSShow/_Layout.cshtml";
+    var currentPageData = (TempData["CurrentPageData"] as Page) ?? new Page();
+}
+
+
+<!-- BANNER -->
+<section class="row center-xs margins-none">
+    <div class="container-fluid">
+        <div class="row center-xs">
+            <div class="col-xs-12">
+                <h1 class="detail-title">
+                    
+                        @if (string.IsNullOrEmpty(currentPageData.SectionHeader))
+                        {
+                            @Html.Raw(currentPageData.Title);
+                        }
+                        else
+                        {
+                            @Html.Raw(currentPageData.SectionHeader);
+                        }
+                    
+                </h1>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                @currentPageData.SubHead
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Callout Section -->
+<section class="row center-xs section--margins">
+    @* <editable-area area-identifier="ContentWidgetZone1"></editable-area> *@
+    <style type="text/css">
+        .header--banner {
+            background-image: url(/_content/NACSShow/img/banner-bg-sessions.jpg);
+            background-position: right top;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        </style>
+        <section class="row center-xs section--margins">
+            <div class="col-xs col-12" style="display:flex">
+            <div class="call-to-action__card call-to-action__card--general">
+            <h2 style="text-align: center;">Access Exclusive NACS Show Education Sessions On-Demand</h2>
+
+            <div class="row center-xs">
+            <div class="col-xs-12 col-md-5 mobile--margins-sm"><a class="btn-white button-pill-light btn-animate" data-feathr-click-track="true" data-feathr-link-aids="5b2d4ba2ab913b3e4fcbf80a" href="https://www.convenience.org/Solutions/Store/Products/2024-NACS-Show-Education-Sessions-On-Demand" style="margin:2em">Purchase Now</a></div>
+            </div>
+            </div>
+            </div>
+            <!--
+            <div class="col-xs col-md-6" style="display:flex">
+            <div class="call-to-action__card call-to-action__card--education">
+            <h2 style="text-align: center;">Small Operator Workshops</h2>
+
+            <p>Two hands-on training workshops help solve the challenges unique to smaller operators. Attendance is limited to the first 45 retailers that arrive. No pre-registration required.</p>
+
+            <div class="row center-xs">
+            <div class="col-xs-12 col-md-5 mobile--margins-sm"><a class="btn-white button-pill-light btn-animate" data-feathr-click-track="true" data-feathr-link-aids="[&quot;5b2d4ba2ab913b3e4fcbf80a&quot;],5b2d4ba2ab913b3e4fcbf80a" href="/Sessions/Small-Operator-Workshops">View Workshops</a></div>
+            </div>
+            </div>
+            -->
+        </section>
+</section>
+
+
+@Html.Raw(currentPageData.PageContent)
+
+<!-- Education Sessions -->
+<section class="padding-bottom--xl" id="education_sessions">
+    <div class="container-fluid section--margins-x center-xs">
+        <p style="text-align: center;margin-bottom:2em">
+            <strong>
+                @*TODO: Add link to the PDF *@
+                <a data-feathr-click-track="true" data-feathr-link-aids="5b2d4ba2ab913b3e4fcbf80a" href="/getattachment/Sessions/Education-Sessions/Ed-Session-PDF.pdf?lang=en-US" target="_blank">
+                    <i class="fas fa-file-pdf"></i>&nbsp;Download Printable List of Sessions
+                </a>
+            </strong>
+        </p>
+        @* ContentWidgetZone2 is empty on the old site *@
+        @* <cms:CMSWebPartZone ZoneID="ContentWidgetZone2" runat="server" /> *@
+        <div>
+            <div class="row center-xs"></div>
+            <div class="row between-xs filters">
+                @await Component.InvokeAsync("SessionSearchBox")
+            </div>
+            <!--TODO: Search results here-->
+            @await Component.InvokeAsync("SessionSearchResults", new NACSShow.Components.ViewComponents.SessionSearch.SessionSearchViewModel())
+        </div>      
+    </div>
+</section>
+
+
+<!-- About info -->
+<!--<section
+  class="section--padded fill--gradient-medium-blue-to-dark-pastel-green"
+>
+  <div class="row center-xs text--white">
+    <h2 class="col-xs-12">About Segments</h2>
+  </div>
+  <div class="col-xs-12 col-md-9 margin--zero-auto">
+    <div class="row start-xs text--white">
+      <p>To guide your session selection, NACS has developed three segments based on where you are in the business lifecycle in a certain topic. Your experience level can vary, depending on the topic. View our segment explanation to understand the differences between the segments: LAUNCHERS, EXPERIMENTERS, and TRANSFORMERS.</p>
+    </div>
+    <div class="row center-xs">
+        <div class="col-xs-12 col-md-5 mobile--margins-sm">
+          <a class="button-pill-light" href="/Sessions/Education-Sessions/Segments">Segment Explanation</a>
+        </div>
+      </div>
+  </div>
+</section>-->
+<!-- end - About info -->
+
+<section>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="wrapper container">
+                <div class="block--sponsorship">
+                    <div class="ad">
+                        <div class="ad__wrapper">
+                            <div class="multi-ad-container">
+                                <cms:CMSWebPartZone ZoneID="AdZone1" runat="server" />
+                                <cms:CMSWebPartZone ZoneID="AdZone2" runat="server" />
+                                <cms:CMSWebPartZone ZoneID="AdZone3" runat="server" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

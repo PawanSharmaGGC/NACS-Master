@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.workshop>
+  <ContentItemDataCommonDataID>
+    <GUID>2df17d1d-d49c-462b-90f1-8e3cfaff8dae</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Test2-4a0hbikl</CodeName>
+      <GUID>f7d5b125-811c-464c-b87e-9319761aadc8</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>d3e45524-b1eb-4492-a0f1-eb95ae7d8e10</ContentItemDataGUID>
+  <Day />
+  <EndTime>2024-11-04 00:11:00Z</EndTime>
+  <Format>Think You Know Me?</Format>
+  <LeftNavShowTitle>True</LeftNavShowTitle>
+  <NavShowChildren>False</NavShowChildren>
+  <NavType>Inherit</NavType>
+  <PageContent>
+    <![CDATA[<p>In this marquee session we will discuss the purpose of generative AI in achieving value capture and value creation for your organizations. &nbsp;We will update you on the latest outcomes that generative AI has achieved, provide the most common use cases we’ve seen in action from generative checkout, generative pricing, to automation of some roles and large system automations that are changing organizations completely. &nbsp; Led by an expert in AI from Kellogg School of Management, this session is designed for executives to leverage a process to transform their organizations and unlock value with AI and, defines the basics of AI and showcases practical applications. Join us to unlock AI's potential for your organizations. &nbsp;&nbsp;</p>]]>
+  </PageContent>
+  <SessionID>00000000-0000-0000-0000-000000000000</SessionID>
+  <ShowID>0</ShowID>
+  <StartTime>2024-11-04 00:11:00Z</StartTime>
+  <Title>test 2</Title>
+</contentitemdata.nacsshow.workshop>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.navsecondlevel>
+  <ContentItemDataCommonDataID>
+    <GUID>16705cb2-f6e6-447d-b031-4c1a67a295a2</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>ForTheMedia-q0427wwi</CodeName>
+      <GUID>2a8dba71-87ff-482d-a8a4-60ecddc4e6d7</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>f4e4e74c-6eae-4fdd-9636-2b2e5e97bf94</ContentItemDataGUID>
+  <Feature />
+  <Title>For the Media</Title>
+  <URL>/About/ForTheMedia</URL>
+</contentitemdata.nacsshow.navsecondlevel>

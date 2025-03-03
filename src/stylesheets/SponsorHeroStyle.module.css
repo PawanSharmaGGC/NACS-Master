@@ -1,0 +1,147 @@
+.hero_card {
+  display: flex;
+}
+
+.sponsor_hero_img {
+  left: 60%;
+  top: 7%;
+}
+
+.sponsor_title {
+  font-size: 2.5rem !important;
+}
+
+.btn_section {
+  flex-direction: column;
+  justify-content: start;
+  align-items: baseline;
+}
+
+/* CShape.css */
+
+.c_shape_container {
+  position: absolute;
+  width: 38vw;
+  height: 38vw;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: white;
+  top: 53px;
+  right: 54px;
+}
+
+.c_shaped_video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.c_shape_cutout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 33%;
+  height: 33%;
+  background-color: white;
+  background-image: url('../assests/images/Clip path group.png');
+  background-size: 600px auto;
+  background-repeat: no-repeat;
+  background-position: right;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.rect_shape_cutout {
+  position: absolute;
+  top: 25%;
+  right: -14%;
+  width: 260px;
+  height: 260px;
+  background-color: white;
+  background-image: url('../assests/images/Clip path group.png');
+  background-size: 600px auto;
+  background-repeat: no-repeat;
+  background-position: right;
+  z-index: 1;
+  rotate: 315deg;
+}
+
+
+@media only screen and (max-width: 480px) {
+  .img_section {
+    display: none;
+  }
+
+  .btn_section {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .sponsor_title {
+    font-size: 1.5rem !important;
+  }
+}
+
+
+
+
+
+/* Alternate way to bled video inside text */
+.img_section {
+  height: 85vh;
+}
+
+.text_container {
+  position: relative;
+  font-size: 30vw;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  -webkit-mask-image: none;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-image: none;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  top: -121%;
+  width: 50%;
+  height: 85%;
+}
+
+/* Background video styling */
+.text_container video {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 74%;
+  height: 86%;
+  object-fit: cover;
+}
+
+/* Text styling */
+.text_container::before {
+  content: "C";
+  /* Text you want video to show through */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 74%;
+  height: 86%;
+  color: black;
+  /* -webkit-text-stroke: 2px black; */
+  mix-blend-mode: screen;
+  font-size: inherit;
+  font-weight: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  background-color: white;
+}

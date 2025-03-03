@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Reusable</ClassContentTypeType>
+  <ClassDisplayName>NMIssue</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="98f29884-bb0a-4e6d-bfe5-03b20da1fd5c" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="3fd43161-9205-4785-ab47-337bd5a87250" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="c49c5cfe-4e66-45fc-9364-7a96fda04469" isunique="true" system="true" />
+      <field column="Title" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="00ea4511-d7c1-4789-990b-cc43b629ee36" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Title</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MagazineCover" columnprecision="0" columntype="contentitemasset" enabled="true" guid="1d467fef-9b8f-429f-9317-cdedcbc1ee82" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Magazine Cover</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedExtensions>_INHERITED_</AllowedExtensions>
+          <controlname>Kentico.Administration.ContentItemAssetUploader</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MagazineCoverURL" columnprecision="0" columnsize="255" columntype="text" enabled="true" guid="39674f7f-bad8-418c-bd77-21fe464b5ae4" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[Relative URL for the migrated author image (ex: /NACSMagazine.com/images/Jan-2022.png)]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Magazine Cover URL</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field column="IssueDate" columnprecision="0" columntype="date" enabled="true" guid="1f93e884-aca2-46de-8c9f-8bdd9c7431b9" visible="true">
+        <properties>
+          <explanationtext>Enter a date: MM/DD/YYYY</explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Issue Date</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DateInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="DigitalIssueLink" columnprecision="0" columnsize="500" columntype="text" enabled="true" guid="f28dfbee-8f00-44c5-92f0-b6fd7200740b" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[Hyperlink to the online version of the print magazine, currently in Issu]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Digital Issue Link</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="IssueIntro" columnprecision="0" columntype="longtext" enabled="true" guid="c1cb75ad-22fa-496d-a04d-c11078782e7e" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Issue Intro Text</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.RichTextEditor</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ParentPageUrl" columnprecision="0" columnsize="500" columntype="text" enabled="true" guid="06266fe8-d676-48ce-b51f-dc096c82bd4e" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>354c299c-6b86-4806-9007-0e772f233da0</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-book-opened</ClassIconClass>
+  <ClassName>NACSMagazine.Issue</ClassName>
+  <ClassShortName>NACSMagazineIssue</ClassShortName>
+  <ClassTableName>NACSMagazine_Issue_1</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

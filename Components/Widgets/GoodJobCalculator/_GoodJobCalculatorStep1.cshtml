@@ -1,0 +1,180 @@
+﻿@using Convenience.org.Models
+
+@model GoodJobCalculatorViewModel
+
+<link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'
+        media="screen" />
+ 
+<link rel="stylesheet" href='https://ka-p.fontawesome.com/releases/v6.7.2/css/pro.min.css?token=097aa4c14b'
+media="screen" />
+
+
+@Html.Partial("~/Components/Widgets/GoodJobCalculator/_GoodJobCalculatorStepsHeading.cshtml", Model)
+
+<div class="row validate-inputs">
+    <div class="col">
+        <div style="width: 100%; margin: auto; padding-left: 10px">
+            <div class="clear"></div>
+            <br>
+            <h3>Revenue, Transaction, and Profitability</h3>
+            <p>Please use FY, TTM, or your most recent 12 months of performance. <b style="color: red;">All fields are required</b>.</p>
+
+            <div class="clear"></div>
+
+            <div class="help-section" style="display: flex; justify-content: flex-end; margin-right: 40px;">
+                <div style="margin-right: 10px;">
+                    <strong style="color: #036!important;">
+                        <i class="fal fa-info-circle fa-2x"></i>&nbsp;
+                    </strong>
+                    <strong style="font-size: 20px;">Need Help? &nbsp;</strong>
+                </div>
+                <div>
+                    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
+                        Contact Us!
+                    </button>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+
+
+            <div style="width: 100%; margin: auto">
+                <div style="width: 55%; min-width: 350px!important; padding: 5px">
+                    <div style="width: auto; float: left">
+                        <label style="color: black!important">Number of stores (at the beginning of your most recent fiscal year)</label>
+                    </div>
+                    <div style="width: auto; float: left;">
+                        <input name="Field0R" type="text" id="Field0R" value="@Model.Field0R" style="padding: 5px 3px; width: 155px; margin: 10px" required />
+                    </div>
+                    <div class="clear"></div>
+                    <div style="padding-left: 15px">
+                        <span id="ReqField0R" style="color: red; font-size: small; display: none;">Required*</span>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <br>
+                <fieldset class="ctrl-container">
+                    <div class="ctrl-header">
+                        <h4>
+                            <i class="far fa-store"></i>&nbsp;Inside Sales
+                        </h4>
+                    </div>
+                    <div class="ctrl-content">
+                        <div style="width: 100%">
+                            <div class="clear"></div>
+                            <div style="width: auto; float: left">
+                                <span style="width: auto; float: left">
+                                    <b>Total annual inside sales</b>
+                                </span>
+                            </div>
+                            <div class="clear"></div>
+                            <div style="width: auto; float: left;">
+                                $
+                                <input name="Field1R" type="number" id="Field1R" value="@Model.Field1R" style="padding: 5px 3px; width: 137px;" required />
+                            </div>
+                            <div class="clear"></div>
+                            <div style="padding-left: 15px">
+                                <span id="ReqField1R" style="color:Red;font-size:Small;display:none;">Required*</span>
+                            </div>
+                            <div class="clear"></div>
+                            <span style="font-size: small; font-style: italic">
+                                *Please only include sales at stores you were operating from the
+                                beginning of your most recent fiscal year.
+                            </span>
+                        </div>
+                        <div class="clear"></div>
+                        <br>
+                        <div style="width: 102%">
+                            <div style="width: auto; float: left">
+                                <span style="width: auto; float: left">
+                                    <b>Total number of inside transactions per store per day</b>
+                                </span>
+                            </div>
+                            <div class="clear"></div>
+                            <div style="width: auto; float: left;">
+                                <input name="Field3R" type="number" id="Field3R" value="@Model.Field3R" style="padding: 5px 3px; width: 165px;" required />
+                            </div>
+                            <div class="clear"></div>
+                            <div>
+                                <span id="ReqField3R" style="color:Red;font-size:Small;display:none;">Required*</span>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <br>
+                        <div style="width: 100%">
+                            <div style="width: auto; float: left">
+                                <span style="width: auto; float: left">
+                                    <b>Inside Profit Margin (Total Inside Gross Profit / Total Inside Sales)</b>
+                                </span>
+                            </div>
+                            <div class="clear"></div>
+                            <div style="width: auto; float: left; display: flex; align-items: center">
+                                <input name="Field4R" type="number" id="Field4R" value="@Model.Field4R" style="padding: 5px 3px; width: 137px;" required />&nbsp;<span>%</span>
+                            </div>
+                            <div class="clear"></div>
+                            <div>
+                                <span id="ReqField4R" style="color:Red;font-size:Small;display:none;">Required*</span>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="ctrl-container">
+                    <div class="ctrl-header">
+                        <h4>
+                            <i class="far fa-gas-pump"></i>&nbsp;Fuel Sales
+                        </h4>
+                    </div>
+                    <div class="ctrl-content">
+                        <div style="width: 100%">
+                            <div style="width: auto; float: left">
+                                <span style="width: auto; float: left">
+                                    <b>Average number of gallons sold per fuel transaction</b>
+                                </span>
+                            </div>
+                            <div class="clear"></div>
+                            <div style="width: 175px; float: left; display: flex; align-items: center">
+                                <input name="Field5R" type="number" id="Field5R" value="@Model.Field5R" style="padding: 5px 3px; width: 165px;" required />
+                                &nbsp;<span>gallons</span>
+                            </div>
+                            <div class="clear"></div>
+                            <div>
+                                <span id="ReqField5R" style="color: red; font-size: small; display: none;">Required*</span>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <br>
+                        <div style="width: 100%">
+                            <div style="width: auto; float: left">
+                                <span style="width: auto; float: left">
+                                    <b>Average cent per gallon fuel gross margin (e.g., $0.38 per gallon)</b>
+                                </span>
+                            </div>
+                            <div class="clear"></div>
+                            <div style="width: auto; float: left;">
+                                $
+                                <input name="Field6R" type="number" id="Field6R" value="@Model.Field6R" style="padding: 5px 3px; width: 145px;" required />
+                            </div>
+                            <div class="clear"></div>
+                            <div style="padding-left: 15px">
+                                <span id="ReqField6R" style="color: red; font-size: small; display: none;">Required*</span>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="Row">
+    <div style="width: 100%; margin-top: 15px; margin: auto; min-width: 350px!important">
+        <input type="submit" id="nextStep" data-step="@(Model.CurrentStep + 1)" class="button"
+               style="float: right; margin-bottom: 15px;" value="Next: Step 2 – Cost" />
+    </div>
+
+</div>
+

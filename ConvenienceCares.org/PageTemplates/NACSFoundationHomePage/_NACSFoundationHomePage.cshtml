@@ -1,0 +1,29 @@
+﻿@using Convenience
+@using ConvenienceCares.Models
+@using Kentico.Content.Web.Mvc.PageBuilder
+
+@model TemplateViewModel
+ 
+@{
+    Layout = "~/Features/Shared/ConvenienceCares/_Layout.cshtml";
+    var viewModel = Model.GetTemplateModel<Page>();
+}
+
+<section id="home-content">
+    <div class="row">
+        <div class="col-12 main-content">
+
+            <editable-area area-identifier="editableAreaTitle"></editable-area>
+
+            <vc:home-page-title page-model="@viewModel"></vc:home-page-title>
+
+            <editable-area area-identifier="editableAreaContent"></editable-area>
+
+            @Html.Raw(viewModel.PageContent)
+
+            <editable-area area-identifier="editableAreaFooter"></editable-area>
+
+        </div>
+    </div>
+</section>
+

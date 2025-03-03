@@ -1,0 +1,65 @@
+﻿@using NACS.Portal.Core.Models
+
+@model FormWidgetViewModel
+
+<div id="form_Panel" style="position:relative">
+    <div id="form-section">
+        <span style="display:none;" class="ErrorLabel" id="error-message"></span>
+        <div class="FormPanel" id="FormPanel">
+
+            @Html.Raw(Model?.Heading)
+            <p>@Html.Raw(Model?.Description)</p>
+
+            <form id="ns-virtual-experience-alert-form" method="post">
+
+                <table class="EditingFormTable">
+                    <tbody>
+                        <tr>
+                            <td class="FieldLabel"><label id="lblFirstName" class="EditingFormLabel" for="txtFirstName">First Name:</label></td>
+                            <td class="EditingFormValueCell">
+                                <div id="ncpfirstname" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                    <input name="FirstName" type="text" maxlength="500" id="txtFirstName" class="form-control">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="FieldLabel"><label id="lblLastName" class="EditingFormLabel" for="txtLastName">Last Name:</label></td>
+                            <td class="EditingFormValueCell">
+                                <div id="ncplastname" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                    <input name="LastName" type="text" maxlength="500" id="txtLastName" class="form-control">
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td class="FieldLabel"><label id="lblEmail" class="EditingFormLabel" for="txtEmail">Email:</label></td>
+                            <td class="EditingFormValueCell">
+                                <div id="ncpemail" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                    <input name="Email" type="text" maxlength="100" id="txtEmail" class="form-control">
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td class="FieldLabel"></td>
+                            <td class="EditingFormValueCell">
+                                <div class="g-recaptcha" data-sitekey="@Model?.captchaSiteKey"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="EditingFormButtonLeftCell"></td>
+                            <td class="EditingFormButtonCell">
+                                <input type="submit" name="btnOK" value="Submit" id="btnOK" class="FormButton btn btn-primary">
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+        <span style="display:none;" id="thank-you-message" class="InfoLabel">
+            @Html.Raw(Model?.SubmitMessage)
+        </span>
+    </div>
+</div>

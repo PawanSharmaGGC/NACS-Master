@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kenticolucene.luceneindexitem>
+  <LuceneIndexItemAnalyzerName>Standard</LuceneIndexItemAnalyzerName>
+  <LuceneIndexItemChannelName>NACSShow</LuceneIndexItemChannelName>
+  <LuceneIndexItemGuid>724e545d-303d-4242-baaa-b2fc42c95b1f</LuceneIndexItemGuid>
+  <LuceneIndexItemIndexName>NS_SITE_SEARCH</LuceneIndexItemIndexName>
+  <LuceneIndexItemStrategyName>NS_SITE_SEARCH</LuceneIndexItemStrategyName>
+</kenticolucene.luceneindexitem>

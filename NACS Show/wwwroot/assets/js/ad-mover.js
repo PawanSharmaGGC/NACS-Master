@@ -1,0 +1,1 @@
+$(function(){$(window).resize(function(){var n;$(window).width()<992?(n=$($(".responsive-left-ad-placeholder")[0]),$($(".left-nav-ads")[0]).contents().appendTo(n)):(n=$($(".left-nav-ads")[0]),$($(".responsive-left-ad-placeholder")[0]).contents().appendTo(n))});$(window).resize()})

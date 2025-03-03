@@ -1,0 +1,26 @@
+{
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Convenience.org": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:65488;https://localhost:65489;https://localhost:65490;https://localhost:65491;https://localhost:65492"
+    }
+  },
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "https://localhost:65488;https://localhost:65489;https://localhost:65490;https://localhost:65491;https://localhost:65492",
+      "sslPort": 0
+    }
+  }
+}

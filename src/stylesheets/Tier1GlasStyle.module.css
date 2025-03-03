@@ -1,0 +1,67 @@
+.main_card {
+   width: fit-content;
+}
+
+
+.txt_over_img {
+    top: 48%;
+    left: 0%;
+    right: 0%;
+    display: inline-block;
+    padding: 14px;
+}
+
+.section_body_card{
+    max-width: fit-content;
+}
+
+.image_container {
+    position: relative;
+    display: inline-block;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+.blur_overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    backdrop-filter: blur(10px);
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+.image_container img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+.hero_card{
+    width: 500px;
+}
+
+@media only screen and (max-width: 480px) {
+    .main_card {
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+
+    .section_card {
+        flex-direction: column !important;
+        width: 100vw;
+    }
+
+    .hero_card{
+        max-width: 100%;
+        height: auto;
+    }
+    .txt_over_img {
+        top: 50%;
+        left: 0%;
+        right: 0%;
+    }
+}

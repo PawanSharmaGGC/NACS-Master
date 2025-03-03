@@ -1,0 +1,8 @@
+﻿@model string
+
+@if (!string.IsNullOrEmpty(Model))
+{
+    <div class="start-xs col-md-12">
+        @Html.Raw(Model)
+    </div>
+}

@@ -1,0 +1,216 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+
+@model Convenience.org.Components.Widgets.Heros.Tier1SuperHero.Tier1SuperHeroWidgetViewModel
+
+@if (Model != null)
+{
+	<div>
+
+		<div class="Tier1HeroStyle-module__main_card card">
+			<img class="ml-50-per Tier1HeroStyle-module__card_img" src="/static/media/Clip path group.0252d1b32f2be88e2063.png" alt="">
+			<div class="position-absolute m-4">
+				@await Component.InvokeAsync("Breadcrumb")
+				<div>
+					<div class="text-start mb-4 border_left_green EyebrowTitleStyle-module__eyebrow">
+						<span class="ps-4 text-uppercase font-monospace color-FFFFFF">
+							@Model.EyebrowTitle
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="border-0 p-0 position-absolute bg-trans Tier1HeroStyle-module__section_card card">
+				<div class="p-4 flex-fill Tier1HeroStyle-module__section_body_card card-body">
+					<div class="position-relative float-lg-start">
+						<div class=" Tier1HeroStyle-module__image_container">
+							<div class=" Tier1HeroStyle-module__blur_overlay">
+							</div>
+							<img class=" Tier1HeroStyle-module__hero_card" src="@Model.ImageUrl" width="341px" alt="@Model.ImageAltText">
+						</div>
+						<div class="position-absolute text-light Tier1HeroStyle-module__txt_over_img">
+							<div>
+								<div class="text-start mb-4 border_left_white EyebrowTitleStyle-module__eyebrow">
+									<span class="ps-4 text-uppercase font-monospace color-FFFFFF">
+										@Model.CardEyebrowTitle
+									</span>
+								</div>
+							</div>
+							<div class=" text-start fw-semibold fs-3 mb-3">
+								<span>
+									@Model.Title
+								</span>
+							</div>
+							<div class="d-flex justify-content-between">
+								<p class="mb-0">
+									<span class="me-3">
+										@Model.DateTime
+									</span>
+									@if (!string.IsNullOrEmpty(Model.ReadTimeOrLocation))
+									{
+										<span class="me-3">
+											|
+										</span>
+										<span class="">
+											@Model.ReadTimeOrLocation
+										</span>
+									}
+								</p>
+							</div>
+
+							@if (!string.IsNullOrEmpty(Model.CTALink) && !string.IsNullOrEmpty(Model.CTAText))
+							{
+								<div class="mt-3">
+									<div class="float-start">
+										<a href="@Model.CTALink" class="bg-0053A5 p-3 border border-0 brdr-rad-30 text-decoration-none ">
+											<span>
+												<i class="align-middle color-FFFFFF undefined undefined "></i>
+											</span>
+											<span class="color-FFFFFF pe-2 ps-2 fw-medium undefined">
+												@Model.CTAText
+											</span>
+											<span>
+												<i class="align-middle color-FFFFFF fa-regular fa-arrow-right-long " aria-hidden="true"></i>
+											</span>
+										</a>
+									</div>
+								</div>
+							}
+						</div>
+					</div>
+				</div>
+				<div class="p-0 border-0 bg-trans flex-fill flex-grow-1 card-body">
+					<div>
+						<div class="p-0 border-0 bg-trans Tier1HeroStyle-module__slider_card card pt-5">
+							<div class="p-0 border-0 bg-trans slider-container Tier1HeroStyle-module__slider">
+								<div class="slick-carousel">
+									@if (Model.ArticleCards != null && Model.ArticleCards.Count > 0)
+									{
+										var itemCnt = 0;
+										@foreach (var item in Model.ArticleCards)
+										{
+											<div>
+												<div class="border border-0 bg-trans Tier1HeroStyle-module__flex_card Tier1HeroStyle-module__slider_card card mb-5">
+													<div class="m-3 brdr-rad-18 bg-FFFFFF card-body">
+														<div class="text-start p-2">
+															<div class="text-start align-items-baseline d-flex justify-content-between">
+																<div>
+																	<div class="text-start mb-4 border_left_green EyebrowTitleStyle-module__eyebrow">
+																		<span class="ps-4 text-uppercase font-monospace color-0053A5">
+																			@item.EyebrowTitle
+																		</span>
+																	</div>
+																</div>
+																<span class="text-center mt-2 color-0053A5 bg-DBEAB9 TagsStyle-module__card_badge">
+																	@item.EyebrowStatus
+																</span>
+															</div>
+															<div class="fs-5 mb-2 color-0053A5">@item.Title</div>
+															<div class="color-0053A5"></div>
+															<div class="d-flex justify-content-between">
+
+																@if (!string.IsNullOrEmpty(item.PageUrl))
+																{
+																	<a href="@item.PageUrl" class="fs-5 color-396a99 pointer text-decoration-none">
+																		<span class="d-inline-block pe-1 fw-medium">
+																			Read Story
+																		</span>
+																		<span class="align-middle">
+																			<i class="fa-regular fa-arrow-right-long color-396a99" aria-hidden="true"></i>
+																		</span>
+																	</a>
+																}
+																<span>
+																	<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+																		<path d="M32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32C24.8366 32 32 24.8366 32 16Z" fill="#85B0C6"></path>
+																		<path d="M9.33398 14.6669V17.3339C9.33398 18.6669 10.001 19.3339 11.334 19.3339H12.287C12.534 19.3339 12.781 19.4069 12.994 19.5339L14.941 20.7539C16.621 21.8069 18.001 21.0399 18.001 19.0599V12.9399C18.001 10.9539 16.621 10.1939 14.941 11.2469L12.994 12.4669C12.781 12.5939 12.534 12.6669 12.287 12.6669H11.334C10.001 12.6669 9.33398 13.3339 9.33398 14.6669Z" stroke="white" stroke-width="1.5"></path>
+																		<path d="M20 13.333C21.187 14.913 21.187 17.087 20 18.667" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+																		<path d="M21.2209 11.667C23.1469 14.233 23.1469 17.767 21.2209 20.333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+																	</svg>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+										}
+									}
+								</div>
+
+								<div class="text-center mt-1">
+										<i class="fa-regular fa-angle-left prevNav fa-lg color-FFFFFF" aria-hidden="true"></i>
+									<span class="pe-5"></span>
+										<i class="fa-regular fa-angle-right nextNav fa-lg color-FFFFFF" aria-hidden="true"></i>
+								</div>
+							</div>
+
+							<div class="Tier1HeroStyle-module__grid_view row">
+								@if (Model.ArticleCards != null && Model.ArticleCards.Count > 0)
+								{
+									@foreach (var item in Model.ArticleCards)
+									{
+										<div class="col-lg-6 col-md-6">
+											<div class="border border-0 bg-trans Tier1HeroStyle-module__flex_card card">
+												<div class="m-3 brdr-rad-18 bg-DBEAB9 card-body">
+													<div class="text-start p-2">
+														<div class="text-start d-flex justify-content-between align-items-baseline">
+															<div>
+																<div class="text-start mb-4 border_left_green EyebrowTitleStyle-module__eyebrow">
+																	<span class="ps-4 text-uppercase font-monospace color-0053A5">
+																		@item.EyebrowTitle
+																	</span>
+																</div>
+															</div><span class="text-center mt-2 color-0053A5 bg-DBEAB9 TagsStyle-module__card_badge">@item.EyebrowStatus</span>
+														</div>
+														<div class="fs-5 mb-5 mt-4 color-0053A5">
+															@item.Title
+														</div>
+														<div class="color-0053A5"></div>
+														<div class="d-flex justify-content-between">
+
+															@if (!string.IsNullOrEmpty(item.PageUrl))
+															{
+																<a href="@item.PageUrl" class="fs-5 color-396a99 pointer text-decoration-none">
+																	<span class="d-inline-block pe-1 fw-medium">
+																		Read Story
+																	</span>
+																	<span class="align-middle">
+																		<i class="fa-regular fa-arrow-right-long color-396a99" aria-hidden="true"></i>
+																	</span>
+																</a>
+															}
+															<span>
+																<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+																	<path d="M32 16C32 7.16344 24.8366 0 16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32C24.8366 32 32 24.8366 32 16Z" fill="#85B0C6"></path>
+																	<path d="M9.33398 14.6669V17.3339C9.33398 18.6669 10.001 19.3339 11.334 19.3339H12.287C12.534 19.3339 12.781 19.4069 12.994 19.5339L14.941 20.7539C16.621 21.8069 18.001 21.0399 18.001 19.0599V12.9399C18.001 10.9539 16.621 10.1939 14.941 11.2469L12.994 12.4669C12.781 12.5939 12.534 12.6669 12.287 12.6669H11.334C10.001 12.6669 9.33398 13.3339 9.33398 14.6669Z" stroke="white" stroke-width="1.5"></path>
+																	<path d="M20 13.333C21.187 14.913 21.187 17.087 20 18.667" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+																	<path d="M21.2209 11.667C23.1469 14.233 23.1469 17.767 21.2209 20.333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+																</svg>
+															</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									}
+								}
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- jQuery and Slick Slider JS -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script src="/js/custom-slick-carousel.js"></script>
+	<script>
+		InitializeSlidercarousel('.slick-carousel');
+		handlePrevNext('.slick-carousel','.prevNav','.nextNav','.Tier1HeroStyle-module__flex_card');
+	</script>
+
+}

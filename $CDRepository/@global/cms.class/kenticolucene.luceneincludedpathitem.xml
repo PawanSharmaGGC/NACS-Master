@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassDisplayName>Lucene Path Item</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="LuceneIncludedPathItemId" columntype="integer" enabled="true" guid="0544161b-9f9b-4f49-819e-a63bd085a719" isPK="true" />
+      <field column="LuceneIncludedPathItemGuid" columnprecision="0" columntype="guid" enabled="true" guid="05179a4d-8769-400b-a26c-0b811fbefc62" visible="true" />
+      <field column="LuceneIncludedPathItemAliasPath" columnprecision="0" columnsize="100" columntype="text" enabled="true" guid="4357f1c2-3e21-435e-8711-9723e78dc4ba" visible="true" />
+      <field column="LuceneIncludedPathItemIndexItemId" columnprecision="0" columntype="integer" enabled="true" guid="4c5135ae-8034-4c93-bf04-20ebf14eb472" refobjtype="kenticolucene.luceneindexitem" reftype="Required" visible="true" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>35928900-cd0e-44a6-879f-cd9a421e7ef5</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassName>KenticoLucene.LuceneIncludedPathItem</ClassName>
+  <ClassResourceID>
+    <CodeName>CMS.Integration.Lucene</CodeName>
+    <GUID>484df3f2-7aca-4867-b324-be39f58c05a1</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassTableName>KenticoLucene_LuceneIncludedPathItem</ClassTableName>
+  <ClassType>Other</ClassType>
+</cms.class>

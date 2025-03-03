@@ -1,0 +1,65 @@
+﻿@using NACS.Portal.Core.Models
+
+@model FormWidgetViewModel
+
+<br />
+<br />
+<br />
+<div id="form_Panel" style="position:relative">
+    <div id="form-section">
+        <span style="display:none;" class="ErrorLabel" id="error-message"></span>
+        <div class="FormPanel" id="FormPanel">
+
+
+
+
+
+
+            <div id="future-signup">
+                @Html.Raw(Model?.Heading)
+                <p>@Html.Raw(Model?.Description)</p>
+
+                <form id="future-form" method="post">
+
+                    <fieldset id="form-name-info">
+                        <span>
+                            <label for="txtFirstName">First Name</label>
+                            <div id="firstname" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                <input name="FirstName" type="text" maxlength="200" id="txtFirstName" class="form-control">
+                            </div>
+                        </span>
+                        <span>
+                            <label for="txtLastName">Last Name</label>
+                            <div id="lastname" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                <input name="LastName" type="text" maxlength="200" id="txtLastName" class="form-control">
+                            </div>
+                        </span>
+                    </fieldset>
+
+                    <fieldset id="form-company-info">
+                        <span>
+                            <label for="txtEmail">Company Email Address</label>
+                            <div id="email" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                                <input name="Email" type="text" maxlength="200" id="txtEmail" class="form-control">
+                            </div>
+                        </span>
+                    </fieldset>
+
+                    <input type="submit" name="btnOK" value="Submit" id="btnOK" class="FormButton btn btn-primary">
+                </form>
+            </div>
+
+            <img src="/_content/conveniencecares.org/img/embellishment-white-5.png" class="embellishment bottom" style="display:block;position:relative;width:100%" />
+
+            <div></div>
+
+
+
+
+        </div>
+        <span style="display:none;" id="thank-you-message" class="InfoLabel">
+            @Html.Raw(Model?.SubmitMessage)
+        </span>
+    </div>
+</div>
+

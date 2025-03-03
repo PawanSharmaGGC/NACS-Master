@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>
+        @ViewBag.Title | NACS Foundation
+    </title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="~/_content/ConvenienceCares.org/css/conveniencecares.org.css" rel="stylesheet" />
+
+    <!-- Google Tag Manager -->
+    @* <script>
+    (function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+    'gtm.start':
+    new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KPD3QV');</script> *@
+    <!-- End Google Tag Manager -->
+    <!--Gotham Fonts-->
+    <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7706976/7907612/css/fonts.css" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="~/_content/ConvenienceCares.org/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="~/_content/ConvenienceCares.org/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="~/_content/ConvenienceCares.org/img/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="~/_content/ConvenienceCares.org/img/manifest.json">
+    <link rel="mask-icon" href="~/_content/ConvenienceCares.org/img/safari-pinned-tab.svg">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <meta name="theme-color" content="#ffffff">
+
+    <vc:social-meta-tag></vc:social-meta-tag>
+    @* // todo: socialMetaTags *@
+
+    @if (Context.Kentico().PageBuilder().EditMode)
+    {
+        <page-builder-styles />
+    }
+
+    @* Razor section for additional page-specific styles *@
+    @RenderSection("styles", required: false)
+
+</head>
+<body class="LTR EditMode Chrome ENUS ContentBody">
+
+    <!-- Google Tag Manager (noscript) -->
+    @* <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPD3QV"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript> *@
+    <!-- End Google Tag Manager (noscript) -->
+
+    <vc:menu-item />
+
+
+    <div class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <div id="pageContent" class="col-12 page-content">
+                    @* <cms:CMSWebPartZone ZoneID="zoneContent" runat="server" /> *@
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <vc:footer />
+
+    <page-builder-scripts />
+
+    <script src="~/_content/conveniencecares.org/js/jquery.easing.1.3.js"></script>
+    <script src="~/_content/conveniencecares.org/js/jquery.cycle2.min.js"></script>
+    <script src="~/_content/conveniencecares.org/js/jquery.cycle2.swipe.min.js"></script>
+    <script src="~/_content/conveniencecares.org/js/jquery.cycle2.caption2.min.js"></script>
+    <script src="~/_content/conveniencecares.org/js/master.js"></script>
+    <script src="~/_content/conveniencecares.org/js/customform.js"></script>
+
+    @* Razor section for additional page-specific scripts *@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

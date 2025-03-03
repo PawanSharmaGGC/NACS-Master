@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>Settings-7hc3kye4</CodeName>
+    <GUID>327dc202-b035-4add-b5cf-e0396a92319b</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>1b2824e4-aa5d-499e-9e4a-e30848236621</WebPageItemGUID>
+  <WebPageItemName>Settings-7hc3kye4</WebPageItemName>
+  <WebPageItemOrder>2</WebPageItemOrder>
+  <WebPageItemTreePath>/Settings</WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>53ef3ed0-e8ab-496b-beea-ff62ca0623b1</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>ConvenienceCares</CodeName>
+      <GUID>e1659d6d-ebc0-43fb-b608-74b436026ac9</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

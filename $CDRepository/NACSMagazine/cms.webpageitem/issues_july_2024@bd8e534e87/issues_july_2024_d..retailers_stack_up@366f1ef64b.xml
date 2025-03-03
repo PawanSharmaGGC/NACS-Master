@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpageitem>
+  <WebPageItemContentItemID>
+    <CodeName>DocumentingTheDecile_HowRetailersStackUp-uolot7h9</CodeName>
+    <GUID>aef0d2a7-5bdc-441e-857c-99d1489e9b79</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </WebPageItemContentItemID>
+  <WebPageItemGUID>de89c1f6-1fb1-44d3-b8bf-1fbef65889e9</WebPageItemGUID>
+  <WebPageItemName>DocumentingTheDecile_HowRetailersStackUp-uolot7h9</WebPageItemName>
+  <WebPageItemOrder>3</WebPageItemOrder>
+  <WebPageItemParentID>
+    <CodeName>July2024-neiushx8</CodeName>
+    <GUID>f132945a-5971-4593-bf35-3bc2b8394854</GUID>
+    <ObjectType>cms.webpageitem</ObjectType>
+  </WebPageItemParentID>
+  <WebPageItemTreePath>
+    <![CDATA[/Issues/July_2024/Documenting_the_Decile_How_Retailers_Stack_Up]]>
+  </WebPageItemTreePath>
+  <WebPageItemWebsiteChannelID>
+    <GUID>3257d9cb-79a6-4552-998d-e1f8e1a3cb3e</GUID>
+    <ObjectType>cms.websitechannel</ObjectType>
+    <Parent>
+      <CodeName>NACSMagazine</CodeName>
+      <GUID>eecfdedc-a92f-48b7-9daa-eab81c106019</GUID>
+      <ObjectType>cms.channel</ObjectType>
+    </Parent>
+  </WebPageItemWebsiteChannelID>
+</cms.webpageitem>

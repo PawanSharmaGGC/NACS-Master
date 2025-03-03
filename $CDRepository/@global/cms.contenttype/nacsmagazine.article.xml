@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Reusable</ClassContentTypeType>
+  <ClassDisplayName>NMArticle</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="897d8334-0961-485b-9a74-338d5233134a" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="6f3ae8e4-4598-472b-824f-78a0f7e80076" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="01462e85-4632-4329-8955-0b989511bff0" isunique="true" system="true" />
+      <field column="Title" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="a1cbeb43-2802-49d1-ad19-e2839284c07c" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Title</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Locked" columnprecision="0" columntype="boolean" enabled="true" guid="ee09c6e4-9757-41d8-a937-ff694b7d349f" visible="true">
+        <properties>
+          <defaultvalue>True</defaultvalue>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Locked</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.Checkbox</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="EditorsPick" columnprecision="0" columntype="boolean" enabled="true" guid="53f2850c-258a-4ec1-9d35-1ebdbdc6537a" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>
+            <![CDATA[Editor's Pick]]>
+          </fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.Checkbox</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CoverStory" columnprecision="0" columntype="boolean" enabled="true" guid="570e956a-d990-432f-8b7a-4c7c12965aaa" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Cover Story</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.Checkbox</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CurrentIssue" columnprecision="0" columntype="boolean" enabled="true" guid="4e5b187c-2158-40de-ab08-77831a8d4453" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Show Under Current Issue</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.Checkbox</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Image" columnprecision="0" columntype="contentitemasset" enabled="true" guid="14a58218-da6d-425f-a07c-6603cbaea63b" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Cover Story Image</fieldcaption>
+          <fielddescription>
+            <![CDATA[Taller image for homepage/cover story only - typically 792 x 572 pixels]]>
+          </fielddescription>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedExtensions>_INHERITED_</AllowedExtensions>
+          <controlname>Kentico.Administration.ContentItemAssetUploader</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="RollupImage" columnprecision="0" columntype="contentitemasset" enabled="true" guid="37f7a404-d805-40ad-a5a4-2c09bde031aa" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>RollupImage</fieldcaption>
+          <fielddescription>Smaller landscape image, typically 750x330 pixels</fielddescription>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedExtensions>_INHERITED_</AllowedExtensions>
+          <controlname>Kentico.Administration.ContentItemAssetUploader</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="RollupImageURL" columnprecision="0" columnsize="255" columntype="text" enabled="true" guid="6cdd3a40-e065-4752-82bd-d7c1d3625364" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Rollup Image URL</fieldcaption>
+          <fielddescription>
+            <![CDATA[Relative URL for the migrated issue image (ex: /NACSMagazine.com/images/styles/articles_detail_view_large/public/issue.png)]]>
+          </fielddescription>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="LedeText" columnprecision="0" columnsize="500" columntype="text" enabled="true" guid="36e74db3-279b-45d5-806b-b1560a66f927" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Lede Text</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+      </field>
+      <field column="IssueDate" columnprecision="0" columntype="date" enabled="true" guid="76033ced-6cc4-4e72-be5b-983af836b24c" visible="true">
+        <properties>
+          <explanationtext>Enter a date: MM/DD/YYYY</explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Issue Date</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DateInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="PageContent" columnprecision="0" columntype="longtext" enabled="true" guid="44f94156-cbf6-41d0-aa54-6882562cd40a" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Page Content</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <ConfigurationName>Kentico.Administration.StructuredContent</ConfigurationName>
+          <controlname>Kentico.Administration.RichTextEditor</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="PageContentTeaser" columnprecision="0" columntype="longtext" enabled="true" guid="640f2ccd-2d7b-4ac5-a064-0eb811e4a71d" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Page Content Teaser</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <ConfigurationName>Kentico.Administration.StructuredContent</ConfigurationName>
+          <controlname>Kentico.Administration.RichTextEditor</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Authors" columnprecision="0" columntype="contentitemreference" enabled="true" guid="876ef64f-ddea-4acd-919c-3e4dbeb4155e" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Author(s)</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["5392f8a7-a73e-4189-9a28-0b9dba7a0df1"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <MaximumItems>4</MaximumItems>
+          <MinimumItems>0</MinimumItems>
+          <SelectionType>contentTypes</SelectionType>
+        </settings>
+      </field>
+      <field allowempty="true" column="AuthorNames" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="6eacab87-aec2-45b1-a6f4-0065fe097307" visible="true">
+        <properties>
+          <explanationtext>Conversion field used to map new relationships</explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Author Names</fieldcaption>
+          <fielddescription>Conversion field used to map new relationships</fielddescription>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MagazineSection" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="c57144ea-d3cf-4427-a4e3-13a67a04637a" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Magazine Section</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <Options>
+<![CDATA[
+Back Page
+Bits & Bytes
+By the Numbers
+Capitol Punishment
+Category Close-Up
+Convenience Cares
+Convenience.org
+Endcap
+Feature
+From the Editor
+Fuels Institute
+Gas Station Gourmet
+Global Trends
+Good Work
+Grab & Go
+Hello
+Ideas 2 Go
+In Context
+Inside Washington
+NACS News
+On Our Minds
+Q&A
+Quick Hits
+Snapshot
+Store Tour
+The Big Question
+]]>
+          </Options>
+          <OptionsValueSeparator>;</OptionsValueSeparator>
+          <Placeholder>-none-</Placeholder>
+        </settings>
+      </field>
+      <field allowempty="true" column="ContentCategory" columnprecision="0" columntype="taxonomy" enabled="true" guid="e94131aa-ce30-4653-a3a6-da7a75d97af0" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Content Category</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TagSelector</controlname>
+          <TaxonomyGroup>
+            <![CDATA[["bafcd699-6640-40b9-9082-ae3839c7c547"]]]>
+          </TaxonomyGroup>
+        </settings>
+      </field>
+      <field allowempty="true" column="CategoryTags" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="a26689bc-2695-42e1-a28a-73a40e3a30dc" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>bfc216b1-7940-4f1b-9085-01ec7902d4ff</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-book-opened</ClassIconClass>
+  <ClassName>NACSMagazine.Article</ClassName>
+  <ClassShortName>NACSMagazineArticle</ClassShortName>
+  <ClassTableName>NACSMagazine_Article</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

@@ -1,0 +1,37 @@
+﻿@using Convenience.org.Models
+
+@model SponsoresViewModel
+
+
+@if (Model != null)
+{
+    <div class="p-3">
+        @if (Model.Eyebrow != null)
+        {
+            @await Component.InvokeAsync("EyebrowTitle", new { model = Model.Eyebrow })
+        }
+        @if (Model != null && Model.SponsorItems != null && Model.SponsorItems.Any())
+        {
+            <div class="mt-lg-5 d-flex  SponsorStyle-module__img_section">
+                @foreach (var item in Model.SponsorItems)
+                {
+                    <img class="img-fluid p-3 p-lg-0" src="@item.Image" alt="@item.ImageAlt">
+                }
+            </div>
+        }
+    </div>
+    <div class="mt-5">
+        @{
+            var buttonModel = new Convenience.org.Models.ButtonsViewModel
+                {
+                    ButtonText = Model.CTAText,
+                    ButtonURL = Model.CTAUrl,
+                    ButtonType = Convenience.org.Models.ButtonTypeEnum.BackToLog,
+                    RightIconColor = "color-DC241F",
+                    RightIconName = "fa-arrow-right",
+                    RightIconType = "fa-regular"
+                };
+        }
+        @await Component.InvokeAsync("Buttons", new { model = buttonModel })
+    </div>
+}

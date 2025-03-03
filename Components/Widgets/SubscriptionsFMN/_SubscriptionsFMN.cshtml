@@ -1,0 +1,74 @@
+﻿@model Convenience.org.Components.Widgets.SubscriptionsFMN.SubscriptionFMNViewModel
+@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+
+<form asp-controller="SubscriptionsFMN" asp-formaction="UpdateFMNList" method="post">
+    @* <input type="hidden" id="ListId" value="@Model.ListId" /> *@
+    <input type="hidden" id="UserId" value="@Model.UserId" />
+
+    <div id="dynamicsFMNWidget" style="padding: 20px;">
+        <h4>Fuels Market News E-Newsletter</h4>
+        <p>Subscribe to the Fuels Market News weekly newsletter to get up-to-date pricing on wholesale and retail fuels and key news to make you more profitable and efficient.</p>
+        <h5>Subscription Options:</h5><br />
+        <input type="radio" id="fmnSubscribeRadio" name="fmnENewsletter" value="true" @(Model.FMNSubscriptionOption ? "checked" : "") />
+        <label for="fmnSubscribeRadio">Subscribe</label><br />
+
+        <input type="radio" id="fmnUnsubscribeRadio" name="fmnENewsletter" value="false" @(!Model.FMNSubscriptionOption ? "checked" : "") />
+        <label for="fmnUnsubscribeRadio">Unsubscribe</label><br /><br />
+
+        <button id="btnSaveFMN" type="button">Save</button>
+        <p id="statusMessageFMN"></p>
+    </div>
+
+    @Html.Kentico().PageData()
+</form>
+
+<script>
+    function initializeFMNWidget() {
+        document.getElementById("btnSaveFMN").onclick = async (event) => {
+            event.preventDefault();
+
+            const selectedRadioValue = document.querySelector('input[name="fmnENewsletter"]:checked')?.value;
+            // const listId = document.getElementById("ListId").value;
+            const userId = document.getElementById("UserId").value;
+
+            const payload = {
+                // ListId: listId,
+                UserId: userId,
+                FMNSubscriptionOption: selectedRadioValue === "true"
+            };
+
+            if (selectedRadioValue === undefined) {
+                console.error("No radio button selected.");
+                return;
+            }
+
+            const statusMessage = document.getElementById("statusMessageFMN");
+            statusMessage.textContent = "Updating...";
+
+            try {
+                const response = await fetch('/SubscriptionsFMN/UpdateFMNList', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    document.getElementById("statusMessageFMN").textContent = result.message;
+                } else {
+                    document.getElementById("statusMessageFMN").textContent = "Failed to update.";
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                document.getElementById("statusMessageFMN").textContent = "An error occurred.";
+            }
+        };
+    }
+
+    document.addEventListener("DOMContentLoaded", initializeFMNWidget);
+    initializeFMNWidget();
+</script>
+

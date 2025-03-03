@@ -1,0 +1,47 @@
+﻿@using CMS.ContentEngine
+@using Kentico.Content.Web.Mvc.PageBuilder
+@using NACSShow
+
+<vc:current-page-data />
+@{
+    Layout = "~/Features/Shared/NACSShow/_Layout.cshtml";
+
+    var title = "";
+    var sectionHeader = "";
+    var pageContent = "";
+
+    var contentTypeName = TempData["PageContentTypeName"] as string;
+
+    if (!string.IsNullOrEmpty(contentTypeName))
+    {
+        if (contentTypeName == Convenience.Page.CONTENT_TYPE_NAME)
+        {
+            var currentPageData = TempData["CurrentPageData"] as Convenience.Page ?? new Convenience.Page();
+            title = currentPageData.Title;
+            sectionHeader = currentPageData.SectionHeader;
+            pageContent = currentPageData.PageContent;
+        }
+        else if (contentTypeName == Convenience.EventPage.CONTENT_TYPE_NAME)
+        {
+            var currentPageData = TempData["CurrentPageData"] as Convenience.EventPage ?? new Convenience.EventPage();
+            title = currentPageData.Title;
+            sectionHeader = currentPageData.SectionHeader;
+            pageContent = currentPageData.PageContent;
+        }
+    }
+}
+
+<div class="row">
+    <div class="col-12 main-content">
+        <div class="row">
+            <div class="col-12">
+                <editable-area area-identifier="TitleZone"></editable-area>
+                <vc:convenience-page-title section-header="@sectionHeader" title="@title"></vc:convenience-page-title>
+                <editable-area area-identifier="ContentWidgetZone1"></editable-area>
+                <editable-area area-identifier="ContentZone"></editable-area>
+                @Html.Raw(pageContent)
+                <editable-area area-identifier="ContentWidgetZone2"></editable-area>
+            </div>
+        </div>
+    </div>
+</div>

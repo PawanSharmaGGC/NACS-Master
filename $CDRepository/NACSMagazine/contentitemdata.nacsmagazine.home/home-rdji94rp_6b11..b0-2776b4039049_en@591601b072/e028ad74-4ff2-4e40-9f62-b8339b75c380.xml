@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.home>
+  <ContentItemDataCommonDataID>
+    <GUID>6b110145-7967-4405-8ab0-2776b4039049</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Home-rdji94rp</CodeName>
+      <GUID>aaba15ac-86bc-44b7-82b3-902bd49b04d7</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>e028ad74-4ff2-4e40-9f62-b8339b75c380</ContentItemDataGUID>
+  <HomeHero>
+    <![CDATA[[{"Identifier":"36dd92f0-678c-43c2-8603-86c8598711cb"}]]]>
+  </HomeHero>
+  <Title>Home</Title>
+</contentitemdata.nacsmagazine.home>

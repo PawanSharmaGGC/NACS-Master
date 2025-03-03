@@ -1,0 +1,832 @@
+﻿@using Convenience.org.Models
+
+@model EVChargingCalculatorViewModel
+
+<div class="row" style="@(Model.CurrentStep == 2 ? "display:block" :"display:none")">
+
+    @* @Html.Partial("~/Components/Widgets/EVChargingCalculator/_EVChargingCalculatorStepsHeading.cshtml", Model) *@
+
+    <div class="row validate-inputs">
+        <div class="col">
+            <div style="width: 100%; margin: auto; align-content: center; padding-left: 20px;">
+                <!-- Data Transfer Invisible Do not Delete -->
+
+                <div>
+                    <input id="Text0" name="Text0" value="@Model.Text0" type="hidden" />
+                    <input id="Text1" name="Text1" value="@Model.Text1" type="hidden" />
+                    <input id="Text2" name="Text2" value="@Model.Text2" type="hidden" />
+                    <input id="Text3" name="Text3" value="@Model.Text3" type="hidden" />
+                    <input id="Text4" name="Text4" value="@Model.Text4" type="hidden" />
+                    <input id="Text5" name="Text5" value="@Model.Text5" type="hidden" />
+                    <input id="Text6" name="Text6" value="@Model.Text6" type="hidden" />
+                    <input id="Text7" name="Text7" value="@Model.Text7" type="hidden" />
+                    <input id="Text8" name="Text8" value="@Model.Text8" type="hidden" />
+                    <input id="Text9" name="Text9" value="@Model.Text9" type="hidden" />
+                    <input id="Text10" name="Text10" value="@Model.Text10" type="hidden" />
+                    <input id="Text11" name="Text11" value="@Model.Text11" type="hidden" />
+                    <input id="Text12" name="Text12" value="@Model.Text12" type="hidden" />
+                    <input id="Text13" name="Text13" value="@Model.Text13" type="hidden" />
+                    <input id="Text14" name="Text14" value="@Model.Text14" type="hidden" />
+                    <input id="Text15" name="Text15" value="@Model.Text15" type="hidden" />
+                    <input id="Text16" name="Text16" value="@Model.Text16" type="hidden" />
+                    <input id="Text17" name="Text17" value="@Model.Text17" type="hidden" />
+                    <input id="Text18" name="Text18" value="@Model.Text18" type="hidden" />
+                </div>
+
+                <div style="min-width: 350px!important; width: 100%; margin: auto; padding-left: 10px">
+                    <span style="font-size: 20px; font-weight: 700; background-color: #0d2c6c; padding: 10px; color: #fff;">
+                        Direct Profit Modeling
+                    </span>
+                </div>
+
+                <div class="clear"></div>
+
+                <div style="min-width: 350px!important; width: 100%;">
+                    <fieldset class="ctrl-container21">
+                        <div class="ctrl-header">
+                            <h4>Kilowatt Hour Charges</h4>
+                        </div>
+
+                        <br />
+
+                        <div style="text-align: left; padding-left: 20px; align-content: center; min-width: 425px;">
+                            <div style="width: 60%; float: left;">
+                                <span style="font-size: 15px; font-weight: 500">Number of Chargers</span>
+                            </div>
+                            <div style="width: 35%; float: left;">
+                                <input type="text" id="_txtNumberofChargingStations" name="_txtNumberofChargingStations" class="txt21" value="@Model._txtNumberofChargingStations" readonly />
+                                <input type="hidden" id="_hdNumberofChargingStations" name="_hdNumberofChargingStations" value="@Model._hdNumberofChargingStations" />
+                            </div>
+
+                            <div class="clear"></div>
+
+                            <div style="width: 60%; float: left;">
+                                <span style="font-size: 15px; font-weight: 500">Charges per Charger per Day</span>
+                            </div>
+                            <div style="width: 35%; float: left;">
+                                <input type="text" id="_txtNumberofChargesperStationsperDay" name="_txtNumberofChargesperStationsperDay" class="txt21" value="@Model._txtNumberofChargesperStationsperDay" readonly />
+                                <input type="hidden" id="_hdNumberofChargesperStationsperDay" name="_hdNumberofChargesperStationsperDay" value="@Model._hdNumberofChargesperStationsperDay" />
+                            </div>
+
+                            <div class="clear"></div>
+
+                            <div style="width: 60%; float: left;">
+                                <span style="font-size: 15px; font-weight: 500">Charges/Month</span>
+                            </div>
+                            <div style="width: 35%; float: left;">
+                                <input type="text" id="_txtChargespermonth" name="_txtChargespermonth" class="txt21" value="@Model._txtChargespermonth" readonly />
+                                <input type="hidden" id="_hdChargespermonth" name="_hdChargespermonth" value="@Model._hdChargespermonth" />
+                            </div>
+
+                            <div class="clear"></div>
+
+                            <div style="width: 60%; float: left;">
+                                <span style="font-size: 15px; font-weight: 500">Incremental Monthly kWh Cost</span>
+                            </div>
+                            <div style="width: 35%; float: left;">
+                                <input type="text" id="_txtIncrementalMonthlykWh" name="_txtIncrementalMonthlykWh" class="txt21" value="@Model._txtIncrementalMonthlykWh" readonly />
+                                <input type="hidden" id="_hdIncrementalMonthlykWh" name="_hdIncrementalMonthlykWh" value="@Model._hdIncrementalMonthlykWh" />
+                            </div>
+
+                            <div class="clear"></div>
+
+                            <div style="width: 60%; float: left;">
+                                <span style="font-size: 15px; font-weight: 500">Base Monthly kWh Cost</span>
+                            </div>
+                            <div style="width: 35%; float: left;">
+                                <input type="text" id="_txtBaseMonthlykWh" name="_txtBaseMonthlykWh" class="txt21" value="@Model._txtBaseMonthlykWh" readonly />
+                                <input type="hidden" id="_hdBaseMonthlykWh" name="_hdBaseMonthlykWh" value="@Model._hdBaseMonthlykWh" />
+                            </div>
+
+                            <div class="clear"></div>
+
+                            <div style="width: 60%; float: left;">
+                                <span style="font-size: 15px; font-weight: 500">Total Monthly kWh Cost</span>
+                            </div>
+                            <div style="width: 35%; float: left;">
+                                <input type="text" id="_txtTotalMonthlykWh" name="_txtTotalMonthlykWh" class="txt21" value="@Model._txtTotalMonthlykWh" readonly />
+                                <input type="hidden" id="_hdTotalMonthlykWh" name="_hdTotalMonthlykWh" value="@Model._hdTotalMonthlykWh" />
+                            </div>
+
+                            <div class="clear"></div>
+
+                            <div style="width: 60%; float: left;">
+                                <span style="font-size: 15px; font-weight: 500">Kilowatt per Hour Cost</span>
+                            </div>
+                            <div style="width: 35%; float: left; padding-bottom: 5px;">
+                                <input type="text" id="_txtTotalEnergyCharge" name="_txtTotalEnergyCharge" class="txt21 space" size="10" value="@Model._txtTotalEnergyCharge" readonly />
+                                <input type="hidden" id="_hdTotalEnergyCharge" name="_hdTotalEnergyCharge" value="@Model._hdTotalEnergyCharge" />
+                            </div>
+
+                            <br />
+                        </div>
+
+                        <br />
+                    </fieldset>
+
+                    <fieldset class="ctrl-container22">
+                        <div class="ctrl-header">
+                            <h4>Demand Charge</h4>
+                        </div>
+
+                        <br />
+
+                        <div style="text-align: left; padding-left: 20px; align-content: center; min-width: 425px;">
+                            <div style="width: 60%; float: left;">
+                                <span style="font-size: 15px; font-weight: 500">Number of Chargers</span>
+                            </div>
+                            <div style="width: 35%; float: left;">
+                                <input type="text" id="_txtNumberOfChargers" name="_txtNumberOfChargers" class="txt21" value="@Model._txtNumberOfChargers" readonly />
+                                <input type="hidden" id="_hdNumberOfChargers" name="_hdNumberOfChargers" value="@Model._hdNumberOfChargers" />
+                            </div>
+
+                            <br />
+                            <div class="clear"></div>
+
+                            <div style="width: 60%; float: left;">
+                                <span style="font-size: 15px; font-weight: 500">kW/Charger</span>
+                            </div>
+                            <div style="width: 35%; float: left;">
+                                <input type="text" id="_txtDemandkWCharger" name="_txtDemandkWCharger" class="txt21" value="@Model._txtDemandkWCharger" readonly />
+                                <input type="hidden" id="_hdDemandkWCharger" name="_hdDemandkWCharger" value="@Model._hdDemandkWCharger" />
+                            </div>
+
+                            <br />
+                            <div class="clear"></div>
+
+                            <div style="width: 60%; float: left;">
+                                <span style="font-size: 15px; font-weight: 500">Demand kW for Chargers</span>
+                            </div>
+                            <div style="width: 35%; float: left;">
+                                <input type="text" id="_txtDemandkW" name="_txtDemandkW" class="txt21" value="@Model._txtDemandkW" readonly />
+                                <input type="hidden" id="_hdDemandkW" name="_hdDemandkW" value="@Model._hdDemandkW" />
+                            </div>
+
+                            <br />
+                            <div class="clear"></div>
+
+                            <div style="width: 60%; float: left;">
+                                <span style="font-size: 15px; font-weight: 500">Base Demand kW Before Chargers</span>
+                            </div>
+                            <div style="width: 35%; float: left;">
+                                <input type="text" id="_txtDemandBasekW" name="_txtDemandBasekW" class="txt21" value="@Model._txtDemandBasekW" readonly />
+                                <input type="hidden" id="_hdDemandBasekW" name="_hdDemandBasekW" value="@Model._hdDemandBasekW" />
+                            </div>
+
+                            <br />
+                            <div class="clear"></div>
+
+                            <div style="width: 60%; float: left;">
+                                <span style="font-size: 15px; font-weight: 500">Total Demand kW</span>
+                            </div>
+                            <div style="width: 35%; float: left;">
+                                <input type="text" id="_txtTotalDemandkW" name="_txtTotalDemandkW" class="txt21" value="@Model._txtTotalDemandkW" readonly />
+                                <input type="hidden" id="_hdTotalDemandkW" name="_hdTotalDemandkW" value="@Model._hdTotalDemandkW" />
+                            </div>
+
+                            <br />
+                            <div class="clear"></div>
+
+                            <div style="width: 60%; float: left;">
+                                <span style="font-size: 15px; font-weight: 500">Total Demand Charge</span>
+                            </div>
+                            <div style="width: 35%; float: left;">
+                                <input type="text" id="_txtTotalDemandCharge" name="_txtTotalDemandCharge" class="txt21 space" size="10" value="@Model._txtTotalDemandCharge" readonly />
+                                <input type="hidden" id="_hdTotalDemandCharge" name="_hdTotalDemandCharge" value="@Model._hdTotalDemandCharge" />
+                            </div>
+
+                            <br />
+                        </div>
+
+                        <br />
+                    </fieldset>
+                </div>
+
+                @* -------------------- *@
+                <div class="clear"></div>
+
+                <div style="min-width: 350px!important; width: 100%; margin: auto;">
+
+                    <fieldset class="ctrl-container2">
+                        <div class="ctrl-header2">
+                            <h4>Total Utility Cost</h4>
+                        </div>
+                        <div style="text-align: center; padding-left: 20px">
+
+                            <div style="float: left; width: 33%; min-width: 325px;">
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Number of Chargers</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtChargers" name="_txtChargers" class="txt22 requiredBackground" value="@Model._txtChargers" readonly
+                                           onkeyup="CalculateCostPerkWh(); CalculateEnergyCharges(); CalculateTotalCharges(); CalculateIncremental(); CalculateCostPerCharge();"
+                                           onchange="CalculateCostPerkWh(); CalculateEnergyCharges(); CalculateTotalCharges(); CalculateIncremental(); CalculateCostPerCharge();" />
+
+                                    <div style="display: none">
+                                        <input type="text" id="_hdChargers" name="_hdChargers" value="@Model._hdChargers" />
+                                    </div>
+                                    <br />
+                                </div>
+
+                                <div class="clear"></div>
+
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Charges per Charger per Day</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtChargesChargerDay" name="_txtChargesChargerDay" class="txt22 requiredBackground" value="@Model._txtChargesChargerDay" readonly
+                                           onkeyup="CalculateCostPerkWh(); CalculateEnergyCharges(); CalculateTotalCharges(); CalculateIncremental(); CalculateCostPerCharge();"
+                                           onchange="CalculateCostPerkWh(); CalculateEnergyCharges(); CalculateTotalCharges(); CalculateIncremental(); CalculateCostPerCharge();" />
+                                    <div style="display: none">
+                                        <input type="text" id="_hdChargesChargerDay" name="_hdChargesChargerDay" value="@Model._hdChargesChargerDay" />
+                                    </div>
+                                    <br />
+                                </div>
+
+                                <div class="clear"></div>
+
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span><span style="font-size: 15px; font-weight: 500">Total Charges Per Month </span><span style="font-size: x-small">(30 day month)</span></span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtMonthlyChargesPerMonth" name="_txtMonthlyChargesPerMonth" class="txt22" value="@Model._txtMonthlyChargesPerMonth" min="0" />
+
+                                    <div style="display: none">
+                                        <input type="text" id="_hdMonthlyChargesPerMonth" name="_hdMonthlyChargesPerMonth" value="@Model._hdMonthlyChargesPerMonth" />
+                                    </div>
+                                    <br />
+                                </div>
+
+                            </div>
+
+                            <div style="float: left; width: 33%; min-width: 325px;">
+
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Cost of Kilowatt Hours Delivered</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtEnergyCharges" name="_txtEnergyCharges" class="txt22" value="@Model._txtEnergyCharges" readonly />
+
+                                    <div style="display: none">
+                                        <input type="text" id="_hdEnergyCharges" name="_hdEnergyCharges" value="@Model._hdEnergyCharges" />
+                                    </div>
+                                    <br />
+                                </div>
+
+                                <div class="clear"></div>
+
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Demand Charge Costs</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtDemandCharges" name="_txtDemandCharges" class="txt22" value="@Model._txtDemandCharges" readonly />
+
+                                    <div style="display: none">
+                                        <input type="text" id="_hdDemandCharges" name="_hdDemandCharges" value="@Model._hdDemandCharges" />
+                                    </div>
+                                    <br />
+                                </div>
+
+                                <div class="clear"></div>
+
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Total Costs</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtTotalCharges" name="_txtTotalCharges" class="txt22" value="@Model._txtTotalCharges" readonly />
+
+                                    <div style="display: none">
+                                        <input type="text" id="_hdTotalCharges" name="_hdTotalCharges" value="@Model._hdTotalCharges" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div style="float: left; width: 33%; min-width: 325px;">
+
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Increment Over Total Base</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtIncrementOverTotalBase" name="_txtIncrementOverTotalBase" class="txt22" value="@Model._txtIncrementOverTotalBase" readonly />
+
+                                    <div style="display: none">
+                                        <input type="text" id="_hdIncrementOverTotalBase" name="_hdIncrementOverTotalBase" value="@Model._hdIncrementOverTotalBase" />
+                                    </div>
+                                </div>
+
+                                <div class="clear"></div>
+
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Cost per Charge</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtCostPercharges" name="_txtCostPercharges" class="txt22 space" value="@Model._txtCostPercharges" readonly />
+
+                                    <div style="display: none">
+                                        <input type="text" id="_hdCostPercharges" name="_hdCostPercharges" value="@Model._hdCostPercharges" />
+                                    </div>
+                                </div>
+
+                                <div class="clear"></div>
+
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Cost per kWh</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtCostPerkWh" name="_txtCostPerkWh" class="txt22 space" value="@Model._txtCostPerkWh" readonly />
+
+                                    <div style="display: none">
+                                        <input type="text" id="_hdCostPerkWh" name="_hdCostPerkWh" value="@Model._hdCostPerkWh" />
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                </div>
+
+            </div>
+
+            <br />
+            <br />
+            <div class="clear"></div>
+
+            <hr />
+
+            <div style="width: 100%; margin: auto; align-content: center; padding-left: 20px;">
+                <!-- Data Transfer Invisible -->
+
+                <div>
+                    <input id="Text19" name="Text19" type="hidden" value="@Model.Text19" />
+                    <input id="Text20" name="Text20" type="hidden" value="@Model.Text20" />
+                    <input id="Text21" name="Text21" type="hidden" value="@Model.Text21" />
+                    <input id="Text22" name="Text22" type="hidden" value="@Model.Text22" />
+                    <input id="Text23" name="Text23" type="hidden" value="@Model.Text23" />
+                    <input id="Text24" name="Text24" type="hidden" value="@Model.Text24" />
+                    <input id="Text25" name="Text25" type="hidden" value="@Model.Text25" />
+                    <input id="Text26" name="Text26" type="hidden" value="@Model.Text26" />
+                    <input id="Text27" name="Text27" type="hidden" value="@Model.Text27" />
+                    <input id="Text28" name="Text28" type="hidden" value="@Model.Text28" />
+                    <input id="Text29" name="Text29" type="hidden" value="@Model.Text29" />
+                    <input id="Text30" name="Text30" type="hidden" value="@Model.Text30" />
+                    <input id="Text31" name="Text31" type="hidden" value="@Model.Text31" />
+                    <input id="Text32" name="Text32" type="hidden" value="@Model.Text32" />
+                    <input id="Text33" name="Text33" type="hidden" value="@Model.Text33" />
+                    <input id="Text34" name="Text34" type="hidden" value="@Model.Text34" />
+                    <input id="Text35" name="Text35" type="hidden" value="@Model.Text35" />
+                    <input id="Text36" name="Text36" type="hidden" value="@Model.Text36" />
+                    <input id="Text37" name="Text37" type="hidden" value="@Model.Text37" />
+                    <input id="Text38" name="Text38" type="hidden" value="@Model.Text38" />
+                    <input id="Text39" name="Text39" type="hidden" value="@Model.Text39" />
+                    <input id="Text40" name="Text40" type="hidden" value="@Model.Text40" />
+                    <input id="Text41" name="Text41" type="hidden" value="@Model.Text41" />
+                    <input id="Text42" name="Text42" type="hidden" value="@Model.Text42" />
+                    <input id="Text43" name="Text43" type="hidden" value="@Model.Text43" />
+                    <input id="Text44" name="Text44" type="hidden" value="@Model.Text44" />
+                </div>
+
+                <div style="min-width: 350px!important; width: 100%; margin: auto; padding-left: 15px">
+                    <span style="font-size: 20px; font-weight: 700; background-color: #0d2c6c; padding: 10px; color: #fff;">Indirect and Total Profit Modeling</span>
+                </div>
+
+                <br />
+                <br />
+                <div class="clear"></div>
+
+                <div style="min-width: 350px!important; width: 100%; margin: auto; padding-left: 15px">
+                    <span style="font-size: 20px; font-weight: 700; padding: 10px; color: #60bc50;">In-Store Profitability</span>
+                </div>
+
+                <div class="clear"></div>
+
+                <div style="min-width: 350px!important; width: 100%; margin: auto;">
+
+                    <fieldset class="ctrl-container2">
+                        <div class="ctrl-header">
+                            <h4>Conversion Rate – Monthly Data</h4>
+                        </div>
+
+                        <div style="text-align: center; padding-left: 20px">
+                            <br />
+                            <span style="float: left; font-style: italic; font-size: 15px;">(The percent of EV charging customers who shop inside the convenience store.)</span>
+                            <br />
+                            <div class="clear"></div>
+                            <br />
+
+                            <div style="float: left; width: 33%; min-width: 325px;">
+                                <div class="divfirstresult">
+                                    <span style="font-size: 15px; font-weight: 500">Number of Chargers</span>
+                                    <input type="number" id="_txtIndChargers" name="_txtIndChargers" class="txt22 requiredBackground" value="@Model._txtIndChargers" readonly
+                                           onchange="CalculateConversionRateSensisivityAnalysis();" onkeyup="CalculateConversionRateSensisivityAnalysis();" />
+                                </div>
+
+                                <div class="divfirstresult">
+                                    <span style="font-size: 15px; font-weight: 500">Charges per Charger per Day</span>
+                                    <input type="number" id="_txtIndChargesChargerDay" name="_txtIndChargesChargerDay" class="txt22 requiredBackground" value="@Model._txtIndChargesChargerDay" readonly
+                                           onkeyup="CalculateConversionRateSensisivityAnalysis();" onchange="CalculateConversionRateSensisivityAnalysis();" />
+                                </div>
+
+                                <div class="divfirstresult">
+                                    <span style="font-size: 15px; font-weight: 500">Total Charges Per Month</span>
+                                    <span style="font-size: x-small">(30 day month)</span>
+                                    <input type="text" id="_txtIndMonthlyChargesPerMonth" name="_txtIndMonthlyChargesPerMonth" class="txt33" value="@Model._txtIndMonthlyChargesPerMonth" readonly />
+                                </div>
+                            </div>
+
+                            <div style="float: left; width: 33%; min-width: 325px;">
+                                <span style="font-size: 16px; font-weight: 600; background-color: #60bc50; padding: 10px; color: #fff;">20% Conversion Rate</span>
+                                <div class="divfirstresult">
+                                    <span style="font-size: 15px; font-weight: 500">Store Transactions</span>
+                                    <input type="text" id="_txtIndConvRateStoreTrans" name="_txtIndConvRateStoreTrans" class="txt22" value="@Model._txtIndConvRateStoreTrans" readonly />
+                                </div>
+
+                                <div class="divfirstresults">
+                                    <span style="font-size: 15px; font-weight: 500">Basket Size Inside Sales</span>
+                                    <input type="number" id="_txtIndbsis" name="_txtIndbsis" class="txtsmall" value="@Model._txtIndbsis" min="0.01" step="0.01"
+                                           onkeyup="CalculateConversionRateSensisivityAnalysis();" onchange="CalculateConversionRateSensisivityAnalysis();" />
+
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtIndBasketSizeInSale" name="_txtIndBasketSizeInSale" value="@Model._txtIndBasketSizeInSale" class="txt22" readonly />
+                                    <div style="display: none">
+                                        <input type="text" id="_hdIndBasketSizeInSale" name="_hdIndBasketSizeInSale" value="@Model._hdIndBasketSizeInSale" />
+                                    </div>
+                                </div>
+
+                                <div class="divfirstresults">
+                                    <span style="font-size: 15px; font-weight: 500">In-Store Gross Margin</span>
+                                    <input type="number" id="_txtIndGMT" name="_txtIndGMT" class="txtsmall2" value="@Model._txtIndGMT" min=".01" max="100" step=".01"
+                                           onkeyup="CalculateConversionRateSensisivityAnalysis();" onchange="CalculateConversionRateSensisivityAnalysis();" />
+                                </div>
+
+                                <div class="clear"></div>
+                                <input type="text" id="_txtIndGrossMarginTotal" name="_txtIndGrossMarginTotal" value="@Model._txtIndGrossMarginTotal" class="txt22" readonly />
+                                <div style="display: none">
+                                    <input type="text" id="_hdIndGrossMarginTotal" name="_hdIndGrossMarginTotal" value="@Model._hdIndGrossMarginTotal" />
+                                </div>
+
+                            </div>
+
+                            <div style="float: left; width: 33%; min-width: 325px; background-color: darkgrey;">
+                                <span style="font-size: 16px; font-weight: 600; background-color: #60bc50; padding: 10px; color: #fff;">Conversion Rate Sensitivity Analysis</span>
+
+                                <div class="divfirstresult">
+                                    <span style="font-size: 15px; font-weight: 500">40% Conversion Rate Total GP$</span>
+                                    <input type="text" id="_txtCRGPS1" name="_txtCRGPS1" class="txt22" value="@Model._txtCRGPS1" readonly />
+                                    <div style="display: none">
+                                        <input type="text" id="_hdCRGPS1" name="_hdCRGPS1" value="@Model._hdCRGPS1" />
+                                    </div>
+                                </div>
+
+                                <div class="divfirstresult">
+                                    <span style="font-size: 15px; font-weight: 500">60% Conversion Rate Total GP$</span>
+                                    <input type="text" id="_txtCRGPS2" name="_txtCRGPS2" class="txt22 space" value="@Model._txtCRGPS2" readonly />
+                                    <div style="display: none">
+                                        <input type="text" id="_hdCRGPS2" name="_hdCRGPS2" value="@Model._hdCRGPS2" />
+                                    </div>
+                                </div>
+
+                                <div class="divfirstresult">
+                                    <span style="font-size: 15px; font-weight: 500">80% Conversion Rate Total GP$</span>
+                                    <input type="text" id="_txtCRGPS3" name="_txtCRGPS3" class="txt22 space" value="@Model._txtCRGPS3" readonly />
+                                    <div style="display: none">
+                                        <input type="text" id="_hdCRGPS3" name="_hdCRGPS3" value="@Model._hdCRGPS3" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clear"></div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="clear"></div>
+
+                <div style="min-width: 350px!important; width: 100%; margin: auto;">
+                    <fieldset class="ctrl-container2">
+                        <div class="ctrl-header2">
+                            <h4>@* <%--<i class="fa-solid fa-store"></i>&nbsp;--%> *@CAP EX Modeling</h4>
+                        </div>
+                        <div style="text-align: center; padding-left: 20px">
+                            <br />
+
+                            <!-- First Column -->
+                            <div style="float: left; width: 33%; min-width: 325px;">
+                                <!-- Number of Chargers -->
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Number of Chargers</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtCapChargers" name="_txtCapChargers" value="@Model._txtCapChargers" min="1" step="1" class="txt22" readonly onkeyup="CalculateCapeExModeling();" onchange="CalculateCapeExModeling();" />
+                                    <div style="display: none">
+                                        <input type="text" id="_hdCapChargers" name="_hdCapChargers" value="@Model._hdCapChargers" />
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+
+                                <!-- Charges per Charger per Day -->
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Charges per Charger per Day</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtCapChargePerChargerPerDay" name="_txtCapChargePerChargerPerDay" min="1" step="1" value="@Model._txtCapChargePerChargerPerDay" class="txt22" readonly onkeyup="CalculateCapeExModeling();" onchange="CalculateCapeExModeling();" />
+                                    <div style="display: none">
+                                        <input type="text" id="_hdCapChargePerChargerPerDay" name="_hdCapChargePerChargerPerDay" value="@Model._hdCapChargePerChargerPerDay" />
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+
+                                <!-- Charges per Year -->
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Charges per Year</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtCapChargePerYear" name="_txtCapChargePerYear" value="@Model._txtCapChargePerYear" class="txt22" readonly />
+                                    <div style="display: none">
+                                        <input type="text" id="_hdCapChargePerYear" name="_hdCapChargePerYear" value="@Model._hdCapChargePerYear" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Second Column -->
+                            <div style="float: left; width: 33%; min-width: 325px;">
+                                <!-- Total Cap-Ex -->
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Total Cap-Ex</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtCapTotalCapEx" name="_txtCapTotalCapEx" value="@Model._txtCapTotalCapEx" min="0" step="1" class="txt22" readonly />
+                                    <div style="display: none">
+                                        <input type="text" id="_hdCapTotalCapEx" name="_hdCapTotalCapEx" value="@Model._hdCapTotalCapEx" />
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+
+                                <!-- Hurdle Return $ -->
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Hurdle Return $</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtCapHurdleReturn" name="_txtCapHurdleReturn" value="@Model._txtCapHurdleReturn" class="txt22" readonly />
+                                    <div style="display: none">
+                                        <input type="text" id="_hdCapHurdleReturn" name="_hdCapHurdleReturn" value="@Model._hdCapHurdleReturn" />
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+
+                                <!-- Indirect GP$ per Year -->
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Indirect GP$ per Year</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtCapIndirectGPSPerYear" name="_txtCapIndirectGPSPerYear" value="@Model._txtCapIndirectGPSPerYear" class="txt22" readonly />
+                                    <div style="display: none">
+                                        <input type="text" id="_hdCapIndirectGPSPerYear" name="_hdCapIndirectGPSPerYear" value="@Model._hdCapIndirectGPSPerYear" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Third Column -->
+                            <div style="float: left; width: 33%; min-width: 325px;">
+                                <!-- Required Return Net of Indirect GP$ -->
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Required Return Net of Indirect GP$</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtCapRequiredChargingNetS" name="_txtCapRequiredChargingNetS" value="@Model._txtCapRequiredChargingNetS" class="txt22" readonly />
+                                    <div style="display: none">
+                                        <input type="text" id="_hdCapRequiredChargingNetS" name="_hdCapRequiredChargingNetS" value="@Model._hdCapRequiredChargingNetS" />
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+
+                                <!-- Required Net Return per Charge -->
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Required Net Return per Charge</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtCapRequiredNetSPerCharge" name="_txtCapRequiredNetSPerCharge" value="@Model._txtCapRequiredNetSPerCharge" class="txt22" readonly />
+                                    <div style="display: none">
+                                        <input type="text" id="_hdCapRequiredNetSPerCharge" name="_hdCapRequiredNetSPerCharge" value="@Model._hdCapRequiredNetSPerCharge" />
+                                    </div>
+                                </div>
+
+                                <!-- Required Charge to Consumer -->
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Required Charge to Consumer</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtCapRequiredGrossSPerCharge" name="_txtCapRequiredGrossSPerCharge" value="@Model._txtCapRequiredGrossSPerCharge" class="txt22" readonly />
+                                    <div style="display: none">
+                                        <input type="text" id="_hdCapRequiredGrossSPerCharge" name="_hdCapRequiredGrossSPerCharge" value="@Model._hdCapRequiredGrossSPerCharge" />
+                                    </div>
+                                </div>
+
+                                <!-- Cost to Consumer per kWh -->
+                                <div class="divfirstresult">
+                                    <div class="divfirstresultinside">
+                                        <span style="font-size: 15px; font-weight: 500">Cost to Consumer per kWh</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <input type="text" id="_txtCostConsumerPerkWh" name="_txtCostConsumerPerkWh" value="@Model._txtCostConsumerPerkWh" class="txt22" readonly />
+                                    <div style="display: none">
+                                        <input type="text" id="_hdCostConsumerPerkWh" name="_hdCostConsumerPerkWh" value="@Model._hdCostConsumerPerkWh" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="clear"></div>
+                    <br />
+
+                    <div style="min-width: 350px!important; width: 100%; margin: auto; padding-left: 15px">
+                        <span style="font-size: 20px; font-weight: 700; padding: 10px; color: #60bc50;">Total Profitability / Req'd Gross $</span>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <!-- Conversion & Basket Sensitivity Analysis Section -->
+                    <div style="min-width: 350px!important; width: 100%; margin: auto;">
+                        <fieldset class="ctrl-container2">
+                            <div class="ctrl-header2">
+                                <h4>@* <%--<i class="fa-solid fa-store"></i>&nbsp;--%> *@Conversion & Basket Sensitivity Analysis</h4>
+                            </div>
+                            <div style="text-align: center; padding-left: 20px">
+                                <br />
+
+                                <!-- First Column -->
+                                <div style="float: left; width: 33%; min-width: 325px;">
+                                    <!-- Number of Chargers -->
+                                    <div class="divfirstresult">
+                                        <div class="divfirstresultinside">
+                                            <span style="font-size: 15px; font-weight: 500">Number of Chargers</span>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <input type="text" id="_txtConvChargers" name="_txtConvChargers" value="@Model._txtConvChargers" min="1" step="1" class="txt22" readonly onchange="CalculateConversionAndBasketSensitivityAnalysis();" onkeyup="CalculateConversionAndBasketSensitivityAnalysis();" />
+                                        <div style="display: none">
+                                            <input type="text" id="_hdConvChargers" name="_hdConvChargers" value="@Model._hdConvChargers" />
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+
+                                    <!-- Charges per Charger per Day -->
+                                    <div class="divfirstresult">
+                                        <div class="divfirstresultinside">
+                                            <span style="font-size: 15px; font-weight: 500">Charges per Charger per Day</span>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <input type="text" id="_txtConvChargePerChargersPerDay" name="_txtConvChargePerChargersPerDay" value="@Model._txtConvChargePerChargersPerDay" min="1" step="1" class="txt22" readonly onchange="CalculateConversionAndBasketSensitivityAnalysis();" onkeyup="CalculateConversionAndBasketSensitivityAnalysis();" />
+                                        <div style="display: none">
+                                            <input type="text" id="_hdConvChargePerChargersPerDay" name="_hdConvChargePerChargersPerDay" value="@Model._hdConvChargePerChargersPerDay" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Second Column -->
+                                <div style="float: left; width: 33%; min-width: 325px;">
+                                    <!-- 20% Conversion -->
+                                    <div class="divfirstresult">
+                                        <div class="divfirstresultinside">
+                                            <span style="font-size: 15px; font-weight: 500">20% Conversion: Req’d Consumer $/Charge</span>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <input type="text" id="_txtConvTwentyRequiredGrossSPerCharge" name="_txtConvTwentyRequiredGrossSPerCharge" value="@Model._txtConvTwentyRequiredGrossSPerCharge" class="txt22" required />
+                                        <input type="hidden" id="_hdConvTwentyRequiredGrossSPerCharge" name="_hdConvTwentyRequiredGrossSPerCharge" value="@Model._hdConvTwentyRequiredGrossSPerCharge" />
+                                    </div>
+                                    <div class="clear"></div>
+
+                                    <!-- 40% Conversion -->
+                                    <div class="divfirstresult">
+                                        <div class="divfirstresultinside">
+                                            <span style="font-size: 15px; font-weight: 500">40% Conversion: Req’d Consumer $/Charge</span>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <input type="text" id="_txtConvFourtyRequiredGrossSPerCharge" name="_txtConvFourtyRequiredGrossSPerCharge" value="@Model._txtConvFourtyRequiredGrossSPerCharge" class="txt22" required />
+                                        <input type="hidden" id="_hdConvFourtyRequiredGrossSPerCharge" name="_hdConvFourtyRequiredGrossSPerCharge" value="@Model._hdConvFourtyRequiredGrossSPerCharge" />
+                                    </div>
+                                </div>
+
+                                <!-- Third Column -->
+                                <div style="float: left; width: 33%; min-width: 325px;">
+                                    <!-- 60% Conversion -->
+                                    <div class="divfirstresult">
+                                        <div class="divfirstresultinside">
+                                            <span style="font-size: 15px; font-weight: 500">60% Conversion: Req’d Consumer $/Charge</span>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <input type="text" id="_txtConvSixtyRequiredGrossSPerCharge" name="_txtConvSixtyRequiredGrossSPerCharge" value="@Model._txtConvSixtyRequiredGrossSPerCharge" class="txt22" required />
+                                        <input type="hidden" id="_hdConvSixtyRequiredGrossSPerCharge" name="_hdConvSixtyRequiredGrossSPerCharge" value="@Model._hdConvSixtyRequiredGrossSPerCharge" />
+                                    </div>
+                                    <div class="clear"></div>
+
+                                    <!-- 80% Conversion -->
+                                    <div class="divfirstresult">
+                                        <div class="divfirstresultinside">
+                                            <span style="font-size: 15px; font-weight: 500">80% Conversion: Req’d Consumer $/Charge</span>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <input type="text" id="_txtConvEightyRequiredGrossSPerCharge" name="_txtConvEightyRequiredGrossSPerCharge" value="@Model._txtConvEightyRequiredGrossSPerCharge" class="txt22" required />
+                                        <input type="hidden" id="_hdConvEightyRequiredGrossSPerCharge" name="_hdConvEightyRequiredGrossSPerCharge" value="@Model._hdConvEightyRequiredGrossSPerCharge" />
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+                @* <%--<div style="width: 70%; margin: auto; min-width: 600px; float: left; background-color: burlywood">
+
+                <h3>Super Optimistic Scenario</h3>
+
+                <div style="width: 100%">
+
+                <div class="divfirstresult">
+                <div class="divfirstresultinside">
+                80% + 14.68 Basket Required Gross $ Per Charge
+                </div>
+                <div class="clear"></div>
+                <span style="position: absolute; margin-left: 5px; margin-top: 15px;">&nbsp;$</span>
+                <input type="number" id="_txtSOSBasketRequiredGrossPerCharge" name="_txtSOSBasketRequiredGrossPerCharge" runat="server" class="txt22" required />
+                </div>
+
+                <div class="divfirstresult">
+                <div class="divfirstresultinside">
+                Gross Price Per kWh With Demand Charge
+                </div>
+                <div class="clear"></div>
+                <span style="position: absolute; margin-left: 5px; margin-top: 15px;">&nbsp;$</span>
+                <input type="number" id="_txtSOSGrossPricePerkWhWithDemandCharge" name="_txtSOSGrossPricePerkWhWithDemandCharge" runat="server" class="txt22" required />
+                </div>
+
+                <div class="divfirstresult">
+                <div class="divfirstresultinside">
+                Gross Price Per kWh w/o Demand Charge
+                </div>
+                <div class="clear"></div>
+                <span style="position: absolute; margin-left: 5px; margin-top: 15px;">&nbsp;$</span>
+                <input type="number" id="_txtSOSGrossPricePerkWhWithOutDemandCharge" name="_txtSOSGrossPricePerkWhWithOutDemandCharge" runat="server" class="txt22" required />
+                </div>
+
+                </div>
+
+                </div>--%> *@
+
+                <br />
+                <br />
+                <div class="clear"></div>
+
+            </div>
+
+            <br />
+            <br />
+            <div class="clear"></div>
+        </div>
+
+        <div class="clear"></div>
+
+        @* <div class="Row" style="display:none;">
+        <div style="width: 95%; margin-top: 15px; margin: auto; min-width: 350px!important">
+        <input type="submit" id="prevStep" data-step="@(Model.CurrentStep - 1)" class="button" style="float: left; margin-bottom: 15px;" value="Back" />
+        <input type="submit" id="nextStep" data-step="@(Model.CurrentStep + 1)" class="button" style="float: right; margin-bottom: 15px;" value="Indirect and Total Profit Modeling" />
+        </div>
+        </div> *@
+
+        <div class="Row">
+            <div style="width: 100%; margin-top: 15px; margin: auto; min-width: 350px!important">
+                @* <input type="submit" id="prevStep" data-step="@(Model.CurrentStep - 1)" Class="button" Style="float: left; margin-bottom: 15px;" value="Direct Profit Modeling"></input>
+
+                <asp:LinkButton ID="btn3" Text="<i class='fas fa-file-pdf fa-lg'></i>" OnClick="GenerateInvoicePDF" ToolTip="Export PDF" runat="server" Class="LinkButton" ></asp:LinkButton>
+                @Url.Action("GenerateInvoicePDF", "EVChargingCalculator")*@
+                <a href="#" traget="_blank" style="text-decoration:none;">
+                    <button id="exportPDF" Class="LinkButton" ToolTip="Export PDF"><i class='fas fa-file-pdf fa-lg'></i></button>
+                </a>
+
+                <a href="http://apps.nacsweb.com/EVChargingBusinessModelingCalculator.aspx" traget="_blank" style="text-decoration:none;">
+                    <input type="submit" id="finishStep2" Class="button" Style="float: right; margin-bottom: 15px;" value="Finish"></input>
+                </a>
+            </div>
+        </div>
+
+    </div>

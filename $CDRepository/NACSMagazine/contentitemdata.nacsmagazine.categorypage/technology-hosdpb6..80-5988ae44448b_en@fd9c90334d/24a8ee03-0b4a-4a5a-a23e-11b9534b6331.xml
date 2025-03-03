@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.categorypage>
+  <ArticleList />
+  <ContentItemDataCommonDataID>
+    <GUID>566025b1-be4c-43df-a480-5988ae44448b</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Technology-hosdpb6i</CodeName>
+      <GUID>a353ca53-f494-4b68-9698-b445f15b946c</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>24a8ee03-0b4a-4a5a-a23e-11b9534b6331</ContentItemDataGUID>
+  <PageNumber>0</PageNumber>
+  <PageSize>0</PageSize>
+  <SelectedYear />
+  <Title>Technology</Title>
+  <TotalPages>0</TotalPages>
+  <Years />
+</contentitemdata.nacsmagazine.categorypage>

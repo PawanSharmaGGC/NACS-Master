@@ -1,0 +1,54 @@
+﻿@model Convenience.org.Components.Widgets.Cards.ExpandableContentCard.ExpandableContentCardWidgetViewModel
+
+@if (Model != null)
+{
+	<div>
+		<div class="border-0 p-3 card">
+			<div class="border-0 p-0 ExpandableContentCardStyle-module__section_card card">
+				<div class="bg-0053A5 ExpandableContentCardStyle-module__section_body_card card-body">
+					<div class="text-start mb-2 d-flex flex-column">
+						<img src="@Model.ImageUrl" class="img-fluid ExpandableContentCardStyle-module__section_body_img" alt="@Model.ImageAltText">
+						<div class="p-4 text-start color-FFFFFF">
+							<div>
+								<div class="text-start mb-4 border_left_white EyebrowTitleStyle-module__eyebrow">
+									<span class="ps-4 text-uppercase font-monospace color-FFFFFF">
+										@Model.EyebrowTitle
+									</span>
+								</div>
+							</div>
+							<p class="m-0 fs-4 mb-2">
+								@Model.Title
+							</p>
+							<p class="m-0 fs-5 mb-2">
+								@Model.Summary
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="ExpandableContentCardStyle-module__expandable_card_body card-body">
+					<div class="bg-E9F0F4 ExpandableContentCardStyle-module__expandable_card">
+						<div class="d-lg-block d-none ">
+							@Html.Raw(Model.ExpandedRichtextContent)
+						</div>
+						<div class="d-sm-block d-lg-none d-xl-none d-md-none p-3 pt-4 text-start">
+							<div class="mt-4 mb-3">
+								<a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" class="bg-0053A5 p-3 border border-0 brdr-rad-30 text-decoration-none ">
+									<span>
+										<i class="align-middle color-FFFFFF undefined undefined "></i>
+									</span>
+									<span class="color-FFFFFF pe-2 ps-2 fw-medium undefined">Expand </span>
+									<span>
+										<i class="align-middle color-FFFFFF fa-solid fa-square-plus " aria-hidden="true"></i>
+									</span>
+								</a>
+							</div>
+							<div class="collapse ExpandableContentCardStyle-module__collapse_section " id="collapseExample">
+								@Html.Raw(Model.ExpandedRichtextContent)
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+}

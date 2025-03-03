@@ -1,0 +1,112 @@
+﻿@model Convenience.org.Components.Widgets.CommitteeRoster.CommitteeRosterViewModel
+
+@if (Model.Groupings != null && Model?.Groupings.Any() == true)
+{
+    <div style="margin:0 0 10px 0;"><a id="lnkPrint" href="javascript:viewPopup('/Convenience.org/applicationpages/PrintRoster.aspx?cid=37');javascript:return false;" title="Printable version of roster (new window)">Printable Roster List</a></div>
+    <div style="margin:0 0 10px 0;"><a id="lnkPrintBios" href="javascript:viewPopup('/Convenience.org/applicationpages/PrintCommitteeRosterPDF.aspx?commid=37');javascript:return false;" title="PDF of all committee member bios in this roster (new window)">Print All Bios (PDF) </a> </div>
+    <div style="margin:0 0 10px 0;"><a id="lnkEmail" href="javascript:emailList();" title="E-mail the entire committee"> E-mail All Members</a></div>
+    <br />
+
+    <style type="text/css">
+        #simplemodal-container {
+            z-index: 1000000;
+        }
+    </style>
+    var emailAddresses = string.Empty;
+    foreach (var groupItem in Model.Groupings)
+    {
+        <div class="row member-type">
+            <h5 class="col-12 title">@groupItem.Key</h5>
+            @{
+                int i = 0;
+            }
+            @if (groupItem.Value != null)
+            {
+
+                foreach (var member in groupItem.Value)
+                {
+                    <div class='col-12 person'>
+                        <div class="row details">
+                            <div class='col-9 committee-details'>
+                                <div class='name'>@member.Name</div>
+                                <div class='email'><a href='mailto:@member.Email'> @member.Email</a></div>
+                                @{
+                                    if (!String.IsNullOrEmpty(member.Email))
+                                        emailAddresses += member.Email.ToString() + ";";
+                                }
+                                <div class='title'>@member.Title</div>
+                                <div class='company'>@member.Company</div>
+                                @Html.Raw(member.Msg)
+                                @Html.Raw(member.Stats)
+                            </div>
+                            <div class='col-3 committee-image basic-modal'>
+                                <!-- <asp:Image runat="server" ID="imgPhoto" /> TBD need to map with content type data later-->
+                                <a style="font-size:12px;" href='#' title="View @member.FirstName 's Bio" id='modal_link_@i'>View Bio&nbsp;<i class="fa fa-external-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="basic-modal-content" id='modal_window_@i'>
+                        <div class="row">
+                            <div class='col-12 col-sm-2 member-image'>
+                                <asp:Image runat="server" ID="imgModalPhoto" />
+                            </div>
+                            <div class="col-12 col-sm-7">
+                                <h2 class="ArticleTitle">@member.FirstName,@member.LastName</h2>
+                                <span class="ArticleSubTitle">@member.Title,@member.Company</span>
+                            </div>
+                            <div class="col-12 col-sm-3 print-me">
+                                <a href='/Convenience.org/applicationpages/PrintCommitteeMemberPDF.aspx?pnum=@member.ProtechNumber&nacsid=@member.IndividualId' class="print-button">Print PDF</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-4">
+                                @member.Company<br />
+                                <asp:Literal runat="server" ID="litTotalStores" Mode="PassThrough" />
+                                <asp:HyperLink runat="server" ID="hypWebsite" />
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                @member.AddrLine1<br />
+                                <asp:Literal runat="server" ID="litAddrLine2" Mode="PassThrough" />
+                                @member.CityStateProvinceZip
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                @member.Phone p<br />
+                                <asp:Literal runat="server" ID="litFax" Mode="PassThrough" />
+                                <a href='mailto:@member.Email'>@member.Email</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 serving-label">
+                                Serving on:
+                            </div>
+                            <div class="col-12">
+                                <div class='row serving-container'>
+                                    @if (member.Committees != null)
+                                    {
+                                        foreach (var committeeItem in member.Committees)
+                                        {
+                                            <div class='committee-item col-12 col-sm-4'>
+                                                @committeeItem
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="bio-content">@member.Bio</div>
+                        </div>
+                    </div>
+                    i++;
+                }
+            }
+        </div>
+    }
+
+    <!--BEGIN ROSTER-->
+
+    <script type="text/javascript" src="/js/custom/jquery.simplemodal.js"></script>
+    <script type="text/javascript" src="/js/custom/NACS.simplemodal.js"></script>
+    <link type="text/css" href="/css/simpleModal.css" rel="stylesheet" media="screen">
+    <script language="JavaScript">function emailList() { window.location.href = '@emailAddresses'; }</script>
+}

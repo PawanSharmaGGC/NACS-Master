@@ -1,0 +1,91 @@
+﻿@using NACS.Portal.Core.Models
+﻿@using ConvenienceCares.Models
+
+@model FormWidgetViewModel
+
+<br />
+<br />
+<br />
+<div id="form_Panel" style="position:relative">
+    <div id="form-section">
+        <span style="display:none;" class="ErrorLabel" id="error-message"></span>
+        <div class="FormPanel" id="FormPanel">
+
+
+
+            @Html.Raw(Model?.Heading)
+            <p>@Html.Raw(Model?.Description)</p>
+
+            <form id="corporate-involvement-form" class="corporate-involvement-form" method="post">
+
+                <p></p>
+                <div class="column half">
+                    <label id="lblFirstName" class="EditingFormLabel" for="txtFirstName">First Name:</label>
+                    <div id="firstname" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                        <input name="FirstName" type="text" maxlength="200" id="txtFirstName" class="form-control">
+                    </div>
+                </div>
+                <div class="column half">
+                    <label id="lblLastName" class="EditingFormLabel" for="txtLastName">Last Name:</label>
+                    <div id="lastname" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                        <input name="LastName" type="text" maxlength="200" id="txtLastName" class="form-control">
+                    </div>
+                </div>
+                <div class="column half">
+                    <label id="lblTitle" class="EditingFormLabel" for="txtTitle">Title:</label>
+                    <div id="title" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                        <input name="Title" type="text" maxlength="200" id="txtTitle" class="form-control">
+                    </div>
+                </div>
+                <div class="column half">
+                    <label id="lblCompany" class="EditingFormLabel" for="txtCompany">Company:</label>
+                    <div id="company" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                        <input name="Company" type="text" maxlength="200" id="txtCompany" class="form-control">
+                    </div>
+                </div>
+                <div class="column half">
+                    <label id="lblPhone" class="EditingFormLabel" for="txtPhone">Phone:</label>
+                    <div id="phone" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                        <input name="Phone" type="text" maxlength="200" id="txtPhone" class="form-control">
+                    </div>
+                </div>
+                <div class="column half">
+                    <label id="lblEmail" class="EditingFormLabel" for="txtEmail">Email:</label>
+                    <div id="email" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                        <input name="Email" type="text" maxlength="200" id="txtEmail" class="form-control">
+                    </div>
+                </div>
+                <div class="clear">
+                    <p></p>
+                </div>
+                <p></p>
+                <div id="moreinfo" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                    <span id="MoreInfo_list" class="radio radio-list-vertical">
+                        <input id="MoreInfo_list_0" type="radio" name="MoreInfo" value="I am interested in learning more about how my company can get involved as a participant on 24/7 Day.">
+                        <label for="MoreInfo_list_0">I am interested in learning more about how my company can get involved as a participant on 24/7 Day.</label>
+                        <br>
+                        <input id="MoreInfo_list_1" type="radio" name="MoreInfo" value="I am interested in learning more about how I and/or my company can donate to and/or become a sponsor for 24/7 Day.">
+                        <label for="MoreInfo_list_1">I am interested in learning more about how I and/or my company can donate to and/or become a sponsor for 24/7 Day.</label>
+                    </span>
+                </div>
+                <p></p>
+                <p></p>
+                <div id="securitycode" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                    <div class="g-recaptcha" data-sitekey="@Model?.captchaSiteKey"></div>
+                </div>
+                <p></p>
+
+
+                <input type="submit" name="btnOK" value="Submit" id="btnOK" class="FormButton btn btn-primary">
+            </form>
+        </div>
+
+
+
+
+        <span style="display:none;" id="thank-you-message" class="InfoLabel">
+            @Html.Raw(Model?.SubmitMessage)
+        </span>
+    </div>
+</div>
+

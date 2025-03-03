@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentfolder>
+  <ContentFolderCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </ContentFolderCreatedByUserID>
+  <ContentFolderCreatedWhen>2024-10-15 22:40:13Z</ContentFolderCreatedWhen>
+  <ContentFolderDisplayName>NACS Show Speakers</ContentFolderDisplayName>
+  <ContentFolderGUID>8634089c-39f1-4a83-ae8d-9ead7ac49a43</ContentFolderGUID>
+  <ContentFolderModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </ContentFolderModifiedByUserID>
+  <ContentFolderName>NACS_Show_Speakers-kw1ex99i</ContentFolderName>
+  <ContentFolderParentFolderID>
+    <CodeName>Root</CodeName>
+    <GUID>9d6509a4-a231-4837-8f1c-81a90705f988</GUID>
+    <ObjectType>cms.contentfolder</ObjectType>
+  </ContentFolderParentFolderID>
+  <ContentFolderTreePath>/NACS_Show_Speakers</ContentFolderTreePath>
+</cms.contentfolder>

@@ -1,0 +1,36 @@
+﻿@model Convenience.org.Components.Widgets.Cards.RelatedContentCard.RelatedContentCardWidgetViewModel
+
+@if (Model != null)
+{
+
+	<div class="p-3 border-0 RelatedContentCardStyle-module__main_card card">
+		<div class="border-0 RelatedContentCardStyle-module__section_card card">
+			<div class="p-4 card-body">
+				<div>
+					<div class="text-start mb-4 border_left_blue EyebrowTitleStyle-module__eyebrow">
+						<span class="ps-4 text-uppercase font-monospace text-primary">@Model.EyebrowTitle</span>
+					</div>
+				</div>
+				<div class="p-1 text-start">
+					<span class="color-0053A5">
+						@Model.ArticleCardItem?.Title
+					</span>
+				</div>
+				<div class="d-flex justify-content-between">
+					@if (!string.IsNullOrEmpty(Model.CTAText))
+					{
+						<div class="fs-5 mt-3">
+							<a href="@Model.ArticleCardItem?.ItemPageUrl" >
+								<span class="me-2 color-0053A5">@Model.CTAText</span>
+								<i class="fa-regular fa-arrow-right color-0053A5" aria-hidden="true"></i>
+							</a>
+						</div>
+					}
+					<div class="align-self-end opacity-50">
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAoCAYAAAB5ADPdAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANSSURBVHgBzVhdUhpBEO5uKWKqUql9SiAv4QaYG0DUVOUpeAJWLwCcQDiB+G7JmgvoWypFLOAE4gmCD0beQqpSGlMynZ7hJ0gWmAVc81UBy27v7Lc9M939NcKccD/FEhDBDCEnGXANkB0ETAyuM3BLvlpydM4Km9CFuve+3bIZGyEA3GPHgeerOWRIIWIKAoKZ66zgyHvX9mBRUkMyQHkEdmBBMECLu1yaRG4mKbcaSyFhRQwTsGQYcr85PT6tNO0m9zS2S4S1hyCkocelKH51qy/zY+cnEYrvCeM8hAQFXPTW2yV9vAL/ASEN2bmpZPYZND/+bOC/hGTKAIvwSFBKFe6tKffzi8xjEtIgWnGGntLBEKMLLeoL+bSG/xCTEpjswwdiBxgLh+uXXmR4Moq5wIRQSDAeKboue+lOZ/yyW5MXVSt5RPVB9n9iykgNhcr13vZCg/GU9pLemhCMUWkSGV9yXUMu53NZvHNVHj1hPCWEcmDNBTvUVVsHm1d121u8tPFAfuc0rn/3euNASyFteenL5ri9WegSWTNgCVR32web7TrMgb5HCvK8fYU3b/wImWfoNKKjttWoMmWH69+K8MCIkC47bGDcfV2GEECMkLKyZKzbLOplQNYUvrYyVOoIQgIh2sWmeRf3PBBPWUXdUKZtALK0C5sU2jww4dachctgW5AkzR9WlnerdqFjCSCJrk0rQ7AMHUuAyDaoW1rmwppCktrYylMCh9STXQgBpnTZOX313TI0SLkqkmiBmNUrt9lRdFualCGo/6R9sIQk72OdxGEOuNV4vldui6hVT8+M9J9ESkVWy5ahQcPRVYV+Y0t7o7CNQqJ+LQUjms9nnGGNvlONFWUxB1ozA/k9qXlhPBGF7Cy5L0VBk295azDGX+FQSzjEt2czaumpBCXmtYYnkNaC9B1G+wv3dF+wgu+hwN693NfbVViCRwWe+/YStr/EPSlpshA6euW2b5VQ2bhymck6TCyTkD6aWLpUNi7zoUwlmlBUGBUkVk0zWsHKvLtyBhqK2O3rQrAmNYCkoqI0W7NLIWf6BlwaV8aBSWlo+S0ZPKXThGzdJARHQz4nim68acooECk/gsiUYWlX+3RZLnTqQuamXK8r+nViK9H+AK5DYXSgkEZQAAAAAElFTkSuQmCC" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+}

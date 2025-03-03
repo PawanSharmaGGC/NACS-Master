@@ -1,0 +1,102 @@
+﻿@using Convenience.org.Models
+
+@model DeepDiveViewModel
+
+@{
+    var random = new Random();
+    var uniqueId = random.Next(1000, 9999).ToString();
+}
+
+<div class="DeepDiveStyle-module__main_card card">
+    <div class="border-0 p-2 card">
+        <div class="p-0 border-0 DeepDiveStyle-module__section_card_body card-body">
+
+            <div>
+                <div><img src="@Model.BannerImage" alt="" class="DeepDiveStyle-module__header_img"></div>
+            </div>
+
+            <img src="@Model.LightImage" alt="" class="DeepDiveStyle-module__c_logo_light">
+
+            <div class="position-absolute DeepDiveStyle-module__title_card">
+                <div class="d-flex flex-column mt-lg-3 mt-2 ps-lg-5 ps-3">
+                    <div class="p-3 mt-lg-3 text-light fs-5 text-start">@Model.Title</div>
+                    <div class="p-3">
+                        <div class="nav nav-pills">
+                            @foreach (var item in Model.Tags.Select((value, index) => new { value, index }).OrderBy(tag => tag.value.Title))
+                            {
+                                <div class="me-2 nav-item">
+                                    <a role="button" data-tag-id="@item.value.Identifier"
+                                       data-rr-ui-event-key="link-@item.index" data-deepdive-carousel-id="@uniqueId"
+                                       class="DeepDiveStyle-module__dive_nav_link nav-link @(item.index==0?"active":"")"
+                                       href="#">
+                                        @item.value.Title
+                                    </a>
+                                </div>
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="p-0 border-0 bg-trans card">
+                        <div class="bg-trans DeepDiveStyle-module__slider_container">
+
+                            <input type="hidden" value="@Model.DeepDiveCardItems.Count" id="hfTotalSlides-@uniqueId" />
+                            <input type="hidden" value="@Model.TopN" id="hfTopN" />
+                            <input type="hidden" value="@Model.CardCTAText" id="hfCardCTAText" />
+                            <input type="hidden" value="@uniqueId" id="hfUniqueId" />
+
+                            <div id="sliderContainer-@uniqueId" class="slick-track slick-carousel" data-deepdive-carousel-id="@uniqueId">
+                                @foreach (var cardItem in Model.DeepDiveCardItems)
+                                {
+                                    <div class="DeepDiveStyle-module__flex-card border border-0 card">
+                                        <div class="p-4 mb-3 card-body">
+
+                                            <div>
+                                                <div class="text-start mb-4 border_left_blue EyebrowTitleStyle-module__eyebrow">
+                                                    <span class="ps-4 text-uppercase font-monospace text-primary">@cardItem.Title</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="p-1 text-start text-desc">
+                                                <span class="color-0053A5">@Html.Raw(cardItem.Description)</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+
+                                                <div class="fs-5 mt-3">
+                                                    @if (cardItem.ItemPageUrl != "#")
+                                                    {
+                                                        <a href="@cardItem.ItemPageUrl" class="pointer text-decoration-none">
+                                                            <span class="me-2 color-0053A5">@Model.CardCTAText</span>
+                                                            <i class="fa-regular fa-arrow-right color-0053A5"></i>
+                                                        </a>
+                                                    }
+                                                </div>
+                                                <div class="align-self-end opacity-50">
+                                                    <img src="@cardItem.Image" alt="@cardItem.ImageAltText">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+
+                            <div class="d-flex justify-content-center">
+                                <img id="prevBtn" src="~/static/media/left-arrow.png" alt="Previous" class="pointer prev-btn" data-deepdive-carousel-id="@uniqueId" />
+                                <span class="pe-5"></span>
+                                <img id="nextBtn" src="~/static/media/right-arrow.png" alt="Next" class="pointer next-btn" data-deepdive-carousel-id="@uniqueId" />
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/static/js/deepdivewidget.js"></script>

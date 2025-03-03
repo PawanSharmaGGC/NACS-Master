@@ -1,0 +1,52 @@
+﻿@model Convenience.org.Components.Widgets.Cards.TierOneContentCardFeatured.TierOneContentCardFeaturedViewModel
+
+@if (Model != null)
+{
+    <div class="p-3 undefined card">
+        <div class="Tier1ContentCardFeaturedStyle-module__section_card card">
+            @if (!string.IsNullOrEmpty(Model.EyebrowTitle))
+            {
+                <div class="p-3 ps-4">
+                    <div>
+                        <div class="text-start mb-4 border_left_green EyebrowTitleStyle-module__eyebrow">
+                            <span class="ps-4 text-uppercase font-monospace text-primary">@Model.EyebrowTitle</span>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <img src="@Model.ImagePath" alt="@Model.ImageAltText" class="Tier1ContentCardFeaturedStyle-module__tier_1_img @Model.ImagePosition">
+                </div>
+                <div class="col-lg-6 col-12 text-start p-4">
+                    @if (!string.IsNullOrEmpty(Model.Title))
+                    {
+                        <p class="fs-4 color-002569">@Model.Title</p>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.Description))
+                    {
+                        <p class="fs-4 color-002569">
+                            @Html.Raw(Model.Description)
+                        </p>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.CTAText) && !string.IsNullOrEmpty(Model.CTALink))
+                    {
+                        <p class="m-0">
+                            <button type="button" href="@Model.CTALink" class="fs-4 p-0 btn color-0053A5">
+                                @Model.CTAText<i class="ps-3 pt-2 color-0053A5 fa-regular fa-arrow-right" aria-hidden="true"></i>
+                            </button>
+                        </p>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="mt-5">
+            <a href="#" class="fs-5 color-DC241F text-decoration-none">
+                <span class="d-inline-block pe-1">Back To Log</span>
+                <span class="align-middle">
+                    <i class="fa-regular fa-arrow-right color-DC241F" aria-hidden="true"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+}

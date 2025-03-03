@@ -1,0 +1,17 @@
+﻿@using Convenience.org.Components.Widgets
+@model CopyBlockViewModel
+
+@if (Model != null)
+{
+    <div>
+        <div class="p-3 CopyBlockStyle-module__main_card">
+            <div class="border-0 CopyBlockStyle-module__section_card">
+                <div class="p-0  card-body">
+                    @Html.Raw(Model.CopyBlockContent)
+                </div>
+            </div>
+           
+        </div>
+    </div>
+}
+

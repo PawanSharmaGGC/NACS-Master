@@ -1,0 +1,97 @@
+﻿@using NACS.Portal.Core.Models
+﻿@using ConvenienceCares.Models
+
+@model FormWidgetViewModel
+
+<div id="form_Panel" style="position:relative">
+    <div id="form-section">
+        <span style="display:none;" class="ErrorLabel" id="error-message"></span>
+        <div class="FormPanel" id="FormPanel">
+
+
+
+            @Html.Raw(Model?.Heading)
+            <p>@Html.Raw(Model?.Description)</p>
+
+            <form id="nacs-24-7day-form" method="post">
+
+                <div class="column half">
+                    <label id="lblFirstName" class="EditingFormLabel" for="txtFirstName">First Name:</label>
+                    <div id="firstname" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                        <input name="FirstName" type="text" maxlength="200" id="txtFirstName" class="form-control">
+                    </div>
+                </div>
+                <div class="column half">
+                    <label id="lblLastName" class="EditingFormLabel" for="txtLastName">Last Name:</label>
+                    <div id="lastname" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                        <input name="LastName" type="text" maxlength="200" id="txtLastName" class="form-control">
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="column half">
+                    <label id="lblTitle" class="EditingFormLabel" for="txtTitle">Title:</label>
+                    <div id="title" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                        <input name="Title" type="text" maxlength="200" id="txtTitle" class="form-control">
+                    </div>
+                </div>
+                <div class="column half">
+                    <label id="lblCompany" class="EditingFormLabel" for="txtCompany">Company:</label>
+                    <div id="company" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                        <input name="Company" type="text" maxlength="200" id="txtCompany" class="form-control">
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="column half">
+                    <label id="lblEmail" class="EditingFormLabel" for="txtEmail">Email:</label>
+                    <div id="email" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                        <input name="Email" type="text" maxlength="200" id="txtEmail" class="form-control">
+                    </div>
+                </div>
+                <div class="column half">
+                    <label id="lblPhone" class="EditingFormLabel" for="txtPhone">Phone:</label>
+                    <div id="phone" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                        <input name="Phone" type="text" maxlength="200" id="txtPhone" class="form-control">
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <p><label><span id="lblGetInvolved" class="EditingFormLabel">How would you like to get involved in 24/7 Day? (Check all that apply):</span></label></p>
+                <div id="getinvolved" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                    <span id="GetInvolved_list" class="checkbox checkbox-list-vertical">
+                        <input id="txtGetInvolved_list_0" type="checkbox" name="GetInvolved" value="Funding"><label for="txtGetInvolved_list_0">Funding</label><br>
+                        <input id="txtGetInvolved_list_1" type="checkbox" name="GetInvolved" value="Support"><label for="txtGetInvolved_list_1">Support</label><br>
+                        <input id="txtGetInvolved_list_2" type="checkbox" name="GetInvolved" value="Participation"><label for="txtGetInvolved_list_2">Participation</label><br>
+                        <input id="txtGetInvolved_list_3" type="checkbox" name="GetInvolved" value="Other"><label for="txtGetInvolved_list_3">Other</label>
+                    </span>
+                </div>
+                <p></p>
+                <div class="clear"></div>
+                <p><label id="lblAnthingElse" class="EditingFormLabel" for="txtAnthingElse">Is there anything else you would like to add?:</label></p>
+                <div id="anthingelse" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                    <textarea name="AnthingElse" rows="2" cols="20" id="txtAnthingElse" class="form-control"></textarea>
+                </div>
+                <p></p>
+                <div class="clear"></div>
+                <p><label><span id="lblIntesrests" class="EditingFormLabel">Are you interested in receiving more information about NACS Foundation programs? (Check all that apply):</span></label></p>
+                <div id="intesrests" class="EditingFormControlNestedControl editing-form-control-nested-control">
+                    <span id="Intesrests_list" class="checkbox checkbox-list-vertical">
+                        <input id="txtIntesrests_list_0" type="checkbox" name="Intesrests" value="Response Relief"><label for="txtIntesrests_list_0">Response Relief</label><br>
+                        <input id="txtIntesrests_list_1" type="checkbox" name="Intesrests" value="Future Fund"><label for="txtIntesrests_list_1">Future Fund</label><br>
+                        <input id="txtIntesrests_list_2" type="checkbox" name="Intesrests" value="Community Cleanup"><label for="txtIntesrests_list_2">Community Cleanup</label><br>
+                        <input id="txtIntesrests_list_3" type="checkbox" name="Intesrests" value="Neighborhood Nourish"><label for="txtIntesrests_list_3">Neighborhood Nourish</label><br>
+                        <input id="txtIntesrests_list_4" type="checkbox" name="Intesrests" value="Tomorrow Thrives"><label for="txtIntesrests_list_4">Tomorrow Thrives</label>
+                    </span>
+                </div>
+                <p></p>
+                <p id="GetInvolved">
+                    <input type="submit" name="btnOK" value="Submit" id="btnOK" class="FormButton btn btn-primary">
+                </p>
+            </form>
+        </div>
+
+
+        <span style="display:none;" id="thank-you-message" class="InfoLabel">
+            @Html.Raw(Model?.SubmitMessage)
+        </span>
+    </div>
+</div>
+

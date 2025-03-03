@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.categorypage>
+  <ArticleList />
+  <ContentItemDataCommonDataID>
+    <GUID>c50f3b36-8f93-4dbd-a934-1bc01ca04137</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Foodservice-znle3n8f</CodeName>
+      <GUID>c788fca8-e02a-4b6e-b33b-03fccf6c04c2</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>0a685e14-8c53-4261-9363-b423efbdf68f</ContentItemDataGUID>
+  <PageNumber>0</PageNumber>
+  <PageSize>0</PageSize>
+  <SelectedYear />
+  <Title>Foodservice</Title>
+  <TotalPages>0</TotalPages>
+  <Years />
+</contentitemdata.nacsmagazine.categorypage>

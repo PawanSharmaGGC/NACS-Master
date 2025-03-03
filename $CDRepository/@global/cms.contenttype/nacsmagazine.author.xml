@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Reusable</ClassContentTypeType>
+  <ClassDisplayName>NMAuthor</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="d74e0482-112a-4a8a-ab7c-c246ebac9f58" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="c705f01d-e5eb-4363-8858-8fae8d6c25cd" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="1cabd087-b5a1-4b6a-9b26-47ea5720793a" isunique="true" system="true" />
+      <field allowempty="true" column="Headshot" columnprecision="0" columntype="assets" enabled="true" guid="ce15bbe0-59d3-49f0-8e4a-af12a86ad705" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Author Headshot</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedExtensions>_INHERITED_</AllowedExtensions>
+          <controlname>Kentico.Administration.AssetSelector</controlname>
+          <MaximumAssets>1</MaximumAssets>
+        </settings>
+      </field>
+      <field column="FullName" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="24c60ec2-0dd2-4a8d-acec-0ee513d7b77e" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Full Name</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Bio" columnprecision="0" columntype="richtexthtml" enabled="true" guid="66aca09d-516d-4db4-afad-ebd4ff1c2fd3" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Author Bio</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.RichTextEditor</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="HeadshotURL" columnprecision="0" columnsize="255" columntype="text" enabled="true" guid="83075b0b-428e-444a-9be1-0699323e1cea" visible="true">
+        <properties>
+          <explanationtext>
+            <![CDATA[Relative URL for the migrated author image (ex: /NACSMagazine.com/images/styles/thumbnail/public/AlHebert.png)]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Headshot URL</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>5392f8a7-a73e-4189-9a28-0b9dba7a0df1</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-user-frame</ClassIconClass>
+  <ClassName>NACSMagazine.Author</ClassName>
+  <ClassShortName>NACSMagazineAuthor</ClassShortName>
+  <ClassTableName>NACSMagazine_Author</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

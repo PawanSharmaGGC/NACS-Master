@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.navtoplevel>
+  <ContentItemDataCommonDataID>
+    <GUID>0354f7c0-21ba-46ca-8714-d772ccd01a13</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Expo-jtkybmyw</CodeName>
+      <GUID>83c8f2b1-c0a1-4c95-b952-b3568c8ffdff</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>f7356c7b-d0d3-4edf-814c-75a5ff318677</ContentItemDataGUID>
+  <ShowOnlySecondLevel>False</ShowOnlySecondLevel>
+  <Title>Expo</Title>
+  <Url>/Expo</Url>
+</contentitemdata.nacsshow.navtoplevel>

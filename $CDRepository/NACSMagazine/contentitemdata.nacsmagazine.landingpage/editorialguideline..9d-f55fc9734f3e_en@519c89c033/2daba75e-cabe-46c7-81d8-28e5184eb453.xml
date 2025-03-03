@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.landingpage>
+  <ContentItemDataCommonDataID>
+    <GUID>c3cf904b-d8d7-400c-899d-f55fc9734f3e</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>EditorialGuidelines_Submissions-c7bgsezh</CodeName>
+      <GUID>072610c8-8330-4925-918e-edcd386e42a7</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>2daba75e-cabe-46c7-81d8-28e5184eb453</ContentItemDataGUID>
+  <PageContent>
+    <![CDATA[<p><strong>Do You Like to Write?</strong></p><p>We welcome unsolicited editorial contributions. See the guidelines below for submitting an article for&nbsp;NACS Magazine&nbsp;or the&nbsp;NACS Daily&nbsp;e-newsletter:</p><p>&nbsp;</p><p><strong>Submitting Articles for NACS Magazine</strong></p><p>Writers who wish to submit articles to&nbsp;NACS Magazine&nbsp;should send brief pitches (200 words or less) nstead of full-length articles. Briefly summarize your article proposal and relevant experience.&nbsp;We do not accept articles or parts of articles that have been published elsewhere.&nbsp;</p><p>&nbsp;</p><p>Submissions should be sent by e-mail to: <a href="mailto:nacsmagazine@convenience.org?subject=NACS%20Magazine%20Editorial%20Submission">nacsmagazine@convenience.org</a>. The subject line should say: NACS Magazine Editorial Submission.</p><p>&nbsp;</p><p><strong>Submitting Articles for NACS Daily</strong></p><p>Writers submitting to the&nbsp;NACS Daily&nbsp;e-newsletter are encouraged to send brief pitches (100 words or less) instead of full-length articles. Briefly summarize your article proposal and relevant experience.&nbsp;We do not accept articles or parts of articles that have been published elsewhere.&nbsp;</p><p>&nbsp;</p><p>Submissions should be sent by e-mail to:&nbsp;<a href="mailto:news@convenience.org?subject=NACS%20Daily%20Editorial%20Submission">news@convenience.org</a>. The subject line should say: NACS Daily Editorial Submission.</p>]]>
+  </PageContent>
+  <Title>
+    <![CDATA[Editorial Guideslines & Submissions]]>
+  </Title>
+</contentitemdata.nacsmagazine.landingpage>

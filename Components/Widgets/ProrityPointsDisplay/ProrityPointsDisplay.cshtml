@@ -1,0 +1,51 @@
+﻿@using Convenience.org.Components.Widgets
+@model ProrityPointsDisplayViewModel
+
+<h2><i class="fa-regular fa-building"></i> Company Membership</h2>
+
+@if (!string.IsNullOrEmpty(Model.Description))
+{
+    <div class="alert alert-danger">@Model.Description</div>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <span style="font-size: 16px; font-weight: bold;">
+                Company Name: <i class="bi bi-patch-check"></i> @Model.CompanyName
+            </span>
+
+            @if (Model.IsMember)
+            {
+                <span class="badge badge-success">
+                    <i class="fas fa-check"></i> @Model.MembershipStatus
+                </span>
+            }
+            else
+            {
+                <span class="badge badge-danger">
+                    <i class="fas fa-times"></i> @Model.MembershipStatus
+                </span>
+                <br />
+                <a href="@Model.MembershipRenewUrl" style="color: #60BC4F;">Renew Your Membership</a>
+            }
+
+            <br />
+            <span style="font-size: 16px; font-weight: bold;">Membership Type: </span> @Model.MembershipType
+            <br />
+            <span>@Model.SecondaryMembershipType</span>
+
+            <br />
+
+            <div class="card">
+                <div class="card-body text-center">
+                    <p class="card-text">As of today, your company has:</p>
+                    <img src="/static/media/PriorityPoint.png" style="margin-top: -10px;" />
+                    <span style="font-size: 22px; font-weight: bold; margin-left: 5px;">@Model.PriorityPoints</span>
+                    <br /><br />
+                    <p class="card-text">@Model.Description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

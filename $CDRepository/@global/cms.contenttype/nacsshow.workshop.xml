@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Website</ClassContentTypeType>
+  <ClassDisplayName>NACS Show Workshop</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="c2c70fdd-748e-4bae-a46f-65e071f09458" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="84eb3b76-dc45-4903-a782-447ebda2f70d" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="ac7a2b97-7e93-4a2d-98d4-ae04a414e14d" isunique="true" system="true" />
+      <field column="Title" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="6be2a5d9-3b6a-4db8-bd39-68b1aeab2bd7" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Title</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Day" columnprecision="0" columnsize="50" columntype="text" enabled="true" guid="20049231-9d54-4ab7-b8d9-fb3708b4ecf6">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Day of Week</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field allowempty="true" column="Icon" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="03fd30f5-ee7f-4588-a074-325b93b712cc" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Icon</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <Options>
+<![CDATA[
+Conexxus.png
+TFI.png
+SuperSession.png
+FMN.png
+]]>
+          </Options>
+          <OptionsValueSeparator>;</OptionsValueSeparator>
+          <Placeholder>-- Select --</Placeholder>
+        </settings>
+      </field>
+      <field allowempty="true" column="HeaderImageMobile" columnprecision="0" columntype="assets" enabled="true" guid="7f201ac1-c737-4f3f-84c9-7c2bff35a74e" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Header Image Mobile</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedExtensions>_INHERITED_</AllowedExtensions>
+          <controlname>Kentico.Administration.AssetSelector</controlname>
+          <MaximumAssets>1</MaximumAssets>
+        </settings>
+      </field>
+      <field allowempty="true" column="SubHead" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="d8b8a97a-50a5-44f5-bf20-c9a4b94cd47a" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>SubHead</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+      </field>
+      <field allowempty="true" column="Capacity" columnprecision="0" columntype="integer" enabled="true" guid="627001ce-e4cb-43a3-9ca1-10d2ac7ee6da" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Capacity</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.NumberInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="StartTime" columnprecision="7" columntype="datetime" enabled="true" guid="3c2f18d3-dd0e-4612-abae-5cba22b28a57" visible="true">
+        <properties>
+          <explanationtext>Enter a date: MM/DD/YYYY hh:mm AM/PM</explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Start Time</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DateTimeInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="EndTime" columnprecision="7" columntype="datetime" enabled="true" guid="24a305df-7c6d-4a32-84fd-b3dcdc71c3ae" visible="true">
+        <properties>
+          <explanationtext>Enter a date: MM/DD/YYYY hh:mm AM/PM</explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>End Time</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DateTimeInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="HeaderImage" columnprecision="0" columntype="assets" enabled="true" guid="7914f491-d7bb-4f05-bf28-10ee199e0ed5" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Header Image</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedExtensions>_INHERITED_</AllowedExtensions>
+          <controlname>Kentico.Administration.AssetSelector</controlname>
+          <MaximumAssets>1</MaximumAssets>
+        </settings>
+      </field>
+      <field allowempty="true" column="Description" columnprecision="0" columntype="longtext" enabled="true" guid="5176b2e7-d80d-4c2b-a211-e5948dc5c161" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Description</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+      </field>
+      <field allowempty="true" column="SectionHeader" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="9714f34c-5702-4d0f-be5f-6a5f9738b3bf" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Section Header</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="RollupImage" columnprecision="0" columntype="assets" enabled="true" guid="d0a2f449-f645-4a26-b951-d4893afdd3f7" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Rollup Image</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedExtensions>_INHERITED_</AllowedExtensions>
+          <controlname>Kentico.Administration.AssetSelector</controlname>
+          <MaximumAssets>1</MaximumAssets>
+        </settings>
+      </field>
+      <field allowempty="true" column="PageContent" columnprecision="0" columntype="richtexthtml" enabled="true" guid="0bfaaa56-4b2e-4242-a5b1-0c6cf3f7872e" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Page Content</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <ConfigurationName>Kentico.Administration.StructuredContent</ConfigurationName>
+          <controlname>Kentico.Administration.RichTextEditor</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Image" columnprecision="0" columntype="assets" enabled="true" guid="24ed970a-6361-400f-8e56-3f1f2ba01bbb" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Image</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedExtensions>_INHERITED_</AllowedExtensions>
+          <controlname>Kentico.Administration.AssetSelector</controlname>
+          <MaximumAssets>1</MaximumAssets>
+        </settings>
+      </field>
+      <field allowempty="true" column="LeftNavShowTitle" columnprecision="0" columntype="boolean" enabled="true" guid="933857f8-a38e-4fe8-b01c-05edbd3a65cc" visible="true">
+        <properties>
+          <defaultvalue>True</defaultvalue>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Left Navigation - Show Header Text</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.Checkbox</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SendOwnerReminderEmails" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="572cfb2b-84aa-4d37-90c2-c6a05917f529" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Send Owner Reminder Emails?</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <Options>
+<![CDATA[
+Inherit
+Yes
+No
+]]>
+          </Options>
+          <OptionsValueSeparator>;</OptionsValueSeparator>
+          <Placeholder>Inherit</Placeholder>
+        </settings>
+      </field>
+      <field allowempty="true" column="ReminderEmailInterval" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="43d3d757-ec26-4027-a2fb-16a1505eee75" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Reminder Email Interval</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <Options>
+<![CDATA[
+Inherit
+1 Month
+3 Months
+6 Months
+1 Year
+]]>
+          </Options>
+          <OptionsValueSeparator>;</OptionsValueSeparator>
+          <Placeholder>Inherit</Placeholder>
+        </settings>
+      </field>
+      <field allowempty="true" column="LeftNavTitleOverride" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="beeaa8e8-2ac8-4746-b39c-9c4ed55aef9b" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Left Navigation - Header Text Override</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ImageAltText" columnprecision="0" columntype="longtext" enabled="true" guid="a641d828-bbcc-4a97-a736-9e4e51ef71ea" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Image Alt Text</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+      </field>
+      <field column="NavType" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="0960e8f1-890d-4184-a22e-17a2ee3e9208" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Left Navigation Type</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <Options>
+<![CDATA[
+Inherit;Show same navigation items as parent
+Siblings;Show current item and current item's siblings
+SiblingsAndChildren;Show current item, items below current item, and current item's siblings
+Children;Show items below current item
+None
+]]>
+          </Options>
+          <OptionsValueSeparator>;</OptionsValueSeparator>
+        </settings>
+      </field>
+      <field allowempty="true" column="ShowID" columnprecision="0" columntype="integer" enabled="true" guid="9fb30134-facc-435b-8cac-c664d09422bd">
+        <properties>
+          <defaultvalue>0</defaultvalue>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Show ID</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+      </field>
+      <field allowempty="true" column="NavShowChildren" columnprecision="0" columntype="boolean" enabled="true" guid="fa8c4065-e5f4-4462-bbc1-fde513f1cbff" visible="true">
+        <properties>
+          <defaultvalue>False</defaultvalue>
+          <explanationtext>
+            <![CDATA[When this page is shown in navigation, whether or not to show children in an expandable section below it.]]>
+          </explanationtext>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Show Children in Nav</fieldcaption>
+          <fielddescription>
+            <![CDATA[When this page is shown in navigation, whether or not to show children in an expandable section below it.]]>
+          </fielddescription>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.Checkbox</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="TimeSlot" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="f68cca76-d905-414b-8747-d179b3df0ae7" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Time Slot</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <Options>
+<![CDATA[
+Tuesday, Oct 1 | 10:30am – 12:45pm
+Tuesday, Oct 1 | 12:00pm – 1:00pm
+Tuesday, Oct 1 | 1:00pm – 3:15pm
+Tuesday, Oct 1 | 1:15pm – 2:15pm
+Tuesday, Oct 1 | 1:15pm – 3:30pm
+Tuesday, Oct 1 | 2:30pm – 3:30pm
+Wednesday, Oct 2 | 8:00am – 9:00am
+Wednesday, Oct 2 | 8:00am – 10:15am
+Wednesday, Oct 2 | 8:30am – 10:00am
+Wednesday, Oct 2 | 9:15am – 10:15am
+Wednesday, Oct 2 | 9:15am – 11:30am
+Thursday, Oct 3 | 8:00am – 9:00am
+Thursday, Oct 3 | 8:00am – 10:15am
+Thursday, Oct 3 | 9:15am – 10:15am
+Thursday, Oct 3 | 10:00am – 11:30am
+]]>
+          </Options>
+          <OptionsValueSeparator>;</OptionsValueSeparator>
+        </settings>
+      </field>
+      <field allowempty="true" column="Room_Location" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="307dd2d0-9154-4d95-99ee-251d2d238fab" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Room/Location</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Objective1" columnprecision="0" columntype="longtext" enabled="true" guid="8ae5e3cf-41b1-4c6e-b33b-c940e46e7e28" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Objective 1</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+      </field>
+      <field allowempty="true" column="Objective2" columnprecision="0" columntype="longtext" enabled="true" guid="1cd7c256-0721-44df-9645-1ffabfc2a39b" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Objective 2 </fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+      </field>
+      <field allowempty="true" column="Objective3" columnprecision="0" columntype="longtext" enabled="true" guid="3e01f117-84bf-491b-a384-69604f70591f" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Objective 3</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+      </field>
+      <field allowempty="true" column="Objective4" columnprecision="0" columntype="longtext" enabled="true" guid="96247856-e7b5-44fb-9195-5bc6e3ec98d6" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Objective 4</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+      </field>
+      <field allowempty="true" column="Objective5" columnprecision="0" columntype="longtext" enabled="true" guid="62453a5c-897a-4dc6-998a-ed2475c66dfd" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Objective 5</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextArea</controlname>
+          <CopyButtonVisible>False</CopyButtonVisible>
+          <MaxRowsNumber>5</MaxRowsNumber>
+          <MinRowsNumber>3</MinRowsNumber>
+        </settings>
+      </field>
+      <field allowempty="true" column="Speakers" columnprecision="0" columntype="contentitemreference" enabled="true" guid="977ce966-9702-4aff-8ede-73959c012619" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Speakers</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["7c19201e-3a58-452f-925e-32fe232828e9"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <MinimumItems>1</MinimumItems>
+          <SelectionType>contentTypes</SelectionType>
+        </settings>
+      </field>
+      <field allowempty="true" column="Moderators" columnprecision="0" columntype="contentitemreference" enabled="true" guid="becf990f-cc5d-495d-9add-7b9026b2c1c8" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Moderators</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <AllowedContentItemTypeIdentifiers>
+            <![CDATA[["9643597c-d7db-4a20-9e60-a357c5222581"]]]>
+          </AllowedContentItemTypeIdentifiers>
+          <controlname>Kentico.Administration.ContentItemSelector</controlname>
+          <MaximumItems>1</MaximumItems>
+          <MinimumItems>1</MinimumItems>
+          <SelectionType>contentTypes</SelectionType>
+        </settings>
+      </field>
+      <field allowempty="true" column="Keyword" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="e6830c38-5989-4373-9046-0de4844afab3" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Keyword</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <Options>
+<![CDATA[
+Category Management
+Customer Experience
+Foodservice
+Fuels
+Government Relations
+HR and Labor
+Innovation
+Leadership
+Marketing
+Operations
+Professional Development
+Supplier
+Technology
+]]>
+          </Options>
+          <OptionsValueSeparator>;</OptionsValueSeparator>
+          <Placeholder>Select</Placeholder>
+        </settings>
+      </field>
+      <field allowempty="true" column="Format" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="a2e7ea11-d3de-4857-a89d-34043ea5de79" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Format</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <Options>
+<![CDATA[
+Awards
+Case Study
+Expert/Expert Interview
+Gameshow
+Great Debate: Point Counterpoint
+Ignite
+Kaleidoscope
+Lightning
+Masterclass
+Panel
+Roundtables
+Think You Know Me?
+Tips & Tricks/Quick Hints
+Town Hall
+Workshop
+]]>
+          </Options>
+          <OptionsValueSeparator>;</OptionsValueSeparator>
+          <Placeholder>Select</Placeholder>
+        </settings>
+      </field>
+      <field allowempty="true" column="Translation" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="ce3e04b4-217a-4fc4-8fbc-23c2a6a1a4ec" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Translation</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <Options>
+<![CDATA[
+Chinese (Mandarin)
+Spanish
+Portuguese
+]]>
+          </Options>
+          <OptionsValueSeparator>;</OptionsValueSeparator>
+          <Placeholder>Select</Placeholder>
+        </settings>
+      </field>
+      <field allowempty="true" column="Segment" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="ae8dcf83-16b6-4877-bd69-41f31dfc5c83" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Segment</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.DropDownSelector</controlname>
+          <Options>
+<![CDATA[
+Launchers
+Experimenters
+Transformers
+Influencers
+]]>
+          </Options>
+          <OptionsValueSeparator>;</OptionsValueSeparator>
+          <Placeholder>Select</Placeholder>
+        </settings>
+      </field>
+      <field allowempty="true" column="SegmentStatment" columnprecision="0" columnsize="400" columntype="text" enabled="true" guid="d47a702f-8276-4344-8cc9-30589df21da6" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Segment Statement/Question</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SessionID" columnprecision="0" columntype="guid" enabled="true" guid="9b975993-18c3-47ee-a743-9ba5ce72c6a5" />
+      <field allowempty="true" column="SessionFriendlyID" columnprecision="0" columnsize="200" columntype="text" enabled="true" guid="233e53d4-bf4e-4bef-bbfc-a7ec3348ecd4" visible="true">
+        <properties>
+          <explanationtextashtml>False</explanationtextashtml>
+          <fieldcaption>Session Friendly ID</fieldcaption>
+          <fielddescriptionashtml>False</fielddescriptionashtml>
+        </properties>
+        <settings>
+          <controlname>Kentico.Administration.TextInput</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>209d2131-b096-4211-a560-02a8a13816bf</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-calendar</ClassIconClass>
+  <ClassName>NACSShow.Workshop</ClassName>
+  <ClassTableName>NACSShow_Workshop</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>True</ClassWebPageHasUrl>
+</cms.contenttype>

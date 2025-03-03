@@ -1,0 +1,72 @@
+﻿@using Kentico.Content.Web.Mvc.PageBuilder
+@using Convenience.org
+@{
+    Layout = "~/Features/Shared/Convenience/_Layout.cshtml";
+}
+
+@model TemplateViewModel
+
+@{
+    var templateModel = Model.GetTemplateModel<Convenience.Topic>();
+}
+@section Placeholder {
+    <div class="container d-flex justify-content-center">
+        <div class="custom-placeholder text-center">
+            <p class="m-0">Desktop Leaderboard - Optional (728x90px)</p>
+        </div>
+    </div>
+}
+
+<div class="container">
+@await Component.InvokeAsync("Breadcrumbs")
+    @{
+        var optionsLimited = new EditableAreaOptions
+            {
+                AllowedWidgets = WidgetAreaIdentifier.Hero_Widgets,
+                AllowedSections = AllowedComponents.ALL
+            };
+    }
+    <div class="row">
+        @await Html.Kentico().EditableAreaAsync("HeroWidgetArea", optionsLimited)
+    </div>
+
+    <div class="container d-flex justify-content-center">
+        <div class="custom-placeholder text-center">
+            <p class="m-0">Desktop Leaderboard - Optional (728x90px)</p>
+        </div>
+    </div>
+
+
+<div class="row mt-2 ">
+        @await Html.Kentico().EditableAreaAsync("WidgetAreafeatured")
+</div>
+
+    
+<div class="row mt-5 ">
+        @await Html.Kentico().EditableAreaAsync("WidgetAreaMarketingContent")
+</div>
+
+    <div class="row mt-5 ">
+        @await Html.Kentico().EditableAreaAsync("WidgetAreaMarketingContentArticles")
+    </div>
+
+    <div class="row my-5 ">
+        @await Html.Kentico().EditableAreaAsync("WidgetAreaMarketingContentRelatedResources")
+    </div>
+
+
+
+<div class="row d-flex gap-0 align-items-stretch my-5">
+    <div class="col-12 col-md-7 d-flex">
+        <div class="w-100">
+            @await Html.Kentico().EditableAreaAsync("WidgetAreaFAQS")
+        </div>
+    </div>
+    <div class="col-12 col-md-5 d-flex">
+        <div class="w-100">
+            @await Html.Kentico().EditableAreaAsync("WidgetAreaContact")
+        </div>
+    </div>
+</div>
+</div>
+

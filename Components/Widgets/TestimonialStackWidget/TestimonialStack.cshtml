@@ -1,0 +1,48 @@
+﻿@using Convenience.org.Models
+
+@model TestimonialViewModel
+
+@if (Model != null && Model.TestimonialItems != null && Model.TestimonialItems.Any())
+{
+    <div class="p-3 ps-lg-5 ps-md-5 ps-3 main_card">
+        <div class="testimonial-stack TestimonialStackStyle-module__container_div container_div" id="testimonial-container-@Guid.NewGuid()">
+            @foreach (var item in Model.TestimonialItems)
+            {
+                <div class="card border border-0 ref-card TestimonialStackStyle-module__flex_card mb-3">
+                    <div class="card-body p-0 TestimonialStackStyle-module__slider_card">
+                        <div class="text-start p-4">
+                            <div class="mb-2">
+                                <i class="fa-solid fa-quote-left"></i>
+                            </div>
+                            <div class="fs-5 mb-2 text">
+                                @Html.Raw(item.Text)
+                            </div>
+                            <div class="author">
+                                @item.Author
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="mt-5">
+            @{
+                var buttonModel = new Convenience.org.Models.ButtonsViewModel
+                {
+                    ButtonText = Model.CTAText,
+                    ButtonURL = Model.CTAUrl,
+                    ButtonType = Convenience.org.Models.ButtonTypeEnum.BackToLog,
+                    RightIconColor = "color-DC241F",
+                    RightIconName = "fa-arrow-right",
+                    RightIconType = "fa-regular",
+                    ButtonBGColor = "color-DC241F"
+                };
+            }
+            @await Component.InvokeAsync("Buttons", new { model = buttonModel })
+        </div>
+    </div>
+    
+
+}
+
+<script src="~/static/js/testimonialstack.js"></script>

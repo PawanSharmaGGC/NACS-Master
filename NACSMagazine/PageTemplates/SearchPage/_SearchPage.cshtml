@@ -1,0 +1,115 @@
+﻿@using Kentico.Content.Web.Mvc.PageBuilder
+@using CMS.ContentEngine
+@using Kentico.Content.Web.Mvc
+@using Microsoft.AspNetCore.Mvc.Localization
+@using NACSMagazine.PageTemplates.MagazineArticlePage;
+@using NACSMagazine.PageTemplates.SearchPage
+@using NACSMagazine.Rendering
+@using NACSMagazine.Resources
+
+@inject IHtmlLocalizer<SharedResources> HtmlLocalizer;
+@inject NACSMagazine.Rendering.ViewService View
+
+@using CMS.Helpers
+
+@using Kentico.Web.Mvc
+@using Kentico.PageBuilder.Web.Mvc
+
+@using Microsoft.AspNetCore.Html
+
+
+@{
+    Layout = "/Features/Shared/NACSMagazine/_Layout.cshtml";
+}
+
+@model SearchViewModel
+
+<style>
+    .form-control {
+        background-color: #f4f4f4;
+        display: unset !important;
+        width: unset !important;
+    }
+
+    .btn.my-2.my-sm-0.btn-default {
+        background: url(~/_Content/NACSMagazine/img/icon/icon-search.png) no-repeat;
+        
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="text-align:center;">
+            @if (Model.Title is not null)
+            {
+                @Html.Raw(Model.Title)
+            }
+            <form method="get" id="articleSearchForm">
+                <div class="row justify-content-center">
+                    <div class="col-sm-10 col-lg-7">
+                        <div class="input-group">
+                            <input asp-for="@Model.Query" type="text" class="form-control long-search"
+                                   aria-label="Search" aria-describedby="submitSearch" value="@Model.Query">
+                            <button class="btn my-2 my-sm-0 button-go" type="submit" id="submitSearch">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                
+                    <div class="d-flex justify-content-end align-items-center gap-3 mt-3">
+                        <label asp-for="@Model.SortBy" class="form-label text-nowrap mb-0">@HtmlLocalizer["Sort by"]</label>&nbsp;&nbsp;
+                        <select asp-for="@Model.SortBy" class="form-select form-select-sm w-auto" search-sort-by>
+                            <option value="relevance">@HtmlLocalizer["Relevance"]</option>
+                            <option value="publishdate">@HtmlLocalizer["Date Published"]</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-12 col-sm-8 main-content">
+            <div class="container my-3"><p class="font-g-24" style="color:rgba(39,94,153,.75)">Articles</p></div>
+            @if (Model.Articles.Count == 0 && Model.TotalPages == 0)
+            {
+                <div>
+                    <p>No results could be found.</p>
+                </div>
+            }
+            else
+            {
+                @foreach (var post in Model.Articles)
+                {
+                    <div class="col-md-6 col-xl-12 search-result-tile">
+                        <div class="row">
+                           <div class="col-xl-4 order-first order-xl-last">
+                             <a href="@post.ParentPageUrl">
+                                    <img class="d-flex d-xl-none img-fluid" src="@(post.RollupImage == null ? @post.RollupImageURL : @post.RollupImage)">
+                                    <img class="d-none d-xl-block img-fluid" src="@(post.RollupImage == null ? @post.RollupImageURL : @post.RollupImage)">
+                             </a><br/>
+                             <p class="font-m-14" style="text-align:center">@post.IssueDate.ToString("MMMM yyyy")</p>
+                            </div>
+                            <div class="col-xl-8">
+                                <a href="@post.ParentPageUrl"><p class="font-g-18-b">@post.Title</p>
+                                <p class="font-m-18">@post.LedeText</p>
+                                <p class="font-m-14">
+                                    @Html.Raw(post.PageContentTeaser)
+                                    @* There is no functionality for this highlighting that I am aware of. May need to reach out to Kentico if this functionality is still wanted/required. *@
+                                @* <%#SearchHighlight(HTMLHelper.HTMLEncode(TextHelper.LimitLength(HttpUtility.HtmlDecode(HTMLHelper.StripTags(CMS.Base.Web.UI.ControlsHelper.RemoveDynamicControls(GetSearchedContent(DataHelper.GetNotEmpty(Eval("Content"), ""))), false, true, " ", "@", "")), 280, "...")), "<span style='background-color: #FEFF8F'>", "</span>")%> *@
+                                </p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+            @await Component.InvokeAsync("Pagination", Model)
+
+        </div>
+        <div class="col-12 col-sm-4 right-rail">
+            <div class="container my-3"><p class="font-g-24" style="color:rgba(39,94,153,.75)">Other</p></div>
+            <cms:CMSWebPartZone ZoneID="RightTopWidgetZone" runat="server" />
+            <cms:CMSWebPartZone ZoneID="AdZone" runat="server" />
+            <cms:CMSWebPartZone ZoneID="RightBottomWidgetZone" runat="server" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.navsecondlevel>
+  <ContentItemDataCommonDataID>
+    <GUID>65c1a23e-9e6a-42e6-b1db-71f0be5d9997</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>ExhibitorPortal-h51iwmjx</CodeName>
+      <GUID>290d7e34-a16d-47d8-91a4-f1ecb5292c4e</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>cc6d13c0-80f0-49e0-be5f-7ea22d5512d5</ContentItemDataGUID>
+  <Title>Exhibitor Portal</Title>
+  <URL>/Exhibit/Portal</URL>
+</contentitemdata.nacsshow.navsecondlevel>

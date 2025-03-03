@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.categorypage>
+  <ContentItemDataCommonDataID>
+    <GUID>c18a9acd-6cf2-4bb7-999f-b48dc94f2b37</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>RetailerFocus-b08bxe2w</CodeName>
+      <GUID>6a7f9778-1b28-4c44-8038-5afe57eb1360</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>4f51c162-f823-43fb-b74f-9f53908d1a31</ContentItemDataGUID>
+  <Title>Retailer Focus</Title>
+</contentitemdata.nacsmagazine.categorypage>

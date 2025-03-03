@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.navsecondlevel>
+  <ContentItemDataCommonDataID>
+    <GUID>cbed5450-7e8c-4747-9f38-b99a60a59e59</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>2024Speakers-050bimhg</CodeName>
+      <GUID>8370ffe8-c00c-4020-9e62-299c6cb1839f</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>dd2b0377-5ed1-41ad-8ccf-d558e8a2ec70</ContentItemDataGUID>
+  <Title>2024 Speakers</Title>
+  <URL>/Sessions/Education-Sessions/Speakers</URL>
+</contentitemdata.nacsshow.navsecondlevel>

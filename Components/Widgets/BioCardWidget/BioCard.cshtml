@@ -1,0 +1,62 @@
+﻿@using Convenience.org.Models
+
+@model PersonBioViewModel
+
+@if (Model != null && !string.IsNullOrEmpty(Model.PersonBioItem.Name))
+{
+    var readBioClass = "flex-fill";
+    <div class="border border-0 p-lg-4 p-md-4 p-sm-4 p-3 BioCardStyle-module__main_card card">
+        <div class="border BioCardStyle-module__section_card card">
+            <div class="p-0 card-body">
+                <div class="d-flex p-4">
+                    <div class="w-25">
+                        <img class="rounded-circle" src="@Model.PersonBioItem.ImageUrl" alt="">
+                    </div>
+                    <div class="w-75 text-start ps-lg-3 ps-4">
+                        <p class="fs-5 fw-semibold mb-0 color-262d61">@Model.PersonBioItem.Name</p>
+                        <p class="mb-0">@Html.Raw(Model.PersonBioItem.Designation)</p>
+                        <p class="mb-0 text-primary">@Model.PersonBioItem.ContactNo</p>
+                    </div>
+                </div>
+                <hr class="m-0">
+                <div class="d-flex">
+                    @if (!string.IsNullOrEmpty(Model.PersonBioItem.LinkedInUrl))
+                    {
+                        readBioClass = "";
+                        <div class="flex-fill fw-bold align-middle text-center fs-3 p-2 color-396a99 pointer"
+                             onclick="window.open('@Model.PersonBioItem.LinkedInUrl', '_blank')">
+                            in
+                        </div>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.PersonBioItem.Bio) || !string.IsNullOrEmpty(Model.CTA.ButtonURL))
+                    {
+                        <div id="first-collapse" class="@readBioClass text-light text-center align-middle fs-5
+                    BioCardStyle-module__read_bio_btn BioCardStyle-module__read_bio_btn_50 bioCollapse"
+                             aria-expanded="false" style="border-radius: 0px 0px 18px;">
+                            <span id="collapse-icon">Read Bio +</span>
+                        </div>
+                    }
+
+                </div>
+                @if (!string.IsNullOrEmpty(Model.PersonBioItem.Bio) || !string.IsNullOrEmpty(Model.CTA.ButtonURL))
+                {
+                    <div class="collapse bioDetailCollapse" id="collapseExample11">
+                        <div class="card card-body border border-2 bg-secondary-subtle text-start p-3 fs-5
+                    BioCardStyle-module__collapse_body_content ">
+                            <div>
+                                @Html.Raw(Model.PersonBioItem.Bio)
+                            </div>
+                            @if (!string.IsNullOrEmpty(Model.CTA.ButtonURL))
+                            {
+                                @await Component.InvokeAsync("Buttons", new { model = Model.CTA })
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+}
+
+<script src="~/static/js/biocard.js"></script>

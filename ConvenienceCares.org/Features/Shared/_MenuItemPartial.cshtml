@@ -1,0 +1,26 @@
+﻿@using ConvenienceCares.Models
+
+@model List<MenuItemViewModel>
+
+@if (Model != null)
+{
+    <ul>
+        @foreach (var item in Model.OrderBy(x => x.ItemOrder))
+        {
+            <li>
+                @if (item.Childern.Any())
+                {
+                <li>
+                    <span class="trigger">@item.MenuItemName</span>
+                        @Html.Partial("_MenuItemPartial", item.Childern)
+                </li>
+                }
+                else
+                {
+                <a href="@item.MenuLink" target="@(item.OpenInNewTab ? "_blank" : "_self")" rel="@item.MenuItemName">@item.MenuItemName</a>
+                }
+            </li>
+        }
+    </ul>
+}
+

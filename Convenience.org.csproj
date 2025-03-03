@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <UserSecretsId>1fdb4300-498e-472e-ae9a-a9798a34a9a7</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Components\Widgets\NACSMagazineIssueImport\**" />
+    <Compile Remove="Components\ViewComponents\Tier3ContentCard\**" />
+    <Compile Remove="Components\Widgets\CommiteeListingTor\**" />
+    <Compile Remove="Controllers\**" />
+    <Compile Remove="%24CDRepository\**" />
+    <Compile Remove="bin\**" />
+    <Compile Remove="ConvenienceCares.org\**" />
+    <Compile Remove="Models\Generated\PageContentTypes\EventPage\**" />
+    <Compile Remove="Models\Generated\PageContentTypes\Footers\**" />
+    <Compile Remove="lib\**" />
+    <Compile Remove="Models\Generated\PageContentTypes\Sponsores\**" />
+    <Compile Remove="NACS Show\**" />
+    <Compile Remove="NACS.CommitteePortalAttestation\**" />
+    <Compile Remove="NACS.Portal.Core\**" />
+    <Compile Remove="NACSMagazine\**" />
+    <Compile Remove="NACSShow\**" />
+    <Compile Remove="PageContentTypes\**" />
+    <Compile Remove="ReusableContentTypes\**" />
+    <Content Remove="Components\Widgets\NACSMagazineIssueImport\**" />
+    <Compile Remove="Views\**" />
+    <Content Remove="%24CDRepository\**" />
+    <Content Remove="bin\**" />
+    <Content Remove="Components\ViewComponents\Tier3ContentCard\**" />
+    <Content Remove="Components\Widgets\CommiteeListingTor\**" />
+    <Content Remove="Controllers\**" />
+    <Content Remove="ConvenienceCares.org\**" />
+    <Content Remove="lib\**" />
+    <Content Remove="Models\Generated\PageContentTypes\EventPage\**" />
+    <Content Remove="Models\Generated\PageContentTypes\Footers\**" />
+    <Content Remove="Models\Generated\PageContentTypes\Sponsores\**" />
+    <Content Remove="NACS Show\**" />
+    <Content Remove="NACS.CommitteePortalAttestation\**" />
+    <Content Remove="NACS.Portal.Core\**" />
+    <Content Remove="NACSMagazine\**" />
+    <Content Remove="NACSShow\**" />
+    <Content Remove="PageContentTypes\**" />
+    <Content Remove="ReusableContentTypes\**" />
+    <Content Remove="Views\**" />
+    <EmbeddedResource Remove="Components\ViewComponents\Tier3ContentCard\**" />
+    <EmbeddedResource Remove="Components\Widgets\CommiteeListingTor\**" />
+    <EmbeddedResource Remove="Controllers\**" />
+    <EmbeddedResource Remove="%24CDRepository\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <EmbeddedResource Remove="Components\Widgets\NACSMagazineIssueImport\**" />
+    <EmbeddedResource Remove="ConvenienceCares.org\**" />
+    <EmbeddedResource Remove="Models\Generated\PageContentTypes\EventPage\**" />
+    <EmbeddedResource Remove="Models\Generated\PageContentTypes\Footers\**" />
+    <EmbeddedResource Remove="lib\**" />
+    <EmbeddedResource Remove="Models\Generated\PageContentTypes\Sponsores\**" />
+    <EmbeddedResource Remove="NACS Show\**" />
+    <EmbeddedResource Remove="NACS.CommitteePortalAttestation\**" />
+    <EmbeddedResource Remove="NACS.Portal.Core\**" />
+    <EmbeddedResource Remove="NACSMagazine\**" />
+    <EmbeddedResource Remove="NACSShow\**" />
+    <EmbeddedResource Remove="PageContentTypes\**" />
+    <EmbeddedResource Remove="ReusableContentTypes\**" />
+    <None Remove="Components\Widgets\NACSMagazineIssueImport\**" />
+    <EmbeddedResource Remove="Views\**" />
+    <None Remove="%24CDRepository\**" />
+    <None Remove="bin\**" />
+    <None Remove="Components\ViewComponents\Tier3ContentCard\**" />
+    <None Remove="Components\Widgets\CommiteeListingTor\**" />
+    <None Remove="Controllers\**" />
+    <None Remove="ConvenienceCares.org\**" />
+    <None Remove="lib\**" />
+    <None Remove="Models\Generated\PageContentTypes\EventPage\**" />
+    <None Remove="Models\Generated\PageContentTypes\Footers\**" />
+    <None Remove="Models\Generated\PageContentTypes\Sponsores\**" />
+    <None Remove="NACS Show\**" />
+    <None Remove="NACS.CommitteePortalAttestation\**" />
+    <None Remove="NACS.Portal.Core\**" />
+    <None Remove="NACSMagazine\**" />
+    <None Remove="NACSShow\**" />
+    <None Remove="PageContentTypes\**" />
+    <None Remove="ReusableContentTypes\**" />
+    <None Remove="Views\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Components\ComponentRegister.cs" />
+    <Compile Remove="Components\Widgets\SubscriptionsNACSDaily\DynamicsCheckboxWidget.cs" />
+    <Compile Remove="Controllers\DynamicsController.cs" />
+    <Compile Remove="Controllers\SubscriptionNACSDailyController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="C:\Users\Administrator\.nuget\packages\kentico.xperience.tagmanager\3.0.0\contentFiles\any\net6.0\wwwroot\js\ktc-tagmanager.js" />
+    <Content Remove="Components\Widgets\SubscriptionsNACSDaily\DynamicsCheckboxWidget.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Export-DeploymentPackage.ps1" />
+    <None Remove="Models\Generated\PageContentTypes\NavTopLevel\NavTopLevel.generated.cs.old" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\EVChargingCalculatorController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\GoodJobCalculatorController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app_offline.htm_" Condition="Exists('app_offline.htm_')" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Azure.Identity" Version="1.12.1" />
+    <PackageReference Include="BouncyCastle.NetCore" Version="2.2.1" />
+    <PackageReference Include="itext" Version="9.0.0" />
+    <PackageReference Include="itext.bouncy-castle-adapter" Version="9.0.0" />
+    <PackageReference Include="itext.pdfhtml" Version="6.0.0" />
+    <PackageReference Include="Kentico.Xperience.Admin" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.AzureStorage" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.Cloud" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.Core" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.ImageProcessing" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.Lucene" Version="10.0.0" />
+    <PackageReference Include="Kentico.Xperience.TagManager" Version="3.2.1" />
+    <PackageReference Include="kentico.xperience.webapp" Version="29.5.3" />
+    <PackageReference Include="Lucene.Net.QueryParser" Version="4.8.0-beta00017" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Classes\" />
+    <Folder Include="Components\InlineEditors\" />
+    <Folder Include="wwwroot\img\" />
+    <Folder Include="wwwroot\js\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.PowerPlatform.Dataverse.Client" Version="1.1.27" />
+    <PackageReference Include="Polly" Version="8.4.2" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.10.3" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.10.3" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="10.5.7" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="ConvenienceCares.org\ConvenienceCares.org.csproj" />
+    <ProjectReference Include="NACS Show\NACSShow.csproj" />
+    <ProjectReference Include="NACS.Portal.Core\NACS.Portal.Core.csproj" />
+    <ProjectReference Include="NACSMagazine\NACSMagazine.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="GemBox.Spreadsheet">
+      <HintPath>lib\GemBox.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="NACS.Helper">
+      <HintPath>lib\NACS.Helper.dll</HintPath>
+    </Reference>
+    <Reference Include="NACS.Protech">
+      <HintPath>lib\NACS.Protech.dll</HintPath>
+    </Reference>
+    <Reference Include="NACS_Classes">
+      <HintPath>lib\NACS_Classes.dll</HintPath>
+    </Reference>
+    <!--<Reference Include="System.ServiceModel">
+      <HintPath>bin\Release\net8.0\System.ServiceModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Http">
+      <HintPath>bin\Release\net8.0\System.ServiceModel.Http.dll</HintPath>
+    </Reference>-->
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="Features\_ViewImports.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

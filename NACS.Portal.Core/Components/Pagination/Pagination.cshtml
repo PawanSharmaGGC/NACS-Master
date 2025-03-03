@@ -1,0 +1,66 @@
+﻿@model NACS.Portal.Core.Components.Pagination.IPagedViewModel
+
+<style>
+    .c-icon {
+        display: inline-block;
+        height: 1em;
+        width: 1em;
+        vertical-align: top;
+    }
+</style>
+<nav aria-label="pagination" class="mt-4">
+    <ul class="pagination justify-content-center">
+
+        @if (Model.Page > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" href='@Model.PageLinkPath(1, Context.Request)' aria-label="First">
+                    <svg class="c-icon  ">
+                        <use xlink:href="_content/NACSMagazine/img/icons.svg#pagination-left-end" asp-append-version></use>
+                    </svg>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href='@Model.PageLinkPath(Model.Page - 1, Context.Request)' aria-label="Previous">
+                    <svg class="c-icon  ">
+                        <use xlink:href="_content/NACSMagazine/img/icons.svg#pagination-left" asp-append-version></use>
+                    </svg>
+                </a>
+            </li>
+        }
+
+        @for (int pageNumber = 1; pageNumber <= Model.TotalPages; pageNumber++)
+        {
+            if (pageNumber == Model.Page)
+            {
+                <li class="page-item active">
+                    <a href="#" class="page-link">@pageNumber</a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item">
+                    <a class="page-link" href='@Model.PageLinkPath(pageNumber, Context.Request)'>@pageNumber</a>
+                </li>
+            }
+        }
+
+        @if (Model.Page < Model.TotalPages)
+        {
+            <li class="page-item">
+                <a class="page-link" href='@Model.PageLinkPath(Model.Page + 1, Context.Request)' aria-label="Next">
+                    <svg class="c-icon  ">
+                        <use xlink:href="_content/NACSMagazine/img/icons.svg#pagination-right" asp-append-version></use>
+                    </svg>
+                </a>
+            </li>
+            <li class="page-item">
+                <a href='@Model.PageLinkPath(Model.TotalPages, Context.Request)' class="page-link" aria-label=" Last">
+                    <svg class="c-icon  ">
+                        <use xlink:href="_content/NACSMagazine/img/icons.svg#pagination-right-end" asp-append-version></use>
+                    </svg>
+                </a>
+            </li>
+        }
+    </ul>
+</nav>

@@ -1,0 +1,53 @@
+﻿@model Convenience.org.Components.Widgets.MemberSearchMyDirectory.MemberSearchMyDirectoryViewModel
+
+<div id="myDirectoryWidget">
+    <div style="display: flex; justify-content: space-between; padding: 20px;">
+        <!-- Persons -->
+        <div style="width: 45%;">
+            <h4>Saved Persons (@Model.Persons.Count)</h4>
+            <ul>
+                @if (Model.Persons.Any())
+                {
+                    foreach (var person in Model.Persons)
+                    {
+                        <li>
+                            @* <a href="/MemberSearchPersonDetails?contactId=@person.ItemId">@person.SavedItemDisplayName</a> *@
+                            <a href="@Url.Action("GetPersonDetails", "MemberSearchPersonDetails", new { contactId = person.ItemId })" target="_blank">
+                                @person.SavedItemDisplayName
+                            </a>
+                            <span> - @person.SavedItemDisplayDescription</span>
+                        </li>
+                    }
+                }
+                else
+                {
+                    <li>No persons saved yet.</li>
+                }
+            </ul>
+        </div>
+
+        <!-- Companies -->
+        <div style="width: 45%;">
+            <h4>Saved Companies (@Model.Companies.Count)</h4>
+            <ul>
+                @if (Model.Companies.Any())
+                {
+                    foreach (var company in Model.Companies)
+                    {
+                        <li>
+                            @* <a href="/MemberSearchCompanyDetails?accountId=@company.ItemId">@company.SavedItemDisplayName</a> *@
+                            <a href="@Url.Action("GetCompanyDetails", "MemberSearchCompanyDetails", new { accountId = company.ItemId })" target="_blank">
+                                @company.SavedItemDisplayName
+                            </a>
+                            <span> - @company.SavedItemDisplayDescription</span>
+                        </li>
+                    }
+                }
+                else
+                {
+                    <li>No companies saved yet.</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

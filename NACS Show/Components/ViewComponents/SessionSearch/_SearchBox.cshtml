@@ -1,0 +1,336 @@
+﻿
+@model NACSShow.Components.ViewComponents.SessionSearch.SessionSearchBoxViewComponent.SessionSearchViewModel
+
+@{
+    string st = string.Empty;
+    if(Model != null)
+    {
+        st = Model.QueryStringValues.ContainsKey("track") ? Model?.QueryStringValues["track"] : string.Empty;
+    }
+    var selectedTracks = new string[] { };
+    if(!string.IsNullOrEmpty(st))
+    {
+        selectedTracks = st.ToLower().Split(',') ?? new string[] { };
+    }
+}
+
+
+
+<form method="get" id="sessionSearchForm">    
+    <div class="row  ">
+        <div class="col-xs-12 col-sm-2">
+            <style type="text/css">
+                #day-filter-mobile select {
+                    padding: .75rem 1.5rem;
+                    border-radius: 100em;
+                    font-weight: 600;
+                }
+            </style>
+
+            <div class="search-filter-horizontal wide day" id='day-filter-mobile'>
+                <span style="font-size:1rem;font-weight:700"><i class="fa fa-calendar-alt fa-lg"></i>&nbsp;</span>
+                <!--TODO: The select list for days should be here-->
+            </div>
+            <style type="text/css">
+                #day-filter-mobile select {
+                    padding: .75rem 1.5rem;
+                    border-radius: 100em;
+                    font-weight: 600;
+                }
+            </style>
+
+            <div class="search-filter-horizontal wide day" id='day-filter'>
+                <p><span style="font-size:1rem;font-weight:700"><i class="fa fa-calendar-alt fa-lg"></i>&nbsp;Day:</span></p>
+                <!--TODO: The table with Days goes here-->
+                <style type="text/css">
+                    .day-filter {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .day-option {
+                        margin-bottom: 10px;
+                    }
+
+                        .day-option input {
+                            margin-right: 5px;
+                        }
+
+                </style>
+                <table class="ContentRadioButtonList radio">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input asp-for="@Model.DayFilter" id="day-filter-0" type="radio" name="day" value="10152024">
+                                <label for="day-filter-0">Oct 15</label>
+                            </td>
+                            <td>
+                                <input asp-for="@Model.DayFilter" id="day-filter-1" type="radio" name="day" value="10162024">
+                                <label for="day-filter-1">Oct 16</label>
+                            </td>
+                            <td>
+                                <input asp-for="@Model.DayFilter" id="day-filter-2" type="radio" name="day" value="10172024">
+                                <label for="day-filter-2">Oct 17</label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                @* <div class="day-filter">
+                    <div class="day-option">
+                        <input asp-for="@Model.DayFilter" id="day-filter-0" type="radio" name="day" value="10152024">
+                        <label for="day-filter-0">Oct 15</label>
+                    </div>
+                    <div class="day-option">
+                        <input asp-for="@Model.DayFilter" id="day-filter-1" type="radio" name="day" value="10162024">
+                        <label for="day-filter-1">Oct 16</label>
+                    </div>
+                    <div class="day-option">
+                        <input asp-for="@Model.DayFilter" id="day-filter-2" type="radio" name="day" value="10172024">
+                        <label for="day-filter-2">Oct 17</label>
+                    </div>
+                </div> *@
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                @* <script type="text/javascript">
+                    $(document).ready(function () {
+                        
+                        $('.day-option input').on('click', function () {
+                            let selectedDay = $(this).val();
+                            let url = new URL(window.location.href);
+                            url.searchParams.set('day', selectedDay);
+                            window.history.pushState({}, '', url);
+                        });
+                    });
+                </script> *@
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+            <div class="search-filter-horizontal wide tracks" id="tracks-filter">
+                <p><span id="track-filter-title" style="font-size:1rem;font-weight:700"><i class="fa fa-filter fa-lg"></i>&nbsp;Track: </span></p>
+                <!--TODO: List of Tracks / Tags goes here-->
+                
+               <span id="TracksFilter_chklstFilter" class="ContentCheckBoxList checkbox-list-horizontal checkbox">
+                    <input id="TracksFilter_chklstFilter" type="checkbox" name="track" value="Category-Management" onclick="updateQueryString(this)" @(selectedTracks.Contains("category-management") ? "checked" : "")>
+                    <label for="TracksFilter_chklstFilter">Category Management</label>
+                    <input id="TracksFilter_chklstFilter2" type="checkbox" name="track" value="Customer-Experience" onclick="updateQueryString(this)" @(selectedTracks.Contains("customer-experience") ? "checked" : "")>
+                    <label for="TracksFilter_chklstFilter2">Customer Experience</label>
+                    <input id="TracksFilter_chklstFilter3" type="checkbox" name="track" value="Foodservice" onclick="updateQueryString(this)" @(selectedTracks.Contains("foodservice") ? "checked" : "")>
+                    <label for="TracksFilter_chklstFilter3">Foodservice</label>
+                    <input id="TracksFilter_chklstFilter4" type="checkbox" name="track" value="Fuels" onclick="updateQueryString(this)" @(selectedTracks.Contains("fuels") ? "checked" : "")>
+                    <label for="TracksFilter_chklstFilter4">Fuels</label>
+                    <input id="TracksFilter_chklstFilter5" type="checkbox" name="track" value="Government-Relations" onclick="updateQueryString(this)" @(selectedTracks.Contains("government-relations") ? "checked" : "")>
+                    <label for="TracksFilter_chklstFilter5">Government Relations</label>
+                    <input id="TracksFilter_chklstFilter6" type="checkbox" name="track" value="HR-Labor" onclick="updateQueryString(this)" @(selectedTracks.Contains("hr-labor") ? "checked" : "")>
+                    <label for="TracksFilter_chklstFilter6">HR and Labor</label>
+                    <input id="TracksFilter_chklstFilter7" type="checkbox" name="track" value="Marketing" onclick="updateQueryString(this)" @(selectedTracks.Contains("marketing") ? "checked" : "")>
+                    <label for="TracksFilter_chklstFilter7">Marketing</label>
+                    <input id="TracksFilter_chklstFilter8" type="checkbox" name="track" value="Operations" onclick="updateQueryString(this)" @(selectedTracks.Contains("operations") ? "checked" : "")>
+                    <label for="TracksFilter_chklstFilter8">Operations</label>
+                    <input id="TracksFilter_chklstFilter9" type="checkbox" name="track" value="Professional-Development" onclick="updateQueryString(this)" @(selectedTracks.Contains("professional-development") ? "checked" : "")>
+                    <label for="TracksFilter_chklstFilter9">Professional Development</label>
+                    <input id="TracksFilter_chklstFilter10" type="checkbox" name="track" value="Supplier" onclick="updateQueryString(this)" @(selectedTracks.Contains("supplier") ? "checked" : "")>
+                    <label for="TracksFilter_chklstFilter10">Supplier</label>
+                    <input id="TracksFilter_chklstFilter11" type="checkbox" name="track" value="Technology" onclick="updateQueryString(this)" @(selectedTracks.Contains("technology") ? "checked" : "")>
+                    <label for="TracksFilter_chklstFilter11">Technology</label>
+                </span>
+                <script type="text/javascript">
+                    //function updateQueryString(element) {
+                        // let selectedTracks = [];
+                        // $('[id *= TracksFilter_chklstFilter]').each(function () {
+                        //     if ($(this).is(':checked')) {
+                        //         selectedTracks.push($(this).val());
+                        //     }
+                        // });
+                        // let queryString = selectedTracks.join(';');
+                        // let url = new URL(window.location.href);
+                        // url.searchParams.set('track', queryString);
+
+                        // // Preserve existing query string values
+                        // let newQueryString = url.searchParams.toString();
+                        // window.history.pushState({}, '', `${url.pathname}?${newQueryString}`);
+
+                        // Extract query string values and add them as hidden inputs to the form
+                        
+                            function updateQueryString(element) {
+                                let urlParams = new URLSearchParams(window.location.search);
+                                let combinedParams = {};
+
+                                urlParams.forEach((value, key) => {
+                                    if (combinedParams[key]) {
+                                        combinedParams[key] += ';' + value;
+                                    } else {
+                                        combinedParams[key] = value;
+                                    }
+                                });
+
+                                for (let key in combinedParams) {
+                                    $('<input>').attr({
+                                        type: 'hidden',
+                                        name: key,
+                                        value: combinedParams[key]
+                                    }).appendTo('#sessionSearchForm');
+                                }
+                            }
+                        
+                    //}
+                </script>
+            </div>
+            <div class="search-filter-horizontal wide tracks" id="tracks-filter-mobile">
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        //clear on click
+                        $('#track-filter-clear').on('click', function () {
+                            $('[class *= ContentCheckBoxList]').find('input[type="checkbox"]').each(function () {
+                                $(this).prop("checked", false);
+                            });
+                            $("form").trigger('submit');
+                        });
+
+                        //change title - add "clear" link
+                        $('[id *= TracksFilter_chklstFilter]').on('click', function () {
+                            $('#track-filter-title').hide();
+                            $('#track-filter-clear').show();
+                        });
+                    });
+                </script>
+                <a id="track-filter-clear" style="display:none;cursor:pointer;"><i class="fa fa-times fa-lg"></i>&nbsp;Clear Track Filters</a>
+                <style type="text/css">
+                    h1 {
+                        color: green;
+                    }
+
+                    .multipleSelection {
+                        width: 300px;
+                    }
+
+                    .selectBox {
+                        position: relative;
+                    }
+
+                        .selectBox select {
+                            width: 250px;
+                            padding: .75rem 1.5rem;
+                            border-radius: 100em;
+                            font-weight: 600;
+                            border: solid .0625rem var(--color-pink);
+                            color: var(--color-pink);
+                            background-image: url(/_content/NACSShow/img/icon-select-list-open-pink.png)
+                        }
+
+                    .overSelect {
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                    }
+
+                    #checkBoxes {
+                        display: none;
+                        background-color: #fff;
+                    }
+
+                        #checkBoxes label {
+                            display: block;
+                        }
+
+                            #checkBoxes label:hover {
+                                background-color: var(--color-pink);
+                                color: white;
+                                /* Added text color for better visibility */
+                            }
+                </style>
+
+
+                <div class="multipleSelection">
+
+                    <div class="selectBox" onclick="showCheckboxes()">
+                        <span id="track-filter-title" style="font-size:1rem;font-weight:700"><i class="fa fa-filter fa-lg"></i>&nbsp;</span>
+                        <select>
+                            <option>Select tracks to view</option>
+                        </select>
+                        <div class="overSelect"></div>
+                    </div>
+
+                    <div id="checkBoxes">
+                        <!--TODO: List of checkboxes / tags for mobile goes here-->
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                let show = true;
+
+                function showCheckboxes() {
+                    let checkboxes = document.getElementById("checkBoxes");
+
+                    if (show) {
+                        checkboxes.style.display = "block";
+                        show = false;
+                    } else {
+                        checkboxes.style.display = "none";
+                        show = true;
+                    }
+                }
+            </script>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            <style type="text/css">
+                .search-filter-horizontal input {
+                    padding: .75rem 1.5rem;
+                    border-radius: 100em;
+                    font-weight: 600;
+                }
+            </style>
+
+            <div class="search-filter-horizontal wide segments" style="margin-bottom:2em" id="keyword-search-filter">
+                <p><span id="segment-filter-title" style="font-size:1rem;font-weight:700"><i class="fa fa-search fa-lg"></i>&nbsp;Search by keyword:</span></p>
+                                          
+                    <div class="row justify-content-center">
+                        <div class="col-sm-10 col-lg-7">
+                            <div class="input-group">
+                                <input asp-for="@Model.Query" type="text" id="keyword-search" class="form-control long-search"
+                                        aria-label="Search" aria-describedby="submitSearch" value="@Model?.Query" placeholder="press enter to search">
+                                @* <button class="btn my-2 my-sm-0 button-go" type="submit" id="submitSearch">
+                                <i class="fa fa-search"></i>
+                                </button> *@
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <style type="text/css">
+                .search-filter-horizontal input {
+                    padding: .75rem 1.5rem;
+                    border-radius: 100em;
+                    font-weight: 600;
+                }
+            </style>
+
+            <div class="search-filter-horizontal wide segments" style="margin-bottom:2em" id="keyword-search-filter-mobile">
+                <span style="font-size:1rem;font-weight:700">
+                    <i class="fa fa-search fa-lg"></i>&nbsp;
+                    <!--TODO: Mobile search box goes here-->
+                </span>
+            </div>
+            <br>
+            <div class="search-filter-horizontal saved">
+                <script type="text/javascript">
+                    $(document).ready(function () {
+
+                        //change title - add "clear" link
+                        $('[id *= MySessions_chklstFilter]').attr('data-toggle', 'toggle');
+
+                    });
+                </script>
+                <span class="ContentCheckBoxList checkbox-list-horizontal checkbox">
+                    <!--TODO: Input and label for My Saved Sessions Button-->
+                </span>
+            </div>
+            <br>
+            <div class="search-filter-horizontal translated">
+                <span class="ContentCheckBoxList checkbox-list-horizontal checkbox">
+                    <!--TODO: Input and label for Translated Button-->
+                </span>
+            </div>
+        </div>
+    </div>
+</form>

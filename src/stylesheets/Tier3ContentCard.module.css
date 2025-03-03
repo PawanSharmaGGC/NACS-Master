@@ -1,0 +1,43 @@
+.main_card{
+    width: 30vw;
+}
+.slider_card {
+    background-color: #DBEAB9;
+    border-radius: 18px
+}
+
+.active_slider_card {
+    background-color: #0053A5;
+    border-radius: 18px
+}
+
+  /* Default styles for the cards container */
+.container_div {
+    max-height: 50vh;
+    display: flex;
+    flex-wrap: wrap;   /* Allow wrapping for mobile */
+    gap: 16px;         /* Space between cards */
+    padding: 10px;
+    justify-content: flex-start;
+    overflow: auto;
+  }
+  
+  /* Style for individual cards */
+  .flex_card {
+    height: 200px;     /* Fixed height for the card */
+    transition: transform 0.3s ease;
+  }
+  
+  .flex_card:hover {
+    transform: translateY(-10px); /* Hover effect */
+  }
+
+  @media only screen and (max-width: 480px) {
+    .main_card {
+        width: 100vw;
+    }
+
+}
+  
+
+  

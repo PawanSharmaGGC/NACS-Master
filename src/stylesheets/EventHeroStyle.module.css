@@ -1,0 +1,46 @@
+.hero_card {
+    display: flex;
+}
+
+.sponsor_hero_img {
+    left: 60%;
+    top: 7%;
+}
+
+.sponsor_title {
+    font-size: 2.5rem !important;
+}
+
+.btn_section {
+    flex-direction: column;
+    justify-content: start;
+    align-items: baseline;
+}
+
+.slider_container {
+    width: 70vw !important;
+    overflow: hidden !important;
+    padding: 35px;
+}
+
+
+@media only screen and (max-width: 480px) {
+    .btn_section {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hero_card {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .sponsor_title {
+        font-size: 1.5rem !important;
+    }
+
+    .slider_container {
+        width: 100vw !important;
+        padding: 20px;
+    }
+}

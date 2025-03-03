@@ -1,0 +1,21 @@
+﻿@using NACSShow.Components.Widgets.MYSPlannerButtonsWidget
+@using Kentico.PageBuilder.Web.Mvc
+
+@model MYSPlannerButtonsWidgetViewModel
+
+<div class='planner-button' style="width:60rem;text-align:left;margin:auto">
+
+    <p><label for="_lbError" id="_lblError">@Model.ErrorMessage</label></p>
+    
+    <a href="@Model.PlanButtonLink" id="planButtonLink" class="link link--pill text--white fill--gradient-pacific-blue-to-bondi-blue">@Model.PlanButtonText</a><br />
+    Once you click this button, any sessions favorited on this site will sync to your NACS Show Planner.
+
+    <p>
+        <div id="pnlSavedItemsToSync" class="panel"> @*style="display: none;"*@
+            <!-- Panel content goes here -->
+            @Html.Raw(Model.SavedItemsToSync)
+        </div>
+    </p>
+</div>
+
+

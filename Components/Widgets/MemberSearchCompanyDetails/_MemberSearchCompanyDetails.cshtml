@@ -1,0 +1,73 @@
+﻿@model Convenience.org.Components.Widgets.MemberSearchCompanyDetails.MemberSearchCompanyDetailsViewModel
+
+<form asp-controller="MemberSearchCompanyDetails" asp-formaction="AddRemoveCompany" method="post">
+    @if (Model != null)
+    {
+        <div class="company-details">
+            <h2>Company Details</h2>
+            <ul>
+                <li><strong>Name:</strong> @Model.Name</li>
+                <li><strong>Account Type:</strong> @Model.AccountTypeName</li>
+                <li><strong>Address:</strong> @Model.Address</li>
+                <li><strong>Website:</strong> <a href="@Model.WebsiteUrl" target="_blank">@Model.WebsiteUrl</a></li>
+                <li><strong>Phone:</strong> @Model.Telephone</li>
+                <li><strong>Total Stores:</strong> @Model.TotalStores</li>
+            </ul>
+        </div>
+        <button id="btnSaveCompany" type="button" data-command="@(@Model.IsSaved ? "remove" : "add")">
+            @(@Model.IsSaved ? "Remove" : "Save")
+        </button>
+        <p id="statusMessagePersonDetails"></p>
+
+        @await Component.InvokeAsync("MemberSearchCompanyPeople", new { accountId = Model.AccountId })
+
+    }
+    else
+    {
+        <p>No company found.</p>
+    }
+</form>
+
+<script>
+    function initializeCompnayDetailsWidget() {
+        document.getElementById("btnSaveCompany").onclick = async (event) => {
+            event.preventDefault();
+
+            const command = event.target.getAttribute("data-command");
+            const statusMessage = document.getElementById("statusMessagePersonDetails");
+
+            statusMessage.innerHTML = "Updating...";
+
+            try {
+                const response = await fetch('/MemberSearchCompanyDetails/AddRemoveCompany', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        Command: command,
+                        AccountType: "@Model.AccountTypeName",
+                        Name: "@Model.Name",
+                        AccountId: "@Model.AccountId"
+                    })
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    event.target.innerHTML = result.text;
+                    event.target.setAttribute("data-command", result.command);
+                    statusMessage.innerHTML = result.command;
+                } else {
+                    statusMessage.innerHTML = "Failed to update.";
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                statusMessage.innerHTML = "An error occurred.";
+            }
+        };
+    }
+
+    document.addEventListener("DOMContentLoaded", initializeCompnayDetailsWidget);
+    initializeCompnayDetailsWidget();
+</script>
+

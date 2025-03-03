@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitemcommondata>
+  <ContentItemCommonDataContentItemID>
+    <CodeName>Issues-4oyit0bg</CodeName>
+    <GUID>31d5ab8c-da48-4f28-ab77-9bc4f36639de</GUID>
+    <ObjectType>cms.contentitem</ObjectType>
+  </ContentItemCommonDataContentItemID>
+  <ContentItemCommonDataContentLanguageID>
+    <CodeName>en</CodeName>
+    <GUID>2cce1e88-3d98-4dd9-8c2d-4dd1c46a81bf</GUID>
+    <ObjectType>cms.contentlanguage</ObjectType>
+  </ContentItemCommonDataContentLanguageID>
+  <ContentItemCommonDataFirstPublishedWhen>2024-06-27 21:20:31Z</ContentItemCommonDataFirstPublishedWhen>
+  <ContentItemCommonDataGUID>31c4bf8d-04d9-498d-a5b5-41eaa24dc477</ContentItemCommonDataGUID>
+  <ContentItemCommonDataIsLatest>True</ContentItemCommonDataIsLatest>
+  <ContentItemCommonDataLastPublishedWhen>2024-10-21 18:45:19Z</ContentItemCommonDataLastPublishedWhen>
+  <ContentItemCommonDataPageTemplateConfiguration>
+    <![CDATA[{"identifier":"NACSMagazine.ArchivePage","properties":null,"fieldIdentifiers":null}]]>
+  </ContentItemCommonDataPageTemplateConfiguration>
+  <ContentItemCommonDataVersionStatus>2</ContentItemCommonDataVersionStatus>
+  <ContentItemReferences>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>38477ee8-a173-47d6-bbe4-8f824db7cd51</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>c8e71fa6-4119-41ee-a6f5-d877823faecd</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>31c4bf8d-04d9-498d-a5b5-41eaa24dc477</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>May2024-tn3b0xqr</CodeName>
+        <GUID>2146b3be-f3c1-4f5c-acab-9b646c7f847e</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+    <cms.contentitemreference>
+      <ContentItemReferenceGroupGUID>38477ee8-a173-47d6-bbe4-8f824db7cd51</ContentItemReferenceGroupGUID>
+      <ContentItemReferenceGUID>cb937af6-d39a-48f1-98a5-bc134969a199</ContentItemReferenceGUID>
+      <ContentItemReferenceSourceCommonDataID>
+        <GUID>31c4bf8d-04d9-498d-a5b5-41eaa24dc477</GUID>
+        <ObjectType>cms.contentitemcommondata</ObjectType>
+      </ContentItemReferenceSourceCommonDataID>
+      <ContentItemReferenceTargetItemID>
+        <CodeName>Test-u0tmgxii</CodeName>
+        <GUID>c7372837-b5f6-412c-8442-489513330f7b</GUID>
+        <ObjectType>cms.contentitem</ObjectType>
+      </ContentItemReferenceTargetItemID>
+    </cms.contentitemreference>
+  </ContentItemReferences>
+</cms.contentitemcommondata>

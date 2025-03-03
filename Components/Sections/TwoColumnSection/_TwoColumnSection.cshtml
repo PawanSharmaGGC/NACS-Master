@@ -1,0 +1,33 @@
+﻿@using Convenience.org.Components.Sections.TwoColumnSection
+@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+
+@model ComponentViewModel<TwoColumnSectionProperties>
+
+@{
+	string leftSize = "6", rightSize = "6";
+
+	var width = Model.Properties?.SectionColumnWidth?.Split('-');
+	if (width != null && width.Length > 0)
+	{
+		leftSize = width[0];
+		if (width.Length > 1)
+		{
+			rightSize = width[1];
+		}
+	}
+}
+
+
+<div>
+	<div class="border border-0 card">
+		<div class="row">
+			<div class="col-lg-@leftSize col-@leftSize">
+				<widget-zone itemid="LeftWidgetArea" />
+			</div>
+			<div class="col-lg-@rightSize col-@rightSize">
+				<widget-zone itemid="RightWidgetArea" />
+			</div>
+		</div>
+	</div>
+</div>

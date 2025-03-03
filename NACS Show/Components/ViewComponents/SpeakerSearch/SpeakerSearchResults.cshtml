@@ -1,0 +1,397 @@
+﻿@using NACSShow.Components.ViewComponents.SpeakerSearch
+
+@model SpeakerSearchViewModel
+
+<div class="wrapper">
+    <form method="get" id="speakerSearchForm">
+        <!--Filters - Track-->
+        <div class="search-filter-horizontal wide tracks">
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+
+                //clear on click
+                $('#track-filter-clear').click(function () {
+                $('[class *= ContentCheckBoxList]').find('input[type="checkbox"]').each(function () {
+                $(this).prop("checked", false);
+                });
+                $("form").submit()
+
+                //change title - add "clear" link
+                $('[id *= TracksFilter_chklstFilter]').click(function () {
+                $('#track-filter-title').hide();
+                $('#track-filter-clear').show();
+                });
+                });
+                });
+            </script>
+
+            <span id="track-filter-title"><i class="fa fa-filter fa-lg"></i>&nbsp;Filter by Track:&nbsp;</span>
+            <a id="track-filter-clear" style="display:none;cursor:pointer;"><i class="fa fa-times fa-lg"></i>&nbsp;Clear Track Filters</a>
+            <span class="ContentCheckBoxList checkbox-list-horizontal checkbox">
+                @foreach(var tag in Model.Tracks)
+                {
+                    var selected = Model.QueryStringValues.ContainsKey("track") && Model.QueryStringValues["track"].Any(q => q == tag.DisplayName.ToString()) ? "checked" : "";
+                    <input id="@tag.DisplayName.TrimStart().TrimEnd().Replace(' ', '-')" type="checkbox" value="@tag.DisplayName" @selected />
+                    <label for="@tag.DisplayName.TrimStart().TrimEnd().Replace(' ', '-')">@tag.DisplayName</label>
+                }
+            </span>            
+        </div>
+        <!--End Track-->
+        <!--Keyword-->
+        <style type="text/css">
+            .SearchFilterField {
+            width: 400px !important;
+            }
+            /* media screen and (max-width: 48rem){
+            .SearcdhFilterField {
+            width:300px;
+            }
+            } */     
+        </style>
+
+        <div class="search-filter-horizontal">
+            <i class="fa fa-search fa-lg"></i>&nbsp;
+            @{
+                string searchTerm = (Model.QueryStringValues.ContainsKey("query") && !string.IsNullOrWhiteSpace(Model.QueryStringValues["query"])) ? Model.QueryStringValues["query"] : "";
+                <input name="query" class="SearchFilterField form-control" placeholder="search by keyword" value="@searchTerm" />
+            }
+            
+        
+        </div>
+        <br />
+        <!--End Keyword-->
+        <!--Company-->
+        <style type="text/css">
+            #p_lt_ctl07_pageplaceholder_p_lt_ctl03_CompanyFilter_drpFilter {
+                width: 400px;
+            }
+            /* media screen and (max-width: 48rem){
+                                          #p_lt_ctl07_pageplaceholder_p_lt_ctl03_CompanyFilter_drpFilter {
+                                            width:300px;
+                                          }
+                                        } */
+        </style>
+
+        <div class="search-filter-horizontal">
+            <i class="fa fa-building fa-lg"></i>&nbsp;
+            <select id="company" name="company">
+                <option value="" selected>ALL Companies</option>
+                @foreach(var company in Model.Companies)
+                {
+                    @if(Model.QueryStringValues.ContainsKey("company"))
+                    {
+                        var selected = Model.QueryStringValues["company"].Contains(company.Replace(' ', '+')) ? "selected" : "";
+                        <option value="@company" selected="@selected">@company</option>
+                    }                  
+                
+                }
+            </select>
+        </div>
+        <div class="clear"></div>
+        <!--End Company-->
+    </form>
+    
+    <!--Search Results-->
+    <div class="speaker-search-results">
+        <style type="text/css">
+            /* Speaker Search Results - BSM 5/29/2019 */
+            /*FILTERS, FRAME */
+              .search-filter-horizontal
+              {
+                font-size: 0.9rem;
+                display:inline-block;
+                max-width:100%;
+                padding:10px;
+                float:left;
+                color:#666;
+                margin: 0px 10px;
+              }
+              /* .speaker-search-watermark
+              {
+                color:#ccc;
+              } */
+              .search-filter-horizontal input
+              {
+                display:inline-block;
+              }
+              .search-filter-horizontal input.form-control, .search-filter-horizontal select.form-control
+              {
+                width:auto;
+                display:inline-block;
+              }
+              .search-filter-horizontal.wide
+              {
+                max-width:50%;
+              }
+
+              .search-filter-horizontal span input
+              {
+                display:none;
+                margin:5px;
+              }
+              .search-filter-horizontal span label
+              {
+                margin:3px;
+                display:inline-block;
+                padding:5px;
+                /*border:2px solid #ccc;*/
+                color:#999;
+                /*font-weight:bold;*/
+              }
+              .search-filter-horizontal span label:before
+              {
+                content: '\f02b';
+                font-family: 'Font Awesome 5 Pro';
+                margin-right:3px;
+              }
+
+              .search-filter-horizontal span label:hover
+              {
+                margin:3px;
+                display:inline-block;
+                padding:5px;
+                /*border:2px solid #e0007a;*/
+                color:#e0007a;
+                cursor:pointer;
+                font-weight:bold;
+              }
+
+              .search-filter-horizontal span input:checked + label
+              {
+                margin:3px;
+                /*order:2px solid #e0007a;*/
+                color:#e0007a;
+                font-weight:bold;
+              }
+              .search-filter-view
+              {
+                /*float:right;*/
+                display:inline-flex;
+                align-items:center;
+                padding:10px;
+                font-size:14px;
+                float:right;
+              }
+              .search-filter-view span#toggle-hide
+              {
+                /*color:#e0007a;*/
+                font-weight:bold;
+              }
+              .view-toggle-fa
+              {
+                /*color:#e0007a;*/
+                display:inline-block;
+                cursor:pointer;
+              }
+            .gridview-toggle-fa
+              {
+                /*color:#e0007a;*/
+                display:inline-block;
+                cursor:pointer;
+              }
+
+
+            /* Speaker Listings */
+              div.speaker-search-results
+              {
+                overflow: hidden;
+              }
+              div.speaker-listing-info
+              {
+                padding:10px;
+                height:400px;
+                margin:20px;
+                /*margin-bottom:20px;*/
+                float:left;
+                max-width:220px;
+                /*padding-bottom: 99989px; margin-bottom: -99969px;*/
+                width:100%;
+                /*border: 1px solid #333;*/
+              }
+
+              div.speaker-listing-info span.jobtitle
+              {
+                font-weight:bold;
+              }
+
+             div.session-filter-info
+              {
+                  padding:10px 0px 10px 0px;
+                  display:inline-block;
+                  /*float:left;*/
+              }
+              div.session-search-results-data
+              {
+                  padding:10px 0px 10px 10px;
+                  display:inline-block;
+                  /*float:right;*/
+              }
+            .session-date-header
+              {
+                 font-size: 1.5em;
+                 font-weight: 700;
+                 color: #004c97;
+                padding:10px;
+              clear:both;
+
+              }
+
+            div.speaker-listing-info span.title
+              {
+                font-weight:bold;
+                font-size:1.3rem;
+              }
+            div.speaker-listing-info span.track
+              {
+                font-weight:normal;
+                /*color:#e0007a;*/
+                /*margin:5px;*/
+                display:inline-block;
+                padding:5px;
+                /*border:1px solid #999;*/
+                color:#999;
+                font-size:0.9em;
+              }
+
+            div.speaker-listing-info span.segment-tag
+              {
+                font-weight:bold;
+                display:inline-block;
+                color:#fff;
+                font-size:16px;
+                padding:2px 7px;
+                margin:5px;
+
+              }
+            div.speaker-listing-info a.link-details
+              {
+                font-size:12px;
+              }
+
+            /* media screen and (max-width:479px) {
+                div.speaker-listing-info
+                {
+                  margin:10px;
+                  max-width:11rem;
+                  height:360px;
+                  width:100%;
+                  float:left;
+                }
+
+                div.speaker-listing-info span.title
+                {
+                  font-size:1.2rem;
+                }
+                div.speaker-listing-info span.jobtitle
+                {
+                  font-size:1.0rem;
+                }
+                div.search-filter-horizontal, div.search-filter-horizontal.wide
+                {
+                  font-size:0.9rem;
+                  width:100%;
+                  max-width:380px;
+                }
+                div.search-filter-horizontal select.form-control, div.search-filter-horizontal input.form-control
+                {
+                  font-size:0.9rem;
+                  width:220px;
+                }
+              } */
+
+            div .speaker-listing-info img{
+              border-radius: 50%;
+              }
+        </style>
+        @foreach (var speaker in Model.Speakers)
+        {
+            <div class="speaker-listing-info">
+                @* <p>
+                    @speaker.Image == null ? @Html.Raw("<img class='speaker-rollup-headshot-fix' style='border: 0px' alt='" + speaker.Title + "' src='/CMSPages/GetFile.aspx?guid=6cb2f97f-ffc1-4a74-92e1-8021499d9f83'/>") : @Html.Raw("<img class='speaker-rollup-headshot-fix' style='border: 0px;' alt='" + speaker.Title + "' src='/CMSPages/GetFile.aspx?guid=" + speaker.Image + "'/>")
+                </p> *@
+                <p>
+                    <span class="title">
+                        @* <a href="">@speaker.Title</a> *@ @speaker.FirstName @speaker.LastName
+                    </span>
+                    <br />
+                    <span class="jobtitle">
+                        @speaker.JobTitle
+                    </span>
+                    <br />
+                    <span class="company">
+                        @speaker.Company
+                    </span>
+                    <br />
+                    <span class="track">
+
+                        @* TODO: We will need to iterate through the selected category tags and display them
+                    {%
+
+                    foreach (trk in GetSearchValue("Track").Split("|")) {
+                    "<i class='fa fa-tag fa-sm'></i>&nbsp;" + trk + "<br/>";
+                    }
+
+
+                    #%} *@
+
+                    </span>
+                </p>
+            </div>
+        }
+    </div>
+</div>
+<!--End Search Results-->
+@* <style type="text/css">
+    .progress-overlay {
+        position: fixed;
+        background-color: rgba(255,255,255,0.7);
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        color:var(--color-pacific-blue);
+        text-align: center;
+        z-index:1000;
+    }
+
+    .progress-overlay-spinner {
+        /*margin-top:25%;
+        color:var(--color-pacific-blue);
+        text-align: center;*/
+        position: absolute;
+        top: 40%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .progress {
+        position: relative;
+    }
+</style> *@
+
+@* <div class="progress-overlay" id="loadingDiv">
+    <div class="progress-overlay-spinner">
+        <i class="far fa-circle-notch fa-5x fa-spin"></i>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var $loading = $('#loadingDiv');
+    $loading.hide();
+
+    var prm = Sys.WebForms.PageRequestManager.getInstance();
+
+    prm.add_beginRequest(function() {
+        var $loading = $('#loadingDiv')
+        $loading.show();
+    });
+    prm.add_endRequest(function() {
+        var $loading = $('#loadingDiv')
+        $loading.hide();
+    });
+
+</script> *@

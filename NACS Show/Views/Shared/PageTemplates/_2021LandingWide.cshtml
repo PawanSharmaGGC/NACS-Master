@@ -1,0 +1,89 @@
+﻿@using NACSShow
+<vc:current-page-data />
+@{
+    Page currentPageData = TempData["CurrentPageData"] as Page ?? new Page();
+}
+
+@if (currentPageData != null)
+{
+    <!-- BANNER -->
+    <section class="header--banner row center-xs margins-none">
+        <div class="container-fluid">
+            <div class="row center-xs">
+                <div class="col-xs-12">
+                    @if (!string.IsNullOrEmpty(currentPageData.SectionHeader) || !string.IsNullOrEmpty(currentPageData.Title))
+                    {
+                        <div class="section--title-text-white">
+                            @ValidationHelper.GetString(currentPageData.SectionHeader, currentPageData.Title)
+                        </div>
+                    }
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="text--white">
+                        @ValidationHelper.GetString(currentPageData.SubHead, string.Empty)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+@if (currentPageData != null)
+{
+    <!-- Text Section -->
+    <section class="row center-xs section--margins">
+        @if (!string.IsNullOrEmpty(currentPageData.Description))
+        {
+            <div class="text--sapphire width60">
+                @ValidationHelper.GetString(currentPageData.Description, string.Empty)
+            </div>
+        }
+    </section>
+}
+
+<!-- We Got This -->
+<section class="row center-xs">
+    <div class="section--margins-x ">
+        <editable-area area-identifier="zoneHeaderImage"></editable-area>
+    </div>
+</section>
+
+<section class="main-content">
+    <editable-area area-identifier="ContentWidgetZone1"></editable-area>
+    <editable-area area-identifier="ContentZone"></editable-area>
+    <!-- Medium Rectangle Ad -->
+    <div class="row center-xs section--padded--secondary">
+        <div class="col-xs-12">
+            <div class="wrapper container">
+                <div class="ad">
+                    <div class="ad__wrapper">
+                        <editable-area area-identifier="AdZone"></editable-area>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <editable-area area-identifier="ContentWidgetZone2"></editable-area>
+</section>
+<section>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="wrapper container">
+                <div class="block--sponsorship">
+                    <div class="ad">
+                        <div class="ad__wrapper">
+                            <div class="multi-ad-container">
+                                <editable-area area-identifier="AdZone1"></editable-area>
+                                <editable-area area-identifier="AdZone2"></editable-area>
+                                <editable-area area-identifier="AdZone3"></editable-area>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

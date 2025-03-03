@@ -1,0 +1,74 @@
+﻿@using Kentico.Content.Web.Mvc.PageBuilder
+@using NACSShow
+
+<vc:current-page-data />
+@{
+    Video currentPageData = TempData["CurrentPageData"] as Video ?? new Video();
+    Layout = "~/Features/Shared/NACSShow/_Layout.cshtml";
+}
+
+@section styles {
+    <style>
+        .header-image {
+            display: none
+        }
+
+        .tabs {
+            display: none
+        }
+
+        .green-container {
+            background: #62bb46;
+            border-radius: 5px;
+            padding: 15px;
+            color: #fff;
+            margin: 15px 0;
+        }
+    </style>
+}
+
+<section class="section--margins section--margins-x-xl">
+    <div class="container main-content">
+        <div class="row center-xs">
+            <div class="margin-bottom-md">
+                <editable-area area-identifier="editableTitleZone1"></editable-area>
+                <vc:full-width-page-title section-header="@currentPageData.SectionHeader" title="@currentPageData.Title"></vc:full-width-page-title>
+                <editable-area area-identifier="editableTitleZone2"></editable-area>
+            </div>
+            <div class="margin-bottom-md col-xs-12" style="margin-bottom:0">
+                <editable-area area-identifier="editableZoneHeaderImage"></editable-area>
+            </div>
+            <div class="start-xs col-xs-10 col-md-12">
+                <editable-area area-identifier="editableContentWidgetZone1"></editable-area>
+                <vc:video-page-contents page-model="@currentPageData"></vc:video-page-contents>
+                <div class="green-container">
+                    Share this video:
+                </div>
+                <editable-area area-identifier="editableContentZone"></editable-area>
+            </div>
+        </div>
+        <editable-area area-identifier="editableContentWidgetZone2"></editable-area>
+    </div>
+</section>
+
+
+
+<section>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="wrapper container">
+                <div class="block--sponsorship">
+                    <div class="ad">
+                        <div class="ad__wrapper">
+                            <div class="multi-ad-container">
+                                <editable-area area-identifier="editableAdZone"></editable-area>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

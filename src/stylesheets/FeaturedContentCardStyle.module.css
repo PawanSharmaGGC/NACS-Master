@@ -1,0 +1,45 @@
+.section_card {
+    border-radius: 18px !important;
+    overflow: hidden;
+    box-shadow: rgba(100, 100, 111, 0.2) 8px 8px 8px 0px;
+}
+
+.section_body_card{
+    flex-direction: row;
+}
+
+.slider_card_badge {
+    background-color: #DBEAB9;
+    padding: 3px 15px 3px 15px;
+    border-radius: 18px;
+    height: fit-content;
+}
+
+.section_body_img {
+    float: left;
+    border-radius: 100% !important;
+}
+
+.profile_image{
+    width: 40px;
+    height: 40px;
+    border-radius: 100% !important;
+}
+
+.content_image{
+    width: 40vw;
+    height: 40vh;
+}
+
+@media only screen and (max-width: 480px) {
+    .section_card {
+        width: 93vw;
+    }
+    .section_body_card{
+        flex-direction: column;
+    }
+    .content_image{
+        width: 82vw;
+        height: 25vh;
+    }
+}

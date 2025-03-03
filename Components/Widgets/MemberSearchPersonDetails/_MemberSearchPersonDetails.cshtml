@@ -1,0 +1,62 @@
+﻿@model Convenience.org.Components.Widgets.MemberSearchPersonDetails.MemberSearchPersonDetailsViewModel
+
+
+<form asp-controller="MemberSearchPersonDetails" asp-formaction="AddRemovePerson" method="post">
+    <div id="personDetailsWidget" style="padding: 20px;">
+        <h4>@Model.PaLabelName</h4>
+        <p>Account Name: @Model.AccountName</p>
+        <p>Job Title: @Model.JobTitle</p>
+        <p>City: @Model.City</p>
+        <p>State: @Model.StateOrProvince</p>
+        <button id="btnSavePerson" type="button" data-command="@(@Model.IsSaved ? "remove" : "add")">
+            @(@Model.IsSaved ? "Remove" : "Save")
+        </button>
+        <p id="statusMessagePersonDetails"></p>
+    </div>
+    
+    @* @Html.Kentico().PageData() *@
+</form>
+
+<script>
+    function initializePersonDetailsWidget() {
+        document.getElementById("btnSavePerson").onclick = async (event) => {
+            event.preventDefault();
+
+            const command = event.target.getAttribute("data-command");
+            const statusMessage = document.getElementById("statusMessagePersonDetails");
+
+            statusMessage.innerHTML = "Updating...";
+
+            try {
+                const response = await fetch('/MemberSearchPersonDetails/AddRemovePerson', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ 
+                        Command: command,
+                        ContactId: "@Model.ContactId",
+                        PaLabelName: "@Model.PaLabelName",
+                        AccountName: "@Model.AccountName",
+                        AccountId: "@Model.AccountId"
+                    })
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    event.target.innerHTML = result.text;
+                    event.target.setAttribute("data-command", result.command);
+                    statusMessage.innerHTML = result.command;
+                } else {
+                    statusMessage.innerHTML = "Failed to update.";
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                statusMessage.innerHTML = "An error occurred.";
+            }
+        };
+    }
+
+    document.addEventListener("DOMContentLoaded", initializePersonDetailsWidget);
+    initializePersonDetailsWidget();
+</script>

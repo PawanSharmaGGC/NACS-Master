@@ -1,0 +1,525 @@
+﻿@using Convenience.org.Models
+
+@model GoodJobCalculatorViewModel
+
+@{
+    int currentStep = Model.CurrentStep;
+}
+
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css" />
+<script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/jquery.min.js"></script>
+<script type="text/javascript" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/bundles/4.19.1/compiled-addons.min.js"></script>
+
+<script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
+<link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'
+    media="screen" />
+
+        
+
+<script type="text/javascript">
+        function ShowPopup(title, body) {
+            $("#MyPopup .modal-title").html(title);
+            $("#MyPopup .modal-body").html(body);
+            $("#MyPopup").modal("show");
+        }
+
+        //Method using JavaScript
+        function Redirect() {
+            //specify your URL here..
+            window.location.href = 'https://www.GoodJobsInstitute.org/';
+        }
+
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
+    </script>
+
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
+<style>
+    .body {
+        background-color: #f1f1f1;
+        min-width: 350px;
+    }
+
+    .regForm {
+        background-color: #ffffff;
+        margin: auto;
+        font-family: Raleway;
+        width: 70%;
+        min-width: 350px !important;
+    }
+
+    fieldset label {
+        color: #000;
+        width: auto;
+        font-weight: 400;
+    }
+
+    fieldset input {
+        padding: 5px;
+        margin: 10px 0;
+    }
+
+    .ctrl-container {
+        min-width: 350px !important;
+        border: 2px solid #005f9e;
+        border-radius: 6px;
+        margin: 15px 15px 0 0;
+        width: 48%;
+        float: left;
+    }
+
+    .ctrl-header {
+        background-color: #005f9e;
+        padding: 10px;
+        color: #fff;
+    }
+
+        .ctrl-header h4 {
+            margin-bottom: 0 !important;
+            color: #fff !important;
+        }
+
+    .ctrl-content {
+        padding: 20px;
+    }
+
+    #prevBtn {
+        background-color: #bbbbbb;
+    }
+
+    /* Make circles that indicate the steps of the form: */
+    .step {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        margin-top: 15px;
+        background-color: #bbbbbb;
+        border: none;
+        border-radius: 50%;
+        display: inline-block;
+        opacity: 0.5;
+    }
+
+        .step.active {
+            opacity: 1;
+        }
+
+        /* Mark the steps that are finished and valid: */
+        .step.finish {
+            background-color: #4CAF50;
+        }
+
+    .clear {
+        clear: both;
+    }
+
+    /* -------------------------------------------- */
+    .rTable {
+        display: table;
+        width: 100%;
+    }
+
+    .rTableRow {
+        display: table-row;
+    }
+
+    .rTableHeading {
+        display: table-header-group;
+        background-color: #ddd;
+    }
+
+    .rTableCell1, .rTableHead1 {
+        display: table-cell;
+        width: 20%;
+        /* border: 1px solid #ffffff;*/
+        border: none;
+    }
+
+    .rTableCell2, .rTableHead2 {
+        display: table-cell;
+        width: 1%;
+        text-align: center;
+        /*border: 1px solid #ffffff; */
+        border: none;
+    }
+
+    .rTableCell3, .rTableHead3 {
+        display: table-cell;
+        width: 1%;
+        text-align: center;
+        /* border: 1px solid #ffffff;*/
+        border: none;
+    }
+
+    .rTableCell4, .rTableHead4 {
+        display: table-cell;
+        width: 2%;
+        text-align: center;
+        /*border: 1px solid #ffffff;*/
+        border-left: none;
+    }
+
+    .rTableHeading {
+        display: table-header-group;
+        background-color: #ddd;
+        font-weight: bold;
+    }
+
+    .rTableFoot {
+        display: table-footer-group;
+        font-weight: bold;
+        background-color: #ddd;
+    }
+
+    .rTableBody {
+        display: table-row-group;
+    }
+
+    .tooltip {
+        opacity: 1;
+        position: relative;
+        display: inline-block;
+    }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            font-size: small;
+            position: absolute;
+            z-index: 1;
+            bottom: 90%;
+            left: 90%;
+            margin-left: -60px;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+
+    /* WIZARD */
+    .stepNotCompleted {
+        background-color: #fff;
+        color: #60bc50 !important;
+        Opacity: 0.5;
+        border: none;
+        margin-right: 5px;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .stepCompleted {
+        background-color: #fff;
+        color: #60bc50 !important;
+        border: none;
+        margin-right: 5px;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .stepCurrent {
+        background-color: #fff;
+        color: #005f9e !important;
+        border: none;
+        margin-right: 5px;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .stepBreak {
+        width: 3px;
+        background-color: Transparent;
+    }
+
+    .wizardProgress {
+        padding-right: 10px;
+        font-family: Arial;
+        color: #333333;
+        font-size: 12px;
+    }
+
+    .wizardTitle {
+        font-family: Arial;
+        font-size: 120%;
+        font-weight: bold;
+        color: #333333;
+        vertical-align: middle;
+    }
+
+    .multi-range {
+        width: 70% !important;
+        float: left;
+    }
+
+    .thumb {
+        color: #60bc50;
+    }
+
+    input, select, textarea {
+        border: 1px solid #e4e4e4;
+        border-radius: 6px;
+        color: #727f8a;
+    }
+
+    .slider {
+        -webkit-appearance: none;
+        height: 10px;
+        border-radius: 5px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 1;
+        -webkit-transition: .5s;
+        transition: opacity .5s;
+        padding: 5px;
+    }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #60bc50;
+            cursor: pointer;
+        }
+
+        .slider:focus {
+            border: none;
+        }
+
+    #wizHeader li .prevStep {
+        /*background-color: #60bc50;*/
+        background-color: #fff;
+    }
+
+        #wizHeader li .prevStep:after {
+            /*border-left-color: #60bc50 !important;*/
+            background-color: #fff;
+        }
+
+    #wizHeader li .currentStep {
+        /*background-color: #0d2c6c;*/
+        background-color: #fff;
+    }
+
+        #wizHeader li .currentStep:after {
+            /*border-left-color: #0d2c6c !important;*/
+            background-color: #fff;
+        }
+
+    #wizHeader li .nextStep {
+        /*background-color: #C2C2C2;*/
+        background-color: #fff;
+    }
+
+        #wizHeader li .nextStep:after {
+            /*border-left-color: #C2C2C2 !important;*/
+            background-color: #fff;
+        }
+
+    #wizHeader {
+        list-style: none;
+        overflow: hidden;
+        font: 20px Helvetica, Arial, Sans-Serif;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+        #wizHeader li {
+            /*float: left;*/
+        }
+
+            #wizHeader li a {
+                font-size: 27px;
+                position: relative;
+                display: block;
+                float: left;
+                width: 227px;
+            }
+
+    .content {
+        height: 150px;
+        padding-top: 75px;
+        text-align: center;
+        background-color: #F9F9F9;
+        font-size: 48px;
+    }
+
+    .svg-inline--fa {
+        height: 1.1em !important;
+    }
+
+    .animated {
+        -webkit-animation-duration: 2.5s;
+        animation-duration: 1.5s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        -webkit-animation-iteration-count: infinite;
+    }
+
+    @@-webkit-keyframes bounce {
+        0%, 20%, 40%, 60%, 80%, 100% {
+            -webkit-transform: translateY(0);
+        }
+
+        50% {
+            -webkit-transform: translateY(-15px);
+        }
+    }
+
+    @@keyframes bounce {
+        0%, 20%, 40%, 60%, 80%, 100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-15px);
+        }
+    }
+
+    .bounce {
+        -webkit-animation-name: bounce;
+        animation-name: bounce;
+    }
+
+    #animated-example {
+        width: 50px;
+        height: 50px;
+        /*background-color: red;*/
+        position: relative;
+        top: -20px;
+        left: 20px;
+        border-radius: 50%;
+    }
+
+    .btn {
+        color: #60bc50 !important;
+        background-color: transparent !important;
+        margin: 0px 0px !important;
+        display: inline-block !important;
+        border: 0px solid #60bc50 !important;
+        padding: 5px 0px !important;
+        font-weight: 600 !important;
+        font-size: 20px !important;
+        text-align: center !important;
+    }
+
+        .btn:hover {
+            color: #60bc50 !important;
+            background-color: transparent !important;
+            margin: 0px 0px !important;
+            display: inline-block !important;
+            border: 0px solid #60bc50 !important;
+            padding: 5px 0px !important;
+            font-weight: 600 !important;
+            font-size: 20px !important;
+            text-align: center !important;
+        }
+
+    .span {
+        font-size: 35px !important;
+        font-weight: 700 !important;
+        color: #036 !important;
+        padding-right: 10px !important;
+    }
+
+        .span:hover {
+            font-size: 35px !important;
+            font-weight: 700 !important;
+            color: #036 !important;
+            padding-right: 10px !important;
+        }
+
+    .modal-footer {
+        padding: 0px 15px 0px 0px !important;
+        margin-top: 0px !important;
+        text-align: right !important;
+        border-top: 1px solid #e5e5e5 !important;
+    }
+</style>
+
+<div id="goodJobCalculatorContainer" style="width: 100%; margin: auto;">
+
+    <div id="_divHowToUse" runat="server" style="width: 100%; min-width: 350px; margin: auto;">
+        <div style="width: 81%; margin: 0px; padding: 0px; float: left;">
+            <p class="ms-rteStyle-Subheader"><strong>How to use this calculator?</strong></p>
+            <p>
+                Proceed through Step 1 and 2 to enter your company&#39;s information, which will feed the total financial benefit of implementing the Good Jobs
+                Strategy. On &quot;Step 3: Levers &amp; Results&quot;, you will have an opportunity to adjust how much benefit you think you&#39;ll be able to
+                gain from implementing the Good Jobs Strategy.
+            </p>
+        </div>
+        <div style="width: 17%; float: right; margin: 0px; padding: 0px;">
+            <img src="@Model.LogoImageUrl" />
+        </div>
+    </div>
+
+    <div class="clear"></div>
+    <br />
+
+    <div style="width: 100%; min-width: 350px!important; margin: auto;" id="_step">
+        <asp:LinkButton ID="SideBarButton" Text="" TabIndex="0" />
+    </div>
+
+    <div class="clear"></div>
+    <br />
+
+    @* Model popup *@
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="span">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="span">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3 style="color: #036!important;">Contact Us</h3>
+                    <p>Questions or issues while working through the calculator? We can help!</p>
+                    <span><strong>Please contact:</strong></span>
+                    <br>
+                    <a href="mailto:bridget.callaghan@goodjobsinstitute.org">Bridget (Callaghan) Mehmeti</a> at the <strong>Good Jobs Institute</strong>
+                    <br>
+                    <a href="mailto:kalloch@mit.edu">Sarah Kalloch</a> at <strong>MIT</strong>
+                    <br>
+                    <a href="mailto:jgough@convenience.org">Jayme Gough</a> at <strong>NACS</strong>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Wizard1" class="container" style="width: 100%; min-width: 350px; margin: auto;">
+        <div id="goodJobStepsContainer">
+
+            @{
+                string partialViewPath = "~/Components/Widgets/GoodJobCalculator/_GoodJobCalculatorStep" + currentStep + ".cshtml";
+            }
+            @Html.Partial(partialViewPath, Model)
+
+        </div>
+    </div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="~/static/js/goodjobcalculator.js"></script>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.navsecondlevel>
+  <ContentItemDataCommonDataID>
+    <GUID>9072a024-cd0c-4b1f-a52f-c738d7840d67</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>ExhibitorResourceCenter-s45jxasu</CodeName>
+      <GUID>2efa225d-9107-49b1-b41d-b625aa0dff46</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>f9724fc6-918e-4d41-8959-02f9609e8553</ContentItemDataGUID>
+  <Title>Exhibitor Resource Center</Title>
+  <URL>/Exhibit/Exhibitor-Resource-Center</URL>
+</contentitemdata.nacsshow.navsecondlevel>

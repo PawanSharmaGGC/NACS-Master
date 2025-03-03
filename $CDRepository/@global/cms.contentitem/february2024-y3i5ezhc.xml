@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contentitem>
+  <ContentItemContentFolderID>
+    <CodeName>Issues-njjf8z8q</CodeName>
+    <GUID>db8fc5f0-b14a-48a2-b680-b869457d4da7</GUID>
+    <ObjectType>cms.contentfolder</ObjectType>
+  </ContentItemContentFolderID>
+  <ContentItemContentTypeID>
+    <CodeName>NACSMagazine.Issue</CodeName>
+    <GUID>354c299c-6b86-4806-9007-0e772f233da0</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </ContentItemContentTypeID>
+  <ContentItemGUID>eec2dcad-9840-4c71-b150-650417a6fb4e</ContentItemGUID>
+  <ContentItemIsReusable>True</ContentItemIsReusable>
+  <ContentItemIsSecured>False</ContentItemIsSecured>
+  <ContentItemName>February2024-y3i5ezhc</ContentItemName>
+</cms.contentitem>

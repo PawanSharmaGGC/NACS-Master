@@ -1,0 +1,32 @@
+﻿@using Convenience.org.Components.Widgets
+@model NacsCtaCardNoImageViewModel
+
+@if (Model != null)
+{
+	<div>
+		<div class="border-0 p-3 card">
+			<div class="border-0 p-0 bg-trans CTACardNoImageStyle-module__section_card card">
+				<img class="position-absolute end-0 opacity-25 z-1 CTACardNoImageStyle-module__halftone_img" src="/static/media/halftone-pattern.9a85bacf11dbef8a7a02.png" alt="halftone-pattern">
+				<div class="p-4 CTACardNoImageStyle-module__section_body_card card-body">
+					<div>
+						<div class="text-start mb-4 border_left_white EyebrowTitleStyle-module__eyebrow">
+							<span class="ps-4 text-uppercase font-monospace color-FFFFFF">@Model.EyebrowTitle</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-7 col-sm-12 col-12 pt-3 fs-3 color-FFFFFF text-start">@Model.Title</div>
+							<div class="col-lg-5 col-sm-12 col-12 pt-4 pt-lg-1">
+								<div class="float-lg-end float-start">
+								<a href="@Model.CTALink" class="bg-FFFFFF p-3 border border-0 brdr-rad-30 text-decoration-none position-relative z-1">
+										<span><i class="align-middle color-0053A5 undefined undefined "></i></span>
+										<span class="color-0053A5 text-start pe-lg-2 ps-lg-2 fw-medium undefined">@Model.CTAText</span>
+										<span><i class="align-middle color-0053A5 fa-regular fa-arrow-right " aria-hidden="true"></i></span>
+									</a>
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+}

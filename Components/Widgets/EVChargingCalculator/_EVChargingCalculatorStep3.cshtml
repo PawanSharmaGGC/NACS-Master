@@ -1,0 +1,21 @@
+﻿@using Convenience.org.Models
+
+@model EVChargingCalculatorViewModel
+
+<div class="row" style="@(Model.CurrentStep == 3 ? "display:block" :"display:none")">
+
+@* @Html.Partial("~/Components/Widgets/EVChargingCalculator/_EVChargingCalculatorStepsHeading.cshtml", Model) *@
+
+<div class="clear"></div>
+
+    <div class="Row">
+        <div style="width: 100%; margin-top: 15px; margin: auto; min-width: 350px!important">
+                <input type="submit" id="prevStep" data-step="@(Model.CurrentStep - 1)" Class="button" Style="float: left; margin-bottom: 15px;" value="Direct Profit Modeling"></input>
+            
+                <a href="https://www.fuelsinstitute.org/About-Us" traget="_blank" style="text-decoration:none;">
+                <input type="submit" id="finishStep" data-step="@(Model.CurrentStep + 1)" Class="button" Style="float: right; margin-bottom: 15px;" value="Finish"></input>
+                </a>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿@using Convenience.org.Models
+@model Convenience.org.Models.AvatarsViewModel
+
+@if (Model != null)
+{
+    var size = Convert.ToDouble(Model.Size);
+    var width = $"{size}px";
+    var height = $"{size}px";
+    var fontSize = $"{0.4375 * size}px";
+    var style = $"width: {width}; height: {height}; font-size: {fontSize};";
+
+    @if (Model.IsName)
+    {
+        var avatarInitials = !string.IsNullOrWhiteSpace(Model.Name) && Model.Name.Trim().Contains(" ")
+        ? string.Concat(Model.Name.Trim().Split(' ').Where(n => !string.IsNullOrEmpty(n)).Take(2).Select(n => n[0])).ToUpper()
+        : "NA";
+
+        <div class="AvatarStyle-module__profile_name" style="@style">
+            <span class="v-align-middle">@avatarInitials</span>
+        </div>
+    }
+    else
+    {
+        <div>
+            <img class="rounded-circle" width="@Model.Size" height="@Model.Size" src="@Model.ImgSrc" alt="@(Model.Name ?? "Avatar")">
+        </div>
+    }
+}
+

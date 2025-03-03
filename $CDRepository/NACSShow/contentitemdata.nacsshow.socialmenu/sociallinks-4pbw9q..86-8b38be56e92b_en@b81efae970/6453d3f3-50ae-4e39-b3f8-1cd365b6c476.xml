@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.socialmenu>
+  <ContentItemDataCommonDataID>
+    <GUID>b154e542-c76d-499d-b986-8b38be56e92b</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>SocialLinks-4pbw9qdt</CodeName>
+      <GUID>ccfc3295-a60e-463d-a641-4f472eac0b07</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>6453d3f3-50ae-4e39-b3f8-1cd365b6c476</ContentItemDataGUID>
+  <Icon>
+    <![CDATA[<svg></svg>]]>
+  </Icon>
+  <MenuName>Facebook</MenuName>
+  <Url>https://facebook.com</Url>
+</contentitemdata.nacsshow.socialmenu>

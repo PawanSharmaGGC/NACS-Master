@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.resource>
+  <ResourceDisplayName>My NACS Saved Items</ResourceDisplayName>
+  <ResourceGUID>096f96de-7687-43ae-997a-c430005218da</ResourceGUID>
+  <ResourceIsInDevelopment>False</ResourceIsInDevelopment>
+  <ResourceName>MyNACSSavedItems</ResourceName>
+</cms.resource>

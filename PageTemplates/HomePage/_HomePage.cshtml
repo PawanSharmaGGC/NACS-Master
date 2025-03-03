@@ -1,0 +1,27 @@
+﻿@using Kentico.Content.Web.Mvc.PageBuilder
+@using Convenience.org
+@{
+	Layout = "~/Features/Shared/Convenience/_Layout.cshtml";
+}
+
+@model TemplateViewModel
+
+@{
+	var templateModel = Model.GetTemplateModel<Convenience.Home>();
+}
+
+        @{
+            var optionsLimited = new EditableAreaOptions
+            {
+                AllowedWidgets = WidgetAreaIdentifier.Hero_Widgets,
+                AllowedSections = AllowedComponents.ALL
+            };
+        }
+
+<div class="row"> 
+    @await Html.Kentico().EditableAreaAsync("HeroWidgetArea", optionsLimited)
+</div>
+
+<div class="row"> 
+    @await Html.Kentico().EditableAreaAsync("WidgetArea")
+</div>

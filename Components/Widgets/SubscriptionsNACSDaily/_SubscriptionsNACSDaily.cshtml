@@ -1,0 +1,66 @@
+﻿@model Convenience.org.Components.Widgets.SubscriptionsNACSDaily.SubscriptionNACSDailyViewModel
+@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+
+<form asp-controller="SubscriptionsNACSDaily" asp-formaction="UpdateNacsDaily" method="post">
+    <div id="dynamicsCheckboxWidget" style="padding: 20px;">
+
+        <h4>NACS Daily</h4>
+        <p>An indispensable "quick read" of daily industry headlines, legislative and regulatory news from Washington, and knowledge and resources from NACS delivered to your inbox every weekday morning.</p>
+        <h5>Subscription Options:</h5><br />
+        <input type="radio" id="nacsDailySubscribeRadio" name="nacsNacsdaily" value="true" @(Model.NacsNacsdaily ? "checked" : "") />
+        <label for="nacsDailySubscribeRadio">Subscribe</label><br />
+
+        <input type="radio" id="nacsDailyUnsubscribeRadio" name="nacsNacsdaily" value="false" @(!Model.NacsNacsdaily ? "checked" : "") />
+        <label for="nacsDailyUnsubscribeRadio">Unsubscribe</label><br /><br />
+
+        <button id="btnSaveNACSDaily" type="button">Save</button>
+        <p id="statusMessageNACSDaily"></p>
+    </div>
+    
+    @Html.Kentico().PageData()
+</form>
+
+<script>
+    function initializeNACSDailyWidget() {
+        document.getElementById("btnSaveNACSDaily").onclick = async (event) => {
+            event.preventDefault(); 
+            
+            const selectedRadioValue = document.querySelector('input[name="nacsNacsdaily"]:checked')?.value;
+
+            if (selectedRadioValue === undefined) {
+                console.error("No radio button selected.");
+                return;
+            }
+
+            const statusMessage = document.getElementById("statusMessageNACSDaily");
+            statusMessage.innerHTML = "Updating...";
+
+            try {
+                const response = await fetch('/SubscriptionsNACSDaily/UpdateNacsDaily', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ 
+                        nacsNacsdaily: selectedRadioValue === 'true'
+                    })
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    document.getElementById("statusMessageNACSDaily").innerHTML = result.message;
+                } else {
+                    document.getElementById("statusMessageNACSDaily").innerHTML = "Failed to update.";
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                document.getElementById("statusMessageNACSDaily").innerHTML = "An error occurred.";
+            }
+        };
+    }
+
+    document.addEventListener("DOMContentLoaded", initializeNACSDailyWidget);
+    initializeNACSDailyWidget();
+</script>
+

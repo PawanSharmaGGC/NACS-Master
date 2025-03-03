@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.issue>
+  <ContentItemDataCommonDataID>
+    <GUID>77a80934-d1ec-4a17-b0da-70a292367dce</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>September2023-0irb4of9</CodeName>
+      <GUID>14ae166f-b186-420b-97f7-449282214c8b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>6ab9a86e-72f9-4afe-8aa7-475b42e6ff49</ContentItemDataGUID>
+  <IssueDate>2023-09-01 04:00:00Z</IssueDate>
+  <MagazineCover>
+    <![CDATA[{"Identifier":"fb58ab9c-690d-4e42-b2f7-4f0d601b9c58","Name":"JUL24_Cover.png","Extension":".png","Size":2150350,"LastModified":"2024-07-09T20:16:50.2345652Z"}]]>
+  </MagazineCover>
+  <Title>September 2023</Title>
+</contentitemdata.nacsmagazine.issue>

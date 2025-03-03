@@ -1,0 +1,65 @@
+﻿@using Kentico.Content.Web.Mvc.PageBuilder
+@using Convenience
+@using Convenience.org.Models
+
+@{
+    Layout = "~/Features/Shared/Convenience/_Layout.cshtml";
+}
+
+@{
+    var templateModel = Model.GetTemplateModel<PersonBioItem>();
+}
+
+@if (templateModel != null)
+{
+    <div class="row">
+        @{
+            var eyeBrowTitleModel = new Convenience.org.Models.EyebrowTitleViewModel
+                {
+                    Title = "Bio",
+                    TitleColor = "text-primary",
+                    TitleCase = "text-uppercase",
+                    LeftBorderColor = "border_left_green"
+                };
+        }
+        @await Component.InvokeAsync("EyebrowTitle", new { model = eyeBrowTitleModel })
+    </div>
+
+    <div class="row">
+        <div class="col-8">
+            <div class="border ">
+                <div class="p-0 card-body">
+                    <div class="d-flex p-4">
+                        <div class="w-25">
+                            <img class="rounded-circle" src="@templateModel.ImageUrl" alt="">
+                        </div>
+                        <div class="w-75 text-start ps-lg-3 ps-4 pt-3">
+                            <p class="fs-3 fw-semibold mb-0 color-262d61">@templateModel.Name</p>
+                            <p class="fs-5 mb-0">@Html.Raw(templateModel.Designation)</p>
+                            <p class="fs-5 mb-0 text-primary">@templateModel.ContactNo</p>
+                        </div>
+                    </div>
+                    <hr class="m-0">
+
+                    @if(!string.IsNullOrEmpty(templateModel.Bio)){
+                    <div class="" id="">
+                        <div class="card card-body border border-2 bg-secondary-subtle text-start p-3 fs-5
+                        ">
+                            <div>
+                                @Html.Raw(templateModel.Bio)
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <editable-area area-identifier="editableAreaRightSide" />
+        </div>
+    </div>
+}
+
+<div class="row">
+    <editable-area area-identifier="editableArea" />
+</div>

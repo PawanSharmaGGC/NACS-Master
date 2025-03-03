@@ -1,0 +1,52 @@
+﻿@using Convenience
+@using ConvenienceCares.Models
+
+@{
+    Layout = "~/Features/Shared/ConvenienceCares/_Layout.cshtml";
+    var viewModel = Model.GetTemplateModel<FilePageViewModel>();
+
+    var filePath = viewModel.FileDirectPath;
+    var fileType = viewModel.FileMimeType;
+    var linkText = "Open";
+}
+
+<div id="file_Content" class="PageContent" style="margin:140px 0 20px 40px">
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="editing-form-label-cell">
+                <label for="txtFileName" id="lblFileName" class="control-label">File name:</label>
+
+                <span id="txtFileName" class="form-control-text">@viewModel.FileName</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="editing-form-label-cell">
+                <label for="txtFileSize" id="lblFileSize" class="control-label">File size (bytes):</label>
+
+                <span id="txtFileSize" class="form-control-text">@viewModel.FileSizeBytes</span>
+            </div>
+        </div>
+
+
+        @if (!string.IsNullOrEmpty(filePath) && !string.IsNullOrEmpty(fileType))
+        {
+            if (viewModel.FileMimeType.Contains("image", StringComparison.OrdinalIgnoreCase))
+            {
+                linkText = "Open in full size";
+                <div class="form-group">
+                    <div class="editing-form-value-cell editing-form-value-cell-offset">
+                        <img id="imgPreview" src="@viewModel.FileURL">
+                    </div>
+                </div>
+            }
+            <div class="form-group">
+                <div class="editing-form-value-cell editing-form-value-cell-offset">
+                    <a id="lnkView"
+                       href='@Url.Action("OpenFile", "ConvenienceCareFileTemplate", new { fileUrl = filePath, fileMimeType = fileType })' target='_blank'>@linkText</a>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>

@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0fd5381f.css",
+    "main.js": "/static/js/main.e18b4bb8.js",
+    "static/js/453.529b7864.chunk.js": "/static/js/453.529b7864.chunk.js",
+    "static/media/video-cover.png": "/static/media/video-cover.ae89c2a89ea1425dc432.png",
+    "static/media/event-carousel-1.png": "/static/media/event-carousel-1.f479113f79f3fa16656b.png",
+    "static/media/tier-3.png": "/static/media/tier-3.20843c30633fb27c1349.png",
+    "static/media/tier-2.png": "/static/media/tier-2.3f44da72b8424c56ff24.png",
+    "static/media/deep-dive.png": "/static/media/deep-dive.c7d3dbbd5be09be17571.png",
+    "static/media/tier1hero.png": "/static/media/tier1hero.d5f6e387b1fed9bd0482.png",
+    "static/media/event-carousel-2.png": "/static/media/event-carousel-2.8dfd833ed006726419e5.png",
+    "static/media/event-carousel-3.png": "/static/media/event-carousel-3.59a20798f0cf6fa1e2ba.png",
+    "static/media/product-hero-1.png": "/static/media/product-hero-1.5c796c24f5ee50e63ccb.png",
+    "static/media/expandable-card-img.jpeg": "/static/media/expandable-card-img.173a87ae236cca036a65.jpeg",
+    "static/media/tier-1-content-featured-img.png": "/static/media/tier-1-content-featured-img.f4b87697cd0267166501.png",
+    "static/media/tier-1-content-img.png": "/static/media/tier-1-content-img.a5293659d26a1cd0e336.png",
+    "static/media/product-hero.png": "/static/media/product-hero.344eca989052f1f94ebd.png",
+    "static/media/speaker.png": "/static/media/speaker.dcd188b289bbd61b936f.png",
+    "static/media/content-img.png": "/static/media/content-img.bb7eecbed127052ed494.png",
+    "static/media/card-carousel.png": "/static/media/card-carousel.c54c63c33c4415a6cbba.png",
+    "static/media/halftone-pattern.png": "/static/media/halftone-pattern.9a85bacf11dbef8a7a02.png",
+    "static/media/recaptcha-logo.png": "/static/media/recaptcha-logo.0cc99969576c6f09ddc7.png",
+    "static/media/inline.png": "/static/media/inline.8d74feea4de9a5cfa1e8.png",
+    "static/media/Clip path group.png": "/static/media/Clip path group.0252d1b32f2be88e2063.png",
+    "static/media/Vector.png": "/static/media/Vector.df4800d9fbca4d6ea32f.png",
+    "static/media/c-logo-light.png": "/static/media/c-logo-light.131840f1f995b8cc9a88.png",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/index.html",
+    "main.0fd5381f.css.map": "/static/css/main.0fd5381f.css.map",
+    "main.e18b4bb8.js.map": "/static/js/main.e18b4bb8.js.map",
+    "453.529b7864.chunk.js.map": "/static/js/453.529b7864.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0fd5381f.css",
+    "static/js/main.e18b4bb8.js"
+  ]
+}

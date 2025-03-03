@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNetCore.Mvc.Routing
+
+@inject IUrlHelperFactory UrlHelperFactory
+@{
+    var urlHelper = UrlHelperFactory.GetUrlHelper(ViewContext);
+    var currentPath = ViewContext.HttpContext.Request.Path;
+    var currentPage = currentPath == "/" ? "Home" : System.IO.Path.GetFileNameWithoutExtension(currentPath);
+}
+
+@if (currentPage != "Home")
+{
+    <div class="container breadcrumb-container">
+        <p class="font-g-16-book">
+            <a class="CMSBreadCrumbsLink" href="/">Home</a>&nbsp;&nbsp;<i class="fa fa-chevron-right"></i>&nbsp;&nbsp;
+
+            @{
+                var pathList = currentPath.ToString().Replace('-', ' ').Split('/').ToList();
+
+                foreach (var path in pathList)
+                {
+                    if (path != "")
+                    {
+                        if (path.Replace(' ', '-') != currentPage)
+                        {
+                            var prevPath = "~/";
+
+                            var pli = pathList.IndexOf(path);
+                            for (int i = 1; i <= pli; i++)
+                            {
+                                prevPath += pathList[i] + '/';
+                            }
+                            @Html.Raw("<a class='CMSBreadCrumbsLink' href='" + prevPath.Replace(' ', '-') + "'>" + path.Substring(0, 1).ToUpper() + path.Substring(1) + "</a>&nbsp;&nbsp;<i class='fa fa-chevron-right'></i>&nbsp;&nbsp;")
+                        }
+                        else
+                        {
+                            @Html.Raw("<span class='CMSBreadCrumbsLink'>" + path.Substring(0, 1).ToUpper() + path.Substring(1))
+                            // + "</span>&nbsp;&nbsp;<i class='fa fa-chevron-right'></i>&nbsp;&nbsp;")
+                        }
+                    }
+                }
+
+            }
+        </p>
+    </div>
+}

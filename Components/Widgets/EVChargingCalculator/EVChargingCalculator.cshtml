@@ -1,0 +1,397 @@
+﻿@using Convenience.org.Models
+
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css" />
+    <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/bundles/4.19.1/compiled-addons.min.js"></script>
+
+    <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css' media="screen" />
+      
+    <style>
+        .clear{
+            clear:both;
+        }
+
+        .h{
+            font-size: 36px!important;
+            font-weight: 700;
+            color: #0d2c6c;
+            margin-bottom: 20px;
+        }
+
+        .requiredBackground{
+            background-color:#d6d6d6;
+        }
+
+        .txtsmall{
+             width: 60px;
+            /* margin-left: 135px;*/
+             color:darkgreen!important;
+             /*background-color: #f2f2f2;
+             border: none;*/
+             font-size: 18px;
+             max-width: calc(100% - 18px)!important;
+             min-width: calc(10% - 18px)!important;
+        }
+
+        .txtsmall2{
+             width: 85px;
+             text-align:right;
+             color:darkgreen!important;
+             /*margin-left: 125px;*/
+             /*background-color: #f2f2f2;
+             border: none;*/
+             font-size: 18px;
+             max-width: calc(100% - 18px)!important; 
+             min-width: calc(10% - 18px)!important;
+        }
+
+        .txtmedium{
+             width: 120px;    
+             text-align: right;
+             border: none;
+             font-size: 18px;
+        }
+
+        .txt1{
+            width: 220px;
+            text-align: right;  
+            font-size: 18px;
+        }
+       
+        .txt2{
+            width: 110px;
+            background-color: #f2f2f2;   
+            border: none;
+            font-size: 18px;
+        }
+
+        .txt21{
+            width: 140px;
+            text-align:right;
+            background-color: #f2f2f2;
+            border: none;
+            pointer-events: none;
+            font-size: 18px;
+        }
+
+        .txt22{
+            width: 300px;
+            text-align:right;
+            background-color: #d6d6d6;
+            color: midnightblue!important;
+            pointer-events: none;
+            border: none; 
+            font-size: 18px;
+            }
+
+        .txt222{
+            width: 200px;
+            text-align:right;
+            color:darkgreen!important;
+            /*background-color: #d6d6d6;   
+            border: none; */
+            font-size: 18px;
+        }
+
+        .txt33{
+            width: 300px;
+            text-align:right;
+            background-color: #d6d6d6;
+            color: midnightblue!important;
+            pointer-events: none;
+            border: none;  
+            margin-bottom:15px;
+            font-size: 18px;
+            }
+
+        .txt333{
+            width: 200px;
+            text-align:right;
+            color:darkgreen!important;
+            margin-bottom:15px;
+            /*background-color: #d6d6d6;   
+            border: none; */
+            font-size: 18px;
+        }
+
+        .txt3{
+            width: 70px;
+            background-color: #f2f2f2;
+            border: none;
+            font-size: 18px;
+        }
+        
+        .space{
+             padding-left: 15px;
+         }
+        
+        .divfirstresult{             
+              padding-bottom:10px;
+              padding-top:10px;
+         }
+        
+        .buttons{
+            color: #60bc50!important;
+            background-color: transparent;
+            /*margin: 10px 0;*/
+            display: inline-block;
+            border-radius: 6px;
+            border: 2px solid #60bc50;
+            padding: 10px 20px;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;  
+            float:right;
+            margin-bottom: 15px;
+         }
+        
+        .buttons:hover{
+            color: #fff!important;
+            background-color: #60bc50!important;
+            /*margin: 10px 0;*/
+            display: inline-block;
+            border-radius: 6px;
+            border: 2px solid #60bc50;
+            padding: 10px 20px;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;  
+            float:right;
+            margin-bottom: 15px;
+         }
+
+        .LinkButton{
+            color:  #005f9e!important;
+            background-color: transparent;
+            /*margin: 10px 0;*/
+            display: inline-block;
+            border-radius: 6px;
+            border: 2px solid #005f9e;
+            padding: 10px 20px;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            /* float: right; */
+            margin-right: 15px;
+            margin-left: 20px;
+        }
+        .LinkButton:hover{
+            color:  #fff!important;
+            background-color: #005f9e!important;
+            /*margin: 10px 0;*/
+            display: inline-block;
+            border-radius: 6px;
+            border: 2px solid #005f9e;
+            padding: 10px 20px;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            /* float: right; */
+            margin-right: 15px;
+            margin-left: 20px;
+        }
+
+        .thumb {
+            color: #60bc50;
+            display: inherit!important;  
+            padding-top: 0px!important;  
+        }
+
+        .slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+               /* width: 15px;*/
+                height: 15px;
+                border-radius: 50%;
+                background: #60bc50;
+                cursor: pointer;
+                width:100px!important;
+            }
+
+        .slider:focus {
+                border: none;
+            }
+                
+        fieldset label {
+            color: #000;
+            width: auto;
+            font-weight: 400;
+        }
+
+        fieldset input {
+            padding: 5px;
+            margin: 10px 0;
+        }
+
+        .ctrl-container {
+            min-width: 390px !important;
+            border: 2px solid #005f9e;
+            border-radius: 6px;
+            margin: 15px 15px 15px 15px;
+            width: 47%;
+            float: left;
+        }
+
+        .ctrl-header {
+            background-color: #005f9e;
+            padding: 10px;
+            color: #fff;
+        }
+
+            .ctrl-header h4 {
+                margin-bottom: 0 !important;
+                color: #fff !important;
+            }
+
+        .ctrl-content {
+            padding: 20px;
+        }
+
+        .ctrl-container2 {
+            min-width: 350px !important;
+            border: 2px solid #005f9e;
+            border-radius: 6px;
+            margin: 15px 15px 15px 15px;
+            width: 100%;
+            float: left;
+        }
+
+        .ctrl-container21 {
+            min-width: 425px !important;
+            border: 2px solid #005f9e;
+            border-radius: 6px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            margin-left: 15px;
+            /*margin-right: 8px;*/
+            width: 48%;
+            float: left;
+        }
+
+        .ctrl-container22 {
+            min-width: 425px !important;
+            border: 2px solid #005f9e;
+            border-radius: 6px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            margin-left: 16px; 
+            /*margin-right: 15px;*/
+            width: 48%;
+            float: left;
+        }
+
+        .ctrl-header2 {
+            background-color: #005f9e;
+            padding: 10px;
+            color: #fff;
+        }
+
+            .ctrl-header2 h4 {
+                margin-bottom: 0 !important;
+                color: #fff !important;
+            }
+
+        .ctrl-content2 {
+            padding: 20px;
+        }
+     
+        /* WIZARD */
+        .stepNotCompleted {
+            background-color: #fff;
+            color: #60bc50 !important;
+            Opacity: 0.5;
+            border: none;
+            margin-right: 5px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .stepCompleted {
+            background-color: #fff;
+            color: #60bc50 !important;
+            border: none;
+            margin-right: 5px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .stepCurrent {
+            background-color: #fff;
+            color: #005f9e !important;
+            border: none;
+            margin-right: 5px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .stepBreak {
+            width: 3px;
+            background-color: Transparent;
+        }
+
+        .wizardProgress {
+            padding-right: 10px;
+            font-family: Arial;
+            color: #333333;
+            font-size: 12px;
+        }
+
+        .wizardTitle {
+            font-family: Arial;
+            font-size: 120%;
+            font-weight: bold;
+            color: #333333;
+            vertical-align: middle;
+        }
+
+        .multi-range {
+            width: 70% !important;
+            float: left;
+        }
+
+        .thumb {
+            color: #60bc50;
+        }
+
+        input, select, textarea {
+            border: 1px solid #e4e4e4;
+            border-radius: 6px;
+            color: #727f8a;
+        }
+
+    </style>   
+
+
+@model EVChargingCalculatorViewModel
+
+@{
+    int currentStep = Model.CurrentStep;
+}
+
+
+<div id="evChargingCalculatorContainer" style="width: 100%; margin: auto; padding: 15px;">
+    <div style="width: 100%; margin: auto;">
+        <h3>EV Charging Business Modeling</h3>
+    </div>
+
+    <div style="width: 100%; margin: auto;">
+        <div id="Wizard1" class="container" style="width: 100%; min-width: 350px; margin: auto;">
+
+            <div id="evChargingStepsContainer">
+                
+                @Html.Partial("~/Components/Widgets/EVChargingCalculator/_EVChargingCalculatorStep1.cshtml", Model)
+                
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="~/static/js/evchargingcalculator.js"></script>
+<script src="~/static/js/evchargingcalculator-calculation.js"></script>

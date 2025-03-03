@@ -1,0 +1,11 @@
+﻿@using NACSShow.Models
+
+@model PageImageViewModel
+
+
+@if (!string.IsNullOrEmpty(Model.HeaderImage)){
+<img class='schedule--highlight-section-image image--graphic mobile--hide' src='@Model.HeaderImage' />
+}
+@if (!string.IsNullOrEmpty(Model.HeaderImageMobile)){
+<img class='schedule--highlight-section-image image--graphic non-mobile--hide' src='@Model.HeaderImageMobile' />
+}

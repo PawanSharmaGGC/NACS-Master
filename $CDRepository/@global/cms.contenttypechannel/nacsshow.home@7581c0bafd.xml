@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttypechannel>
+  <Parent>
+    <CodeName>NACSShow.Home</CodeName>
+    <GUID>473d7824-05db-454c-a519-cf500634a334</GUID>
+    <ObjectType>cms.contenttype</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.channel_NACSShow">
+      <ContentTypeChannelChannelID>
+        <CodeName>NACSShow</CodeName>
+        <GUID>2083f08a-0932-4059-8087-f0556c420aa4</GUID>
+        <ObjectType>cms.channel</ObjectType>
+      </ContentTypeChannelChannelID>
+    </Binding>
+  </Bindings>
+</cms.contenttypechannel>

@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <UserSecretsId>b768f983-ecbf-4e3f-980b-68610dc14505</UserSecretsId>
+    <RootNamespace>NACSMagazine</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Components\Widgets\NACSMagazineImport_Test\**" />
+    <Compile Remove="Features\Errors\**" />
+    <Compile Remove="Features\MyFeature\**" />
+    <Compile Remove="Infrastructure\**" />
+    <Content Remove="Components\Widgets\NACSMagazineImport_Test\**" />
+    <Content Remove="Features\Errors\**" />
+    <Content Remove="Features\MyFeature\**" />
+    <Content Remove="Infrastructure\**" />
+    <EmbeddedResource Remove="Components\Widgets\NACSMagazineImport_Test\**" />
+    <EmbeddedResource Remove="Features\Errors\**" />
+    <EmbeddedResource Remove="Features\MyFeature\**" />
+    <EmbeddedResource Remove="Infrastructure\**" />
+    <None Remove="Components\Widgets\NACSMagazineImport_Test\**" />
+    <None Remove="Features\Errors\**" />
+    <None Remove="Features\MyFeature\**" />
+    <None Remove="Infrastructure\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="PageTemplates\MagazineArticlePage\Operations\ArticleTaxonomiesQuery.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Features\Home\NACSMagazine\Home1.cshtml" />
+    <Content Remove="PageTemplates\CategoryPage\CategoryPage.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.12.1" />
+    <PackageReference Include="Kentico.Xperience.Admin" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.AzureStorage" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.Cloud" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.ImageProcessing" Version="29.5.3" />
+    <PackageReference Include="Kentico.Xperience.Lucene" Version="10.0.0" />
+    <PackageReference Include="Kentico.Xperience.TagManager" Version="3.2.1" />
+    <PackageReference Include="Kentico.Xperience.WebApp" Version="29.5.3" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.1" />
+    <PackageReference Include="Slugify.Core" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\fonts\" />
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Components\Widgets\NACSMagazineImport\_NACSMagazineImport.cshtml" />
+    <None Include="Components\Widgets\WelcomeWidget\WelcomeWidget.cshtml" />
+    <None Include="PageTemplates\SearchPage\NACSMagazine\_SearchPage.cshtml" />
+    <None Include="PageTemplates\SearchPage\_SearchPage.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NACS.Portal.Core\NACS.Portal.Core.csproj" />
+  </ItemGroup>
+
+
+
+</Project>

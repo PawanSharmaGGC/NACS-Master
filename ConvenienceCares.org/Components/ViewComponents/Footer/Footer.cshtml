@@ -1,0 +1,20 @@
+﻿@using ConvenienceCares.Models
+
+@model FooterViewModel
+
+<footer>
+	<div id="footer-wrapper">
+		<div id="footer-copyright">
+			@* <p>&copy; @DateTime.Now.Year NACS ALL RIGHTS RESERVED<span> | </span><a href="https://www.conveniencecares.org" target="_blank">www.conveniencecares.org</a></p> *@
+			<p>&copy; @DateTime.Now.Year @Html.Raw(Model.CopyRightText)<span> | </span><a href="@Model.CopyRightUrl" target="_blank">@Model.CopyRightUrlText</a></p>
+		</div>
+		<div id="footer-links">
+			@* Commented this out because it was causing errors on NACS Show site from loading (unsure why?) *@
+			@* <vc:social-links /> *@
+			<p>&copy; @DateTime.Now.Year @Html.Raw(Model.CopyRightText)<span> | </span><a href="@Model.CopyRightUrl" target="_blank">@Model.CopyRightUrl</a></p>
+		</div>
+		<div id="footer-links">
+			<vc:social-links />
+		</div>
+	</div>
+</footer>

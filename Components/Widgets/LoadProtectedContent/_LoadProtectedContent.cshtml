@@ -1,0 +1,34 @@
+﻿@model Convenience.org.Components.Widgets.LoadProtectedContent.LoadProtectedContentViewModel
+
+@if (Model != null)
+{
+    <script type='text/javascript' src='/js/custom/jquery.simplemodal.js'></script>
+    <script type='text/javascript' src='/js/custom/NACS.simplemodal.js'></script>
+    if (!string.IsNullOrEmpty(Model.RedirectURL))
+    {
+        <script type="text/javascript">
+            $(document).ready(function () {
+                window.location.href = '@Model.RedirectURL'; @* Redirects to the external URL *@
+            });
+        </script>
+    }
+    <div>
+        <label id="_lblError">@Model.ErrorMessage </label><br />
+        Please close this window.
+        @if (Model.ShowContactEmailPanel)
+        {
+            <div id="_divContact">
+                <br />
+                <br />
+                If you continue to see this error, please contact
+                @if (!string.IsNullOrEmpty(Model.ContactEmail))
+                {
+                    <label id="_lblContact">
+                        <a href="mailto:@Model.ContactEmail?subject=Error loading NACS protected content"> @Model.ContactEmail</a>
+                    </label> 
+               }
+                for assistance.
+            </div>
+        }
+    </div>
+}

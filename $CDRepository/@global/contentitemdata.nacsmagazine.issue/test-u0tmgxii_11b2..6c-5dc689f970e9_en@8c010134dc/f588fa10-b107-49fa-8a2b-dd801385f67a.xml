@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.issue>
+  <ContentItemDataCommonDataID>
+    <GUID>11b27add-9d06-4be5-ab6c-5dc689f970e9</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>Test-u0tmgxii</CodeName>
+      <GUID>c7372837-b5f6-412c-8442-489513330f7b</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>f588fa10-b107-49fa-8a2b-dd801385f67a</ContentItemDataGUID>
+  <DigitalIssueLink>coming soon</DigitalIssueLink>
+  <IssueDate>2024-07-01 04:00:00Z</IssueDate>
+  <IssueIntro>
+    <![CDATA[<p>coming</p>]]>
+  </IssueIntro>
+  <MagazineCover>
+    <![CDATA[{"Identifier":"e3648162-7b53-4714-94bc-c79dfa27e885","Name":"JUL24_Cover.png","Extension":".png","Size":2150350,"LastModified":"2024-07-01T22:34:10.2294179Z"}]]>
+  </MagazineCover>
+  <Title>July 2024</Title>
+</contentitemdata.nacsmagazine.issue>

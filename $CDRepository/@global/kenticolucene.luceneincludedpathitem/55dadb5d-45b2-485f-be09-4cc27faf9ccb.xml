@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<kenticolucene.luceneincludedpathitem>
+  <LuceneIncludedPathItemAliasPath>/Sessions/%</LuceneIncludedPathItemAliasPath>
+  <LuceneIncludedPathItemGuid>55dadb5d-45b2-485f-be09-4cc27faf9ccb</LuceneIncludedPathItemGuid>
+  <LuceneIncludedPathItemIndexItemId>
+    <CodeName>NS_SESSION_SEARCH</CodeName>
+    <GUID>0f405c4b-e7ab-4df6-85b9-88d90c8eb464</GUID>
+    <ObjectType>kenticolucene.luceneindexitem</ObjectType>
+  </LuceneIncludedPathItemIndexItemId>
+</kenticolucene.luceneincludedpathitem>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsshow.workshop>
+  <ContentItemDataCommonDataID>
+    <GUID>19f0932e-78a0-4e4d-9e51-03f5dfcbd86d</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>UnlockingExecutiveAndEnterpriseValueWithGenerativeAI-m33hgltl</CodeName>
+      <GUID>f520bec1-bb93-4286-a1ce-a390ce3e28c0</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>7dbe4a25-6588-463a-acb2-882bddfac0cb</ContentItemDataGUID>
+  <Day />
+  <EndTime>2024-10-09 14:15:00Z</EndTime>
+  <Format>Expert/Expert Interview</Format>
+  <Keyword>Marketing</Keyword>
+  <LeftNavShowTitle>True</LeftNavShowTitle>
+  <NavShowChildren>False</NavShowChildren>
+  <NavType>Inherit</NavType>
+  <Objective1>1</Objective1>
+  <PageContent>
+    <![CDATA[<p>In this marquee session we will discuss the purpose of generative AI in achieving value capture and value creation for your organizations. &nbsp;We will update you on the latest outcomes that generative AI has achieved, provide the most common use cases we’ve seen in action from generative checkout, generative pricing, to automation of some roles and large system automations that are changing organizations completely. &nbsp; Led by an expert in AI from Kellogg School of Management, this session is designed for executives to leverage a process to transform their organizations and unlock value with AI and, defines the basics of AI and showcases practical applications. Join us to unlock AI's potential for your organizations. &nbsp;&nbsp;</p>]]>
+  </PageContent>
+  <Room_Location>Pavilion 1/2</Room_Location>
+  <SessionFriendlyID>SESS-98</SessionFriendlyID>
+  <SessionID>00000000-0000-0000-0000-000000000000</SessionID>
+  <ShowID>0</ShowID>
+  <StartTime>2024-10-09 04:00:00Z</StartTime>
+  <Title>
+    <![CDATA[Unlocking Executive and Enterprise Value with Generative AI]]>
+  </Title>
+  <Translation>Spanish</Translation>
+</contentitemdata.nacsshow.workshop>

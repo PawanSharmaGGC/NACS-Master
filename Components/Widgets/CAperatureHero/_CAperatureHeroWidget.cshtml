@@ -1,0 +1,77 @@
+﻿@model Convenience.org.Components.Widgets.CAperatureHero.CAperatureHeroWidgetViewModel
+
+@if (Model != null)
+{
+    <div>
+        <div class="p-0 bg-FFFFFF card">
+            <div class="border-0 card">
+                <div class="p-0 card-body">
+                    <div class="ps-3">
+                        <div>
+                            @* <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: url(@Model.ClipImageUrl);">
+                                <ol class="breadcrumb BreadcrumbsStyle-module__breadcrumb_list">
+                                    <li class="breadcrumb-item">Home</li>
+                                    <li class="breadcrumb-item">News</li>
+                                </ol>
+                            </nav> *@
+                            @await Component.InvokeAsync("Breadcrumb")
+                        </div>
+                    </div>
+                    <div class="CApertureHeroStyle-module__hero_card">
+                        <div class="flex-grow-1 p-3 p-lg-5 mt-lg-4">
+                            <div>
+                                <div class="text-start mb-4 border_left_green EyebrowTitleStyle-module__eyebrow">
+                                    <span class="ps-4 text-uppercase font-monospace text-primary">@Model.EyebrowTitle</span>
+                                </div>
+                            </div>
+                            <div class="text-start">
+                                <p class="fw-semibold textTitle-start m-0 mt-2 color-002569 CApertureHeroStyle-module__sponsor_title">
+                                    @Model.Title
+                                </p>
+                                <div class="pt-5 d-lg-none d-sm-block d-md-none">
+                                    <img class="img-fluid brdr-rad-30" src="@Model.MobileImageUrl" alt="@Model.MobileImageAltText">
+                                </div>
+                                <div class="pt-5">
+                                    <div>
+                                        <div class="text-start color-262d61">
+                                            <p class="m-0 fs-5">
+                                                <span>@Model.Date</span>
+                                                @if(!string.IsNullOrEmpty(Model.LocationOrReadMinutes))
+                                                {
+                                                    <span class="color-868F98 ps-3 pe-3 fs-3">|</span>
+                                                    <span class="text-body-tertiary">@Model.LocationOrReadMinutes</span>
+                                                }
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="CApertureHeroStyle-module__img_section">
+                            <img src="@Model.ClipImageUrl" width="689" alt="@Model.ClipImageAltText" class="ms-5">
+                            <div class="CApertureHeroStyle-module__c_shape_container">
+                                <video class="CApertureHeroStyle-module__c_shaped_video" autoplay="" loop="">
+                                    <source src="@Model.VideoUrl" type="video/webm">
+                                </video>
+                                <div class="CApertureHeroStyle-module__c_shape_cutout"></div>
+                                <div class="CApertureHeroStyle-module__rect_shape_cutout"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @if(!string.IsNullOrEmpty( Model.CTAText) && !string.IsNullOrEmpty( Model.CTALink)){
+            <div class="mt-4">
+                <a href="@Model.CTALink" class="fs-5 color-DC241F text-decoration-none">
+                    <span class="d-inline-block pe-1">
+                        @Model.CTAText
+                    </span> 
+                    <span class="align-middle">
+                        <i class="fa-regular fa-arrow-right color-DC241F" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+            }
+        </div>
+    </div>
+}

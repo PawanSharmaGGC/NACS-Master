@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.contenttype>
+  <ClassContentTypeType>Reusable</ClassContentTypeType>
+  <ClassDisplayName>NACS Show Speaker</ClassDisplayName>
+  <ClassFormDefinition>
+    <form>
+      <field column="ContentItemDataID" columntype="integer" enabled="true" guid="f1cf51ac-0970-493e-9ed9-a47ca8ee1b15" isPK="true" />
+      <field column="ContentItemDataCommonDataID" columntype="integer" enabled="true" guid="d6ea6d32-baed-4d70-aabe-88173a21d9cf" refobjtype="cms.contentitemcommondata" reftype="Required" system="true" />
+      <field column="ContentItemDataGUID" columntype="guid" enabled="true" guid="63f405ad-4eee-46d7-b9db-a881a2b09934" isunique="true" system="true" />
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>7c19201e-3a58-452f-925e-32fe232828e9</ClassGUID>
+  <ClassHasUnmanagedDbSchema>False</ClassHasUnmanagedDbSchema>
+  <ClassIconClass>xp-personalisation</ClassIconClass>
+  <ClassName>NACSShow.Speaker</ClassName>
+  <ClassShortName>NACSShowSpeaker</ClassShortName>
+  <ClassTableName>NACSShow_Speaker</ClassTableName>
+  <ClassType>Content</ClassType>
+  <ClassWebPageHasUrl>False</ClassWebPageHasUrl>
+</cms.contenttype>

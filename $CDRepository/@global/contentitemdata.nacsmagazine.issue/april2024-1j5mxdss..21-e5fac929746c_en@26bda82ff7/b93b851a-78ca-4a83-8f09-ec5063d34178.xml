@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.issue>
+  <ContentItemDataCommonDataID>
+    <GUID>52e149ec-2215-4319-bc21-e5fac929746c</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>April2024-1j5mxdss</CodeName>
+      <GUID>3e471ae6-8ce1-415c-a0c5-02f1551e7b8f</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>b93b851a-78ca-4a83-8f09-ec5063d34178</ContentItemDataGUID>
+  <IssueDate>2024-04-01 04:00:00Z</IssueDate>
+  <MagazineCover>
+    <![CDATA[{"Identifier":"30a868a9-0041-4945-9255-ed7887aadda5","Name":"JUL24_Cover.png","Extension":".png","Size":2150350,"LastModified":"2024-07-09T20:18:50.5933634Z"}]]>
+  </MagazineCover>
+  <Title>April 2024</Title>
+</contentitemdata.nacsmagazine.issue>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentitemdata.nacsmagazine.issue>
+  <ContentItemDataCommonDataID>
+    <GUID>628392b0-ded1-498e-bd35-99cf2c35fd8f</GUID>
+    <ObjectType>cms.contentitemcommondata</ObjectType>
+    <Parent>
+      <CodeName>February2024-y3i5ezhc</CodeName>
+      <GUID>eec2dcad-9840-4c71-b150-650417a6fb4e</GUID>
+      <ObjectType>cms.contentitem</ObjectType>
+    </Parent>
+  </ContentItemDataCommonDataID>
+  <ContentItemDataGUID>0fde1918-bd97-4ea2-b075-3e598933e31d</ContentItemDataGUID>
+  <IssueDate>2024-02-01 05:00:00Z</IssueDate>
+  <MagazineCover>
+    <![CDATA[{"Identifier":"646e5b7c-f4dc-4980-8f11-1b95f5cb693f","Name":"JUL24_Cover.png","Extension":".png","Size":2150350,"LastModified":"2024-07-09T20:18:22.689384Z"}]]>
+  </MagazineCover>
+  <Title>February 2024</Title>
+</contentitemdata.nacsmagazine.issue>

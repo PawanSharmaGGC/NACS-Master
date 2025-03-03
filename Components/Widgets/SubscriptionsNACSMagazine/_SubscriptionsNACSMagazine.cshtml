@@ -1,0 +1,153 @@
+﻿@model Convenience.org.Components.Widgets.SubscriptionsNACSMagazine.SubscriptionNACSMagazineViewModel
+@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+
+<form asp-controller="SubscriptionsNACSMagazine" asp-formaction="UpdateNACSMagazineLists" method="post">
+    <input type="hidden" id="UserId" value="@Model.UserId" />
+   @*  <input type="hidden" id="ListIdDigital" value="@Model.ListIdDigital" />
+    <input type="hidden" id="ListIdPrint" value="@Model.ListIdPrint" />
+    <input type="hidden" id="ListIdDigitalUnsubscribe" value="@Model.ListIdDigitalUnsubscribe" />
+    <input type="hidden" id="ListIdPrintUnsubscribe" value="@Model.ListIdPrintUnsubscribe" /> *@
+
+    <div id="dynamicsNACSMagazineWidget" style="padding: 20px;">
+        <h4>NACS Magazine + Fuels Market News Magazine</h4>
+        <p>NACS Magazine and Fuels Market News are essential reads for professionals in the convenience and fuel retailing industries. Published by NACS, these award-winning magazines offer invaluable insights tailored to industry needs. Subscriptions to both magazines are free—just sign up to stay informed and at the forefront of industry developments.</p>
+        <h5>Subscription Options:</h5>
+
+        <input type="radio" id="printDigitalRadio" name="nacsMagazineLists" value="PrintDigital"
+            @(Model.IsPrintDigital ? "checked" : "")
+            @(Model.Country != "US" && Model.Country != "CA" ? "disabled" : "") />
+        <label for="printDigitalRadio">Print & Digital Access</label><br />
+
+        <input type="radio" id="printOnlyRadio" name="nacsMagazineLists" value="PrintOnly"
+            @(Model.IsPrintOnly ? "checked" : "")
+            @(Model.Country != "US" && Model.Country != "CA" ? "disabled" : "") />
+        <label for="printOnlyRadio">Print Only</label><br />
+
+        <input type="radio" id="digitalOnlyRadio" name="nacsMagazineLists" value="DigitalOnly" @(Model.IsDigitalOnly ? "checked" : "") />
+        <label for="digitalOnlyRadio">Digital Access Only</label><br />
+
+        <input type="radio" id="unsubscribeRadio" name="nacsMagazineLists" value="Unsubscribe" @(Model.IsUnsubscribeBoth ? "checked" : "") />
+        <label for="unsubscribeRadio">Unsubscribe Both</label><br /><br />
+
+        <button id="btnSaveNACSMagazineLists" type="button">Save</button>
+        <p id="statusMessageNACSMagazineLists"></p>
+    </div>
+
+    @Html.Kentico().PageData()
+</form>
+
+<!-- Modal for Address -->
+<div id="addressModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <h4>Update Address</h4>
+        <form id="addressForm" asp-controller="SubscriptionsNACSMagazine" asp-formaction="UpdateAddress" method="post">
+            <label>Street</label>
+            <input type="text" id="street" />
+            <label>City</label>
+            <input type="text" id="city" />
+            <label>State</label>
+            <input type="text" id="state" />
+            <label>Postal Code</label>
+            <input type="text" id="postalCode" />
+            <label>Country</label>
+            <select id="country" name="country">
+                @* <option value="US" @(Model.Country == "US" ? "selected" : "")>United States</option>
+                <option value="CA" @(Model.Country == "CA" ? "selected" : "")>Canada</option> *@
+            </select>
+
+            <button type="submit" id="btnUpdateAddress">Update Address</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const printRadios = ["#printDigitalRadio", "#printOnlyRadio"];
+        
+        // Show address modal on click
+        printRadios.forEach(selector => {
+            document.querySelector(selector)?.addEventListener("click", () => {
+                const modal = document.getElementById("addressModal");
+                modal.style.display = "block";
+
+                // Load existing address via AJAX
+                fetch("/SubscriptionsNACSMagazine/GetAddress")
+                    .then(res => res.json())
+                    .then(data => {
+                        document.getElementById("street").value = data.street || "";
+                        document.getElementById("city").value = data.city || "";
+                        document.getElementById("state").value = data.state || "";
+                        document.getElementById("postalCode").value = data.postalCode || "";
+                    });
+            });
+        });
+
+        // Close modal logic here...
+    });
+    ////////////////////
+    document.getElementById("addressForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const address = {
+            street: document.getElementById("street").value,
+            city: document.getElementById("city").value,
+            state: document.getElementById("state").value,
+            postalCode: document.getElementById("postalCode").value,
+            country: document.getElementById("country").value
+        };
+
+        try {
+            const response = await fetch("/SubscriptionsNACSMagazine/UpdateAddress", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(address)
+            });
+
+            if (response.ok) {
+                alert("Address updated successfully!");
+                document.getElementById("addressModal").style.display = "none";
+            } else {
+                const error = await response.json();
+                alert(`Failed to update address: ${error.message}`);
+            }
+        } catch (error) {
+            alert("An error occurred while updating the address.");
+        }
+    });
+    /////////////////////////////////////////////
+    document.getElementById("btnSaveNACSMagazineLists").onclick = async (event) => {
+        event.preventDefault();
+
+        const selectedOption = document.querySelector('input[name="nacsMagazineLists"]:checked')?.value;
+        const payload = {
+            UserId: document.getElementById("UserId").value,
+            SelectedOption: selectedOption
+        };
+
+        const statusMessage = document.getElementById("statusMessageNACSMagazineLists");
+        statusMessage.textContent = "Updating...";
+
+        try {
+            const response = await fetch('/SubscriptionsNACSMagazine/UpdateNACSMagazineLists', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                statusMessage.textContent = result.message;
+            } else {
+                statusMessage.textContent = "Failed to update.";
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            statusMessage.textContent = "An error occurred.";
+        }
+    };
+</script>
